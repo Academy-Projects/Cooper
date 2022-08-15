@@ -11,7 +11,6 @@
 		284107FE28AB07B400D142F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284107FD28AB07B400D142F8 /* ContentView.swift */; };
 		2841080028AB07B600D142F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 284107FF28AB07B600D142F8 /* Assets.xcassets */; };
 		2841081728AB07B700D142F8 /* CooperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2841081628AB07B700D142F8 /* CooperUITests.swift */; };
-		2841081928AB07B700D142F8 /* CooperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2841081828AB07B700D142F8 /* CooperUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +38,6 @@
 		2841080828AB07B700D142F8 /* CooperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CooperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2841081228AB07B700D142F8 /* CooperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CooperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2841081628AB07B700D142F8 /* CooperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooperUITests.swift; sourceTree = "<group>"; };
-		2841081828AB07B700D142F8 /* CooperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooperUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				2841081628AB07B700D142F8 /* CooperUITests.swift */,
-				2841081828AB07B700D142F8 /* CooperUITestsLaunchTests.swift */,
 			);
 			path = CooperUITests;
 			sourceTree = "<group>";
@@ -250,7 +247,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2841081928AB07B700D142F8 /* CooperUITestsLaunchTests.swift in Sources */,
 				2841081728AB07B700D142F8 /* CooperUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
