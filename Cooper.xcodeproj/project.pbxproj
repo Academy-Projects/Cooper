@@ -11,7 +11,6 @@
 		284107FE28AB07B400D142F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284107FD28AB07B400D142F8 /* ContentView.swift */; };
 		2841080028AB07B600D142F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 284107FF28AB07B600D142F8 /* Assets.xcassets */; };
 		2841080328AB07B600D142F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2841080228AB07B600D142F8 /* Preview Assets.xcassets */; };
-		2841080D28AB07B700D142F8 /* CooperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2841080C28AB07B700D142F8 /* CooperTests.swift */; };
 		2841081728AB07B700D142F8 /* CooperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2841081628AB07B700D142F8 /* CooperUITests.swift */; };
 		2841081928AB07B700D142F8 /* CooperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2841081828AB07B700D142F8 /* CooperUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -40,7 +39,6 @@
 		284107FF28AB07B600D142F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2841080228AB07B600D142F8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2841080828AB07B700D142F8 /* CooperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CooperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2841080C28AB07B700D142F8 /* CooperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooperTests.swift; sourceTree = "<group>"; };
 		2841081228AB07B700D142F8 /* CooperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CooperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2841081628AB07B700D142F8 /* CooperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooperUITests.swift; sourceTree = "<group>"; };
 		2841081828AB07B700D142F8 /* CooperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooperUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				284107FA28AB07B400D142F8 /* Cooper */,
-				2841080B28AB07B700D142F8 /* CooperTests */,
 				2841081528AB07B700D142F8 /* CooperUITests */,
 				284107F928AB07B400D142F8 /* Products */,
 			);
@@ -108,14 +105,6 @@
 				2841080228AB07B600D142F8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		2841080B28AB07B700D142F8 /* CooperTests */ = {
-			isa = PBXGroup;
-			children = (
-				2841080C28AB07B700D142F8 /* CooperTests.swift */,
-			);
-			path = CooperTests;
 			sourceTree = "<group>";
 		};
 		2841081528AB07B700D142F8 /* CooperUITests */ = {
@@ -266,7 +255,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2841080D28AB07B700D142F8 /* CooperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
