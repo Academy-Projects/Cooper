@@ -11,7 +11,13 @@ import SwiftUI
 struct CooperApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DrawnView()
         }
     }
 }
+
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
