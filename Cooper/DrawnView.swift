@@ -13,19 +13,19 @@ struct DrawnView: View {
     
     @State var positions : [CGPoint] = [
         CGPoint(x: 0, y: 0),
-        CGPoint(x: 0, y: 0),
-        CGPoint(x: 0, y: 0),
-        CGPoint(x: 0, y: 0),
-        CGPoint(x: 0, y: 0)
+        CGPoint(x: 0, y: 0)//,
+//        CGPoint(x: 0, y: 0),
+//        CGPoint(x: 0, y: 0),
+//        CGPoint(x: 0, y: 0)
     ]
     
    // @State var pos: [CGFloat] = [50, 100, 150, 160]
     @State var MyImages: [UIImage] = [
         UIImage(named: "X")!,
-        UIImage(named: "Eyes")!,
-        UIImage(named: "Done!")!,
-        UIImage(named: "Fire")!,
-        UIImage(named: "Comment")!
+        UIImage(named: "Eyes")!//,
+//        UIImage(named: "Done!")!,
+//        UIImage(named: "Fire")!,
+//        UIImage(named: "Comment")!
     ]
     var body: some View{
         ZStack{
