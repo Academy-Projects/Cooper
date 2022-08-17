@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct DrawnView: View {
-    @State var idDragging = false
+//    @State var idDragging = false
     
     @State var positions : [CGPoint] = [
         CGPoint(x: 0, y: 0),
@@ -39,11 +39,11 @@ struct DrawnView: View {
                             DragGesture()
                                 .onChanged({ value in
                                     positions[imageIdx] = value.location
-                                    idDragging = true
+//                                    idDragging = true
                                 })
                                 .onEnded({ value in
 //                                    position = .zero
-                                    idDragging = false
+//                                    idDragging = false
                                 })
                         )
                 }
