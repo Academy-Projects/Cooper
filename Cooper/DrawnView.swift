@@ -31,7 +31,7 @@ struct DrawnView: View {
         ZStack{
             Color(red: 255/255, green: 204/255, blue: 207/255).ignoresSafeArea(.all)
             
-            ZStack() {
+            ZStack(alignment: .bottomLeading){
                 ForEach(0..<MyImages.count){imageIdx in
                     Image(uiImage: MyImages[imageIdx])
                         .position(positions[imageIdx])
@@ -48,6 +48,7 @@ struct DrawnView: View {
                         )
                 }
             }
+            .border(Color.black, width: 6)
         }
     }
 }
@@ -55,6 +56,6 @@ struct DrawnView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         DrawnView()
-            .previewInterfaceOrientation(.portrait)
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }
