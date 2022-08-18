@@ -8,49 +8,62 @@
 import Foundation
 import SwiftUI
 
+struct ViewSizeKey: PreferenceKey {
+    static var defaultValue = CGSize.zero
+    static func reduce(value: inout Value, nextValue: () -> Value) {
+        value = nextValue()
+    }
+}
+
 struct DrawnView: View {
-    @State var idDragging = false
+    @State private var size = CGSize.zero
     
-    @State var positions : [CGPoint] = [
-        CGPoint(x: 0, y: 0),
-        CGPoint(x: 0, y: 0)//,
-//        CGPoint(x: 0, y: 0),
-//        CGPoint(x: 0, y: 0),
-//        CGPoint(x: 0, y: 0)
+    @State var pogPosition : [CGPoint] = [
+    CGPoint(x: 0, y: 0),
+    CGPoint(x: 0, y: 0)
     ]
     
-   // @State var pos: [CGFloat] = [50, 100, 150, 160]
-    @State var MyImages: [UIImage] = [
-        UIImage(named: "X")!,
-        UIImage(named: "Eyes")!//,
-//        UIImage(named: "Done!")!,
-//        UIImage(named: "Fire")!,
-//        UIImage(named: "Comment")!
+    @State var images: [UIImage] = [
+    UIImage(named: "Fire")!,
+    UIImage(named: "Eyes")!
     ]
+    
     var body: some View{
         ZStack{
-            Color(red: 255/255, green: 204/255, blue: 207/255).ignoresSafeArea(.all)
-            
-            ZStack(alignment: .bottomLeading){
-                ForEach(0..<MyImages.count){imageIdx in
-                    Image(uiImage: MyImages[imageIdx])
-                        .position(positions[imageIdx])
-                        .gesture(
-                            DragGesture()
-                                .onChanged({ value in
-                                    positions[imageIdx] = value.location
-                                    idDragging = true
-                                })
-                                .onEnded({ value in
-//                                    position = .zero
-                                    idDragging = false
-                                })
-                        )
+        GeometryReader { gp in
+            ForEach(0..<images.count){ imageIdx in
+            Image(uiImage: images[imageIdx])
+                .background(GeometryReader {
+                    Color.clear
+                        .preference(key: ViewSizeKey.self, value: $0.frame(in: .local).size)
+                })
+                .onPreferenceChange(ViewSizeKey.self) {
+                    self.size = $0
                 }
+                .position(pogPosition[imageIdx])
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            let rect = gp.frame(in: .local)
+                                .inset(by: UIEdgeInsets(top: size.height / 2.0, left: size.width / 2.0, bottom: size.height / 2.0, right: size.width / 2.0))
+                            if rect.contains(value.location) {
+                                self.pogPosition[imageIdx] = value.location
+                            }
+                        }
+                        .onEnded { value in
+                            print(value.location)
+                        }
+            )
+            .onAppear {
+                let rect = gp.frame(in: .local)
+                self.pogPosition[imageIdx] = CGPoint(x: rect.midX, y: rect.midY)
             }
-            .border(Color.black, width: 6)
-        }
-    }
+        }.edgesIgnoringSafeArea(.all)
+     }
+        }.background(.cyan)
+  }
+
+        
 }
 
 struct ContentView_Previews: PreviewProvider {
