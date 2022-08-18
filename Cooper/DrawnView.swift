@@ -26,8 +26,11 @@ struct DrawnView: View {
     ]
     
     @State var imgTemporary: UIImage!
-    @State var contador: Int = 0
-    @State var controle:Bool = false
+    @State var posTemporary:CGPoint =  CGPoint(x: 0, y: 0)
+    @State var begginGesture:Bool = true
+    
+    @State var nImagem:Int = 0
+    @State var isDraggin:Bool = false
     
     var body: some View{
         ZStack{
