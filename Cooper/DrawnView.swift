@@ -34,27 +34,53 @@ struct DrawnView: View {
             Color(red: 255/255, green: 204/255, blue: 207/255).ignoresSafeArea(.all)
             
             ZStack(alignment: .bottomLeading){
-                ForEach(0..<MyImages.count){imageIdx in
+
+                ForEach(0 ..< MyImages.count, id: \.self){imageIdx in
                     Image(uiImage: MyImages[imageIdx])
                         .position(positions[imageIdx])
+                        .onTapGesture {
+                            if (imageIdx != (MyImages.count - 1)) {
+                                posTemporary = positions[MyImages.count - 1]
+                                positions[MyImages.count - 1] = positions[imageIdx]
+                                positions[imageIdx] = posTemporary
+
+                                imgTemporary = MyImages[MyImages.count - 1]
+                                MyImages[MyImages.count - 1] = MyImages[imageIdx]
+                                MyImages[imageIdx] = imgTemporary
+                            }
+                        }
                         .gesture(
                             DragGesture()
                                 .onChanged({ value in
+                                    isDraggin = true
                                     positions[imageIdx] = value.location
-                                    if(controle == false){
-                                    imgTemporary = MyImages[imageIdx]
-                                    MyImages[imageIdx] = MyImages[imageIdx - 1]
-                                    MyImages[imageIdx - 1] = imgTemporary
-                                    controle = true
-                                    }
+                                    
                                 })
                                 .onEnded({ value in
                                     
                                 })
                         )
+                    }
                 }
+            VStack(){
+                Button("CLICK-ME"){
+                    MyImages += [UIImage(named: "X")!]
+                    positions.append(CGPoint(x: 0, y: 0))
+                    print(MyImages)
+                    print(positions)
+                }.frame(width: 200, height: 50, alignment: .center)
+                .foregroundColor(.white)
+                .background(.blue)
+            
+                Button("Mudar"){
+                    imgTemporary = MyImages[1]
+                    MyImages[1] = MyImages[0]
+                    MyImages[0] = imgTemporary
+                    print(MyImages.count)
+                }.frame(width: 200, height: 50, alignment: .center)
+                .foregroundColor(.white)
+                .background(.blue)
             }
-            .border(Color.black, width: 6)
             
         }
     }
