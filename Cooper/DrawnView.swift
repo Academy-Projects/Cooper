@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 import SpriteKit
 
+public var gameImages = ["Eyes", "X"]
+
 struct DrawnView: View {
 //    @State var idDragging = false
     
@@ -19,46 +21,16 @@ struct DrawnView: View {
     @State var nImagem:Int = 0
     @State var isDraggin:Bool = false
     
+    let gameScene = GameScene()
+    
     var scene: SKScene{
-        let scene = GameScene()
-        scene.scaleMode = .resizeFill
-        return scene
+        gameScene.scaleMode = .resizeFill
+        return gameScene
     }
     
     var body: some View{
-        HStack{
-            ZStack{
-                SpriteView(scene: scene)
-            }
-            VStack{
-                Button("CLICK-ME"){
-                }
-                .padding(20)
-                .frame(width: 200, height: 200, alignment: .center)
-                .foregroundColor(.white)
-                .background(.blue)
-                
-                Button("CLICK-ME"){
-                }
-                .padding(20)
-                .frame(width: 200, height: 200, alignment: .center)
-                .foregroundColor(.white)
-                .background(.blue)
-                
-                Button("CLICK-ME"){
-                }
-                .padding(20)
-                .frame(width: 200, height: 200, alignment: .center)
-                .foregroundColor(.white)
-                .background(.blue)
-                Button("CLICK-ME"){
-                }
-                .padding(20)
-                .frame(width: 200, height: 200, alignment: .center)
-                .foregroundColor(.white)
-                .background(.blue)
-            }
-        }.background(.gray)
+        ZStack{
+        }
     }
 }
 
