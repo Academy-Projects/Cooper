@@ -90,14 +90,38 @@
 		284107FA28AB07B400D142F8 /* Cooper */ = {
 			isa = PBXGroup;
 			children = (
-				284107FB28AB07B400D142F8 /* CooperApp.swift */,
-				284107FD28AB07B400D142F8 /* ContentView.swift */,
-				2841082528AB48E000D142F8 /* DrawnView.swift */,
+				285D3E6828B01E9A008072C0 /* Model */,
+				285D3E6A28B01EB3008072C0 /* View */,
+				285D3E6B28B01EC2008072C0 /* Controller */,
 				3F8BBE2328AFC409008E9F32 /* GameScene.swift */,
-				284107FF28AB07B600D142F8 /* Assets.xcassets */,
 				3F8BBE2528B00673008E9F32 /* DraggableNode.swift */,
 			);
 			path = Cooper;
+			sourceTree = "<group>";
+		};
+		285D3E6828B01E9A008072C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				284107FB28AB07B400D142F8 /* CooperApp.swift */,
+				284107FD28AB07B400D142F8 /* ContentView.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		285D3E6A28B01EB3008072C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2841082528AB48E000D142F8 /* DrawnView.swift */,
+				284107FF28AB07B600D142F8 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		285D3E6B28B01EC2008072C0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,7 +413,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 8MKU4N27YM;
+				DEVELOPMENT_TEAM = XJ57BXJG95;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -419,7 +443,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 8MKU4N27YM;
+				DEVELOPMENT_TEAM = XJ57BXJG95;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

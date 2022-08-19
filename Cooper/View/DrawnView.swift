@@ -82,11 +82,11 @@ struct DrawnView: View {
             ZStack{
                 SpriteView(scene: scene)
             }
-        VStack{
+            VStack{
             Text("Escolhe ai uma carta a irmao")
             ScrollView{
                 HStack{
-                    Button(action: {}) {
+                    Button(action: {gameScene.createNewObj(image: "Fire")}) {
                         VStack {
                             Image("Fire")
                           //  Text("Hello world!")
@@ -100,7 +100,7 @@ struct DrawnView: View {
                         )
                     }
                     
-                    Button(action: {}) {
+                    Button(action: {gameScene.createNewObj(image: "X")}) {
                         VStack {
                             Image("X")
                           //  Text("Hello world!")
@@ -117,7 +117,7 @@ struct DrawnView: View {
                 Spacer()
                 Spacer()
                 HStack{
-                    Button(action: {}) {
+                    Button(action: {gameScene.createNewObj(image: "Done!")}) {
                         VStack {
                             Image("Done!")
                           //  Text("Hello world!")
@@ -131,7 +131,7 @@ struct DrawnView: View {
                         )
                     }
                     
-                    Button(action: {}) {
+                    Button(action: {gameScene.createNewObj(image: "Eyes")}) {
                         VStack {
                             Image("Eyes")
                           //  Text("Hello world!")
