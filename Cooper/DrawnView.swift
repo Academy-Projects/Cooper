@@ -83,41 +83,80 @@ struct DrawnView: View {
     }
     
     var body: some View{
-        HStack{
+        ZStack{
+         HStack{
             ZStack{
                 SpriteView(scene: scene)
             }
-            VStack{
-                Button("CLICK-ME"){
+        VStack{
+            Text("Escolhe ai uma carta a irmao")
+            ScrollView{
+                HStack{
+                    Button(action: {}) {
+                        VStack {
+                            Image("Fire")
+                          //  Text("Hello world!")
+                        }
+                        .padding()
+                        //.accentColor(Color(.systemRed))
+                        .background(.gray)
+                        .cornerRadius(34.0)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2)
+                        )
+                    }
+                    
+                    Button(action: {}) {
+                        VStack {
+                            Image("X")
+                          //  Text("Hello world!")
+                        }
+                        .padding()
+                        //.accentColor(Color(.systemRed))
+                        .background(.gray)
+                        .cornerRadius(34.0)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2)
+                        )
+                    }
                 }
-                .padding(20)
-                .frame(width: 200, height: 200, alignment: .center)
-                .foregroundColor(.white)
-                .background(.blue)
-                
-                Button("CLICK-ME"){
+                Spacer()
+                Spacer()
+                HStack{
+                    Button(action: {}) {
+                        VStack {
+                            Image("Done!")
+                          //  Text("Hello world!")
+                        }
+                        .padding()
+                        //.accentColor(Color(.systemRed))
+                        .background(.gray)
+                        .cornerRadius(34.0)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2)
+                        )
+                    }
+                    
+                    Button(action: {}) {
+                        VStack {
+                            Image("Eyes")
+                          //  Text("Hello world!")
+                        }
+                        .padding()
+                        //.accentColor(Color(.systemRed))
+                        .background(.gray)
+                        .cornerRadius(34.0)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2)
+                        )
+                    }
+                    
                 }
-                .padding(20)
-                .frame(width: 200, height: 200, alignment: .center)
-                .foregroundColor(.white)
-                .background(.blue)
-                
-                Button("CLICK-ME"){
-                }
-                .padding(20)
-                .frame(width: 200, height: 200, alignment: .center)
-                .foregroundColor(.white)
-                .background(.blue)
-                Button("CLICK-ME"){
-                }
-                .padding(20)
-                .frame(width: 200, height: 200, alignment: .center)
-                .foregroundColor(.white)
-                .background(.blue)
             }
+           }
         }.background(.gray)
     }
-//>>>>>>> 48191332e4f14e7003e5928b4ac1e629f3447b46
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
