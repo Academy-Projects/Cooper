@@ -23,7 +23,7 @@ class DraggableNode: SKNode {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.zPosition = 10
+        self.zPosition = CGFloat(layerCount + 1)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -35,11 +35,11 @@ class DraggableNode: SKNode {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.zPosition = 0
+//        self.zPosition = 0
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.zPosition = 0
+//        self.zPosition = 0
     }
     
     

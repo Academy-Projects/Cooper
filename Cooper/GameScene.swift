@@ -2,6 +2,8 @@ import SwiftUI
 import SpriteKit
 import Foundation
 
+public var layerCount = 0
+
 class GameScene: SKScene{
     var player = SKSpriteNode()
     var player2 = SKSpriteNode()
@@ -12,7 +14,7 @@ class GameScene: SKScene{
         backgroundColor = .white
     }
     
-    public func createNewObj(image:String) {
+    public func createNewObj(image:String){
         let spriteNode = DraggableNode()
         let texture = SKTexture(imageNamed: image)
         let action = SKAction.setTexture(texture, resize: true)
