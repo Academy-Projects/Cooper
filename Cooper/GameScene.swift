@@ -42,18 +42,5 @@ class GameScene: SKScene{
     override func update(_ currentTime: CFTimeInterval){
         
     }
-    
-//    func setup(){
-//        removeAllChildren()
-//        let radius: CGFloat = 50
-//        let node = SKShapeNode(circleOfRadius: radius)
-//        node.fillColor = .white
-//
-//        let x = self.size.width - radius
-//        let y = self.size.height/2
-//
-//        node.position = CGPoint(x: x, y: y)
-//
-//        addChild(node)
-//    }
+
 }
