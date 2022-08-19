@@ -8,14 +8,9 @@ xcuserdata/
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint
 *.xccheckout
-<<<<<<< HEAD
-*.xcuserstate
-*.DS_Store
-=======
-*.DS_Store
-*.xcuserstate
 
->>>>>>> 48191332e4f14e7003e5928b4ac1e629f3447b46
+*.xcuserstate
+*.DS_Store
 ## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
 build/
 DerivedData/
