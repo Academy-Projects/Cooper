@@ -9,13 +9,6 @@ import Foundation
 import SwiftUI
 import SpriteKit
 
-struct ViewSizeKey: PreferenceKey {
-    static var defaultValue = CGSize.zero
-    static func reduce(value: inout Value, nextValue: () -> Value) {
-        value = nextValue()
-    }
-}
-
 struct DrawnView: View {
 //<<<<<<< HEAD
 //    @State private var size = CGSize.zero
@@ -76,10 +69,11 @@ struct DrawnView: View {
     @State var nImagem:Int = 0
     @State var isDraggin:Bool = false
     
+    let gameScene = GameScene()
+    
     var scene: SKScene{
-        let scene = GameScene()
-        scene.scaleMode = .resizeFill
-        return scene
+        gameScene.scaleMode = .resizeFill
+        return gameScene
     }
     
     var body: some View{
