@@ -7,6 +7,7 @@
 
 import Foundation
 import SpriteKit
+import SwiftUI
 
 class DraggableNode: SKNode {
     
@@ -30,7 +31,6 @@ class DraggableNode: SKNode {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, let scene = self.scene {
             let touchLocation = touch.location(in: scene)
-//            self.run(.move(to: touchLocation, duration: 0.1))
             self.position = touchLocation
         }
     }
