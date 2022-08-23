@@ -11,7 +11,7 @@ import SwiftUI
 struct CooperApp: App {
     var body: some Scene {
         WindowGroup {
-            DrawnView()
+            ContentView()
         }
     }
 }

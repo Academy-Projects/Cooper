@@ -10,6 +10,7 @@ import SwiftUI
 import SpriteKit
 
 struct DrawnView: View {
+
 //<<<<<<< HEAD
 //    @State private var size = CGSize.zero
 //
@@ -77,7 +78,7 @@ struct DrawnView: View {
     }
     
     var body: some View{
-        ZStack{
+ZStack{
          HStack{
             ZStack{
                 SpriteView(scene: scene)
@@ -85,13 +86,16 @@ struct DrawnView: View {
             VStack{
             Text("Escolhe ai uma carta a irmao")
             ScrollView{
+                Spacer()
                 HStack{
                     Button(action: {gameScene.createNewObj(image: "Fire")}) {
                         VStack {
                             Image("Fire")
+                                .resizable()
                           //  Text("Hello world!")
                         }
-                        .padding()
+                        .padding(.leading)
+                        .frame(width: 161, height: 168)
                         //.accentColor(Color(.systemRed))
                         .background(.gray)
                         .cornerRadius(34.0)
@@ -103,9 +107,11 @@ struct DrawnView: View {
                     Button(action: {gameScene.createNewObj(image: "X")}) {
                         VStack {
                             Image("X")
+                                .resizable()
                           //  Text("Hello world!")
                         }
                         .padding()
+                        .frame(width: 161, height: 168)
                         //.accentColor(Color(.systemRed))
                         .background(.gray)
                         .cornerRadius(34.0)
@@ -114,15 +120,17 @@ struct DrawnView: View {
                         )
                     }
                 }
-                Spacer()
-                Spacer()
+               // Spacer()
+                Spacer(minLength: 20)
                 HStack{
                     Button(action: {gameScene.createNewObj(image: "Done!")}) {
                         VStack {
                             Image("Done!")
+                                .resizable()
                           //  Text("Hello world!")
                         }
                         .padding()
+                        .frame(width: 161, height: 168)
                         //.accentColor(Color(.systemRed))
                         .background(.gray)
                         .cornerRadius(34.0)
@@ -134,9 +142,11 @@ struct DrawnView: View {
                     Button(action: {gameScene.createNewObj(image: "Eyes")}) {
                         VStack {
                             Image("Eyes")
+                                .resizable()
                           //  Text("Hello world!")
                         }
                         .padding()
+                        .frame(width: 161, height: 168)
                         //.accentColor(Color(.systemRed))
                         .background(.gray)
                         .cornerRadius(34.0)
@@ -147,9 +157,19 @@ struct DrawnView: View {
                     
                 }
             }
+                NavigationLink(destination: AnswerFinalView(), label: {
+                    Text("Done!")
+                    .font(.system(size: 30))
+                    .bold()
+                    .frame(width: 250, height: 60)
+                    .background(Color(red: 255/255, green: 175/255, blue: 178/255))
+                                                //.shadow(color: .gray, radius: 5, x: 0.5, y: 0.5)
+                                                .foregroundColor(Color(red: 45/255, green: 29/255, blue: 66/255))
+                                                .cornerRadius(10)
+                })
            }
         }.background(.gray)
-    }
+    }.navigationBarHidden(true)
   }
 }
 
