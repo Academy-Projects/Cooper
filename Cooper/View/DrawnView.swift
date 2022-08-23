@@ -32,9 +32,12 @@ struct DrawnView: View {
          HStack{
             ZStack{
                 SpriteView(scene: scene, isPaused: false)
+                    .padding(EdgeInsets(top: 4, leading: 14, bottom: 4, trailing: 14))
             }
             VStack{
-            Text("Escolhe ai uma carta a irmao")
+            Text("Clique nos cards que deseja usar \npara ilustrar a história")
+                    .bold()
+                    .multilineTextAlignment(.center)
             ScrollView{
                 Spacer()
                 HStack{
