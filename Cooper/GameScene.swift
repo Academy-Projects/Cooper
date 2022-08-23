@@ -36,7 +36,6 @@ class GameScene: SKScene{
         return UIImage(cgImage: image!)
     }
     
-    
     override func didMove(to view: SKView) {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
     }
