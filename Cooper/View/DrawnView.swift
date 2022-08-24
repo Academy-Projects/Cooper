@@ -25,7 +25,7 @@ struct DrawnView: View {
     @State var nImagem:Int = 0
     @State var isDraggin:Bool = false
     
-    @State var imagens:[String] = ["X", "Eyes", "Fire", "Done!"]
+    @State var imagens:[String] = ["guardachuva", "chapeu", "Fire", "Done!"]
     
     
     var body: some View{
@@ -40,50 +40,42 @@ struct DrawnView: View {
                     .bold()
                     .multilineTextAlignment(.center)
             ScrollView{
-                Spacer()
+               // Spacer()
                 HStack{
                     ForEach(0..<2){imageidx in
-                        Button(action: {gameScene.createNewObj(image: imagens[imageidx])}) {
-                            VStack {
-                                Image(imagens[imageidx])
-                                    .resizable()
-                              //  Text("Hello world!")
-                            }
-                            .padding(.leading)
-                            .frame(width: 161, height: 168)
-                            //.accentColor(Color(.systemRed))
-                            .background(.gray)
-                            .cornerRadius(34.0)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2)
-                            )
-                        }
+                        Button(action: {gameScene.createNewObj(image: imagens[imageidx])}){
+                            Image(imagens[imageidx])
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 161, height: 168, alignment: .center)
+                                .background(.gray)
+                                .cornerRadius(34.0)
+                                .overlay(RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2))
                         
+                        }
+                        //.frame(width: 101, height: 108)
+                        .padding(EdgeInsets(top: 56, leading: 14.5, bottom: 0, trailing: 9.6))
                     }
                 }
                // Spacer()
-                Spacer(minLength: 20)
+               // Spacer(minLength: 20)
                 HStack{
                     ForEach(2..<4){imageidx in
-                        Button(action: {gameScene.createNewObj(image: imagens[imageidx])}) {
-                            VStack {
-                                Image(imagens[imageidx])
-                                 //   .padding(EdgeInsets(top: <#T##CGFloat#>, leading: <#T##CGFloat#>, bottom: <#T##CGFloat#>, trailing: <#T##CGFloat#>))
-                              //  Text("Hello world!")
-                            }
-                            .padding(.leading)
-                            .frame(width: 161, height: 168)
-                            //.accentColor(Color(.systemRed))
-                            .background(.gray)
-                            .cornerRadius(34.0)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2)
-                            )
-                        }
+                        Button(action: {gameScene.createNewObj(image: imagens[imageidx])}){
+                            Image(imagens[imageidx])
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 161, height: 168, alignment: .center)
+                                .background(.gray)
+                                .cornerRadius(34.0)
+                                .overlay(RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2))
                         
+                        }
+                        //.frame(width: 101, height: 108)
+                        .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 9.6))
                     }
                 }
-            }
+            }.background(.gray)
                 NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
                     Text("Done!")
                     .font(.system(size: 30))
@@ -95,7 +87,7 @@ struct DrawnView: View {
                                                 .cornerRadius(10)
                 })
            }
-        }.background(.gray)
+        }.background(.cyan)
     }.navigationBarHidden(true)
   }
 }
