@@ -9,8 +9,6 @@ import Foundation
 import SwiftUI
 import SpriteKit
 
-
-
 struct DrawnView: View {
     
     let gameScene = GameScene()
@@ -27,6 +25,9 @@ struct DrawnView: View {
     @State var nImagem:Int = 0
     @State var isDraggin:Bool = false
     
+    @State var imagens:[String] = ["X", "Eyes", "Fire", "Done!"]
+    
+    
     var body: some View{
         ZStack{
          HStack{
@@ -41,71 +42,45 @@ struct DrawnView: View {
             ScrollView{
                 Spacer()
                 HStack{
-                    Button(action: {gameScene.createNewObj(image: "Fire")}) {
-                        VStack {
-                            Image("Fire")
-                                .resizable()
-                          //  Text("Hello world!")
+                    ForEach(0..<2){imageidx in
+                        Button(action: {gameScene.createNewObj(image: imagens[imageidx])}) {
+                            VStack {
+                                Image(imagens[imageidx])
+                                    .resizable()
+                              //  Text("Hello world!")
+                            }
+                            .padding(.leading)
+                            .frame(width: 161, height: 168)
+                            //.accentColor(Color(.systemRed))
+                            .background(.gray)
+                            .cornerRadius(34.0)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2)
+                            )
                         }
-                        .padding(.leading)
-                        .frame(width: 161, height: 168)
-                        //.accentColor(Color(.systemRed))
-                        .background(.gray)
-                        .cornerRadius(34.0)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2)
-                        )
-                    }
-                    
-                    Button(action: {gameScene.createNewObj(image: "X")}) {
-                        VStack {
-                            Image("X")
-                                .resizable()
-                          //  Text("Hello world!")
-                        }
-                        .padding()
-                        .frame(width: 161, height: 168)
-                        //.accentColor(Color(.systemRed))
-                        .background(.gray)
-                        .cornerRadius(34.0)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2)
-                        )
+                        
                     }
                 }
                // Spacer()
                 Spacer(minLength: 20)
                 HStack{
-                    Button(action: {gameScene.createNewObj(image: "Done!")}) {
-                        VStack {
-                            Image("Done!")
-                                .resizable()
-                          //  Text("Hello world!")
+                    ForEach(2..<4){imageidx in
+                        Button(action: {gameScene.createNewObj(image: imagens[imageidx])}) {
+                            VStack {
+                                Image(imagens[imageidx])
+                                    .padding(EdgeInsets(top: <#T##CGFloat#>, leading: <#T##CGFloat#>, bottom: <#T##CGFloat#>, trailing: <#T##CGFloat#>))
+                              //  Text("Hello world!")
+                            }
+                            .padding(.leading)
+                            .frame(width: 161, height: 168)
+                            //.accentColor(Color(.systemRed))
+                            .background(.gray)
+                            .cornerRadius(34.0)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2)
+                            )
                         }
-                        .padding()
-                        .frame(width: 161, height: 168)
-                        //.accentColor(Color(.systemRed))
-                        .background(.gray)
-                        .cornerRadius(34.0)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2)
-                        )
-                    }
-                    
-                    Button(action: {gameScene.createNewObj(image: "Eyes")}) {
-                        VStack {
-                            Image("Eyes")
-                                .resizable()
-                          //  Text("Hello world!")
-                        }
-                        .padding()
-                        .frame(width: 161, height: 168)
-                        //.accentColor(Color(.systemRed))
-                        .background(.gray)
-                        .cornerRadius(34.0)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2)
-                        )
+                        
                     }
                 }
             }
