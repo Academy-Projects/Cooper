@@ -22,9 +22,8 @@ struct AnswerFinalView: View {
                     .scaledToFit()
                     .frame(width: 700, height: 700, alignment: .center)
                     .border(Color.black, width: 10)
-                
                 VStack{
-                    Button(action: {},
+                    Button(action: {ilustrationScene.removeAllChildren()},
                            label: {
                             Text("Option 1")
                             .foregroundColor(.white)
@@ -32,7 +31,7 @@ struct AnswerFinalView: View {
                             .padding(.horizontal, 200)
                             .background(Color.blue.cornerRadius(20))
                     })
-                    Button(action: {},
+                    Button(action: {ilustrationScene.removeAllChildren()},
                            label: {
                             Text("Option 2")
                             .foregroundColor(.white)
@@ -40,7 +39,7 @@ struct AnswerFinalView: View {
                             .padding(.horizontal, 200)
                             .background(Color.blue.cornerRadius(20))
                     })
-                    Button(action: {},
+                    Button(action: {ilustrationScene.removeAllChildren()},
                            label: {
                             Text("Option 3")
                             .foregroundColor(.white)
@@ -50,6 +49,6 @@ struct AnswerFinalView: View {
                     })
                 }
             }
-        }.navigationBarHidden(true).background(.gray)
+        }.background(.gray)
     }
 }
