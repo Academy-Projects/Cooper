@@ -95,8 +95,6 @@
 				285D3E6828B01E9A008072C0 /* Model */,
 				285D3E6A28B01EB3008072C0 /* View */,
 				285D3E6B28B01EC2008072C0 /* Controller */,
-				3F8BBE2328AFC409008E9F32 /* GameScene.swift */,
-				3F8BBE2528B00673008E9F32 /* DraggableNode.swift */,
 			);
 			path = Cooper;
 			sourceTree = "<group>";
@@ -123,6 +121,8 @@
 		285D3E6B28B01EC2008072C0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3F8BBE2528B00673008E9F32 /* DraggableNode.swift */,
+				3F8BBE2328AFC409008E9F32 /* GameScene.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
