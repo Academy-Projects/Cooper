@@ -68,7 +68,7 @@ struct DrawnView: View {
                         Button(action: {gameScene.createNewObj(image: imagens[imageidx])}) {
                             VStack {
                                 Image(imagens[imageidx])
-                                    .padding(EdgeInsets(top: <#T##CGFloat#>, leading: <#T##CGFloat#>, bottom: <#T##CGFloat#>, trailing: <#T##CGFloat#>))
+                                 //   .padding(EdgeInsets(top: <#T##CGFloat#>, leading: <#T##CGFloat#>, bottom: <#T##CGFloat#>, trailing: <#T##CGFloat#>))
                               //  Text("Hello world!")
                             }
                             .padding(.leading)
