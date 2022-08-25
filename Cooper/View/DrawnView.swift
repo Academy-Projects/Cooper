@@ -33,6 +33,31 @@ struct DrawnView: View {
          HStack{
             ZStack{
                 SpriteView(scene: scene, isPaused: false)
+                HStack{
+                    NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
+                        Text("Done")
+                        .font(.system(size: 18))
+                        .bold()
+                        .frame(width: 76, height: 34)
+                        .background(Color.gray.opacity(0.2))
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .background(RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+                        )
+                    })
+                    NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
+                        Text("Sair")
+                        .font(.system(size: 18))
+                        .bold()
+                        .frame(width: 76, height: 34)
+                        .background(Color.gray.opacity(0.2))
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .background(RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+                        )
+                    })
+                    
+                }.padding(EdgeInsets(top: 38, leading: 763 , bottom: 900, trailing: 8))
             }
             .background(Color.gray)
             .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -50,7 +75,7 @@ struct DrawnView: View {
             ScrollView{
                // Spacer()
                 VStack{
-                    ForEach(0..<Int(imagens[0].count)){imageidx in
+                    ForEach(0..<(imagens[0].count)){imageidx in
                         HStack{
                             Button(action: {gameScene.createNewObj(image: imagens[0][imageidx])}){
                                 Image(imagens[0][imageidx])
@@ -72,29 +97,16 @@ struct DrawnView: View {
                                     .overlay(RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2))
                             
                             }
-                        }.padding(EdgeInsets(top: 56, leading: 14.5, bottom: 0, trailing: 9.6))
+                        }.padding(EdgeInsets(top: 12, leading: 14.5, bottom: 0, trailing: 14.5))
                     }
                 }
             }
-               // Spacer()
-               // Spacer(minLength: 20)
-                NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
-                    Text("Done!")
-                    .font(.system(size: 30))
-                    .bold()
-                    .frame(width: 250, height: 60)
-                    .background(Color(red: 255/255, green: 175/255, blue: 178/255))
-                                                //.shadow(color: .gray, radius: 5, x: 0.5, y: 0.5)
-                                                .foregroundColor(Color(red: 45/255, green: 29/255, blue: 66/255))
-                                                .cornerRadius(10)
-                }).padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
-            }
-            .background(Color.gray)
-            .clipShape(RoundedRectangle(cornerRadius: 50))
+    }
+    .background(Color.gray)
+    .clipShape(RoundedRectangle(cornerRadius: 50))
             //.overlay(RoundedRectangle(cornerRadius: 100).stroke(Color.black))
-            .background(RoundedRectangle(cornerRadius: 50)
-                .stroke()
-            )
+    .background(RoundedRectangle(cornerRadius: 50)
+    .stroke())
             .padding(EdgeInsets(top: 8, leading: 7, bottom: 8, trailing: 17))
             .shadow(color: .black, radius: 5)
         }.background(.cyan)
