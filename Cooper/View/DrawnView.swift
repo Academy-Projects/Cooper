@@ -9,8 +9,6 @@ import Foundation
 import SwiftUI
 import SpriteKit
 
-
-
 struct DrawnView: View {
     
     let gameScene = GameScene()
@@ -27,101 +25,92 @@ struct DrawnView: View {
     @State var nImagem:Int = 0
     @State var isDraggin:Bool = false
     
+    @State var imagens:[[String]] = [["altofalante", "bandeira", "bone", "chat", "sombrinha"], ["chat", "sombrinha", "presente", "bandeira", "bone"]]
+    
+    
     var body: some View{
         ZStack{
          HStack{
             ZStack{
                 SpriteView(scene: scene, isPaused: false)
-                    .padding(EdgeInsets(top: 4, leading: 14, bottom: 4, trailing: 14))
-            }
-            VStack{
-            Text("Clique nos cards que deseja usar \npara ilustrar a história")
-                    .bold()
-                    .multilineTextAlignment(.center)
-            ScrollView{
-                Spacer()
                 HStack{
-                    Button(action: {gameScene.createNewObj(image: "Fire")}) {
-                        VStack {
-                            Image("Fire")
-                                .resizable()
-                          //  Text("Hello world!")
-                        }
-                        .padding(.leading)
-                        .frame(width: 161, height: 168)
-                        //.accentColor(Color(.systemRed))
-                        .background(.gray)
-                        .cornerRadius(34.0)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2)
+                    NavigationLink(destination: HistoryView(), label: {
+                        Text("")
+                        .font(.system(size: 18))
+                        .bold()
+                        .frame(width: 76, height: 34)
+                        .background(Color.gray.opacity(0.2))
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .background(RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
                         )
-                    }
-                    
-                    Button(action: {gameScene.createNewObj(image: "X")}) {
-                        VStack {
-                            Image("X")
-                                .resizable()
-                          //  Text("Hello world!")
-                        }
-                        .padding()
-                        .frame(width: 161, height: 168)
-                        //.accentColor(Color(.systemRed))
-                        .background(.gray)
-                        .cornerRadius(34.0)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2)
-                        )
-                    }
-                }
-               // Spacer()
-                Spacer(minLength: 20)
-                HStack{
-                    Button(action: {gameScene.createNewObj(image: "Done!")}) {
-                        VStack {
-                            Image("Done!")
-                                .resizable()
-                          //  Text("Hello world!")
-                        }
-                        .padding()
-                        .frame(width: 161, height: 168)
-                        //.accentColor(Color(.systemRed))
-                        .background(.gray)
-                        .cornerRadius(34.0)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2)
-                        )
-                    }
-                    
-                    Button(action: {gameScene.createNewObj(image: "Eyes")}) {
-                        VStack {
-                            Image("Eyes")
-                                .resizable()
-                          //  Text("Hello world!")
-                        }
-                        .padding()
-                        .frame(width: 161, height: 168)
-                        //.accentColor(Color(.systemRed))
-                        .background(.gray)
-                        .cornerRadius(34.0)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2)
-                        )
-                    }
+                    })
+
                 }
             }
-                NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
-                    Text("Done!")
-                    .font(.system(size: 30))
-                    .bold()
-                    .frame(width: 250, height: 60)
-                    .background(Color(red: 255/255, green: 175/255, blue: 178/255))
-                                                //.shadow(color: .gray, radius: 5, x: 0.5, y: 0.5)
-                                                .foregroundColor(Color(red: 45/255, green: 29/255, blue: 66/255))
-                                                .cornerRadius(10)
-                })
-           }
-        }.background(.gray)
+            .background(Color.gray)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            //.overlay(RoundedRectangle(cornerRadius: 100).stroke(Color.black))
+            .background(RoundedRectangle(cornerRadius: 20)
+                .stroke()   
+            ).padding(EdgeInsets(top: 0, leading: 14, bottom: 8, trailing: 10))
+                VStack{
+                        Text("Clique nos cards que deseja usar \npara ilustrar a história")
+                                .bold()
+                                .multilineTextAlignment(.center)
+                                .padding(EdgeInsets(top: 25, leading: 0, bottom: 14, trailing: 0))
+                        ScrollView{
+                           // Spacer()
+                            VStack{
+                                ForEach(0..<(imagens[0].count)){imageidx in
+                                    HStack{
+                                        Button(action: {gameScene.createNewObj(image: imagens[0][imageidx])}){
+                                            Image(imagens[0][imageidx])
+                                                .resizable()
+                                                .scaledToFit()
+//                                                .background(.gray)
+//                                                .cornerRadius(35.0)
+//                                                .overlay(RoundedRectangle(cornerRadius: 35).stroke(Color.black, lineWidth: 2))
+                                        
+                                        }.frame(width: UIScreen.main.bounds.width / 9)
+                                      //  Spacer()
+                                        Button(action: {gameScene.createNewObj(image: imagens[1][imageidx])}){
+                                            Image(imagens[1][imageidx])
+                                                .resizable()
+                                                .scaledToFit()
+//                                               .background(.gray)
+//                                                .cornerRadius(34.0)
+//                                                .overlay(RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2))
+                                        
+                                        }.frame(width: UIScreen.main.bounds.width / 9)
+                                    }
+                                  }
+                            }
+                        }
+                        NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
+                            Text("Terminei de ilustrar ")
+                                .font(.system(size: 15))
+                                .bold()
+                                .frame(width: UIScreen.main.bounds.width * 0.21, height: UIScreen.main.bounds.height * 0.046)
+//                                .padding(EdgeInsets(top: 0, leading: 10, bottom: 24, trailing: 10))
+                            .background(Color.cyan.opacity(12.2))
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                            .background(RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.cyan.opacity(12.2), lineWidth: 1)
+                            )
+                        }).padding(EdgeInsets(top: 0, leading: 0, bottom: 32, trailing: 0))
+                    
+                }.frame(width: UIScreen.main.bounds.width * 0.25)
+                    .background(Color.yellow)
+                    .clipShape(RoundedRectangle(cornerRadius: 50))
+                    .background(RoundedRectangle(cornerRadius: 50)
+                    .stroke())
+                    .shadow(color: .black, radius: 5)
+                    .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 17))
+         }.background(.cyan)
+
     }.navigationBarHidden(true)
+    
   }
 }
 
