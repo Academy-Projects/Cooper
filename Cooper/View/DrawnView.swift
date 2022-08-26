@@ -25,7 +25,7 @@ struct DrawnView: View {
     @State var nImagem:Int = 0
     @State var isDraggin:Bool = false
     
-    @State var imagens:[[String]] = [["guardachuva", "chapeu", "Fire"], ["X", "Eyes", "Done!"]]
+    @State var imagens:[[String]] = [["altofalante", "bandeira", "bone"], ["chat", "sombrinha", "presente"]]
     
     
     var body: some View{
@@ -33,84 +33,84 @@ struct DrawnView: View {
          HStack{
             ZStack{
                 SpriteView(scene: scene, isPaused: false)
-                HStack{
-                    NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
-                        Text("Done")
-                        .font(.system(size: 18))
-                        .bold()
-                        .frame(width: 76, height: 34)
-                        .background(Color.gray.opacity(0.2))
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .background(RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
-                        )
-                    })
-                    NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
-                        Text("Sair")
-                        .font(.system(size: 18))
-                        .bold()
-                        .frame(width: 76, height: 34)
-                        .background(Color.gray.opacity(0.2))
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .background(RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
-                        )
-                    })
-                    
-                }.padding(EdgeInsets(top: 38, leading: 763 , bottom: 900, trailing: 8))
+//                HStack{
+//                    NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
+//                        Text("Sair")
+//                        .font(.system(size: 18))
+//                        .bold()
+//                        .frame(width: 76, height: 34)
+//                        .background(Color.gray.opacity(0.2))
+//                        .clipShape(RoundedRectangle(cornerRadius: 20))
+//                        .background(RoundedRectangle(cornerRadius: 20)
+//                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+//                        )
+//                    })
+//
+//                }
             }
             .background(Color.gray)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             //.overlay(RoundedRectangle(cornerRadius: 100).stroke(Color.black))
             .background(RoundedRectangle(cornerRadius: 20)
-                .stroke()
-            )
-            .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 0))
-             
-            VStack{
-            Text("Clique nos cards que deseja usar \npara ilustrar a história")
-                    .bold()
-                    .multilineTextAlignment(.center)
-                    .padding()
-            ScrollView{
-               // Spacer()
+                .stroke()   
+            ).padding(EdgeInsets(top: 0, leading: 14, bottom: 8, trailing: 10))
                 VStack{
-                    ForEach(0..<(imagens[0].count)){imageidx in
-                        HStack{
-                            Button(action: {gameScene.createNewObj(image: imagens[0][imageidx])}){
-                                Image(imagens[0][imageidx])
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 161, height: 168, alignment: .center)
-                                    .background(.gray)
-                                    .cornerRadius(35.0)
-                                    .overlay(RoundedRectangle(cornerRadius: 35).stroke(Color.black, lineWidth: 2))
-                            
+                        Text("Clique nos cards que deseja usar \npara ilustrar a história")
+                                .bold()
+                                .multilineTextAlignment(.center)
+                                .padding(EdgeInsets(top: 30, leading: 0, bottom: 0, trailing: 0))
+                        ScrollView{
+                           // Spacer()
+                            VStack{
+                                ForEach(0..<(imagens[0].count)){imageidx in
+                                    HStack{
+                                        Button(action: {gameScene.createNewObj(image: imagens[0][imageidx])}){
+                                            Image(imagens[0][imageidx])
+                                                .resizable()
+                                                .scaledToFit()
+                                                .background(.gray)
+                                                .cornerRadius(35.0)
+                                                .overlay(RoundedRectangle(cornerRadius: 35).stroke(Color.black, lineWidth: 2))
+                                        
+                                        }.frame(width: UIScreen.main.bounds.width / 9)
+                                      //  Spacer()
+                                        Button(action: {gameScene.createNewObj(image: imagens[1][imageidx])}){
+                                            Image(imagens[1][imageidx])
+                                                .resizable()
+                                                .scaledToFit()
+                                                .background(.gray)
+                                                .cornerRadius(34.0)
+                                                .overlay(RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2))
+                                        
+                                        }.frame(width: UIScreen.main.bounds.width / 9)
+                                    }
+                                  }
                             }
-                            Button(action: {gameScene.createNewObj(image: imagens[1][imageidx])}){
-                                Image(imagens[1][imageidx])
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 161, height: 168, alignment: .center)
-                                    .background(.gray)
-                                    .cornerRadius(34.0)
-                                    .overlay(RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2))
-                            
-                            }
-                        }.padding(EdgeInsets(top: 12, leading: 14.5, bottom: 0, trailing: 14.5))
-                    }
-                }
-            }
-    }
-    .background(Color.gray)
-    .clipShape(RoundedRectangle(cornerRadius: 50))
-            //.overlay(RoundedRectangle(cornerRadius: 100).stroke(Color.black))
-    .background(RoundedRectangle(cornerRadius: 50)
-    .stroke())
-            .padding(EdgeInsets(top: 8, leading: 7, bottom: 8, trailing: 17))
-            .shadow(color: .black, radius: 5)
-        }.background(.cyan)
+                        }
+                        NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
+                            Text("Terminei de ilustrar ")
+                                .font(.system(size: 20))
+                                .bold()
+                                .frame(width: UIScreen.main.bounds.width / 5, height: UIScreen.main.bounds.height / 24)
+                                .padding(EdgeInsets(top: 15, leading: 10, bottom: 15, trailing: 10))
+                            .background(Color.cyan.opacity(12.2))
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                            .background(RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.cyan.opacity(12.2), lineWidth: 1)
+                            )
+                        }).padding()
+                    
+                     }.frame(width: UIScreen.main.bounds.width / 4)
+                    .background(Color.gray)
+                    .clipShape(RoundedRectangle(cornerRadius: 50))
+                    .background(RoundedRectangle(cornerRadius: 50)
+                    .stroke())
+                    .shadow(color: .black, radius: 5)
+                    .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 17))
+         }.background(.cyan)
+
     }.navigationBarHidden(true)
+    
   }
 }
 
