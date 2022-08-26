@@ -25,7 +25,7 @@ struct DrawnView: View {
     @State var nImagem:Int = 0
     @State var isDraggin:Bool = false
     
-    @State var imagens:[[String]] = [["altofalante", "bandeira", "bone"], ["chat", "sombrinha", "presente"]]
+    @State var imagens:[[String]] = [["altofalante", "bandeira", "bone", "chat", "sombrinha"], ["chat", "sombrinha", "presente", "bandeira", "bone"]]
     
     
     var body: some View{
@@ -33,20 +33,20 @@ struct DrawnView: View {
          HStack{
             ZStack{
                 SpriteView(scene: scene, isPaused: false)
-//                HStack{
-//                    NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
-//                        Text("Sair")
-//                        .font(.system(size: 18))
-//                        .bold()
-//                        .frame(width: 76, height: 34)
-//                        .background(Color.gray.opacity(0.2))
-//                        .clipShape(RoundedRectangle(cornerRadius: 20))
-//                        .background(RoundedRectangle(cornerRadius: 20)
-//                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
-//                        )
-//                    })
-//
-//                }
+                HStack{
+                    NavigationLink(destination: HistoryView(), label: {
+                        Text("")
+                        .font(.system(size: 18))
+                        .bold()
+                        .frame(width: 76, height: 34)
+                        .background(Color.gray.opacity(0.2))
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .background(RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+                        )
+                    })
+
+                }
             }
             .background(Color.gray)
             .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -58,7 +58,7 @@ struct DrawnView: View {
                         Text("Clique nos cards que deseja usar \npara ilustrar a história")
                                 .bold()
                                 .multilineTextAlignment(.center)
-                                .padding(EdgeInsets(top: 30, leading: 0, bottom: 0, trailing: 0))
+                                .padding(EdgeInsets(top: 25, leading: 0, bottom: 14, trailing: 0))
                         ScrollView{
                            // Spacer()
                             VStack{
@@ -68,9 +68,9 @@ struct DrawnView: View {
                                             Image(imagens[0][imageidx])
                                                 .resizable()
                                                 .scaledToFit()
-                                                .background(.gray)
-                                                .cornerRadius(35.0)
-                                                .overlay(RoundedRectangle(cornerRadius: 35).stroke(Color.black, lineWidth: 2))
+//                                                .background(.gray)
+//                                                .cornerRadius(35.0)
+//                                                .overlay(RoundedRectangle(cornerRadius: 35).stroke(Color.black, lineWidth: 2))
                                         
                                         }.frame(width: UIScreen.main.bounds.width / 9)
                                       //  Spacer()
@@ -78,9 +78,9 @@ struct DrawnView: View {
                                             Image(imagens[1][imageidx])
                                                 .resizable()
                                                 .scaledToFit()
-                                                .background(.gray)
-                                                .cornerRadius(34.0)
-                                                .overlay(RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2))
+//                                               .background(.gray)
+//                                                .cornerRadius(34.0)
+//                                                .overlay(RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2))
                                         
                                         }.frame(width: UIScreen.main.bounds.width / 9)
                                     }
@@ -89,19 +89,19 @@ struct DrawnView: View {
                         }
                         NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
                             Text("Terminei de ilustrar ")
-                                .font(.system(size: 20))
+                                .font(.system(size: 15))
                                 .bold()
-                                .frame(width: UIScreen.main.bounds.width / 5, height: UIScreen.main.bounds.height / 24)
-                                .padding(EdgeInsets(top: 15, leading: 10, bottom: 15, trailing: 10))
+                                .frame(width: UIScreen.main.bounds.width * 0.21, height: UIScreen.main.bounds.height * 0.046)
+//                                .padding(EdgeInsets(top: 0, leading: 10, bottom: 24, trailing: 10))
                             .background(Color.cyan.opacity(12.2))
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                            .background(RoundedRectangle(cornerRadius: 20)
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                            .background(RoundedRectangle(cornerRadius: 12)
                                 .stroke(Color.cyan.opacity(12.2), lineWidth: 1)
                             )
-                        }).padding()
+                        }).padding(EdgeInsets(top: 0, leading: 0, bottom: 32, trailing: 0))
                     
-                     }.frame(width: UIScreen.main.bounds.width / 4)
-                    .background(Color.gray)
+                }.frame(width: UIScreen.main.bounds.width * 0.25)
+                    .background(Color.yellow)
                     .clipShape(RoundedRectangle(cornerRadius: 50))
                     .background(RoundedRectangle(cornerRadius: 50)
                     .stroke())
