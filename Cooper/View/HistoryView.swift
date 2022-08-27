@@ -10,7 +10,11 @@ import SwiftUI
 struct HistoryView: View {
     var body: some View {
         ZStack{
-        Text("futura tela de historia rs")
+            HStack{
+                Image("")
+                
+                
+            }
       }.navigationBarHidden(true)
     }
 }
