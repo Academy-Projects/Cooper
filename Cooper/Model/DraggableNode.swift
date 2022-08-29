@@ -72,8 +72,24 @@ class DraggableNode: SKNode {
             let angulo = atan(tangente)
             // Calcula a distância entre o angulo dos toques e o angulo atual do sprite.
             let angulo2 = angulo - self.zRotation
+            
+            
+            
+            print("primeiro toque: \(firstTouchPos)")
+            print("segundo toque: \(secondTouchPos )")
+            print("angulo dedos: \(angulo*(100 / .pi))")
+            print("angulo atual: \(self.zRotation*(100 / .pi))")
+            print("angulo 2: \(angulo2*(100 / .pi))\n\n")
+            
+
             // Adiciona o angulo necessário no angulo do sprite.
-            self.zRotation += angulo2
+
+            if (secondTouchPos.x > firstTouchPos.x){
+                self.zRotation += angulo2
+            }
+            else if (secondTouchPos.x < firstTouchPos.x){
+                self.zRotation += (angulo2 + .pi)
+            }
 //            self.setScale(hipotenusa / 320)
             // Se o sprite tá rotacionando não deixa ele ir para o firstTouchPos
             isRotating = true
@@ -81,6 +97,8 @@ class DraggableNode: SKNode {
         }else if (touches.count == 1 && isRotating == false) {
             // Move o sprite para a posição do dedo, levando em conta o touchOffset.
             self.position = CGPoint(x: (firstTouchPos.x - touchOffset.x), y: (firstTouchPos.y - touchOffset.y))
+            
+            print("angulo atual: \(self.zRotation*(100 / .pi))")
         }
     }
     
@@ -89,8 +107,7 @@ class DraggableNode: SKNode {
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
     }
-    
-    
+        
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
