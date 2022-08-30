@@ -22,6 +22,8 @@ class DraggableNode: SKNode {
     // Variável para verificar se o sprite está sendo rotacionado
     var isRotating:Bool = false
     
+    var controle:Bool = true
+    
     var touchOffset:CGPoint = CGPoint(x: 0, y: 0)
     
     override init() {
@@ -41,13 +43,28 @@ class DraggableNode: SKNode {
         self.zPosition = CGFloat(layerCount)
         // Quando inicia o toque reseta a variável isRotating.
         isRotating = false
+        controle = true
         // Armazena a posicção do primeiro toque em relação com o sprite.
         if touches.count == 1{
             touchOffset.x = (touches.first?.location(in: scene!).x)! - self.position.x
             touchOffset.y = (touches.first?.location(in: scene!).y)! - self.position.y
         }
-        // Armazena a posição dos dedos quando há dois dedos
-        else if touches.count == 2{
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        // Decide qual o primeiro e segundo toque.
+        for touch in touches{
+            let scene = self.scene
+            let location = touch.location(in: scene!)
+            if touch == touches.first{
+                firstTouchPos = location
+            }else{
+                secondTouchPos = location
+            }
+        }
+        // Pega o a diferença de angulo entre o toque do usuário e o sprite.
+        if touches.count == 2 && controle{
             for touch in touches{
                 let scene = self.scene
                 let location = touch.location(in: scene!)
@@ -59,47 +76,15 @@ class DraggableNode: SKNode {
             }
             // Calcula anglo entre os dois toques.
             angleOffset = getAngle(oldFirstTouchPos, secondTouchPos) - self.zRotation
+            controle = false
         }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // Decide qual o primeiro e segundo toque.
-        for touch in touches{
-            let scene = self.scene
-            let location = touch.location(in: scene!)
-            if touch == touches.first{
-                firstTouchPos = location
-            }else{
-                secondTouchPos = location
-            }
-        }
-//        let oldAngle = getAngle(oldFirstTouchPos, oldSecondTouchPos)
-//        let newAngle = getAngle(firstTouchPos, firstTouchPos)
-//        let angleOffset = oldAngle - newAngle
-//
-//        oldFirstTouchPos = firstTouchPos
-//        oldSecondTouchPos = secondTouchPos
-        
-        
         // Se o numero de toque for maior que um, rotaciona o sprite.
-        if touches.count != 1 {
+        if touches.count != 1{
             // Acha o ponto médio entre os dois toques.
-//            let xCord = (firstTouchPos.x + secondTouchPos.x)/2
-//            let yCord = (firstTouchPos.y + secondTouchPos.y)/2
-//            // Move o sprite para o ponto médio dos dois toques.
-//            self.position = CGPoint(x: xCord, y: yCord)
-            
-            // Calcula anglo entre os dois toques.
-            let angulo2 = getAngle(firstTouchPos, secondTouchPos) - self.zRotation
-            
-            
-            
-//            print("primeiro toque: \(firstTouchPos)")
-//            print("segundo toque: \(secondTouchPos )")
-//            print("angulo dedos: \(angulo*(180 / .pi))")
-            print("angulo atual: \(self.zRotation*(180 / .pi))")
-            print("angulo 2: \(angleOffset*(180 / .pi))\n\n")
-            
+            let xCord = (firstTouchPos.x + secondTouchPos.x)/2
+            let yCord = (firstTouchPos.y + secondTouchPos.y)/2
+            // Move o sprite para o ponto médio dos dois toques.
+            self.position = CGPoint(x: xCord, y: yCord)
 
             // Adiciona o angulo necessário no angulo do sprite.
 
@@ -116,8 +101,6 @@ class DraggableNode: SKNode {
         }else if (touches.count == 1 && isRotating == false) {
             // Move o sprite para a posição do dedo, levando em conta o touchOffset.
             self.position = CGPoint(x: (firstTouchPos.x - touchOffset.x), y: (firstTouchPos.y - touchOffset.y))
-            
-            print("angulo atual: \(self.zRotation*(.pi/180))")
         }
     }
     
