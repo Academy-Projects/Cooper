@@ -34,7 +34,7 @@ ZStack{
         ZStack{
                 SpriteView(scene: scene, isPaused: false)
                 HStack{
-                        NavigationLink(destination: HistoryView(), label: {
+                        NavigationLink(destination: PremiseView(), label: {
                             Rectangle()
                             Text("")
                                 .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
@@ -89,7 +89,7 @@ ZStack{
                           }
                     }
                 }
-                NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
+                NavigationLink(destination: SampleDetails(), label: {
                     Text("Terminei de ilustrar ")
                         .font(.system(size: 15))
                         .bold()
