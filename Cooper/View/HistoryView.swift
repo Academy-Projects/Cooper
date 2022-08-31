@@ -9,10 +9,15 @@ import SwiftUI
 
 struct Condition: View{
     var index: Int
-    @State var showAlert = false
     var body: some View{
         if index == 0 {
-            DrawnView()
+            PremiseView(story: naps[0])
+        }
+        else if index == 1{
+            PremiseView(story: naps[1])
+        }
+        else if index == 2 {
+            PremiseView(story: naps[2])
         }
         else{
             ZStack{
@@ -38,7 +43,7 @@ var body: some View {
 
 struct HistoryView: View {
     @State var idx: Int = 0
-    @State var data: [String] = ["blocked","blocked","blocked", "blocked", "blocked", "blocked"]
+    @State var data: [String] = ["blocked","blocked","blocked", "blocked", "blocked", "blocked", "blocked", "blocked"]
     
     let layout = [
         GridItem(.flexible(), spacing: 30),
