@@ -16,10 +16,11 @@ class DraggableNode: SKNode {
     var touchOffset:CGPoint = CGPoint(x: 0, y: 0)
     var touchPos:CGPoint = CGPoint(x: 0, y: 0)
     
+    var counter:Int = 0
+    
     override init() {
         self.sprite = SKSpriteNode()
         super.init()
-        print("\(touchPos)passando pelo init")
         self.zPosition = 0
         self.isUserInteractionEnabled = true
         self.addChild(sprite)
@@ -42,22 +43,27 @@ class DraggableNode: SKNode {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.name = "unselected"
+        counter = 0
         print(self.name!)
     }
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.name = "unselected"
+        counter = 0
         print(self.name!)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if(self.name == "simpleSelected" && touches.count == 1){
+        if touches.count != 1{
+            self.name = "unselected"
+        }
+        else if(self.name == "simpleSelected" && touches.count == 1 && counter > 10){
             self.position.x = touches.first!.location(in: scene!).x + touchOffset.x
             self.position.y = touches.first!.location(in: scene!).y + touchOffset.y
             touchPos = (touches.first?.location(in: self.scene!))!
-            
-            print(touches.count)
         }
+        counter += 1
+        print(touches.count)
     }
 
         
