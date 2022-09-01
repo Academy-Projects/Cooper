@@ -19,7 +19,7 @@ class DraggableNode: SKNode {
     override init() {
         self.sprite = SKSpriteNode()
         super.init()
-        
+        print("\(touchPos)passando pelo init")
         self.zPosition = 0
         self.isUserInteractionEnabled = true
         self.addChild(sprite)
@@ -36,6 +36,8 @@ class DraggableNode: SKNode {
         // Armazena a posicção do primeiro toque em relação com o sprite.
         touchOffset.x = self.position.x - (touches.first?.location(in: scene!).x)!
         touchOffset.y = self.position.y - (touches.first?.location(in: scene!).y)!
+        touchPos = (touches.first?.location(in: self.scene!))!
+        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -66,30 +68,46 @@ class DraggableNode: SKNode {
         let catetoAdjacente = secondTouchPos.x - touchPos.x
         let tangente = catetoOposto / catetoAdjacente
         let angulo = atan(tangente)
-        return angulo
+        
+        if (secondTouchPos.x > touchPos.x && secondTouchPos.y > touchPos.y){
+//            print("(1) = \(angulo * 180 / .pi)")
+            return angulo
+        }
+        else if(secondTouchPos.x > touchPos.x && secondTouchPos.y < touchPos.y){
+//            print("(2) = \((.pi * 2 + angulo) * 180 / .pi)")
+            return angulo + .pi * 2
+        }
+        else if (secondTouchPos.x < touchPos.x){
+//            print("(2) = \((.pi + angulo) * 180 / .pi)")
+            return angulo + .pi
+        }
+        return CGFloat(0)
     }
     
     func rotateNode(_ secondTouchPos: CGPoint, _ angleOffset: CGFloat){
+//        print(self.zRotation * (180 / .pi))
         let fingerAngle = getAngle(secondTouchPos)
-        if (secondTouchPos.x > touchPos.x){
-            self.zRotation = fingerAngle - angleOffset
-        }
-        else if (secondTouchPos.x < touchPos.x){
-            self.zRotation = fingerAngle - angleOffset + .pi
-        }
+        self.zRotation = fingerAngle - angleOffset
     }
     
-    func positionNode(_ secondTouchPos: CGPoint){
+    func positionNode(_ secondTouchPos: CGPoint, _ angleOffset: CGFloat){
         let fingerAngle = getAngle(secondTouchPos)
-        let deltaAngle = fingerAngle - self.zRotation
+        var deltaAngle:CGFloat = 0
+        
+        if (secondTouchPos.x > touchPos.x){
+            deltaAngle = fingerAngle - self.zRotation - angleOffset
+        }
+        else if (secondTouchPos.x < touchPos.x){
+            deltaAngle = fingerAngle - self.zRotation - angleOffset + .pi
+        }
         
         let Nx = self.position.x
         let Ny = self.position.y
-        let Tx = secondTouchPos.x
-        let Ty = secondTouchPos.y
+        let Tx = touchPos.x
+        let Ty = touchPos.y
         
         self.position.x = (Nx * cos(deltaAngle)) - (Ny * sin(deltaAngle)) +  (Ty * sin(deltaAngle)) - (Tx * (cos(deltaAngle) - 1))
-        self.position.y = (Ny * cos(deltaAngle)) + (Nx * sin(deltaAngle)) -  (Tx * sin(deltaAngle)) - (Tx * (cos(deltaAngle) + 1))
+        self.position.y = (Ny * cos(deltaAngle)) + (Nx * sin(deltaAngle)) -  (Tx * sin(deltaAngle)) - (Ty * (cos(deltaAngle) - 1))
         
     }
 }

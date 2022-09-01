@@ -22,7 +22,7 @@ class GameScene: SKScene{
     // Função para criar um novo sprite na cena.
     public func createNewObj(image:String){
         let spriteNode = DraggableNode()
-        spriteNode.name = "MyNode"
+        spriteNode.name = "unselected"
         // Adiciona uma textura no objeto recem criado.
         let texture = SKTexture(imageNamed: image)
         let action = SKAction.setTexture(texture, resize: true)
@@ -48,27 +48,31 @@ class GameScene: SKScene{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, let Mynode:DraggableNode = (self.childNode(withName: "simpleSelected")) as? DraggableNode {
             let location = touch.location(in: self)
-            angleOffset = Mynode.getAngle(location)
+            angleOffset = Mynode.getAngle(location) - Mynode.zRotation
+            print(angleOffset * 180 / .pi)
+            Mynode.name = "comboSelected"
         }
-        self.childNode(withName: "simpleSelected")?.name = "comboSelected"
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.childNode(withName: "comboSelected")?.name = "simpleSelected"
+        if self.childNode(withName: "comboSelected") != nil{
+            self.childNode(withName: "comboSelected")?.name = "unselected"
+        }
     }
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.childNode(withName: "comboSelected")?.name = "simpleSelected"
-        
+        if self.childNode(withName: "comboSelected") != nil{
+            self.childNode(withName: "comboSelected")?.name = "unselected"
+        }
     }
 
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        var myNode:DraggableNode = self.childNode(withName: "MyNode") as! DraggableNode
 //        print(myNode.getAngle(CGPoint(x: 0, y: 100), CGPoint(x: 100, y: 0)))
-        if let touch = touches.first{
-            let touchLocation = touch.location(in: self)
+        if self.childNode(withName: "comboSelected") != nil, let touch = touches.first{
             let Mynode:DraggableNode = (self.childNode(withName: "comboSelected")) as! DraggableNode
-//            Mynode.positionNode(touchLocation)
+            let touchLocation = touch.location(in: self)
+//            Mynode.positionNode(touchLocation, angleOffset)
             Mynode.rotateNode(touchLocation, angleOffset)
         }
         
