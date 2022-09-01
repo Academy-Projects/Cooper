@@ -71,7 +71,12 @@ class DraggableNode: SKNode {
     
     func rotateNode(_ secondTouchPos: CGPoint, _ angleOffset: CGFloat){
         let fingerAngle = getAngle(secondTouchPos)
-        self.zRotation = fingerAngle - angleOffset
+        if (secondTouchPos.x > touchPos.x){
+            self.zRotation = fingerAngle - angleOffset
+        }
+        else if (secondTouchPos.x < touchPos.x){
+            self.zRotation = fingerAngle - angleOffset + .pi
+        }
     }
     
     func positionNode(_ secondTouchPos: CGPoint){
