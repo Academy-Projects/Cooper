@@ -51,16 +51,25 @@ class DraggableNode: SKNode {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if(self.name == "simpleSelected"){
+        if(self.name == "simpleSelected" && touches.count == 1){
             self.position.x = touches.first!.location(in: scene!).x + touchOffset.x
             self.position.y = touches.first!.location(in: scene!).y + touchOffset.y
             touchPos = (touches.first?.location(in: self.scene!))!
+            
+            print(touches.count)
         }
     }
 
         
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func getLength(_ secondTouchPos: CGPoint) -> CGFloat{
+        let oposite = secondTouchPos.y - touchPos.y
+        let adjacent = secondTouchPos.x - touchPos.x
+        let hypotenuse = sqrt (pow( oposite, 2) + pow( adjacent, 2))
+        return hypotenuse
     }
     
     func getAngle(_ secondTouchPos: CGPoint) -> CGFloat{
@@ -104,5 +113,14 @@ class DraggableNode: SKNode {
         self.position.x = (Nx * cos(deltaAngle)) - (Ny * sin(deltaAngle)) +  (Ty * sin(deltaAngle)) - (Tx * (cos(deltaAngle) - 1))
         self.position.y = (Ny * cos(deltaAngle)) + (Nx * sin(deltaAngle)) -  (Tx * sin(deltaAngle)) - (Ty * (cos(deltaAngle) - 1))
         
+    }
+    
+    func scaleNode(_ secondTouchPos: CGPoint, _ originalLength: CGFloat){
+        let oposite = secondTouchPos.y - touchPos.y
+        let adjacent = secondTouchPos.x - touchPos.x
+        let hypotenuse = sqrt (pow( oposite, 2) + pow( adjacent, 2))
+        
+        let factor = hypotenuse / originalLength
+        self.setScale(factor)
     }
 }

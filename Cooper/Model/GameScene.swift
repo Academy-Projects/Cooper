@@ -12,6 +12,7 @@ import SpriteKit
 // Cria variável para o contador para o controle de layers.
 public var layerCount = 0
 public var angleOffset:CGFloat = 0
+public var fingerLength:CGFloat = 0.1
 
 class GameScene: SKScene{
     
@@ -49,7 +50,7 @@ class GameScene: SKScene{
         if let touch = touches.first, let Mynode:DraggableNode = (self.childNode(withName: "simpleSelected")) as? DraggableNode {
             let location = touch.location(in: self)
             angleOffset = Mynode.getAngle(location) - Mynode.zRotation
-            print(angleOffset * 180 / .pi)
+            fingerLength = Mynode.getLength(location)
             Mynode.name = "comboSelected"
         }
     }
@@ -74,6 +75,7 @@ class GameScene: SKScene{
             let touchLocation = touch.location(in: self)
             Mynode.positionNode(touchLocation, angleOffset)
             Mynode.rotateNode(touchLocation, angleOffset)
+            Mynode.scaleNode(touchLocation, fingerLength)
         }
         
     }
