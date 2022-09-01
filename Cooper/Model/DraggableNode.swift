@@ -16,33 +16,27 @@ class DraggableNode: SKNode {
     var touchOffset:CGPoint = CGPoint(x: 0, y: 0)
     
     override init() {
-        self.sprite = SKSpriteNode(color: .red, size: CGSize(width: 100, height: 100))
+        self.sprite = SKSpriteNode()
         super.init()
         
         self.zPosition = 0
-//        self.isUserInteractionEnabled = true
+        self.isUserInteractionEnabled = true
         self.addChild(sprite)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Habilita multiplos toques na tela.
-        self.scene?.view?.isMultipleTouchEnabled = true
+        self.scene?.view?.isMultipleTouchEnabled = false
         // Traz o sprite para a camada mais em cima.
         layerCount += 1
         self.zPosition = CGFloat(layerCount)
         // quando inicia o toque muda nome dele para selecionado.
         self.name = "simpleSelected"
-        print(self.name!)
         // Armazena a posicção do primeiro toque em relação com o sprite.
-        if touches.count == 1{
-            touchOffset.x = (touches.first?.location(in: scene!).x)! - self.position.x
-            touchOffset.y = (touches.first?.location(in: scene!).y)! - self.position.y
-        }
+        touchOffset.x = self.position.x - (touches.first?.location(in: scene!).x)!
+        touchOffset.y = self.position.y - (touches.first?.location(in: scene!).y)!
     }
     
-//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-//    }
-//
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.name = "unselected"
         print(self.name!)
@@ -53,6 +47,13 @@ class DraggableNode: SKNode {
         print(self.name!)
     }
     
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if(self.name == "simpleSelected"){
+            self.position.x = touches.first!.location(in: scene!).x + touchOffset.x
+            self.position.y = touches.first!.location(in: scene!).y + touchOffset.y
+        }
+    }
+
         
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
