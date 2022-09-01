@@ -21,6 +21,7 @@ class GameScene: SKScene{
     // Função para criar um novo sprite na cena.
     public func createNewObj(image:String){
         let spriteNode = DraggableNode()
+        spriteNode.name = "MyNode"
         // Adiciona uma textura no objeto recem criado.
 //        let texture = SKTexture(imageNamed: image)
 //        let action = SKAction.setTexture(texture, resize: true)
@@ -42,29 +43,34 @@ class GameScene: SKScene{
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.view?.isMultipleTouchEnabled = true
         
-        
-        let node = SKSpriteNode(
-            color: .red,
-            size: CGSize(width: 50, height: 50)
-        )
-        node.name = "draggable"
-        self.addChild(node)
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let location = touch.location(in: self)
-            
-            let touchedNodes = self.nodes(at: location)
-            for node in touchedNodes.reversed() {
-                print(node)
-            }
-        }
+//        if let touch = touches.first {
+//            let location = touch.location(in: self)
+//
+//            let touchedNodes = self.nodes(at: location)
+//            for node in touchedNodes.reversed() {
+//                print(node)
+//            }
+//        }
+        self.childNode(withName: "simpleSelected")?.name = "combSelected"
+        print(self.nodes(at: CGPoint(x: 0, y: 0)))
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.childNode(withName: "combSelected")?.name = "simpleSelected"
+        print(self.nodes(at: CGPoint(x: 0, y: 0)))
+    }
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.childNode(withName: "combSelected")?.name = "simpleSelected"
+        print(self.nodes(at: CGPoint(x: 0, y: 0)))
+    }
+
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(touches.count)
+//        var myNode:DraggableNode = self.childNode(withName: "MyNode") as! DraggableNode
+//        print(myNode.getAngle(CGPoint(x: 0, y: 100), CGPoint(x: 100, y: 0)))
     }
     
     override func update(_ currentTime: CFTimeInterval){

@@ -20,7 +20,7 @@ class DraggableNode: SKNode {
         super.init()
         
         self.zPosition = 0
-        self.isUserInteractionEnabled = true
+//        self.isUserInteractionEnabled = true
         self.addChild(sprite)
     }
     
@@ -30,7 +30,9 @@ class DraggableNode: SKNode {
         // Traz o sprite para a camada mais em cima.
         layerCount += 1
         self.zPosition = CGFloat(layerCount)
-        // Quando inicia o toque reseta a variável isRotating.
+        // quando inicia o toque muda nome dele para selecionado.
+        self.name = "simpleSelected"
+        print(self.name!)
         // Armazena a posicção do primeiro toque em relação com o sprite.
         if touches.count == 1{
             touchOffset.x = (touches.first?.location(in: scene!).x)! - self.position.x
@@ -41,11 +43,15 @@ class DraggableNode: SKNode {
 //    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
 //    }
 //
-//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//    }
-//
-//    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-//    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.name = "unselected"
+        print(self.name!)
+    }
+
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.name = "unselected"
+        print(self.name!)
+    }
     
         
     required init?(coder aDecoder: NSCoder) {
