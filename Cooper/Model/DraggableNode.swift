@@ -74,7 +74,7 @@ class DraggableNode: SKNode {
         self.zRotation = fingerAngle - angleOffset
     }
     
-    func posionNode(_ secondTouchPos: CGPoint){
+    func positionNode(_ secondTouchPos: CGPoint){
         let fingerAngle = getAngle(secondTouchPos)
         let deltaAngle = fingerAngle - self.zRotation
         
