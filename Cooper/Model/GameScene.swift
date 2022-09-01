@@ -72,7 +72,7 @@ class GameScene: SKScene{
         if self.childNode(withName: "comboSelected") != nil, let touch = touches.first{
             let Mynode:DraggableNode = (self.childNode(withName: "comboSelected")) as! DraggableNode
             let touchLocation = touch.location(in: self)
-//            Mynode.positionNode(touchLocation, angleOffset)
+            Mynode.positionNode(touchLocation, angleOffset)
             Mynode.rotateNode(touchLocation, angleOffset)
         }
         

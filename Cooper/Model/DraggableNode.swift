@@ -94,12 +94,7 @@ class DraggableNode: SKNode {
         let fingerAngle = getAngle(secondTouchPos)
         var deltaAngle:CGFloat = 0
         
-        if (secondTouchPos.x > touchPos.x){
-            deltaAngle = fingerAngle - self.zRotation - angleOffset
-        }
-        else if (secondTouchPos.x < touchPos.x){
-            deltaAngle = fingerAngle - self.zRotation - angleOffset + .pi
-        }
+        deltaAngle = fingerAngle - self.zRotation - angleOffset
         
         let Nx = self.position.x
         let Ny = self.position.y
