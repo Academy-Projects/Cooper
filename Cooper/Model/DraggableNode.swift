@@ -14,6 +14,7 @@ class DraggableNode: SKNode {
     var sprite: SKSpriteNode
  
     var touchOffset:CGPoint = CGPoint(x: 0, y: 0)
+    var touchPos:CGPoint = CGPoint(x: 0, y: 0)
     
     override init() {
         self.sprite = SKSpriteNode()
@@ -26,7 +27,7 @@ class DraggableNode: SKNode {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Habilita multiplos toques na tela.
-        self.scene?.view?.isMultipleTouchEnabled = false
+        self.scene?.view?.isMultipleTouchEnabled = true
         // Traz o sprite para a camada mais em cima.
         layerCount += 1
         self.zPosition = CGFloat(layerCount)
@@ -51,6 +52,7 @@ class DraggableNode: SKNode {
         if(self.name == "simpleSelected"){
             self.position.x = touches.first!.location(in: scene!).x + touchOffset.x
             self.position.y = touches.first!.location(in: scene!).y + touchOffset.y
+            touchPos = (touches.first?.location(in: self.scene!))!
         }
     }
 
@@ -59,12 +61,30 @@ class DraggableNode: SKNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func getAngle(_ firstTouch: CGPoint,_ secondTouch: CGPoint) -> CGFloat{
-        // Calcula anglo entre os dois toques por meio do arcotangente.
-        let catetoOposto = secondTouch.y - firstTouch.y
-        let catetoAdjacente = secondTouch.x - firstTouch.x
+    func getAngle(_ secondTouchPos: CGPoint) -> CGFloat{
+        let catetoOposto = secondTouchPos.y - touchPos.y
+        let catetoAdjacente = secondTouchPos.x - touchPos.x
         let tangente = catetoOposto / catetoAdjacente
         let angulo = atan(tangente)
         return angulo
+    }
+    
+    func rotateNode(_ secondTouchPos: CGPoint, _ angleOffset: CGFloat){
+        let fingerAngle = getAngle(secondTouchPos)
+        self.zRotation = fingerAngle - angleOffset
+    }
+    
+    func posionNode(_ secondTouchPos: CGPoint){
+        let fingerAngle = getAngle(secondTouchPos)
+        let deltaAngle = fingerAngle - self.zRotation
+        
+        let Nx = self.position.x
+        let Ny = self.position.y
+        let Tx = secondTouchPos.x
+        let Ty = secondTouchPos.y
+        
+        self.position.x = (Nx * cos(deltaAngle)) - (Ny * sin(deltaAngle)) +  (Ty * sin(deltaAngle)) - (Tx * (cos(deltaAngle) - 1))
+        self.position.y = (Ny * cos(deltaAngle)) + (Nx * sin(deltaAngle)) -  (Tx * sin(deltaAngle)) - (Tx * (cos(deltaAngle) + 1))
+        
     }
 }
