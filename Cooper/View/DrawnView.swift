@@ -33,20 +33,20 @@ struct DrawnView: View {
          HStack{
             ZStack{
                 SpriteView(scene: scene, isPaused: false)
-                HStack{
-                    NavigationLink(destination: HistoryView(), label: {
-                        Text("")
-                        .font(.system(size: 18))
-                        .bold()
-                        .frame(width: 76, height: 34)
-                        .background(Color.gray.opacity(0.2))
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .background(RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
-                        )
-                    })
-
-                }
+//                HStack{
+//                    NavigationLink(destination: HistoryView(), label: {
+//                        Text("")
+//                        .font(.system(size: 18))
+//                        .bold()
+//                        .frame(width: 76, height: 34)
+//                        .background(Color.gray.opacity(0.2))
+//                        .clipShape(RoundedRectangle(cornerRadius: 20))
+//                        .background(RoundedRectangle(cornerRadius: 20)
+//                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+//                        )
+//                    })
+//
+//                }
             }
             .background(Color.gray)
             .clipShape(RoundedRectangle(cornerRadius: 20))

@@ -104,8 +104,8 @@
 		285D3E6828B01E9A008072C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3F8BBE2528B00673008E9F32 /* DraggableNode.swift */,
 				3F8BBE2328AFC409008E9F32 /* GameScene.swift */,
+				3F8BBE2528B00673008E9F32 /* DraggableNode.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

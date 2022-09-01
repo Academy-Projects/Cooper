@@ -16,7 +16,7 @@ class DraggableNode: SKNode {
     var touchOffset:CGPoint = CGPoint(x: 0, y: 0)
     
     override init() {
-        self.sprite = SKSpriteNode()
+        self.sprite = SKSpriteNode(color: .red, size: CGSize(width: 100, height: 100))
         super.init()
         
         self.zPosition = 0
