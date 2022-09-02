@@ -43,27 +43,23 @@ class DraggableNode: SKNode {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.name = "unselected"
-        counter = 0
-        print(self.name!)
-    }
+        counter = 0    }
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.name = "unselected"
         counter = 0
-        print(self.name!)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if touches.count != 1{
             self.name = "unselected"
         }
-        else if(self.name == "simpleSelected" && touches.count == 1 && counter > 10){
+        else if(self.name == "simpleSelected" && touches.count == 1 && counter > 3){
             self.position.x = touches.first!.location(in: scene!).x + touchOffset.x
             self.position.y = touches.first!.location(in: scene!).y + touchOffset.y
             touchPos = (touches.first?.location(in: self.scene!))!
         }
         counter += 1
-        print(touches.count)
     }
 
         
@@ -85,22 +81,18 @@ class DraggableNode: SKNode {
         let angulo = atan(tangente)
         
         if (secondTouchPos.x > touchPos.x && secondTouchPos.y > touchPos.y){
-//            print("(1) = \(angulo * 180 / .pi)")
             return angulo
         }
         else if(secondTouchPos.x > touchPos.x && secondTouchPos.y < touchPos.y){
-//            print("(2) = \((.pi * 2 + angulo) * 180 / .pi)")
             return angulo + .pi * 2
         }
         else if (secondTouchPos.x < touchPos.x){
-//            print("(2) = \((.pi + angulo) * 180 / .pi)")
             return angulo + .pi
         }
         return CGFloat(0)
     }
     
     func rotateNode(_ secondTouchPos: CGPoint, _ angleOffset: CGFloat){
-//        print(self.zRotation * (180 / .pi))
         let fingerAngle = getAngle(secondTouchPos)
         self.zRotation = fingerAngle - angleOffset
     }
