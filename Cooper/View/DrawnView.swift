@@ -33,6 +33,7 @@ ZStack{
     HStack{
         ZStack{
                 SpriteView(scene: scene, isPaused: false)
+
                 HStack{
                         NavigationLink(destination: PremiseView(), label: {
                             Rectangle()
