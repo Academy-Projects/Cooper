@@ -56,7 +56,8 @@ struct AnswerFinalView: View {
 struct SampleDetails: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
-    var btnBack : some View { Button(action: {
+    var btnBack : some View {
+        Button(action: {
         self.presentationMode.wrappedValue.dismiss()
         }) {
             Rectangle()

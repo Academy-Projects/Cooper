@@ -37,7 +37,7 @@ ZStack{
                 HStack{
                         NavigationLink(destination: PremiseView(), label: {
                             Rectangle()
-                            Text("")
+                            Text("X")
                                 .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
                                 .background(Color.gray.opacity(0.2))
                                 .clipShape(RoundedRectangle(cornerRadius: 12))
