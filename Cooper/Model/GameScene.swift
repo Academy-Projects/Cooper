@@ -75,7 +75,7 @@ class GameScene: SKScene{
             let touchLocation = touch.location(in: self)
             Mynode.positionNode(touchLocation, angleOffset)
             Mynode.rotateNode(touchLocation, angleOffset)
-            Mynode.scaleNode(touchLocation, fingerLength)
+//            Mynode.scaleNode(touchLocation, fingerLength)
         }
         
     }
