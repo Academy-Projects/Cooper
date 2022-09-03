@@ -33,33 +33,41 @@ ZStack{
     HStack{
         ZStack{
                 SpriteView(scene: scene, isPaused: false)
-
+            ZStack{
                 HStack{
                         NavigationLink(destination: PremiseView(), label: {
                             Rectangle()
-                            Text("X")
+                            Text("<")
                                 .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                                .background(Color.gray.opacity(0.2))
+                                .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                                 .clipShape(RoundedRectangle(cornerRadius: 12))
                                 .background(RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+                                    .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
                                 )
                         }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
                            // .padding(EdgeInsets(top: 0, leading: 0, bottom: 600, trailing: 900))
                 }.frame(maxWidth: .infinity, alignment: .leading)
                 .frame(maxHeight: .infinity, alignment: .top)
-                .padding(.leading, 33)
+                .padding(.leading, 24)
                 .padding(.top, 24)
-        }
-            .background(Color.gray)
+            }
+            .frame(width: UIScreen.main.bounds.width * 0.69, height: UIScreen.main.bounds.height * 0.90)
+            .border(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), width: 2)
             .clipShape(RoundedRectangle(cornerRadius: 20))
-            //.overlay(RoundedRectangle(cornerRadius: 100).stroke(Color.black))
             .background(RoundedRectangle(cornerRadius: 20)
-                .stroke()
+                .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 3)
+                )
+        }
+            //.background(Color.cyan)
+            .clipShape(RoundedRectangle(cornerRadius: 13))
+            .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 10)
+            //.overlay(RoundedRectangle(cornerRadius: 100).stroke(Color.black))
+            .background(RoundedRectangle(cornerRadius: 13)
             ).padding()
         VStack{
-                Text("Clique nos cards que deseja usar \npara ilustrar a história")
+                Text("Clique nos cards que deseja \nusar para ilustrar a história")
                         .bold()
+                        .foregroundColor(Color("colorFont"))
                         .multilineTextAlignment(.center)
                         .padding(EdgeInsets(top: 25, leading: 0, bottom: 14, trailing: 0))
                 ScrollView{
@@ -92,25 +100,27 @@ ZStack{
                 }
                 NavigationLink(destination: SampleDetails(), label: {
                     Text("Terminei de ilustrar ")
+                        .foregroundColor(Color("colorFont"))
                         .font(.system(size: 15))
                         .bold()
                         .frame(width: UIScreen.main.bounds.width * 0.21, height: UIScreen.main.bounds.height * 0.046)
 //                                .padding(EdgeInsets(top: 0, leading: 10, bottom: 24, trailing: 10))
-                    .background(Color.cyan.opacity(12.2))
+                    .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                     .clipShape(RoundedRectangle(cornerRadius: 12))
                     .background(RoundedRectangle(cornerRadius: 12)
-                        .stroke(Color.cyan.opacity(12.2), lineWidth: 1)
+                        .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
                     )
                 }).padding(EdgeInsets(top: 0, leading: 0, bottom: 32, trailing: 0))
             
-        }.frame(width: UIScreen.main.bounds.width * 0.25)
-            .background(Color.yellow)
-            .clipShape(RoundedRectangle(cornerRadius: 50))
-            .background(RoundedRectangle(cornerRadius: 50)
-            .stroke())
-            .shadow(color: .black, radius: 5)
+        }.frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.height * 0.93)
+            .background(Color.white)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .background(RoundedRectangle(cornerRadius: 20))
+            .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 10)
             .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 17))
-         }.background(.cyan)
+           }.background(LinearGradient(gradient: Gradient(colors: [Color.white, Color("backgroundIlustration"), Color.white]),
+                                       startPoint: .leading,
+                                       endPoint: .trailing))
 
     
         NavigationLink(destination: HistoryView(), label: {
