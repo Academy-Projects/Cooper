@@ -55,8 +55,22 @@ class DraggableNode: SKNode {
             self.name = "unselected"
         }
         else if(self.name == "simpleSelected" && touches.count == 1 && counter > 3){
-            self.position.x = touches.first!.location(in: scene!).x + touchOffset.x
-            self.position.y = touches.first!.location(in: scene!).y + touchOffset.y
+            
+            let sceneSize = self.scene?.size
+            let imageSize = self.sprite.size
+            let sceneLimitWidth = sceneSize!.width/2 - imageSize.width/2 - 10
+            let sceneLimitHeight = sceneSize!.height/2 - imageSize.height/2 - 10
+            
+            
+            if (touchPos.x + touchOffset.x) < sceneLimitWidth && (touchPos.x + touchOffset.x) > (sceneLimitWidth * -1){
+                self.position.x = touchPos.x + touchOffset.x
+            }
+            
+            if (touchPos.y + touchOffset.y) < sceneLimitHeight && (touchPos.y + touchOffset.y) > (sceneLimitHeight * -1){
+                self.position.y = touchPos.y + touchOffset.y
+            }
+//            self.position.x = touchPos.x + touchOffset.x
+//            self.position.y = touchPos.x + touchOffset.y
             touchPos = (touches.first?.location(in: self.scene!))!
         }
         counter += 1
