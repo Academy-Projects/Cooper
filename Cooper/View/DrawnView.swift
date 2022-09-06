@@ -52,6 +52,8 @@ ZStack{
                 .padding(.top, 24)
             }
             .frame(width: UIScreen.main.bounds.width * 0.69, height: UIScreen.main.bounds.height * 0.90)
+            .padding(.trailing, 2)
+            .padding(.leading,2)
             .border(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), width: 2)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .background(RoundedRectangle(cornerRadius: 20)
@@ -66,7 +68,7 @@ ZStack{
             ).padding()
         VStack{
                 Text("Clique nos cards que deseja \nusar para ilustrar a história")
-                        .bold()
+                        .font(Font.custom("SourceSans3-Bold", size: 20))
                         .foregroundColor(Color("colorFont"))
                         .multilineTextAlignment(.center)
                         .padding(EdgeInsets(top: 25, leading: 0, bottom: 14, trailing: 0))
@@ -98,11 +100,11 @@ ZStack{
                           }
                     }
                 }
-                NavigationLink(destination: SampleDetails(), label: {
+            NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
                     Text("Terminei de ilustrar ")
-                        .foregroundColor(Color("colorFont"))
-                        .font(.system(size: 15))
-                        .bold()
+                       // .foregroundColor(Color("colorFont"))
+                        .font(Font.custom("SourceSans3-Bold", size: 20))
+                       // .bold()
                         .frame(width: UIScreen.main.bounds.width * 0.21, height: UIScreen.main.bounds.height * 0.046)
 //                                .padding(EdgeInsets(top: 0, leading: 10, bottom: 24, trailing: 10))
                     .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
@@ -118,21 +120,9 @@ ZStack{
             .background(RoundedRectangle(cornerRadius: 20))
             .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 10)
             .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 17))
-           }.background(LinearGradient(gradient: Gradient(colors: [Color.white, Color("backgroundIlustration"), Color.white]),
+           }.background(LinearGradient(gradient: Gradient(colors: [Color.white, Color("backgroundIlustration"), Color("backgroundIlustration"), Color.white]),
                                        startPoint: .leading,
                                        endPoint: .trailing))
-
-    
-        NavigationLink(destination: HistoryView(), label: {
-            Text("")
-            //.frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-            .background(Color.gray.opacity(0.2))
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .background(RoundedRectangle(cornerRadius: 12)
-                .stroke(Color.gray.opacity(0.2), lineWidth: 1)
-            )
-        }).padding(EdgeInsets(top: 61, leading: 48, bottom: 30, trailing: 20))
-    
     }.navigationBarHidden(true)
     
   }

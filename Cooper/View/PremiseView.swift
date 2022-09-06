@@ -7,18 +7,17 @@
 
 import SwiftUI
 
+//teste
 
 
 struct PremiseView: View {
     
     var story: ListHistory = naps[0]
     @State var cor:Color = Color(red: 0/255, green: 59/255, blue: 75/255)
-    @State var shouldHide = false
     
     @State var buttonPressed:Int = 0
     @State var opacityButton:Double = 1
     @State var opacityPlay: Double = 0
-    @State private var animate = false
     
     var body: some View {
         ZStack{
@@ -48,7 +47,7 @@ struct PremiseView: View {
                         //.padding(.top, 42)
                     
                     Text(story.title)
-                        .font(.title)
+                        .font(Font.custom("SourceSans3-Bold", size: 20))
                         .bold()
                     
                     Divider()
@@ -58,6 +57,7 @@ struct PremiseView: View {
                         Text(story.premise)
                             .bold()
                             .multilineTextAlignment(.center)
+                            .font(Font.custom("SourceSans3-Bold", size: 20))
                             .frame(width: UIScreen.main.bounds.width * 0.43)
                     }.frame(width: UIScreen.main.bounds.width * 0.46)
                 }
@@ -71,6 +71,7 @@ struct PremiseView: View {
                     Text(story.instruction)
                     .bold()
                     .multilineTextAlignment(.center)
+                    .font(Font.custom("SourceSans3-Bold", size: 20))
                     .frame(width: UIScreen.main.bounds.width * 0.39, height: UIScreen.main.bounds.height * 0.10)
                     .padding(.trailing, 60)
                     .padding(.leading, 60)
@@ -86,6 +87,7 @@ struct PremiseView: View {
                                 if buttonPressed == 1{
                                     Text(story.finalOne)
                                         //.font(.system(size: 55))
+                                        .font(Font.custom("SourceSans3-Bold", size: 20))
                                         .frame(width: UIScreen.main.bounds.width * 0.40)
                                         .multilineTextAlignment(.center)
                                         .padding()
@@ -99,6 +101,7 @@ struct PremiseView: View {
                                 } else{
                                     Text(story.finalOne)
                                        // .font(.system(size: 55))
+                                        .font(Font.custom("SourceSans3-Bold", size: 20))
                                         .frame(width: UIScreen.main.bounds.width * 0.40)
                                         .multilineTextAlignment(.center)
                                         .padding()
@@ -122,6 +125,7 @@ struct PremiseView: View {
                            label: {
                                 if buttonPressed == 2{
                                     Text(story.finalTwo)
+                                        .font(Font.custom("SourceSans3-Bold", size: 20))
                                         .frame(width: UIScreen.main.bounds.width * 0.40)
                                         .multilineTextAlignment(.center)
                                         .padding()
@@ -133,6 +137,7 @@ struct PremiseView: View {
                                         )
                                 } else{
                                     Text(story.finalTwo)
+                                        .font(Font.custom("SourceSans3-Bold", size: 20))
                                         .frame(width: UIScreen.main.bounds.width * 0.40)
                                         .multilineTextAlignment(.center)
                                         .padding()
@@ -145,7 +150,7 @@ struct PremiseView: View {
                                             .stroke(Color.clear.opacity(12.2), lineWidth: 1)
                                         )
                                 }
-                            })
+                            }).frame(width: UIScreen.main.bounds.width * 0.35)
                    // Spacer()
                     Button(action: {
                             
@@ -156,6 +161,7 @@ struct PremiseView: View {
                            label: {
                                 if buttonPressed == 3{
                                     Text(story.finalThree)
+                                        .font(Font.custom("SourceSans3-Bold", size: 20))
                                         .frame(width: UIScreen.main.bounds.width * 0.40)
                                         .multilineTextAlignment(.center)
                                         .padding()
@@ -167,6 +173,7 @@ struct PremiseView: View {
                                         )
                                 } else{
                                     Text(story.finalThree)
+                                        .font(Font.custom("SourceSans3-Bold", size: 20))
                                         .frame(width: UIScreen.main.bounds.width * 0.40)
                                         .multilineTextAlignment(.center)
                                         .padding()
@@ -184,6 +191,7 @@ struct PremiseView: View {
                     Text(story.warning)
                         .bold()
                         .multilineTextAlignment(.center)
+                        .font(Font.custom("SourceSans3-Bold", size: 20))
                         .frame(width: UIScreen.main.bounds.width * 0.43, height: UIScreen.main.bounds.height * 0.10)
                     
                     
@@ -192,7 +200,7 @@ struct PremiseView: View {
                     Spacer()
                     NavigationLink(destination: DrawnView(), label: {
                         Text("Jogar")
-                            .font(.system(size: 15))
+                            .font(Font.custom("SourceSans3-Bold", size: 20))
                             .bold()
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                           //  .padding(EdgeInsets(top: 247, leading: 340, bottom:0 , trailing: 12))
