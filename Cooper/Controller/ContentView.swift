@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView{
-        HistoryView()
+            HistoryView()
       }
         .navigationBarHidden(true)
         .navigationViewStyle(StackNavigationViewStyle())
