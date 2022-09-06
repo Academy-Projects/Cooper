@@ -74,8 +74,9 @@ struct AnswerFinalView: View {
                            
                                 if buttonPressed == 1{
                                     Text(story.finalOne)
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.22)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.22, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .padding()
                                         .foregroundColor(.white)
                                         .background(cor)
@@ -86,8 +87,9 @@ struct AnswerFinalView: View {
                                     
                                 } else{
                                     Text(story.finalOne)
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.22)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.22, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .padding()
                                         .foregroundColor(.white)
                                         .background(Color(red: 0/255, green: 59/255, blue: 75/255))
@@ -111,9 +113,9 @@ struct AnswerFinalView: View {
                            label: {
                                 if buttonPressed == 2{
                                     Text(story.finalTwo)
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.22)
-                                        .multilineTextAlignment(.center)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.22, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .font(.system(size: 20))
                                         .padding()
                                         .foregroundColor(.white)
@@ -124,9 +126,9 @@ struct AnswerFinalView: View {
                                         )
                                 } else{
                                     Text(story.finalTwo)
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.22)
-                                        .multilineTextAlignment(.center)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.22, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .font(.system(size: 20))
                                         .padding()
                                         .foregroundColor(.white)
@@ -151,9 +153,9 @@ struct AnswerFinalView: View {
                            label: {
                                 if buttonPressed == 3{
                                     Text(story.finalThree)
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.22)
-                                        .multilineTextAlignment(.center)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.22, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .font(.system(size: 20))
                                         .padding()
                                         .foregroundColor(.white)
@@ -164,9 +166,9 @@ struct AnswerFinalView: View {
                                         )
                                 } else{
                                     Text(story.finalThree)
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.22)
-                                        .multilineTextAlignment(.center)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.22, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .font(.system(size: 20))
                                         .padding()
                                         .foregroundColor(.white)

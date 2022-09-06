@@ -5,6 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>SourceSans3-Bold.ttf</string>
+		<string>SourceSans3-Regular.tff</string>
 	</array>
 </dict>
 </plist>
