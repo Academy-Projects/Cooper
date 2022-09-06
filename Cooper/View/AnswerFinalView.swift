@@ -27,22 +27,26 @@ struct AnswerFinalView: View {
                         .resizable()
                         .scaledToFit()
                     ZStack{
-                        HStack{
-                                NavigationLink(destination: DrawnView(), label: {
-                                    Rectangle()
-                                    Text("<")
-                                        .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                                        .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                                        .background(RoundedRectangle(cornerRadius: 12)
-                                            .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
-                                        )
-                                }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                                
-                        }.frame(maxWidth: .infinity, alignment: .leading)
+                        NavigationLink(destination: DrawnView(), label: {
+                      //      Rectangle()
+                            Image(systemName: "chevron.left")
+                                .resizable()
+                                .scaledToFit()
+                                .padding(.vertical, 6)
+                                .font(Font.custom("SourceSans3-Bold", size: 10))
+                                .foregroundColor(Color("colorFont"))
+                                .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                                .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
+                                .background(RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
+                                )
+                        })
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .frame(maxHeight: .infinity, alignment: .top)
-                        .padding(.leading, 24)
-                        .padding(.top, 24)
+                        .padding(.leading, 14)
+                        .padding(.top, 14)
+
                     }
                     .frame(width: UIScreen.main.bounds.width * 0.65, height: UIScreen.main.bounds.height * 0.87)
                     .padding(EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 0))
@@ -72,7 +76,6 @@ struct AnswerFinalView: View {
                                     Text(story.finalOne)
                                         .font(Font.custom("SourceSans3-Bold", size: 20))
                                         .frame(width: UIScreen.main.bounds.width * 0.22)
-                                        
                                         .padding()
                                         .foregroundColor(.white)
                                         .background(cor)
@@ -95,7 +98,9 @@ struct AnswerFinalView: View {
                                             .stroke(Color.clear.opacity(12.2), lineWidth: 1)
                                         )
                                 }
-                            }).frame(width: UIScreen.main.bounds.width * 0.8)
+                            })
+                                .frame(width: UIScreen.main.bounds.width * 0.8)
+                                .padding(.bottom, 8)
             //        Spacer()
                     Button(action: {
                             
@@ -133,7 +138,9 @@ struct AnswerFinalView: View {
                                             .stroke(Color.clear.opacity(12.2), lineWidth: 1)
                                         )
                                 }
-                            }).frame(width: UIScreen.main.bounds.width * 0.8)
+                            })
+                                .frame(width: UIScreen.main.bounds.width * 0.8)
+                                .padding(.bottom, 8)
                    // Spacer()
                     Button(action: {
                             
@@ -171,8 +178,24 @@ struct AnswerFinalView: View {
                                             .stroke(Color.clear.opacity(12.2), lineWidth: 1)
                                         )
                                 }
-                            }).frame(width: UIScreen.main.bounds.width * 0.8)
+                            })
+                                .frame(width: UIScreen.main.bounds.width * 0.8)
+                                .padding(.bottom, 8)
                     
+                    NavigationLink(destination: HistoryView(), label: {
+                            Text("OK")
+                                .foregroundColor(Color("colorFont"))
+                                .font(Font.custom("SourceSans3-Bold", size: 20))
+                                .frame(width: UIScreen.main.bounds.width * 0.24, height: UIScreen.main.bounds.height * 0.046)
+                                .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                                .background(RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.clear.opacity(12.2), lineWidth: 1)
+                                )
+                        })
+                            .frame(width: UIScreen.main.bounds.width * 0.8)
+                            .padding(.top, 8)
+
              
                 }.frame(width: UIScreen.main.bounds.width * 0.26)
                     .background(Color.white)

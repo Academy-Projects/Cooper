@@ -35,7 +35,6 @@ var body: some View {
     Image(image)
         .resizable()
         .aspectRatio(contentMode: .fit)
-     //   .frame(width: UIScreen.main.bounds.width * 0.17, height: UIScreen.main.bounds.height * 0.32)
   }
 }
 
@@ -52,24 +51,35 @@ struct HistoryView: View {
     
     var body: some View {
         ZStack{
-         ScrollView(.horizontal, showsIndicators: false){
-             HStack(){
-                    Image("woman")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                    LazyHGrid(rows: layout, spacing: 23){
-                        ForEach(data.indices) { idx in
-                            VStack(){
-                                NavigationLink(destination:
-                                   Condition(index: idx)
-                                ){
-                                  ItemView(image: data[idx])
+            VStack{
+                HStack{
+                    Text("Escolha para qual momento da história \nvocê deseja viajar com o Cooper")
+                        .font(Font.custom("SourceSans3-Bold", size: 25))
+                        .multilineTextAlignment(.center)
+                    }
+                    .frame(height: UIScreen.main.bounds.height * 0.092)
+                    .padding(.leading, 556)
+                    .padding(.trailing, 74)
+                    .padding(.bottom, 50)
+             ScrollView(.horizontal, showsIndicators: false){
+                 HStack(){
+                        Image("woman")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                        LazyHGrid(rows: layout, spacing: 23){
+                            ForEach(data.indices) { idx in
+                                VStack(){
+                                    NavigationLink(destination:
+                                       Condition(index: idx)
+                                    ){
+                                      ItemView(image: data[idx])
+                                }
+                             }
                             }
                          }
-                        }
-                     }
-                }.frame(height: UIScreen.main.bounds.height * 0.52)
-         }
+                    }.frame(height: UIScreen.main.bounds.height * 0.52)
+             }
+           }
         }.frame(maxHeight: .infinity)
          .background(.cyan)
          .navigationBarHidden(true)

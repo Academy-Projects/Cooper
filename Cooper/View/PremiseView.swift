@@ -24,21 +24,26 @@ struct PremiseView: View {
             HStack(){
                 VStack{
                     ZStack{
-                    HStack{
                         NavigationLink(destination: HistoryView(), label: {
-                            Rectangle()
-                            Text("X")
+                      //      Rectangle()
+                            Image(systemName: "chevron.left")
+                                .resizable()
+                                .scaledToFit()
+                                .padding(.vertical, 6)
+                                .font(Font.custom("SourceSans3-Bold", size: 10))
+                                .foregroundColor(Color("colorFont"))
                                 .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                                .background(Color.gray.opacity(0.2))
+                                .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                                 .clipShape(RoundedRectangle(cornerRadius: 12))
                                 .background(RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+                                    .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
                                 )
-                        }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                          .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 9))
-                    }.frame(maxWidth: .infinity, alignment: .leading)
-                     .frame(maxHeight: .infinity, alignment: .top)
-                     .padding(.leading, 28)
+                        })
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(maxHeight: .infinity, alignment: .top)
+                        .padding(.leading, 24)
+                        .padding(.top, 24)
+
 
                 VStack{
                     Image(story.image)
@@ -114,7 +119,9 @@ struct PremiseView: View {
                                             .stroke(Color.clear.opacity(12.2), lineWidth: 1)
                                         )
                                 }
-                            }).frame(width: UIScreen.main.bounds.width * 0.35)
+                            })
+                                .frame(width: UIScreen.main.bounds.width * 0.35)
+                                .padding(.bottom, 8)
             //        Spacer()
                     Button(action: {
                             
@@ -150,7 +157,9 @@ struct PremiseView: View {
                                             .stroke(Color.clear.opacity(12.2), lineWidth: 1)
                                         )
                                 }
-                            }).frame(width: UIScreen.main.bounds.width * 0.35)
+                            })
+                                .frame(width: UIScreen.main.bounds.width * 0.35)
+                                .padding(.bottom, 8)
                    // Spacer()
                     Button(action: {
                             
@@ -186,13 +195,15 @@ struct PremiseView: View {
                                             .stroke(Color.clear.opacity(12.2), lineWidth: 1)
                                         )
                                 }
-                            }).frame(width: UIScreen.main.bounds.width * 0.35)
+                            })
+                                .frame(width: UIScreen.main.bounds.width * 0.35)
+                                .padding(.bottom, 8)
                     
                     Text(story.warning)
                         .bold()
                         .multilineTextAlignment(.center)
                         .font(Font.custom("SourceSans3-Bold", size: 20))
-                        .frame(width: UIScreen.main.bounds.width * 0.43, height: UIScreen.main.bounds.height * 0.10)
+                        .frame(width: UIScreen.main.bounds.width * 0.43, height: UIScreen.main.bounds.height * 0.13)
                     
                     
                 }.frame(width: UIScreen.main.bounds.width * 0.50)
