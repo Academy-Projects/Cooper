@@ -20,6 +20,9 @@ struct AnswerFinalView: View {
     @State var presentResultAlert = false
     @State var result = false
     
+    // Cria um tipo de apresentação.
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View{
       ZStack{
             HStack{
@@ -31,7 +34,9 @@ struct AnswerFinalView: View {
                         .scaledToFit()
                     ZStack{
                         HStack{
-                                NavigationLink(destination: DrawnView(), label: {
+                            
+                            Button(action: {presentationMode.wrappedValue.dismiss()},
+                                   label: {
                                     Rectangle()
                                     Text("<")
                                         .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
@@ -40,7 +45,8 @@ struct AnswerFinalView: View {
                                         .background(RoundedRectangle(cornerRadius: 12)
                                             .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
                                         )
-                                }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                                    }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                            
                                 
                         }.frame(maxWidth: .infinity, alignment: .leading)
                         .frame(maxHeight: .infinity, alignment: .top)
