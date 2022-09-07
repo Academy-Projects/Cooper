@@ -81,6 +81,7 @@ struct PremiseView: View {
                                 buttonPressed = 1
                                 opacityButton = 0.1
                                 opacityPlay = 1
+                                answerChoice = 1 // Armazena 1 se a primeiro botão for pressionado
                             },
                            label: {
                            
@@ -121,6 +122,7 @@ struct PremiseView: View {
                             buttonPressed = 2
                             opacityButton = 0.1
                             opacityPlay = 1
+                            answerChoice = 2 // Armazena 2 se a segundo botão for pressionado
                             },
                            label: {
                                 if buttonPressed == 2{
@@ -157,6 +159,7 @@ struct PremiseView: View {
                             buttonPressed = 3
                             opacityButton = 0.1
                             opacityPlay = 1
+                            answerChoice = 3 // Armazena 3 se a terceiro botão for pressionado
                             },
                            label: {
                                 if buttonPressed == 3{

@@ -65,6 +65,12 @@ struct AnswerFinalView: View {
                                 buttonPressed = 1
                                 opacityButton = 0.1
                                 opacityPlay = 1
+                                // Verifica se a resposta escolhida está correta
+                                if answerChoice ==  1{
+                                    print("Escolha certa")
+                                }else{
+                                    print("Escolha Errada")
+                                }
                             },
                            label: {
                            
@@ -98,10 +104,15 @@ struct AnswerFinalView: View {
                             }).frame(width: UIScreen.main.bounds.width * 0.8)
             //        Spacer()
                     Button(action: {
-                            
                             buttonPressed = 2
                             opacityButton = 0.1
                             opacityPlay = 1
+                            // Verifica se a resposta escolhida está correta
+                            if answerChoice ==  2{
+                                print("Escolha certa")
+                            }else{
+                                print("Escolha Errada")
+                            }
                             },
                            label: {
                                 if buttonPressed == 2{
@@ -136,10 +147,15 @@ struct AnswerFinalView: View {
                             }).frame(width: UIScreen.main.bounds.width * 0.8)
                    // Spacer()
                     Button(action: {
-                            
                             buttonPressed = 3
                             opacityButton = 0.1
                             opacityPlay = 1
+                            // Verifica se a resposta escolhida está correta
+                            if answerChoice ==  3{
+                                print("Escolha certa")
+                            }else{
+                                print("Escolha Errada")
+                            }
                             },
                            label: {
                                 if buttonPressed == 3{
