@@ -31,7 +31,9 @@ struct PremiseView: View {
                         Button(action: {presentationMode.wrappedValue.dismiss()},
                                label: {
                                     Rectangle()
-                                    Text("X")
+                                    Image(systemName: "chevron.left")
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .foregroundColor(Color("colorFont"))
                                         .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
                                         .background(Color.gray.opacity(0.2))
                                         .clipShape(RoundedRectangle(cornerRadius: 12))
@@ -67,7 +69,7 @@ struct PremiseView: View {
                     }.frame(width: UIScreen.main.bounds.width * 0.46)
                 }
             }
-                
+                //divisor da tela
                 Divider()
                     .frame(width: 2, height: UIScreen.main.bounds.height * 0.81)
                     .overlay(.green)
@@ -81,6 +83,8 @@ struct PremiseView: View {
                     .padding(.trailing, 60)
                     .padding(.leading, 60)
                     //.padding(.top, 180)
+                    
+                    //botoes de opcoes de escolha
                     
                     Button(action: {
                                 buttonPressed = 1
