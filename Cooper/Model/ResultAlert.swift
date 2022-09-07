@@ -10,14 +10,23 @@ import SwiftUI
 
 struct CustomAlertView: View{
     @Binding var show : Bool
+    @State var escolha:Bool
+    
     @Environment(\.presentationMode) var presentationMode
     var body: some View{
         
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)){
             VStack(spacing: 25){
-                Image("bone")
-                Text("PARABÉNS")
-                Text("VOCÊS CONSEGUIRAM ENTENDER O TURISTA")
+                if(escolha){
+                    Image("bone")
+                    Text("PARABÉNS").foregroundColor(.green)
+                    Text("VOCÊS CONSEGUIRAM ENTENDER O TURISTA")
+                }else{
+                    Image("chat")
+                    Text("QUE PENA").foregroundColor(.red)
+                    Text("VOCÊS NÃO CONSEGUIRAM ENTENDER O TURISTA")
+                }
+                
 //                Button(action: {presentationMode.wrappedValue.dismiss()},
 //                       label: {
 //                        Text("BACK")
