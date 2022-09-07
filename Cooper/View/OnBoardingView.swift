@@ -11,7 +11,7 @@ struct OnboardingStep{
     let image: String
     let isntruction: String
 }
-
+//teste
 private let OnboardingSteps = [
     OnboardingStep(image: "blocked", isntruction: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"),
     OnboardingStep(image: "blocked", isntruction: "qualquer outro texto"),
