@@ -17,6 +17,7 @@
 		287DA35A28BE7EAE006E624C /* PremiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DA35928BE7EAE006E624C /* PremiseView.swift */; };
 		287DA35C28BE83C8006E624C /* ListHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DA35B28BE83C8006E624C /* ListHistory.swift */; };
 		28D161FE28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28D161FD28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf */; };
+		3F24584D28C8DF7D002CB9AB /* ResultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */; };
 		3F8BBE2428AFC409008E9F32 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2328AFC409008E9F32 /* GameScene.swift */; };
 		3F8BBE2628B00673008E9F32 /* DraggableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2528B00673008E9F32 /* DraggableNode.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		287DA35B28BE83C8006E624C /* ListHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHistory.swift; sourceTree = "<group>"; };
 		28D161FD28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Bold.ttf"; sourceTree = "<group>"; };
 		28D161FF28C6F4DB0085D3B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAlert.swift; sourceTree = "<group>"; };
 		3F8BBE2328AFC409008E9F32 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		3F8BBE2528B00673008E9F32 /* DraggableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +121,7 @@
 				3F8BBE2528B00673008E9F32 /* DraggableNode.swift */,
 				287DA35228BAB360006E624C /* PersonalizeAlert.swift */,
 				287DA35B28BE83C8006E624C /* ListHistory.swift */,
+				3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				3F8BBE2628B00673008E9F32 /* DraggableNode.swift in Sources */,
 				287DA35C28BE83C8006E624C /* ListHistory.swift in Sources */,
 				284107FE28AB07B400D142F8 /* ContentView.swift in Sources */,
+				3F24584D28C8DF7D002CB9AB /* ResultAlert.swift in Sources */,
 				287DA35A28BE7EAE006E624C /* PremiseView.swift in Sources */,
 				287DA35328BAB360006E624C /* PersonalizeAlert.swift in Sources */,
 				3F8BBE2428AFC409008E9F32 /* GameScene.swift in Sources */,
