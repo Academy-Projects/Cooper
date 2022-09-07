@@ -17,6 +17,8 @@ struct AnswerFinalView: View {
     @State var opacityButton:Double = 1
     @State var opacityPlay: Double = 0
     
+    @State var customAlert = false
+    
     var body: some View{
       ZStack{
             HStack{
@@ -68,9 +70,13 @@ struct AnswerFinalView: View {
                                 // Verifica se a resposta escolhida está correta
                                 if answerChoice ==  1{
                                     print("Escolha certa")
+                                    CustomAlertView()
                                 }else{
                                     print("Escolha Errada")
                                 }
+                                customAlert.toggle()
+//                                CustomAlertView(show: $customAlert)
+                        
                             },
                            label: {
                            
@@ -201,16 +207,19 @@ struct AnswerFinalView: View {
             //.overlay(RoundedRectangle(cornerRadius: 100).stroke(Color.black))
             .background(RoundedRectangle(cornerRadius: 13)
             ).padding()
-            
+      
+          if self.customAlert {
+              GeometryReader{_ in
+                  CustomAlertView()
+              }.background(Color.black.opacity(0.3))
+          }
+          
       }.frame(maxWidth: .infinity, maxHeight: .infinity)
        .background(LinearGradient(gradient: Gradient(colors: [Color.white, Color("backgroundIlustration"), Color("backgroundIlustration"), Color.white]),
                                         startPoint: .leading,
                                         endPoint: .trailing))
          .navigationBarHidden(true)
-
     }
-    
-    
 }
 
 
@@ -233,5 +242,46 @@ struct FrameAdjustingContainer<Content: View>: View {
             }
             .padding()
         }
+    }
+}
+
+
+
+struct CustomAlertView: View{
+//    @Binding var show : Bool
+    var body: some View{
+        
+        ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)){
+            VStack(spacing: 25){
+                Image("bone")
+                Text("PARABÉNS")
+                Text("VOCE É INSURPOTAVEL")
+                Button(action: {},
+                       label: {
+                        Text("BACK")
+                            .foregroundColor(.white)
+                            .fontWeight(.bold)
+                            .padding(.vertical, 10)
+                            .background(Color.blue)
+                            .clipShape(Capsule())
+                        })
+                
+            }
+            .padding(.vertical, 25)
+            .padding(.horizontal, 30)
+            .cornerRadius(25)
+            .background(.red)
+            
+            Button(action: {
+//                    show.toggle()
+                    },
+                   label: {
+                    Image(systemName: "xmark.circle")
+                    .font(.system(size: 28, weight: .bold))
+                    .foregroundColor(Color.blue)
+                
+            }).padding()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
