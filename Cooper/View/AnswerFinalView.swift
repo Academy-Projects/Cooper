@@ -17,7 +17,8 @@ struct AnswerFinalView: View {
     @State var opacityButton:Double = 1
     @State var opacityPlay: Double = 0
     
-    @State var customAlert = false
+    @State var presentResultAlert = false
+    @State var result = false
     
     var body: some View{
       ZStack{
@@ -67,15 +68,16 @@ struct AnswerFinalView: View {
                                 buttonPressed = 1
                                 opacityButton = 0.1
                                 opacityPlay = 1
-                                // Verifica se a resposta escolhida está correta
+                                // Verifica se a resposta escolhida está correta.
                                 if answerChoice ==  1{
-                                    print("Escolha certa")
-//                                    CustomAlertView()
+                                    // Diz para o ResultAlert que a resposta está correta.
+                                    result = true
                                 }else{
-                                    print("Escolha Errada")
+                                    // Diz para o ResultAlert que a resposta está incorreta.
+                                    result = false
                                 }
-                                customAlert.toggle()
-//                                CustomAlertView(show: $customAlert)
+                                // Muda a variável para apresentar o Pop-Up.
+                                presentResultAlert.toggle()
                         
                             },
                            label: {
@@ -113,13 +115,17 @@ struct AnswerFinalView: View {
                             buttonPressed = 2
                             opacityButton = 0.1
                             opacityPlay = 1
-                            // Verifica se a resposta escolhida está correta
+                            // Verifica se a resposta escolhida está correta.
                             if answerChoice ==  2{
-                                print("Escolha certa")
+                                // Diz para o ResultAlert que a resposta está correta.
+                                result = true
                             }else{
-                                print("Escolha Errada")
+                                // Diz para o ResultAlert que a resposta está incorreta.
+                                result = false
                             }
-                            },
+                            // Muda a variável para apresentar o Pop-Up.
+                            presentResultAlert.toggle()
+                        },
                            label: {
                                 if buttonPressed == 2{
                                     Text(story.finalTwo)
@@ -156,13 +162,17 @@ struct AnswerFinalView: View {
                             buttonPressed = 3
                             opacityButton = 0.1
                             opacityPlay = 1
-                            // Verifica se a resposta escolhida está correta
+                            // Verifica se a resposta escolhida está correta.
                             if answerChoice ==  3{
-                                print("Escolha certa")
+                                // Diz para o ResultAlert que a resposta está correta.
+                                result = true
                             }else{
-                                print("Escolha Errada")
+                                // Diz para o ResultAlert que a resposta está incorreta.
+                                result = false
                             }
-                            },
+                            // Muda a variável para apresentar o Pop-Up.
+                            presentResultAlert.toggle()
+                        },
                            label: {
                                 if buttonPressed == 3{
                                     Text(story.finalThree)
@@ -208,8 +218,8 @@ struct AnswerFinalView: View {
             .background(RoundedRectangle(cornerRadius: 13)
             ).padding()
       
-          if self.customAlert {
-              CustomAlertView(show: $customAlert).background(Color.black.opacity(0.3))
+          if self.presentResultAlert {
+              CustomAlertView(show: $presentResultAlert, result: result).background(Color.black.opacity(0.3))
 //              GeometryReader{_ in
 //                  CustomAlertView()
 //              }.background(Color.black.opacity(0.3))

@@ -10,20 +10,20 @@ import SwiftUI
 
 struct CustomAlertView: View{
     @Binding var show : Bool
-    @State var escolha:Bool
+    @State var result:Bool
     
     @Environment(\.presentationMode) var presentationMode
     var body: some View{
         
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)){
             VStack(spacing: 25){
-                if(escolha){
+                if(result){
                     Image("bone")
-                    Text("PARABÉNS").foregroundColor(.green)
+                    Text("PARABÉNS").foregroundColor(.yellow).bold().font(Font.custom("SourceSans3-Bold", size: 50))
                     Text("VOCÊS CONSEGUIRAM ENTENDER O TURISTA")
                 }else{
                     Image("chat")
-                    Text("QUE PENA").foregroundColor(.red)
+                    Text("QUE PENA").foregroundColor(.red).bold().font(Font.custom("SourceSans3-Bold", size: 50))
                     Text("VOCÊS NÃO CONSEGUIRAM ENTENDER O TURISTA")
                 }
                 
