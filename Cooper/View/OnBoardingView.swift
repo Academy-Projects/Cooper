@@ -51,7 +51,21 @@ struct OnBoardingView: View {
                     
                             Spacer()
                             
-                            Button(action:{} , label: {Text("...")})
+                            HStack{
+                                ForEach(0..<OnboardingSteps.count){ it in
+                                    if it == currentStep{
+                                        Rectangle()
+                                            .frame(width: 20, height: 10)
+                                            .cornerRadius(10)
+                                            .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                    } else {
+                                        Circle()
+                                            .frame(width: 10, height: 10)
+                                            .foregroundColor(.gray)
+                                    }
+                                    
+                                }
+                            }
                             
                             Spacer()
                             
