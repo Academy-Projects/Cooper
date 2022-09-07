@@ -27,16 +27,6 @@ struct CustomAlertView: View{
                     Text("VOCÊS NÃO CONSEGUIRAM ENTENDER O TURISTA")
                 }
                 
-//                Button(action: {presentationMode.wrappedValue.dismiss()},
-//                       label: {
-//                        Text("BACK")
-//                            .foregroundColor(.white)
-//                            .fontWeight(.bold)
-//                            .padding(.vertical, 10)
-//                            .background(Color.blue)
-//                            .clipShape(Capsule())
-//                        })
-                
                 NavigationLink(destination: HistoryView(), label: {
                     Text("OK")
                         .font(Font.custom("SourceSans3-Bold", size: 20))

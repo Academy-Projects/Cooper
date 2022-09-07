@@ -18,6 +18,8 @@ struct PremiseView: View {
     @State var buttonPressed:Int = 0
     @State var opacityButton:Double = 1
     @State var opacityPlay: Double = 0
+    // Cria um tipo de apresentação.
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack{
@@ -25,17 +27,20 @@ struct PremiseView: View {
                 VStack{
                     ZStack{
                     HStack{
-                        NavigationLink(destination: HistoryView(), label: {
-                            Rectangle()
-                            Text("X")
-                                .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                                .background(Color.gray.opacity(0.2))
-                                .clipShape(RoundedRectangle(cornerRadius: 12))
-                                .background(RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.gray.opacity(0.2), lineWidth: 1)
-                                )
-                        }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                          .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 9))
+                        // Botão para voltar uma tela.
+                        Button(action: {presentationMode.wrappedValue.dismiss()},
+                               label: {
+                                    Rectangle()
+                                    Text("X")
+                                        .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                                        .background(Color.gray.opacity(0.2))
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                                        .background(RoundedRectangle(cornerRadius: 12)
+                                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+                                        )
+                                }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                                  .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 9))
+                        
                     }.frame(maxWidth: .infinity, alignment: .leading)
                      .frame(maxHeight: .infinity, alignment: .top)
                      .padding(.leading, 28)
