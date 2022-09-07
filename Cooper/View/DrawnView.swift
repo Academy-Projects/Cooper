@@ -27,6 +27,9 @@ struct DrawnView: View {
     
     @State var imagens:[[String]] = [["altofalante", "bandeira", "bone", "chat", "sombrinha"], ["chat", "sombrinha", "presente", "bandeira", "bone"]]
     
+    // Cria um tipo de apresentação.
+    @Environment(\.presentationMode) var presentationMode
+
     
     var body: some View{
 ZStack{
@@ -34,24 +37,27 @@ ZStack{
         ZStack{
                 SpriteView(scene: scene, isPaused: false)
             ZStack{
-                        NavigationLink(destination: PremiseView(), label: {
-                            Image(systemName: "chevron.left")
-                                .resizable()
-                                .scaledToFit()
-                                .padding(.vertical, 6)
-                                .font(Font.custom("SourceSans3-Bold", size: 10))
-                                .foregroundColor(Color("colorFont"))
-                                .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                                .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                                .clipShape(RoundedRectangle(cornerRadius: 12))
-                                .background(RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
-                                )
-                        })
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .frame(maxHeight: .infinity, alignment: .top)
-                        .padding(.leading, 24)
-                        .padding(.top, 24)
+                HStack{
+                    // Botão para voltar uma tela.
+                    Button(action: {presentationMode.wrappedValue.dismiss()},
+                           label: {
+                                Rectangle()
+                                Text("<")
+                                    .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                                    .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                                    .background(RoundedRectangle(cornerRadius: 12)
+                                        .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
+                                    )
+                            }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                    
+                    
+                    
+                           // .padding(EdgeInsets(top: 0, leading: 0, bottom: 600, trailing: 900))
+                }.frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxHeight: .infinity, alignment: .top)
+                .padding(.leading, 24)
+                .padding(.top, 24)
             }
             .frame(width: UIScreen.main.bounds.width * 0.69, height: UIScreen.main.bounds.height * 0.90)
             .padding(.trailing, -6)
