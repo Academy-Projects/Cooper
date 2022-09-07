@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// condicional para verificar se há historias disponiveis
 struct Condition: View{
     var index: Int
     var body: some View{
@@ -27,6 +28,8 @@ struct Condition: View{
     }
   }
 
+//struct que contem a a image da lista
+
 struct ItemView: View {
 
 var image: String
@@ -42,8 +45,9 @@ var body: some View {
 
 struct HistoryView: View {
     @State var idx: Int = 0
+//fotos das historias
     @State var data: [String] = ["blocked","blocked","blocked", "blocked", "blocked", "blocked", "blocked", "blocked"]
-    
+ // grid para setar array das historias
     let layout = [
         GridItem(.flexible(), spacing: 30),
         GridItem(.flexible(), spacing: 30)
@@ -66,6 +70,7 @@ struct HistoryView: View {
                         Image("woman")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
+                     //lazy grid que tras o array de imagens e foreach que contem os dados delas
                         LazyHGrid(rows: layout, spacing: 23){
                             ForEach(data.indices) { idx in
                                 VStack(){

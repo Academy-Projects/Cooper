@@ -69,7 +69,7 @@ struct PremiseView: View {
                     }.frame(width: UIScreen.main.bounds.width * 0.46)
                 }
             }
-                
+                //divisor da tela
                 Divider()
                     .frame(width: 2, height: UIScreen.main.bounds.height * 0.81)
                     .overlay(.green)
@@ -83,6 +83,8 @@ struct PremiseView: View {
                     .padding(.trailing, 60)
                     .padding(.leading, 60)
                     //.padding(.top, 180)
+                    
+                    //botoes de opcoes de escolha
                     
                     Button(action: {
                                 buttonPressed = 1

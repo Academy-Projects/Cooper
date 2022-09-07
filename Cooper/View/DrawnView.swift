@@ -12,7 +12,7 @@ import SpriteKit
 struct DrawnView: View {
     
     let gameScene = GameScene()
-
+//chamando cena spritKit
     public var scene: SKScene{
         gameScene.scaleMode = .resizeFill
         return gameScene
@@ -35,6 +35,7 @@ struct DrawnView: View {
 ZStack{
     HStack{
         ZStack{
+            //chamando a cena spritkit dentro de uma view
                 SpriteView(scene: scene, isPaused: false)
             ZStack{
                 HStack{
@@ -83,6 +84,7 @@ ZStack{
                 ScrollView{
                    // Spacer()
                     VStack{
+                        //array que tras a imagens após serem selecionadas
                         ForEach(0..<(imagens[0].count)){imageidx in
                             HStack{
                                 Button(action: {gameScene.createNewObj(image: imagens[0][imageidx])}){
