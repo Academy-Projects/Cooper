@@ -93,9 +93,9 @@ struct PremiseView: View {
                                 if buttonPressed == 1{
                                     Text(story.finalOne)
                                         //.font(.system(size: 55))
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.40)
-                                        .multilineTextAlignment(.center)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.40, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .padding()
                                         .foregroundColor(.white)
                                         .background(cor)
@@ -107,9 +107,9 @@ struct PremiseView: View {
                                 } else{
                                     Text(story.finalOne)
                                        // .font(.system(size: 55))
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.40)
-                                        .multilineTextAlignment(.center)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.40, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .padding()
                                         .foregroundColor(.white)
                                         .background(Color(red: 0/255, green: 59/255, blue: 75/255))
@@ -120,7 +120,9 @@ struct PremiseView: View {
                                             .stroke(Color.clear.opacity(12.2), lineWidth: 1)
                                         )
                                 }
-                            }).frame(width: UIScreen.main.bounds.width * 0.35)
+                            })
+                                .frame(width: UIScreen.main.bounds.width * 0.35)
+                                .padding(.bottom, 8)
             //        Spacer()
                     Button(action: {
                             
@@ -132,9 +134,9 @@ struct PremiseView: View {
                            label: {
                                 if buttonPressed == 2{
                                     Text(story.finalTwo)
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.40)
-                                        .multilineTextAlignment(.center)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.40, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .padding()
                                         .foregroundColor(.white)
                                         .background(cor)
@@ -144,9 +146,9 @@ struct PremiseView: View {
                                         )
                                 } else{
                                     Text(story.finalTwo)
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.40)
-                                        .multilineTextAlignment(.center)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.40, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .padding()
                                         .foregroundColor(.white)
                                         .background(Color(red: 0/255, green: 59/255, blue: 75/255))
@@ -157,7 +159,9 @@ struct PremiseView: View {
                                             .stroke(Color.clear.opacity(12.2), lineWidth: 1)
                                         )
                                 }
-                            }).frame(width: UIScreen.main.bounds.width * 0.35)
+                            })
+                                .frame(width: UIScreen.main.bounds.width * 0.35)
+                                .padding(.bottom, 8)
                    // Spacer()
                     Button(action: {
                             
@@ -169,9 +173,9 @@ struct PremiseView: View {
                            label: {
                                 if buttonPressed == 3{
                                     Text(story.finalThree)
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.40)
-                                        .multilineTextAlignment(.center)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.40, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .padding()
                                         .foregroundColor(.white)
                                         .background(cor)
@@ -181,9 +185,9 @@ struct PremiseView: View {
                                         )
                                 } else{
                                     Text(story.finalThree)
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.40)
-                                        .multilineTextAlignment(.center)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.40, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .padding()
                                         .foregroundColor(.white)
                                         .background(Color(red: 0/255, green: 59/255, blue: 75/255))
@@ -194,13 +198,15 @@ struct PremiseView: View {
                                             .stroke(Color.clear.opacity(12.2), lineWidth: 1)
                                         )
                                 }
-                            }).frame(width: UIScreen.main.bounds.width * 0.35)
+                            })
+                                .frame(width: UIScreen.main.bounds.width * 0.35)
+                                .padding(.bottom, 8)
                     
                     Text(story.warning)
                         .bold()
                         .multilineTextAlignment(.center)
                         .font(Font.custom("SourceSans3-Bold", size: 20))
-                        .frame(width: UIScreen.main.bounds.width * 0.43, height: UIScreen.main.bounds.height * 0.10)
+                        .frame(width: UIScreen.main.bounds.width * 0.43, height: UIScreen.main.bounds.height * 0.13)
                     
                     
                 }.frame(width: UIScreen.main.bounds.width * 0.50)

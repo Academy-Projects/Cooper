@@ -60,18 +60,16 @@ ZStack{
                 .padding(.top, 24)
             }
             .frame(width: UIScreen.main.bounds.width * 0.69, height: UIScreen.main.bounds.height * 0.90)
-            .padding(.trailing, 2)
-            .padding(.leading,2)
+            .padding(.trailing, -6)
+            .padding(.leading, -6)
             .border(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), width: 2)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .background(RoundedRectangle(cornerRadius: 20)
                 .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 3)
                 )
         }
-            //.background(Color.cyan)
             .clipShape(RoundedRectangle(cornerRadius: 13))
             .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 10)
-            //.overlay(RoundedRectangle(cornerRadius: 100).stroke(Color.black))
             .background(RoundedRectangle(cornerRadius: 13)
             ).padding()
         VStack{
@@ -89,19 +87,12 @@ ZStack{
                                     Image(imagens[0][imageidx])
                                         .resizable()
                                         .scaledToFit()
-//                                                .background(.gray)
-//                                                .cornerRadius(35.0)
-//                                                .overlay(RoundedRectangle(cornerRadius: 35).stroke(Color.black, lineWidth: 2))
-                                
                                 }.frame(width: UIScreen.main.bounds.width / 9)
-                              //  Spacer()
+
                                 Button(action: {gameScene.createNewObj(image: imagens[1][imageidx])}){
                                     Image(imagens[1][imageidx])
                                         .resizable()
                                         .scaledToFit()
-//                                               .background(.gray)
-//                                                .cornerRadius(34.0)
-//                                                .overlay(RoundedRectangle(cornerRadius: 34).stroke(Color.black, lineWidth: 2))
                                 
                                 }.frame(width: UIScreen.main.bounds.width / 9)
                             }
@@ -110,16 +101,13 @@ ZStack{
                 }
             NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
                     Text("Terminei de ilustrar ")
-                       // .foregroundColor(Color("colorFont"))
                         .font(Font.custom("SourceSans3-Bold", size: 20))
-                       // .bold()
                         .frame(width: UIScreen.main.bounds.width * 0.21, height: UIScreen.main.bounds.height * 0.046)
-//                                .padding(EdgeInsets(top: 0, leading: 10, bottom: 24, trailing: 10))
-                    .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .background(RoundedRectangle(cornerRadius: 12)
-                        .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
-                    )
+                        .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .background(RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
+                        )
                 }).padding(EdgeInsets(top: 0, leading: 0, bottom: 32, trailing: 0))
             
         }.frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.height * 0.93)

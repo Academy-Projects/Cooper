@@ -50,8 +50,9 @@ struct AnswerFinalView: View {
                                 
                         }.frame(maxWidth: .infinity, alignment: .leading)
                         .frame(maxHeight: .infinity, alignment: .top)
-                        .padding(.leading, 24)
-                        .padding(.top, 24)
+                        .padding(.leading, 14)
+                        .padding(.top, 14)
+
                     }
                     .frame(width: UIScreen.main.bounds.width * 0.65, height: UIScreen.main.bounds.height * 0.87)
                     .padding(EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 0))
@@ -90,9 +91,9 @@ struct AnswerFinalView: View {
                            
                                 if buttonPressed == 1{
                                     Text(story.finalOne)
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.22)
-                                        
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.22, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .padding()
                                         .foregroundColor(.white)
                                         .background(cor)
@@ -103,8 +104,9 @@ struct AnswerFinalView: View {
                                     
                                 } else{
                                     Text(story.finalOne)
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.22)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.22, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .padding()
                                         .foregroundColor(.white)
                                         .background(Color(red: 0/255, green: 59/255, blue: 75/255))
@@ -115,7 +117,9 @@ struct AnswerFinalView: View {
                                             .stroke(Color.clear.opacity(12.2), lineWidth: 1)
                                         )
                                 }
-                            }).frame(width: UIScreen.main.bounds.width * 0.8)
+                            })
+                                .frame(width: UIScreen.main.bounds.width * 0.8)
+                                .padding(.bottom, 8)
             //        Spacer()
                     Button(action: {
                             buttonPressed = 2
@@ -135,9 +139,9 @@ struct AnswerFinalView: View {
                            label: {
                                 if buttonPressed == 2{
                                     Text(story.finalTwo)
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.22)
-                                        .multilineTextAlignment(.center)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.22, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .font(.system(size: 20))
                                         .padding()
                                         .foregroundColor(.white)
@@ -148,9 +152,9 @@ struct AnswerFinalView: View {
                                         )
                                 } else{
                                     Text(story.finalTwo)
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.22)
-                                        .multilineTextAlignment(.center)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.22, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .font(.system(size: 20))
                                         .padding()
                                         .foregroundColor(.white)
@@ -162,7 +166,9 @@ struct AnswerFinalView: View {
                                             .stroke(Color.clear.opacity(12.2), lineWidth: 1)
                                         )
                                 }
-                            }).frame(width: UIScreen.main.bounds.width * 0.8)
+                            })
+                                .frame(width: UIScreen.main.bounds.width * 0.8)
+                                .padding(.bottom, 8)
                    // Spacer()
                     Button(action: {
                             buttonPressed = 3
@@ -182,9 +188,9 @@ struct AnswerFinalView: View {
                            label: {
                                 if buttonPressed == 3{
                                     Text(story.finalThree)
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.22)
-                                        .multilineTextAlignment(.center)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.22, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .font(.system(size: 20))
                                         .padding()
                                         .foregroundColor(.white)
@@ -195,9 +201,9 @@ struct AnswerFinalView: View {
                                         )
                                 } else{
                                     Text(story.finalThree)
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .frame(width: UIScreen.main.bounds.width * 0.22)
-                                        .multilineTextAlignment(.center)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .frame(width: UIScreen.main.bounds.width * 0.22, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
                                         .font(.system(size: 20))
                                         .padding()
                                         .foregroundColor(.white)
@@ -209,8 +215,24 @@ struct AnswerFinalView: View {
                                             .stroke(Color.clear.opacity(12.2), lineWidth: 1)
                                         )
                                 }
-                            }).frame(width: UIScreen.main.bounds.width * 0.8)
+                            })
+                                .frame(width: UIScreen.main.bounds.width * 0.8)
+                                .padding(.bottom, 8)
                     
+                    NavigationLink(destination: HistoryView(), label: {
+                            Text("OK")
+                                .foregroundColor(Color("colorFont"))
+                                .font(Font.custom("SourceSans3-Bold", size: 20))
+                                .frame(width: UIScreen.main.bounds.width * 0.24, height: UIScreen.main.bounds.height * 0.046)
+                                .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                                .background(RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.clear.opacity(12.2), lineWidth: 1)
+                                )
+                        })
+                            .frame(width: UIScreen.main.bounds.width * 0.8)
+                            .padding(.top, 8)
+
              
                 }.frame(width: UIScreen.main.bounds.width * 0.26)
                     .background(Color.white)
