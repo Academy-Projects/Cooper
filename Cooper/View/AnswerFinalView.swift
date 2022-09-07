@@ -17,6 +17,12 @@ struct AnswerFinalView: View {
     @State var opacityButton:Double = 1
     @State var opacityPlay: Double = 0
     
+    @State var presentResultAlert = false
+    @State var result = false
+    
+    // Cria um tipo de apresentação.
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View{
       ZStack{
             HStack{
@@ -27,22 +33,22 @@ struct AnswerFinalView: View {
                         .resizable()
                         .scaledToFit()
                     ZStack{
-                        NavigationLink(destination: DrawnView(), label: {
-                      //      Rectangle()
-                            Image(systemName: "chevron.left")
-                                .resizable()
-                                .scaledToFit()
-                                .padding(.vertical, 6)
-                                .font(Font.custom("SourceSans3-Bold", size: 10))
-                                .foregroundColor(Color("colorFont"))
-                                .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                                .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                                .clipShape(RoundedRectangle(cornerRadius: 12))
-                                .background(RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
-                                )
-                        })
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        HStack{
+                            
+                            Button(action: {presentationMode.wrappedValue.dismiss()},
+                                   label: {
+                                    Rectangle()
+                                    Text("<")
+                                        .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                                        .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                                        .background(RoundedRectangle(cornerRadius: 12)
+                                            .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
+                                        )
+                                    }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                            
+                                
+                        }.frame(maxWidth: .infinity, alignment: .leading)
                         .frame(maxHeight: .infinity, alignment: .top)
                         .padding(.leading, 14)
                         .padding(.top, 14)
@@ -69,6 +75,17 @@ struct AnswerFinalView: View {
                                 buttonPressed = 1
                                 opacityButton = 0.1
                                 opacityPlay = 1
+                                // Verifica se a resposta escolhida está correta.
+                                if answerChoice ==  1{
+                                    // Diz para o ResultAlert que a resposta está correta.
+                                    result = true
+                                }else{
+                                    // Diz para o ResultAlert que a resposta está incorreta.
+                                    result = false
+                                }
+                                // Muda a variável para apresentar o Pop-Up.
+                                presentResultAlert.toggle()
+                        
                             },
                            label: {
                            
@@ -105,11 +122,20 @@ struct AnswerFinalView: View {
                                 .padding(.bottom, 8)
             //        Spacer()
                     Button(action: {
-                            
                             buttonPressed = 2
                             opacityButton = 0.1
                             opacityPlay = 1
-                            },
+                            // Verifica se a resposta escolhida está correta.
+                            if answerChoice ==  2{
+                                // Diz para o ResultAlert que a resposta está correta.
+                                result = true
+                            }else{
+                                // Diz para o ResultAlert que a resposta está incorreta.
+                                result = false
+                            }
+                            // Muda a variável para apresentar o Pop-Up.
+                            presentResultAlert.toggle()
+                        },
                            label: {
                                 if buttonPressed == 2{
                                     Text(story.finalTwo)
@@ -145,11 +171,20 @@ struct AnswerFinalView: View {
                                 .padding(.bottom, 8)
                    // Spacer()
                     Button(action: {
-                            
                             buttonPressed = 3
                             opacityButton = 0.1
                             opacityPlay = 1
-                            },
+                            // Verifica se a resposta escolhida está correta.
+                            if answerChoice ==  3{
+                                // Diz para o ResultAlert que a resposta está correta.
+                                result = true
+                            }else{
+                                // Diz para o ResultAlert que a resposta está incorreta.
+                                result = false
+                            }
+                            // Muda a variável para apresentar o Pop-Up.
+                            presentResultAlert.toggle()
+                        },
                            label: {
                                 if buttonPressed == 3{
                                     Text(story.finalThree)
@@ -210,16 +245,20 @@ struct AnswerFinalView: View {
             //.overlay(RoundedRectangle(cornerRadius: 100).stroke(Color.black))
             .background(RoundedRectangle(cornerRadius: 13)
             ).padding()
-            
+      
+          if self.presentResultAlert {
+              CustomAlertView(show: $presentResultAlert, result: result).background(Color.black.opacity(0.3))
+//              GeometryReader{_ in
+//                  CustomAlertView()
+//              }.background(Color.black.opacity(0.3))
+          }
+          
       }.frame(maxWidth: .infinity, maxHeight: .infinity)
        .background(LinearGradient(gradient: Gradient(colors: [Color.white, Color("backgroundIlustration"), Color("backgroundIlustration"), Color.white]),
                                         startPoint: .leading,
                                         endPoint: .trailing))
          .navigationBarHidden(true)
-
     }
-    
-    
 }
 
 

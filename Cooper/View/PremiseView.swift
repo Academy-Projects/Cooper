@@ -18,32 +18,32 @@ struct PremiseView: View {
     @State var buttonPressed:Int = 0
     @State var opacityButton:Double = 1
     @State var opacityPlay: Double = 0
+    // Cria um tipo de apresentação.
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack{
             HStack(){
                 VStack{
                     ZStack{
-                        NavigationLink(destination: HistoryView(), label: {
-                      //      Rectangle()
-                            Image(systemName: "chevron.left")
-                                .resizable()
-                                .scaledToFit()
-                                .padding(.vertical, 6)
-                                .font(Font.custom("SourceSans3-Bold", size: 10))
-                                .foregroundColor(Color("colorFont"))
-                                .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                                .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                                .clipShape(RoundedRectangle(cornerRadius: 12))
-                                .background(RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
-                                )
-                        })
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .frame(maxHeight: .infinity, alignment: .top)
-                        .padding(.leading, 24)
-                        .padding(.top, 24)
-
+                    HStack{
+                        // Botão para voltar uma tela.
+                        Button(action: {presentationMode.wrappedValue.dismiss()},
+                               label: {
+                                    Rectangle()
+                                    Text("X")
+                                        .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                                        .background(Color.gray.opacity(0.2))
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                                        .background(RoundedRectangle(cornerRadius: 12)
+                                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+                                        )
+                                }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                                  .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 9))
+                        
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                     .frame(maxHeight: .infinity, alignment: .top)
+                     .padding(.leading, 28)
 
                 VStack{
                     Image(story.image)
@@ -86,6 +86,7 @@ struct PremiseView: View {
                                 buttonPressed = 1
                                 opacityButton = 0.1
                                 opacityPlay = 1
+                                answerChoice = 1 // Armazena 1 se a primeiro botão for pressionado
                             },
                            label: {
                            
@@ -128,6 +129,7 @@ struct PremiseView: View {
                             buttonPressed = 2
                             opacityButton = 0.1
                             opacityPlay = 1
+                            answerChoice = 2 // Armazena 2 se a segundo botão for pressionado
                             },
                            label: {
                                 if buttonPressed == 2{
@@ -166,6 +168,7 @@ struct PremiseView: View {
                             buttonPressed = 3
                             opacityButton = 0.1
                             opacityPlay = 1
+                            answerChoice = 3 // Armazena 3 se a terceiro botão for pressionado
                             },
                            label: {
                                 if buttonPressed == 3{

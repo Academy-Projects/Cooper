@@ -40,11 +40,11 @@ class DraggableNode: SKNode {
         touchPos = (touches.first?.location(in: self.scene!))!
         
     }
-    
+    // Seta o estado da Imagem para não selecionada.
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.name = "unselected"
         counter = 0    }
-
+    // Seta o estado da Imagem para não selecionada.
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.name = "unselected"
         counter = 0
@@ -80,20 +80,20 @@ class DraggableNode: SKNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    // Calcula a distância entre o toque dentro da imagem e o toque passado pelo parametro.
     func getLength(_ secondTouchPos: CGPoint) -> CGFloat{
         let oposite = secondTouchPos.y - touchPos.y
         let adjacent = secondTouchPos.x - touchPos.x
         let hypotenuse = sqrt (pow( oposite, 2) + pow( adjacent, 2))
         return hypotenuse
     }
-    
+    // Calcula o angulo entre o toque dentro da imagem e toque passado pelo parametro.
     func getAngle(_ secondTouchPos: CGPoint) -> CGFloat{
         let catetoOposto = secondTouchPos.y - touchPos.y
         let catetoAdjacente = secondTouchPos.x - touchPos.x
         let tangente = catetoOposto / catetoAdjacente
         let angulo = atan(tangente)
-        
+        // Corrige o valor do angulo de acordo com o quadrante atual.
         if (secondTouchPos.x > touchPos.x && secondTouchPos.y > touchPos.y){
             return angulo
         }
@@ -105,12 +105,12 @@ class DraggableNode: SKNode {
         }
         return CGFloat(0)
     }
-    
+    // Rotaciona a imagem.
     func rotateNode(_ secondTouchPos: CGPoint, _ angleOffset: CGFloat){
         let fingerAngle = getAngle(secondTouchPos)
         self.zRotation = fingerAngle - angleOffset
     }
-    
+    // Reposiciona a imagem.
     func positionNode(_ secondTouchPos: CGPoint, _ angleOffset: CGFloat){
         let fingerAngle = getAngle(secondTouchPos)
         var deltaAngle:CGFloat = 0
@@ -126,7 +126,7 @@ class DraggableNode: SKNode {
         self.position.y = (Ny * cos(deltaAngle)) + (Nx * sin(deltaAngle)) -  (Tx * sin(deltaAngle)) - (Ty * (cos(deltaAngle) - 1))
         
     }
-    
+    // Rescalona a imagem.
     func scaleNode(_ secondTouchPos: CGPoint, _ originalLength: CGFloat){
         let oposite = secondTouchPos.y - touchPos.y
         let adjacent = secondTouchPos.x - touchPos.x
