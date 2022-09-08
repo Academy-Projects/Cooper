@@ -19,6 +19,7 @@ private let OnboardingSteps = [
 ]
 
 struct OnBoardingView: View {
+    @AppStorage ("isOnboarding") var  isOnboarding: Bool?
     
     @State private var currentStep = 0
     
@@ -73,7 +74,7 @@ struct OnBoardingView: View {
                                 if self.currentStep < OnboardingSteps.count - 1{
                                     self.currentStep += 1
                                 } else{
-                                    //nothing
+                                    isOnboarding = false
                                 }
                             } ,
                                    label:{
