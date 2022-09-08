@@ -10,6 +10,7 @@ import SwiftUI
 // condicional para verificar se há historias disponiveis
 struct Condition: View{
     var index: Int
+    @State var presentResultAlert = false
     var body: some View{
         if index == 0 {
             PremiseView(story: naps[0])
@@ -20,10 +21,8 @@ struct Condition: View{
 //        else if index == 2 {
 //            PremiseView(story: naps[2])
 //        }
-        else{
-            ZStack{
-                Text("aqui vai ter um alert talvez quem sabe?")
-            }
+        else {
+            UnavailableAlert(show: $presentResultAlert)
      }
     }
   }

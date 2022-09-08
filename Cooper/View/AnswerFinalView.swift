@@ -17,8 +17,8 @@ struct AnswerFinalView: View {
     @State var opacityButton:Double = 1
     @State var opacityPlay: Double = 0
     
-    @State var presentResultAlert = false
-    @State var result = false
+    @State var presentResultAlert = false // Faz o Pop-Up aparecer ou não
+    @State var result = false // Indica se o usuario acertou ou não.
     
     // Cria um tipo de apresentação.
     @Environment(\.presentationMode) var presentationMode

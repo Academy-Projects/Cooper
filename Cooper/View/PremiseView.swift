@@ -28,11 +28,17 @@ struct PremiseView: View {
                     ZStack{
                     HStack{
                         // Botão para voltar uma tela.
-                        Button(action: {presentationMode.wrappedValue.dismiss()},
+                        Button(action: {
+                            
+                            let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                            impactMed.impactOccurred()
+                            
+                            presentationMode.wrappedValue.dismiss()
+                        },
                                label: {
                                     Rectangle()
                                     Image(systemName: "chevron.left")
-                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .font(Font.custom("SourceSans3-Bold", size: 20))
                                         .foregroundColor(Color("colorFont"))
                                         .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
                                         .background(Color.gray.opacity(0.2))
@@ -238,5 +244,8 @@ struct PremiseView: View {
           }
         } .navigationBarHidden(true)
     }
+        .background(LinearGradient(gradient: Gradient(colors: [Color.white, Color("backgroundIlustration"), Color("backgroundIlustration"), Color.white]),
+                                    startPoint: .leading,
+                                    endPoint: .trailing))
   }
 }
