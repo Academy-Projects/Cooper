@@ -14,7 +14,7 @@ struct PremiseView: View {
     
     var story: ListHistory = naps[0]
     @State var cor:Color = Color(red: 0/255, green: 59/255, blue: 75/255)
-    
+    let font = UIFont(name: "SourceSans3-Bold", size: 16)!
     @State var buttonPressed:Int = 0
     @State var opacityButton:Double = 1
     @State var opacityPlay: Double = 0
@@ -23,25 +23,31 @@ struct PremiseView: View {
     
     var body: some View {
         ZStack{
-            HStack(){
+            HStack{
                 VStack{
                     ZStack{
                     HStack{
                         // Botão para voltar uma tela.
-                        Button(action: {presentationMode.wrappedValue.dismiss()},
+                        Button(action: {
+                            
+                            let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                            impactMed.impactOccurred()
+                            
+                            presentationMode.wrappedValue.dismiss()
+                        },
                                label: {
                                     Rectangle()
                                     Image(systemName: "chevron.left")
-                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .font(Font.custom("SourceSans3-Bold", size: 20))
                                         .foregroundColor(Color("colorFont"))
                                         .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                                        .background(Color.gray.opacity(0.2))
+                                        .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                                         .clipShape(RoundedRectangle(cornerRadius: 12))
                                         .background(RoundedRectangle(cornerRadius: 12)
                                             .stroke(Color.gray.opacity(0.2), lineWidth: 1)
                                         )
                                 }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                                  .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 9))
+                                  .padding(EdgeInsets(top: 30, leading: 30, bottom: 0, trailing: 0))
                         
                     }.frame(maxWidth: .infinity, alignment: .leading)
                      .frame(maxHeight: .infinity, alignment: .top)
@@ -51,41 +57,45 @@ struct PremiseView: View {
                     Image(story.image)
                         .resizable()
                         .frame(width: UIScreen.main.bounds.width * 0.24, height: UIScreen.main.bounds.height * 0.20)
-                        //.padding(.top, 42)
-                    
-                    Text(story.title)
-                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                        .bold()
-                    
-                    Divider()
-                        .frame(width: 357, height: 2 , alignment: .center)
-                        .overlay(.green)
-                    
+                        .padding(.leading, 40)
+                    ZStack{
+                        Text(story.title)
+                            .font(Font.custom("SourceSans3-Bold", size: 35))
+                            .bold()
+                            .padding(.leading, 40)
+                        
+                        Divider()
+                            .frame(width: 357, height: 2 , alignment: .center)
+                            .overlay(Color("colorFont"))
+                            .padding(.top, 40)
+                            .padding(.leading, 40)
+                    }.padding(.bottom, 22)
                         Text(story.premise)
                             .bold()
                             .multilineTextAlignment(.center)
-                            .font(Font.custom("SourceSans3-Bold", size: 20))
+                            .font(Font.custom("SourceSans3-Bold", size: 25))
                             .frame(width: UIScreen.main.bounds.width * 0.43)
+                            .padding(.leading, 40)
                     }.frame(width: UIScreen.main.bounds.width * 0.46)
                 }
             }
                 //divisor da tela
                 Divider()
-                    .frame(width: 2, height: UIScreen.main.bounds.height * 0.81)
-                    .overlay(.green)
+                    .frame(width: 4, height: UIScreen.main.bounds.height * 0.61)
+                    .overlay(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
             ZStack{
-                VStack{
+                VStack(){
+                    ZStack{
                     Text(story.instruction)
-                    .bold()
-                    .multilineTextAlignment(.center)
-                    .font(Font.custom("SourceSans3-Bold", size: 20))
-                    .frame(width: UIScreen.main.bounds.width * 0.39, height: UIScreen.main.bounds.height * 0.10)
+                    .multilineTextAlignment(.leading)
+                    .font(Font.custom("SourceSans3-Bold", size: 25))
+                    .frame(width: UIScreen.main.bounds.width * 0.39, height: UIScreen.main.bounds.height * 0.20)
                     .padding(.trailing, 60)
                     .padding(.leading, 60)
-                    //.padding(.top, 180)
-                    
+                    .padding(.bottom, 160)
+
                     //botoes de opcoes de escolha
-                    
+                    VStack{
                     Button(action: {
                                 buttonPressed = 1
                                 opacityButton = 0.1
@@ -97,7 +107,7 @@ struct PremiseView: View {
                                 if buttonPressed == 1{
                                     Text(story.finalOne)
                                         //.font(.system(size: 55))
-                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .font(Font.custom("SourceSans3-Regular", size: 23))
                                         .frame(width: UIScreen.main.bounds.width * 0.40, alignment: .leading)
                                         .multilineTextAlignment(.leading)
                                         .padding()
@@ -111,7 +121,7 @@ struct PremiseView: View {
                                 } else{
                                     Text(story.finalOne)
                                        // .font(.system(size: 55))
-                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .font(Font.custom("SourceSans3-Regular", size: 23))
                                         .frame(width: UIScreen.main.bounds.width * 0.40, alignment: .leading)
                                         .multilineTextAlignment(.leading)
                                         .padding()
@@ -138,7 +148,7 @@ struct PremiseView: View {
                            label: {
                                 if buttonPressed == 2{
                                     Text(story.finalTwo)
-                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .font(Font.custom("SourceSans3-Regular", size: 23))
                                         .frame(width: UIScreen.main.bounds.width * 0.40, alignment: .leading)
                                         .multilineTextAlignment(.leading)
                                         .padding()
@@ -150,7 +160,7 @@ struct PremiseView: View {
                                         )
                                 } else{
                                     Text(story.finalTwo)
-                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .font(Font.custom("SourceSans3-Regular", size: 23))
                                         .frame(width: UIScreen.main.bounds.width * 0.40, alignment: .leading)
                                         .multilineTextAlignment(.leading)
                                         .padding()
@@ -177,7 +187,7 @@ struct PremiseView: View {
                            label: {
                                 if buttonPressed == 3{
                                     Text(story.finalThree)
-                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .font(Font.custom("SourceSans3-Regular", size: 23))
                                         .frame(width: UIScreen.main.bounds.width * 0.40, alignment: .leading)
                                         .multilineTextAlignment(.leading)
                                         .padding()
@@ -189,7 +199,7 @@ struct PremiseView: View {
                                         )
                                 } else{
                                     Text(story.finalThree)
-                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                        .font(Font.custom("SourceSans3-Regular", size: 23))
                                         .frame(width: UIScreen.main.bounds.width * 0.40, alignment: .leading)
                                         .multilineTextAlignment(.leading)
                                         .padding()
@@ -204,26 +214,24 @@ struct PremiseView: View {
                                 }
                             })
                                 .frame(width: UIScreen.main.bounds.width * 0.35)
-                                .padding(.bottom, 8)
-                    
-                    Text(story.warning)
-                        .bold()
-                        .multilineTextAlignment(.center)
-                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                        .frame(width: UIScreen.main.bounds.width * 0.43, height: UIScreen.main.bounds.height * 0.13)
-                    
-                    
-                }.frame(width: UIScreen.main.bounds.width * 0.50)
+                               // .padding(.bottom, 800)
+                    }
+                    .padding(.bottom, 90)
+                    .padding(.top, 290)
+                }
+                }
+                .frame(width: UIScreen.main.bounds.width * 0.50)
+                .padding(.trailing, 30)
                 VStack(){
                     Spacer()
                     NavigationLink(destination: DrawnView(), label: {
                         Text("Jogar")
-                            .font(Font.custom("SourceSans3-Bold", size: 20))
+                            .font(Font.custom("SourceSans3-Bold", size: 28))
                             .bold()
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                           //  .padding(EdgeInsets(top: 247, leading: 340, bottom:0 , trailing: 12))
                             .foregroundColor(.white)
-                            .background(Color(red: 0/255, green: 59/255, blue: 75/255))
+                            .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                             .background(RoundedRectangle(cornerRadius: 12)
                                 .stroke(Color.clear.opacity(12.2), lineWidth: 1)
@@ -231,12 +239,27 @@ struct PremiseView: View {
                         }).opacity(opacityPlay)
                           .animation(.easeInOut(duration: 0.5))
                           .frame(width: UIScreen.main.bounds.width * 0.17, height: UIScreen.main.bounds.height * 0.063)
-                          .padding(.trailing, 34)
+                          .padding(.trailing, 58)
+                         // .padding(.bottom,  53)
                           
                     }.frame(maxWidth: .infinity, alignment: .trailing)
-                     .padding(.bottom, 36)
-          }
-        } .navigationBarHidden(true)
+                     
+          }.padding(.bottom, 36)
+        }
+            
+            .background(Color.white)
+            .frame(width: UIScreen.main.bounds.width * 0.94, height: UIScreen.main.bounds.height * 0.92)
+            //.padding()
+            .border(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), width: 1)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .background(RoundedRectangle(cornerRadius: 20)
+                .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 15)
+                )
     }
+        .navigationBarHidden(true)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(LinearGradient(gradient: Gradient(colors: [Color.white, Color("backgroundIlustration"), Color("backgroundIlustration"), Color.white]),
+                                startPoint: .leading,
+                                endPoint: .trailing))
   }
 }

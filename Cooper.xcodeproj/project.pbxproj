@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		283FD6AB28CA774200020ACA /* UnavailableAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283FD6AA28CA774200020ACA /* UnavailableAlert.swift */; };
 		284107FC28AB07B400D142F8 /* CooperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284107FB28AB07B400D142F8 /* CooperApp.swift */; };
 		284107FE28AB07B400D142F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284107FD28AB07B400D142F8 /* ContentView.swift */; };
 		2841080028AB07B600D142F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 284107FF28AB07B600D142F8 /* Assets.xcassets */; };
@@ -17,9 +18,9 @@
 		287DA35A28BE7EAE006E624C /* PremiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DA35928BE7EAE006E624C /* PremiseView.swift */; };
 		287DA35C28BE83C8006E624C /* ListHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DA35B28BE83C8006E624C /* ListHistory.swift */; };
 		28D161FE28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28D161FD28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf */; };
-		3F24584D28C8DF7D002CB9AB /* ResultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */; };
 		28D1620128C7CA740085D3B2 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D1620028C7CA740085D3B2 /* OnBoardingView.swift */; };
 		28D1620328C7D5360085D3B2 /* SourceSans3-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28D1620228C7D5360085D3B2 /* SourceSans3-Regular.ttf */; };
+		3F24584D28C8DF7D002CB9AB /* ResultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */; };
 		3F8BBE2428AFC409008E9F32 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2328AFC409008E9F32 /* GameScene.swift */; };
 		3F8BBE2628B00673008E9F32 /* DraggableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2528B00673008E9F32 /* DraggableNode.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		283FD6AA28CA774200020ACA /* UnavailableAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnavailableAlert.swift; sourceTree = "<group>"; };
 		284107F828AB07B400D142F8 /* Cooper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cooper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		284107FB28AB07B400D142F8 /* CooperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooperApp.swift; sourceTree = "<group>"; };
 		284107FD28AB07B400D142F8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,9 +58,9 @@
 		287DA35B28BE83C8006E624C /* ListHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHistory.swift; sourceTree = "<group>"; };
 		28D161FD28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Bold.ttf"; sourceTree = "<group>"; };
 		28D161FF28C6F4DB0085D3B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAlert.swift; sourceTree = "<group>"; };
 		28D1620028C7CA740085D3B2 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		28D1620228C7D5360085D3B2 /* SourceSans3-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Regular.ttf"; sourceTree = "<group>"; };
+		3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAlert.swift; sourceTree = "<group>"; };
 		3F8BBE2328AFC409008E9F32 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		3F8BBE2528B00673008E9F32 /* DraggableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 				287DA35228BAB360006E624C /* PersonalizeAlert.swift */,
 				287DA35B28BE83C8006E624C /* ListHistory.swift */,
 				3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */,
+				283FD6AA28CA774200020ACA /* UnavailableAlert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				287DA35328BAB360006E624C /* PersonalizeAlert.swift in Sources */,
 				3F8BBE2428AFC409008E9F32 /* GameScene.swift in Sources */,
 				284107FC28AB07B400D142F8 /* CooperApp.swift in Sources */,
+				283FD6AB28CA774200020ACA /* UnavailableAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,7 +463,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 8MKU4N27YM;
+				DEVELOPMENT_TEAM = XJ57BXJG95;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooper/Info.plist;
@@ -491,7 +495,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 8MKU4N27YM;
+				DEVELOPMENT_TEAM = XJ57BXJG95;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooper/Info.plist;

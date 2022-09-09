@@ -44,7 +44,7 @@ ZStack{
                            label: {
                                 Rectangle()
                                 Image(systemName: "chevron.left")
-                                    .font(Font.custom("SourceSans3-Regular", size: 20))
+                                    .font(Font.custom("SourceSans3-Bold", size: 20))
                                     .foregroundColor(Color("colorFont"))
                                     .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
                                     .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
@@ -106,6 +106,7 @@ ZStack{
             NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
                     Text("Terminei de ilustrar ")
                         .font(Font.custom("SourceSans3-Bold", size: 20))
+                        .foregroundColor(Color("colorFont"))
                         .frame(width: UIScreen.main.bounds.width * 0.21, height: UIScreen.main.bounds.height * 0.046)
                         .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                         .clipShape(RoundedRectangle(cornerRadius: 12))

@@ -69,7 +69,8 @@ struct OnBoardingView: View {
                             }
                             
                             Spacer()
-                            
+                           // condicao que verifica a quatidade de elementos para se tornar e view e verifica se é a ultima para que possa seguir para o app
+                            // a aplicacao nao volta pra essa view a nao ser que seja apagada
                             Button(action:{
                                 if self.currentStep < OnboardingSteps.count - 1{
                                     self.currentStep += 1

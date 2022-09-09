@@ -10,6 +10,7 @@ import SwiftUI
 // condicional para verificar se há historias disponiveis
 struct Condition: View{
     var index: Int
+    @State var presentResultAlert = false
     var body: some View{
         if index == 0 {
             PremiseView(story: naps[0])
@@ -20,10 +21,8 @@ struct Condition: View{
 //        else if index == 2 {
 //            PremiseView(story: naps[2])
 //        }
-        else{
-            ZStack{
-                Text("aqui vai ter um alert talvez quem sabe?")
-            }
+        else {
+            UnavailableAlert(show: $presentResultAlert)
      }
     }
   }
@@ -48,6 +47,9 @@ struct HistoryView: View {
 //fotos das historias
     @State var data: [String] = ["blocked","blocked","blocked", "blocked", "blocked", "blocked", "blocked", "blocked"]
  // grid para setar array das historias
+    @State var presentResultAlert = false // Faz o Pop-Up aparecer ou não
+    @State var result = false // Indica se o usuario acertou ou não.
+    
     let layout = [
         GridItem(.flexible(), spacing: 30),
         GridItem(.flexible(), spacing: 30)
@@ -74,17 +76,30 @@ struct HistoryView: View {
                         LazyHGrid(rows: layout, spacing: 23){
                             ForEach(data.indices) { idx in
                                 VStack(){
-                                    NavigationLink(destination:
-                                       Condition(index: idx)
-                                    ){
-                                      ItemView(image: data[idx])
-                                }
+                                    if(idx < 3){
+                                        NavigationLink(destination:
+                                           Condition(index: idx)
+                                        ){
+                                          ItemView(image: data[idx])
+                                        }
+                                    }else{
+                                        Button(action: {
+                                            presentResultAlert.toggle()
+                                        }, label: {ItemView(image: data[idx])})
+                                    }
+                                    
                              }
                             }
                          }
                     }.frame(height: UIScreen.main.bounds.height * 0.52)
              }
            }
+            
+            if self.presentResultAlert {
+//                CustomAlertView(show: $presentResultAlert, result: result).background(Color.black.opacity(0.3))
+                UnavailableAlert(show: $presentResultAlert)
+            }
+
         }.frame(maxHeight: .infinity)
          .background(.cyan)
          .navigationBarHidden(true)
