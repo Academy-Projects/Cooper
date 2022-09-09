@@ -25,7 +25,7 @@ struct ListHistory: Identifiable{
 var naps = [
     ListHistory(
         title: "A terra da Rainha",
-        premise: "Você está em Londres e é parado pela polícia portando uma espada, qual sua explicação para a polícia ?",
+        premise: "Você está em Londres e é parado pela polícia portando uma espada, que explicação você dará a eles?",
         instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas. ",
         warning: "Lembre-se: se os policiais s não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
         image: "blocked",

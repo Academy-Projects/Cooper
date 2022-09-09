@@ -85,9 +85,6 @@ struct AnswerFinalView: View {
                                     // Diz para o ResultAlert que a resposta está incorreta.
                                     result = false
                                 }
-                                // Muda a variável para apresentar o Pop-Up.
-                                presentResultAlert.toggle()
-                        
                             },
                            label: {
                            
@@ -135,8 +132,6 @@ struct AnswerFinalView: View {
                                 // Diz para o ResultAlert que a resposta está incorreta.
                                 result = false
                             }
-                            // Muda a variável para apresentar o Pop-Up.
-                            presentResultAlert.toggle()
                         },
                            label: {
                                 if buttonPressed == 2{
@@ -184,8 +179,6 @@ struct AnswerFinalView: View {
                                 // Diz para o ResultAlert que a resposta está incorreta.
                                 result = false
                             }
-                            // Muda a variável para apresentar o Pop-Up.
-                            presentResultAlert.toggle()
                         },
                            label: {
                                 if buttonPressed == 3{
@@ -221,7 +214,10 @@ struct AnswerFinalView: View {
                                 .frame(width: UIScreen.main.bounds.width * 0.8)
                                 .padding(.bottom, 8)
                     
-                    NavigationLink(destination: HistoryView(), label: {
+                    Button(action:{// Muda a variável para apresentar o Pop-Up.
+                            presentResultAlert.toggle()
+                            },
+                           label: {
                             Text("OK")
                                 .foregroundColor(Color("colorFont"))
                                 .font(Font.custom("SourceSans3-Bold", size: 20))
@@ -231,10 +227,9 @@ struct AnswerFinalView: View {
                                 .background(RoundedRectangle(cornerRadius: 8)
                                     .stroke(Color.clear.opacity(12.2), lineWidth: 1)
                                 )
-                        })
+                            })
                             .frame(width: UIScreen.main.bounds.width * 0.8)
                             .padding(.top, 8)
-
              
                 }.frame(width: UIScreen.main.bounds.width * 0.26)
                     .background(Color.white)
@@ -250,9 +245,6 @@ struct AnswerFinalView: View {
       
           if self.presentResultAlert {
               CustomAlertView(show: $presentResultAlert, result: result).background(Color.black.opacity(0.3))
-//              GeometryReader{_ in
-//                  CustomAlertView()
-//              }.background(Color.black.opacity(0.3))
           }
           
       }.frame(maxWidth: .infinity, maxHeight: .infinity)
