@@ -60,20 +60,22 @@ struct PremiseView: View {
                         .padding(.leading, 40)
                     ZStack{
                         Text(story.title)
-                            .font(Font.custom("SourceSans3-Bold", size: 35))
+                            .font(Font.custom("Boogaloo-Regular", size: 35))
+                            .foregroundColor(Color("colorFont"))
                             .bold()
                             .padding(.leading, 40)
                         
                         Divider()
                             .frame(width: 357, height: 2 , alignment: .center)
                             .overlay(Color("colorFont"))
-                            .padding(.top, 40)
+                            .padding(.top, 80)
                             .padding(.leading, 40)
                     }.padding(.bottom, 22)
                         Text(story.premise)
                             .bold()
                             .multilineTextAlignment(.center)
-                            .font(Font.custom("SourceSans3-Bold", size: 25))
+                            .font(Font.custom("SourceSans3-Regular", size: 25))
+                            .foregroundColor(Color("colorFont"))
                             .frame(width: UIScreen.main.bounds.width * 0.43)
                             .padding(.leading, 40)
                     }.frame(width: UIScreen.main.bounds.width * 0.46)
@@ -81,24 +83,29 @@ struct PremiseView: View {
             }
                 //divisor da tela
                 Divider()
-                    .frame(width: 4, height: UIScreen.main.bounds.height * 0.61)
+                    .frame(width: 4, height: UIScreen.main.bounds.height * 0.61)            
                     .overlay(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                    .clipShape(RoundedRectangle(cornerRadius: 32))
+                    .background(RoundedRectangle(cornerRadius: 32)
+                        .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+                    )
             ZStack{
                 VStack(){
                     ZStack{
                     Text(story.instruction)
                     .multilineTextAlignment(.leading)
                     .font(Font.custom("SourceSans3-Bold", size: 25))
+                    .foregroundColor(Color("colorFont"))
                     .frame(width: UIScreen.main.bounds.width * 0.39, height: UIScreen.main.bounds.height * 0.20)
                     .padding(.trailing, 60)
                     .padding(.leading, 60)
-                    .padding(.bottom, 160)
+                    .padding(.bottom, 210)
 
                     //botoes de opcoes de escolha
                     VStack{
                     Button(action: {
                                 buttonPressed = 1
-                                opacityButton = 0.1
+                                opacityButton = 0.5
                                 opacityPlay = 1
                                 answerChoice = 1 // Armazena 1 se a primeiro botão for pressionado
                             },
@@ -141,7 +148,7 @@ struct PremiseView: View {
                     Button(action: {
                             
                             buttonPressed = 2
-                            opacityButton = 0.1
+                            opacityButton = 0.5
                             opacityPlay = 1
                             answerChoice = 2 // Armazena 2 se a segundo botão for pressionado
                             },
@@ -180,7 +187,7 @@ struct PremiseView: View {
                     Button(action: {
                             
                             buttonPressed = 3
-                            opacityButton = 0.1
+                            opacityButton = 0.5
                             opacityPlay = 1
                             answerChoice = 3 // Armazena 3 se a terceiro botão for pressionado
                             },
@@ -229,6 +236,7 @@ struct PremiseView: View {
                             .font(Font.custom("SourceSans3-Bold", size: 28))
                             .bold()
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .foregroundColor(Color("colorFont"))
                           //  .padding(EdgeInsets(top: 247, leading: 340, bottom:0 , trailing: 12))
                             .foregroundColor(.white)
                             .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
@@ -251,15 +259,14 @@ struct PremiseView: View {
             .frame(width: UIScreen.main.bounds.width * 0.94, height: UIScreen.main.bounds.height * 0.92)
             //.padding()
             .border(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), width: 1)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .background(RoundedRectangle(cornerRadius: 20)
-                .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 15)
+            .clipShape(RoundedRectangle(cornerRadius: 25))
+            .background(RoundedRectangle(cornerRadius: 21)
+                .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 14)
                 )
     }
         .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(LinearGradient(gradient: Gradient(colors: [Color.white, Color("backgroundIlustration"), Color("backgroundIlustration"), Color.white]),
+        .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustrationWhite"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
                                 startPoint: .leading,
-                                endPoint: .trailing))
-  }
+                                endPoint: .trailing))  }
 }

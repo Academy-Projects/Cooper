@@ -75,7 +75,7 @@ struct AnswerFinalView: View {
                     
                     Button(action: {
                                 buttonPressed = 1
-                                opacityButton = 0.1
+                                opacityButton = 0.5
                                 opacityPlay = 1
                                 // Verifica se a resposta escolhida está correta.
                                 if answerChoice ==  1{
@@ -122,7 +122,7 @@ struct AnswerFinalView: View {
             //        Spacer()
                     Button(action: {
                             buttonPressed = 2
-                            opacityButton = 0.1
+                            opacityButton = 0.5
                             opacityPlay = 1
                             // Verifica se a resposta escolhida está correta.
                             if answerChoice ==  2{
@@ -169,7 +169,7 @@ struct AnswerFinalView: View {
                    // Spacer()
                     Button(action: {
                             buttonPressed = 3
-                            opacityButton = 0.1
+                            opacityButton = 0.5
                             opacityPlay = 1
                             // Verifica se a resposta escolhida está correta.
                             if answerChoice ==  3{
@@ -238,7 +238,7 @@ struct AnswerFinalView: View {
             .frame(width: UIScreen.main.bounds.width * 0.96, height: UIScreen.main.bounds.height * 0.92)
             .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 13))
-            .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 10)
+            .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 3)
             //.overlay(RoundedRectangle(cornerRadius: 100).stroke(Color.black))
             .background(RoundedRectangle(cornerRadius: 13)
             ).padding()
@@ -247,10 +247,11 @@ struct AnswerFinalView: View {
               CustomAlertView(show: $presentResultAlert, result: result).background(Color.black.opacity(0.3))
           }
           
-      }.frame(maxWidth: .infinity, maxHeight: .infinity)
-       .background(LinearGradient(gradient: Gradient(colors: [Color.white, Color("backgroundIlustration"), Color("backgroundIlustration"), Color.white]),
-                                        startPoint: .leading,
-                                        endPoint: .trailing))
+      }
+      .frame(maxWidth: . infinity, maxHeight: .infinity)
+      .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustrationWhite"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
+                                   startPoint: .leading,
+                                   endPoint: .trailing))
          .navigationBarHidden(true)
     }
 }

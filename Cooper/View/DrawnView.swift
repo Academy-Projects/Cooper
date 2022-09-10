@@ -72,7 +72,7 @@ ZStack{
                 )
         }
             .clipShape(RoundedRectangle(cornerRadius: 13))
-            .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 10)
+            .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 3)
             .background(RoundedRectangle(cornerRadius: 13)
             ).padding()
         VStack{
@@ -88,9 +88,15 @@ ZStack{
                         ForEach(0..<(imagens[0].count)){imageidx in
                             HStack{
                                 Button(action: {gameScene.createNewObj(image: imagens[0][imageidx])}){
-                                    Image(imagens[0][imageidx])
-                                        .resizable()
-                                        .scaledToFit()
+                                    ZStack{
+                                        Image("backgroundCardDark")
+                                            .resizable()
+                                            .scaledToFit()
+                                        Image(imagens[0][imageidx])
+                                            .resizable()
+                                            .scaledToFit()
+
+                                    }
                                 }.frame(width: UIScreen.main.bounds.width / 9)
 
                                 Button(action: {gameScene.createNewObj(image: imagens[1][imageidx])}){
@@ -119,12 +125,11 @@ ZStack{
             .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .background(RoundedRectangle(cornerRadius: 20))
-            .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 10)
+            .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 3)
             .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 17))
-           }.background(LinearGradient(gradient: Gradient(colors: [Color.white, Color("backgroundIlustration"), Color("backgroundIlustration"), Color.white]),
-                                       startPoint: .leading,
-                                       endPoint: .trailing))
-    }.navigationBarHidden(true)
+           }.background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustrationWhite"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
+                                        startPoint: .leading,
+                                        endPoint: .trailing))    }.navigationBarHidden(true)
     
   }
 }

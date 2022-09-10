@@ -49,6 +49,7 @@ struct HistoryView: View {
  // grid para setar array das historias
     @State var presentResultAlert = false // Faz o Pop-Up aparecer ou não
     @State var result = false // Indica se o usuario acertou ou não.
+    @Environment(\.colorScheme) var colorScheme
     
     let layout = [
         GridItem(.flexible(), spacing: 30),
@@ -101,7 +102,11 @@ struct HistoryView: View {
             }
 
         }.frame(maxHeight: .infinity)
-         .background(.cyan)
+    
+//            .background(colorScheme == .dark ? Color.cyan : Color.yellow)
+            .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustrationWhite"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
+                                    startPoint: .leading,
+                                    endPoint: .trailing))
          .navigationBarHidden(true)
 
     }

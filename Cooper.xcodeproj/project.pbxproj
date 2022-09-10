@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		283FD6AB28CA774200020ACA /* UnavailableAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283FD6AA28CA774200020ACA /* UnavailableAlert.swift */; };
+		283FD6AD28CCE56300020ACA /* Boogaloo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 283FD6AC28CCE56300020ACA /* Boogaloo-Regular.ttf */; };
 		284107FC28AB07B400D142F8 /* CooperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284107FB28AB07B400D142F8 /* CooperApp.swift */; };
 		284107FE28AB07B400D142F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284107FD28AB07B400D142F8 /* ContentView.swift */; };
 		2841080028AB07B600D142F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 284107FF28AB07B600D142F8 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		283FD6AA28CA774200020ACA /* UnavailableAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnavailableAlert.swift; sourceTree = "<group>"; };
+		283FD6AC28CCE56300020ACA /* Boogaloo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Boogaloo-Regular.ttf"; sourceTree = "<group>"; };
 		284107F828AB07B400D142F8 /* Cooper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cooper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		284107FB28AB07B400D142F8 /* CooperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooperApp.swift; sourceTree = "<group>"; };
 		284107FD28AB07B400D142F8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				28D161FD28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf */,
+				283FD6AC28CCE56300020ACA /* Boogaloo-Regular.ttf */,
 				28D1620228C7D5360085D3B2 /* SourceSans3-Regular.ttf */,
 			);
 			path = Fonts;
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28D1620328C7D5360085D3B2 /* SourceSans3-Regular.ttf in Resources */,
+				283FD6AD28CCE56300020ACA /* Boogaloo-Regular.ttf in Resources */,
 				2841080028AB07B600D142F8 /* Assets.xcassets in Resources */,
 				28D161FE28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf in Resources */,
 			);
