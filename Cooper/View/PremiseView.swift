@@ -81,7 +81,7 @@ struct PremiseView: View {
                     }.frame(width: UIScreen.main.bounds.width * 0.46)
                 }
             }
-                //divisor da tela
+           ///////////////////////////     //divisor da tela/////////////////////////////////////////////
                 Divider()
                     .frame(width: 4, height: UIScreen.main.bounds.height * 0.61)            
                     .overlay(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
@@ -91,16 +91,17 @@ struct PremiseView: View {
                     )
             ZStack{
                 VStack(){
-                    ZStack{
-                    Text(story.instruction)
-                    .multilineTextAlignment(.leading)
-                    .font(Font.custom("SourceSans3-Bold", size: 25))
-                    .foregroundColor(Color("colorFont"))
-                    .frame(width: UIScreen.main.bounds.width * 0.39, height: UIScreen.main.bounds.height * 0.20)
-                    .padding(.trailing, 60)
-                    .padding(.leading, 60)
-                    .padding(.bottom, 210)
-
+                    VStack(spacing: -20){
+                        HStack{
+                            Text(story.instruction)
+                            .multilineTextAlignment(.leading)
+                            .font(Font.custom("SourceSans3-Bold", size: 25))
+                            .foregroundColor(Color("colorFont"))
+                        }
+                        .frame(width: UIScreen.main.bounds.width * 0.39)
+                        .padding(.trailing, 60)
+                        .padding(.leading, 60)
+                        .padding(.top, 100)
                     //botoes de opcoes de escolha
                     VStack{
                     Button(action: {
@@ -143,7 +144,7 @@ struct PremiseView: View {
                                 }
                             })
                                 .frame(width: UIScreen.main.bounds.width * 0.35)
-                                .padding(.bottom, 8)
+                               // .padding(.bottom, 8)
             //        Spacer()
                     Button(action: {
                             
@@ -182,7 +183,7 @@ struct PremiseView: View {
                                 }
                             })
                                 .frame(width: UIScreen.main.bounds.width * 0.35)
-                                .padding(.bottom, 8)
+                         //       .padding(.bottom, 8)
                    // Spacer()
                     Button(action: {
                             
@@ -224,7 +225,7 @@ struct PremiseView: View {
                                // .padding(.bottom, 800)
                     }
                     .padding(.bottom, 90)
-                    .padding(.top, 290)
+                    .padding(.top, 50)
                 }
                 }
                 .frame(width: UIScreen.main.bounds.width * 0.50)

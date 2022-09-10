@@ -29,9 +29,9 @@ var naps = [
         instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas. ",
         warning: "Lembre-se: se os policiais s não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
         image: "blocked",
-        finalOne: "Você é o descendente do rei Arthur",
-        finalTwo: "Você está caçando um girafa que fugiu do zoológico de Londres",
-        finalThree: "Você é um esgrimista"
+        finalOne: "A) Você é o descendente do rei Arthur",
+        finalTwo: "B) Você está caçando um girafa que fugiu do zoológico de Londres",
+        finalThree: "C) Você é um esgrimista"
     ),
     ListHistory(
         title: "Meu amigo pool" ,
@@ -39,9 +39,9 @@ var naps = [
         instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas.",
         warning: "Lembre-se: se os policiais s não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
         image: "blocked",
-        finalOne: "Voce se machuca na floresta, e acaba atraindo um urso e sai correndo",
-        finalTwo: "Voce esta na floresta passeando, quando avista um urso pequeno machucado cheio de sangue e corre pedindo ajuda",
-        finalThree: "Voce é atacado desprevinido por um urso, e sai correndo pedindo ajuda"
+        finalOne: "A) Voce se machuca na floresta, e acaba atraindo um urso e sai correndo",
+        finalTwo: "B) Voce esta na floresta passeando, quando avista um urso pequeno machucado cheio de sangue e corre pedindo ajuda",
+        finalThree: "C) Voce é atacado desprevinido por um urso, e sai correndo pedindo ajuda"
     ),
     ListHistory(
         title: "Uma notícia bombástica",
@@ -49,8 +49,8 @@ var naps = [
         instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas.",
         warning: "Lembre-se: se os policiais s não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
         image: "blocked",
-        finalOne: "Foram encontrados explosivos na sua mala, mas você percebe que ela foi trocada por engano.",
-        finalTwo: "Você estava indo fazer teste com explosivos como agente da CIA, mas tinha permissão.",
-        finalThree: "Eram explosivos de brinquedo que você estava levando para o seu sobrinho que sonha em ser um Detonador"
+        finalOne: "A) Foram encontrados explosivos na sua mala, mas você percebe que ela foi trocada por engano.",
+        finalTwo: "B) Você estava indo fazer teste com explosivos como agente da CIA, mas tinha permissão.",
+        finalThree: "C) Eram explosivos de brinquedo que você estava levando para o seu sobrinho que sonha em ser um Detonador"
     )
 ]
