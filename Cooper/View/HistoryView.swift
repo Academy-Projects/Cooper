@@ -15,12 +15,12 @@ struct Condition: View{
         if index == 0 {
             PremiseView(story: naps[0])
         }
-//        else if index == 1{
-//            PremiseView(story: naps[1])
-//        }
-//        else if index == 2 {
-//            PremiseView(story: naps[2])
-//        }
+        else if index == 1{
+            PremiseView(story: naps[1])
+        }
+        else if index == 2 {
+            PremiseView(story: naps[2])
+        }
         else {
             UnavailableAlert(show: $presentResultAlert)
      }
@@ -84,8 +84,9 @@ struct HistoryView: View {
                                           ItemView(image: data[idx])
                                         }
                                     }else{
-                                        Button(action: {
-                                            presentResultAlert.toggle()
+                                        Button(
+                                            action: {
+                                         //   presentResultAlert.toggle()
                                         }, label: {ItemView(image: data[idx])})
                                     }
                                     
