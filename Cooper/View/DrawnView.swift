@@ -25,7 +25,7 @@ struct DrawnView: View {
     @State var nImagem:Int = 0
     @State var isDraggin:Bool = false
     
-    @State var imagens:[[String]] = [["altofalante", "bandeira", "bone", "chat", "sombrinha"], ["chat", "sombrinha", "presente", "bandeira", "bone"]]
+    @State var imagens:[[String]] = [["círculopic", "estrelapic", "igualpic", "quadradopic"], ["setapic", "triangulopic", "maiorpic", "bandeira"]]
     
     // Cria um tipo de apresentação.
     @Environment(\.presentationMode) var presentationMode
@@ -50,8 +50,9 @@ ZStack{
                                     .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
                                     .background(RoundedRectangle(cornerRadius: 12)
-                                        .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
+                                        .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
                                     )
+                                    .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
                             }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
                     
                     
@@ -89,20 +90,25 @@ ZStack{
                             HStack{
                                 Button(action: {gameScene.createNewObj(image: imagens[0][imageidx])}){
                                     ZStack{
-                                        Image("backgroundCardDark")
+                                        Image("FundoCard")
                                             .resizable()
                                             .scaledToFit()
                                         Image(imagens[0][imageidx])
-                                            .resizable()
-                                            .scaledToFit()
+                                            .frame(width: UIScreen.main.bounds.width * 0.05, height: UIScreen.main.bounds.height * 0.07)
+//                                            .resizable()
+//                                            .scaledToFit()
 
                                     }
                                 }.frame(width: UIScreen.main.bounds.width / 9)
 
                                 Button(action: {gameScene.createNewObj(image: imagens[1][imageidx])}){
-                                    Image(imagens[1][imageidx])
-                                        .resizable()
-                                        .scaledToFit()
+                                    ZStack{
+                                        Image("FundoCard")
+                                            .resizable()
+                                            .scaledToFill()
+                                        Image(imagens[1][imageidx])
+                                            .frame(width: UIScreen.main.bounds.width * 0.05, height: UIScreen.main.bounds.height * 0.07)
+                                    }
                                 
                                 }.frame(width: UIScreen.main.bounds.width / 9)
                             }
@@ -117,8 +123,9 @@ ZStack{
                         .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                         .background(RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
+                            .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
                         )
+                        .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 5, y: 5)
                 }).padding(EdgeInsets(top: 0, leading: 0, bottom: 32, trailing: 0))
             
         }.frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.height * 0.93)
