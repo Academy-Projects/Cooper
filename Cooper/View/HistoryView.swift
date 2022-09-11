@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+public var indexQuestion: Int = 0
+
 // condicional para verificar se há historias disponiveis
 struct Condition: View{
     var index: Int
@@ -14,6 +16,7 @@ struct Condition: View{
     var body: some View{
         if index == 0 {
             PremiseView(story: naps[0])
+            
         }
         else if index == 1{
             PremiseView(story: naps[1])
@@ -82,15 +85,17 @@ struct HistoryView: View {
                                            Condition(index: idx)
                                         ){
                                           ItemView(image: data[idx])
-                                        }
+                                          
+                                        }.simultaneousGesture(TapGesture().onEnded {
+                                            indexQuestion = idx
+                                        })
                                     }else{
                                         Button(
                                             action: {
                                          //   presentResultAlert.toggle()
                                         }, label: {ItemView(image: data[idx])})
                                     }
-                                    
-                             }
+                                }
                             }
                          }
                     }.frame(height: UIScreen.main.bounds.height * 0.52)

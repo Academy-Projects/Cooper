@@ -10,7 +10,7 @@ import SpriteKit
 struct AnswerFinalView: View {
     
     var ilustrationScene: GameScene
-    var story: ListHistory = naps[0]
+    var story: ListHistory = naps[indexQuestion]
     @State var cor:Color = Color(red: 0/255, green: 59/255, blue: 75/255)
     
     @State var buttonPressed:Int = 0
