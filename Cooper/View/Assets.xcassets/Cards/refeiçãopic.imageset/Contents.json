@@ -12,12 +12,11 @@
           "value" : "dark"
         }
       ],
-      "filename" : "comida.dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "refeição.pic@2x.png",
+      "filename" : "refeição.pic@2x-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +27,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "comida.dark@2x.png",
+      "filename" : "comida.dark.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

@@ -77,7 +77,7 @@ class GameScene: SKScene{
             // Rotaciona a imagem de acordo com o angulo entre os toques
             Mynode.rotateNode(touchLocation, angleOffset)
             // Escalona a imagem.
-//            Mynode.scaleNode(touchLocation, fingerLength)
+            Mynode.scaleNode(touchLocation, fingerLength)
         }
         
     }
