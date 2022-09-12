@@ -44,7 +44,8 @@ class DraggableNode: SKNode {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (touchPos.x + touchOffset.x) < -250  && (touchPos.y + touchOffset.y) < -250 {
             print("remover")
-            self.scene?.removeFromParent()
+//            self.scene?.removeFromParent()
+            self.position = CGPoint(x: -1000, y: -1000)
         }
         self.name = "unselected"
         counter = 0    }
