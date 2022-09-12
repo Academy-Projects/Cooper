@@ -26,7 +26,7 @@ struct DrawnView: View {
     @State var isDraggin:Bool = false
     
     @State var imagens:[[String]] = [["círculopic", "estrelapic", "igualpic", "quadradopic", "andandopic","bbpic","bussulapic", "facapic", "folhapic", "homempic", "musicapic", "ônibuspic", "tempopic","nuvempic", "raiopic", "seta", "ursopic"],
-        ["autofalantepic","setapic", "triangulopic", "maiorpic", "adiçãopic", "bolsapic", "caixãopic", "checkpic", "coraçaopic", "dinheiropic", "Explosao", "fogopic", "gotapic", "maçapic", "ondapic", "refeiçãopic", "sentandopic"]]
+        ["autofalantepic","seta", "triangulopic", "maiorpic", "adiçãopic", "bolsapic", "caixãopic", "checkpic", "coraçaopic", "dinheiropic", "Explosao", "fogopic", "gotapic", "maçapic", "ondapic", "refeiçãopic", "sentandopic"]]
     
     // Cria um tipo de apresentação.
     @Environment(\.presentationMode) var presentationMode
