@@ -16,7 +16,6 @@ struct Condition: View{
     var body: some View{
         if index == 0 {
             PremiseView(story: naps[0])
-            
         }
         else if index == 1{
             PremiseView(story: naps[1])

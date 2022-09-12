@@ -119,7 +119,7 @@ struct AnswerFinalView: View {
                                 }
                             })
                                 .frame(width: UIScreen.main.bounds.width * 0.8)
-                                .padding(.bottom, 8)
+                 //               .padding(.bottom, 8)
             //        Spacer()
                     Button(action: {
                             buttonPressed = 2
@@ -166,7 +166,7 @@ struct AnswerFinalView: View {
                                 }
                             })
                                 .frame(width: UIScreen.main.bounds.width * 0.8)
-                                .padding(.bottom, 8)
+                        //        .padding(.bottom, 8)
                    // Spacer()
                     Button(action: {
                             buttonPressed = 3
@@ -213,7 +213,7 @@ struct AnswerFinalView: View {
                                 }
                             })
                                 .frame(width: UIScreen.main.bounds.width * 0.8)
-                                .padding(.bottom, 8)
+                           //     .padding(.bottom, 8)
                     
                     Button(action:{// Muda a variável para apresentar o Pop-Up.
                             presentResultAlert.toggle()
@@ -231,7 +231,7 @@ struct AnswerFinalView: View {
                                 .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 5, y: 5)
                             })
                             .frame(width: UIScreen.main.bounds.width * 0.8)
-                            .padding(.top, 8)
+                         //   .padding(.top, 8)
              
                 }.frame(width: UIScreen.main.bounds.width * 0.26)
                     .background(Color.white)

@@ -19,46 +19,87 @@ struct CustomAlertView: View{
             VStack(spacing: 25){
                 if(result){
                     Image("bone")
-                    Text("PARABÉNS").foregroundColor(.yellow).bold().font(Font.custom("SourceSans3-Bold", size: 50))
-                    Text("VOCÊS CONSEGUIRAM ENTENDER O TURISTA")
+                       // .frame(width: UIScreen.main.bounds.width * )
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    Text("Parabéns!")
+                       // .foregroundColor(.yellow)
+                        .bold()
+                        .font(Font.custom("Boogaloo-Regular", size: 40))
+                    Text("Os policiais entenderam o que você ilustrou e você tá liberado. Essa foi por pouco hein?")
+                        .multilineTextAlignment(.center)
+                        .frame(width: UIScreen.main.bounds.width * 0.33)
+                        
+                        .font(Font.custom("SourceSans3-Regular", size: 20))
                 }else{
                     Image("chat")
-                    Text("QUE PENA").foregroundColor(.red).bold().font(Font.custom("SourceSans3-Bold", size: 50))
-                    Text("VOCÊS NÃO CONSEGUIRAM ENTENDER O TURISTA")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    Text("Errado!")
+                        .foregroundColor(.red)
+                        .bold()
+                        .font(Font.custom("Boogaloo-Regular", size: 40))
+                    Text("Os policiais não entenderam o que você ilustrou e agora você está preso.")
+                        .multilineTextAlignment(.center)
+                        .frame(width: UIScreen.main.bounds.width * 0.33)
+                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                }
+                HStack{
+                    NavigationLink(destination: PremiseView(story: naps[indexQuestion]), label: {
+                        Text("Jogar novamente")
+                            .foregroundColor(Color("colorFont"))
+                            .font(Font.custom("Boogaloo-Regular", size: 24))
+                            .bold()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                          //  .padding(EdgeInsets(top: 247, leading: 340, bottom:0 , trailing: 12))
+                            .foregroundColor(.white)
+                            .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                            .background(RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.clear.opacity(12.2), lineWidth: 1)
+                            )
+                        })
+                          .frame(width: UIScreen.main.bounds.width * 0.17, height: UIScreen.main.bounds.height * 0.046)
+                          .padding(.trailing, 34)
+                    
+                    NavigationLink(destination: HistoryView(), label: {
+                        Text("Voltar ao menu inicial")
+                            .foregroundColor(Color("colorFont"))
+                            .font(Font.custom("Boogaloo-Regular", size: 24))
+                            .bold()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                          //  .padding(EdgeInsets(top: 247, leading: 340, bottom:0 , trailing: 12))
+                            .foregroundColor(.white)
+                            .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                            .background(RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.clear.opacity(12.2), lineWidth: 1)
+                            )
+                        })
+                          .frame(width: UIScreen.main.bounds.width * 0.17, height: UIScreen.main.bounds.height * 0.046)
+                          .padding(.trailing, 34)
+                    
                 }
                 
-                NavigationLink(destination: HistoryView(), label: {
-                    Text("OK")
-                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                        .bold()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                      //  .padding(EdgeInsets(top: 247, leading: 340, bottom:0 , trailing: 12))
-                        .foregroundColor(.white)
-                        .background(Color(red: 0/255, green: 59/255, blue: 75/255))
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                        .background(RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color.clear.opacity(12.2), lineWidth: 1)
-                        )
-                    })
-                      .frame(width: UIScreen.main.bounds.width * 0.17, height: UIScreen.main.bounds.height * 0.063)
-                      .padding(.trailing, 34)
-                
             }
+            .frame(width: UIScreen.main.bounds.width * 0.45, height: UIScreen.main.bounds.height * 0.45)
             .padding(.vertical, 25)
             .padding(.horizontal, 30)
             .cornerRadius(25)
-            .background(.cyan)
+            .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundPopUp"), Color("backgroundIlustrationWhite")]),
+                                         startPoint: .top,
+                                         endPoint: .bottom))
             .cornerRadius(20)
             
-            Button(action: {
-                    show.toggle()
-                    },
-                   label: {
-                    Image(systemName: "xmark.circle")
-                    .font(.system(size: 28, weight: .bold))
-                    .foregroundColor(Color.blue)
-                
-            }).padding()
+//            Button(action: {
+//                    show.toggle()
+//                    },
+//                   label: {
+//                    Image(systemName: "xmark.circle")
+//                    .font(.system(size: 28, weight: .bold))
+//                    .foregroundColor(Color.blue)
+//                
+//            }).padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
