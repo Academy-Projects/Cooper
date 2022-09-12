@@ -42,6 +42,10 @@ class DraggableNode: SKNode {
     }
     // Seta o estado da Imagem para não selecionada.
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (touchPos.x + touchOffset.x) < -250  && (touchPos.y + touchOffset.y) < -250 {
+            print("remover")
+            self.scene?.removeFromParent()
+        }
         self.name = "unselected"
         counter = 0    }
     // Seta o estado da Imagem para não selecionada.
@@ -55,23 +59,24 @@ class DraggableNode: SKNode {
             self.name = "unselected"
         }
         else if(self.name == "simpleSelected" && touches.count == 1 && counter > 3){
-            
+            // Calcula os limites da cena baseado no tamanho dos objetos.
             let sceneSize = self.scene?.size
             let imageSize = self.sprite.size
             let sceneLimitWidth = sceneSize!.width/2 - imageSize.width/2 - 10
             let sceneLimitHeight = sceneSize!.height/2 - imageSize.height/2 - 10
             
-            
+            // Limite no eixo X.
             if (touchPos.x + touchOffset.x) < sceneLimitWidth && (touchPos.x + touchOffset.x) > (sceneLimitWidth * -1){
                 self.position.x = touchPos.x + touchOffset.x
             }
-            
+            // Limite no eixo Y.
             if (touchPos.y + touchOffset.y) < sceneLimitHeight && (touchPos.y + touchOffset.y) > (sceneLimitHeight * -1){
                 self.position.y = touchPos.y + touchOffset.y
             }
 //            self.position.x = touchPos.x + touchOffset.x
 //            self.position.y = touchPos.x + touchOffset.y
             touchPos = (touches.first?.location(in: self.scene!))!
+            print(self.position)
         }
         counter += 1
     }
