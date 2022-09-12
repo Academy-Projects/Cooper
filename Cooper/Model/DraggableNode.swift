@@ -43,9 +43,7 @@ class DraggableNode: SKNode {
     // Seta o estado da Imagem para não selecionada.
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (touchPos.x + touchOffset.x) < -250  && (touchPos.y + touchOffset.y) < -250 {
-            print("remover")
-//            self.scene?.removeFromParent()
-            self.position = CGPoint(x: -1000, y: -1000)
+            self.removeFromParent()
         }
         self.name = "unselected"
         counter = 0    }
@@ -77,7 +75,6 @@ class DraggableNode: SKNode {
 //            self.position.x = touchPos.x + touchOffset.x
 //            self.position.y = touchPos.x + touchOffset.y
             touchPos = (touches.first?.location(in: self.scene!))!
-            print(self.position)
         }
         counter += 1
     }
