@@ -13,6 +13,7 @@ import SpriteKit
 public var layerCount = 0
 public var angleOffset:CGFloat = 0
 public var fingerLength:CGFloat = 0.1
+public var originalSpriteSize: CGSize!
 
 class GameScene: SKScene{
     
@@ -51,19 +52,27 @@ class GameScene: SKScene{
             let location = touch.location(in: self)
             angleOffset = Mynode.getAngle(location) - Mynode.zRotation
             fingerLength = Mynode.getLength(location)
+            originalSpriteSize = Mynode.sprite.size
             Mynode.name = "comboSelected"
         }
     }
     // Seta o estado da Imagem para não selecionada.
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if self.childNode(withName: "comboSelected") != nil{
+            // Parar de editar quando o segundo toque for retirado.
             self.childNode(withName: "comboSelected")?.name = "unselected"
+            // Continuar editando quando o segundo toque for retirado
+//            self.childNode(withName: "comboSelected")?.name = "simpleSelected"
         }
     }
     // Seta o estado da Imagem para não selecionada.
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         if self.childNode(withName: "comboSelected") != nil{
+            // Parar de editar quando o segundo toque for retirado.
             self.childNode(withName: "comboSelected")?.name = "unselected"
+            // Continuar editando quando o segundo toque for retirado.
+//            self.childNode(withName: "comboSelected")?.name = "simpleSelected"
+            
         }
     }
 
@@ -77,7 +86,7 @@ class GameScene: SKScene{
             // Rotaciona a imagem de acordo com o angulo entre os toques
             Mynode.rotateNode(touchLocation, angleOffset)
             // Escalona a imagem.
-//            Mynode.scaleNode(touchLocation, fingerLength)
+            Mynode.scaleNode(touchLocation, fingerLength, originalSpriteSize)
         }
         
     }

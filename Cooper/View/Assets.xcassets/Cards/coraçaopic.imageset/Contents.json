@@ -1,9 +1,25 @@
 {
   "images" : [
     {
-      "filename" : "cora.pic.png",
+      "filename" : "coraçao.pic@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "coração.dark@3x.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "coraçao.pic@3x-1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
     },
     {
       "appearances" : [
@@ -14,26 +30,10 @@
       ],
       "filename" : "coração.dark.png",
       "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "coraçao.pic@2x.png",
-      "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "coração.dark@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "coraçao.pic@3x.png",
+      "filename" : "cora.pic.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -44,7 +44,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "coração.dark@3x.png",
+      "filename" : "coração.dark@2x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

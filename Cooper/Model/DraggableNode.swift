@@ -127,12 +127,14 @@ class DraggableNode: SKNode {
         
     }
     // Rescalona a imagem.
-    func scaleNode(_ secondTouchPos: CGPoint, _ originalLength: CGFloat){
+    func scaleNode(_ secondTouchPos: CGPoint, _ originalLength: CGFloat, _ originalSize: CGSize){
         let oposite = secondTouchPos.y - touchPos.y
         let adjacent = secondTouchPos.x - touchPos.x
         let hypotenuse = sqrt (pow( oposite, 2) + pow( adjacent, 2))
         
         let factor = hypotenuse / originalLength
-        self.setScale(factor)
+        self.sprite.size.width = originalSize.width * factor
+        self.sprite.size.height = originalSize.height * factor
+        
     }
 }
