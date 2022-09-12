@@ -13,9 +13,9 @@ struct OnboardingStep{
 }
 //teste
 private let OnboardingSteps = [
-    OnboardingStep(image: "blocked", isntruction: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"),
-    OnboardingStep(image: "blocked", isntruction: "qualquer outro texto"),
-    OnboardingStep(image: "blocked", isntruction: "qualquer outro texto de novo")
+    OnboardingStep(image: "blocked", isntruction: "Esse é o Cooper, um viajante que está sempre encontrando novos lugares para conhecer ao redor do mundo e você pode ajudá-lo a escolher o próximo destino."),
+    OnboardingStep(image: "blocked", isntruction: "Mas Cooper sempre se mete em encrencas, já que não sabe a língua local dos países que passa então você irá embarcar nessa jornada junto dele e precisam sair dessa juntos."),
+    OnboardingStep(image: "blocked", isntruction: "Ajude Cooper se expressar por meio de pictogramas e evitar que sejam presos por conta de suas desventuras mal entendidas. Lembre-se: a comunicação é a chave.")
 ]
 
 struct OnBoardingView: View {
