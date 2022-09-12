@@ -13,6 +13,7 @@ import SpriteKit
 public var layerCount = 0
 public var angleOffset:CGFloat = 0
 public var fingerLength:CGFloat = 0.1
+public var originalSpriteSize: CGSize!
 
 class GameScene: SKScene{
     
@@ -51,6 +52,7 @@ class GameScene: SKScene{
             let location = touch.location(in: self)
             angleOffset = Mynode.getAngle(location) - Mynode.zRotation
             fingerLength = Mynode.getLength(location)
+            originalSpriteSize = Mynode.sprite.size
             Mynode.name = "comboSelected"
         }
     }
@@ -77,7 +79,7 @@ class GameScene: SKScene{
             // Rotaciona a imagem de acordo com o angulo entre os toques
             Mynode.rotateNode(touchLocation, angleOffset)
             // Escalona a imagem.
-            Mynode.scaleNode(touchLocation, fingerLength)
+            Mynode.scaleNode(touchLocation, fingerLength, originalSpriteSize)
         }
         
     }
