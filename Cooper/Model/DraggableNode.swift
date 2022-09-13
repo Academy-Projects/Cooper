@@ -46,7 +46,7 @@ class DraggableNode: SKNode {
         let unselectAction = SKAction.setTexture(SKTexture(imageNamed: "TrashUnselected"))
         node?.run(unselectAction)
         // Apaga o nó quando o a imagem está em cima do lixo
-        if (touchPos.x + touchOffset.x) > 250  && (touchPos.y + touchOffset.y) < -250 {
+        if (touchPos.x + touchOffset.x) > ((self.scene?.size.width)! * 0.35)  && (touchPos.y + touchOffset.y) < ((self.scene?.size.height)! * -0.35) {
             self.removeFromParent()
         }
         self.name = "unselected"
@@ -83,7 +83,7 @@ class DraggableNode: SKNode {
             let selectAction = SKAction.setTexture(SKTexture(imageNamed: "TrashSelected"))
             let unselectAction = SKAction.setTexture(SKTexture(imageNamed: "TrashUnselected"))
             // Muda a imagem da lixeira caso a Card esteja sobre ela.
-            if (touchPos.x + touchOffset.x) > 250  && (touchPos.y + touchOffset.y) < -250  {
+            if (touchPos.x + touchOffset.x) > ((self.scene?.size.width)! * 0.35)  && (touchPos.y + touchOffset.y) < ((self.scene?.size.height)! * -0.35) {
                 node?.run(selectAction)
             }else{
                 node?.run(unselectAction)
