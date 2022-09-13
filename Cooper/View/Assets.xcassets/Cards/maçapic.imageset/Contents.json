@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "maça.pic@2x.png",
+      "filename" : "maça.pic.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "maca.dark@2x.png",
+      "filename" : "maca.dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "maça.pic.png",
+      "filename" : "maça.pic@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "maca.dark.png",
+      "filename" : "maca.dark@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

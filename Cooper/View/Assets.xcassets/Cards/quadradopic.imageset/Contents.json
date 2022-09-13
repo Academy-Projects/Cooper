@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Ativo 5@2x.png",
+      "filename" : "Ativo 5.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "quadrado.dark@2x.png",
+      "filename" : "quadrado.dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Ativo 5.png",
+      "filename" : "Ativo 5@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "quadrado.dark.png",
+      "filename" : "quadrado.dark@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

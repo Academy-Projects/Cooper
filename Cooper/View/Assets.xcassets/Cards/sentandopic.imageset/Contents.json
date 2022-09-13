@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "sentando.pic@2x.png",
+      "filename" : "sentando.pic.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "sentado.dark@2x.png",
+      "filename" : "sentado.dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "sentando.pic.png",
+      "filename" : "sentando.pic@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "sentado.dark.png",
+      "filename" : "sentado.dark@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

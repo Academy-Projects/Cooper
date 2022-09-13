@@ -234,7 +234,7 @@ struct AnswerFinalView: View {
                             })
                             .buttonStyle(FlatLinkStyle())
                             .frame(width: UIScreen.main.bounds.width * 0.8)
-                         //   .padding(.top, 8)
+                            .padding(.top, 10)
              
                 }.frame(width: UIScreen.main.bounds.width * 0.26)
                     .background(Color.white)

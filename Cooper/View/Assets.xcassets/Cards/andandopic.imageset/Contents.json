@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "andando.pic@2x.png",
+      "filename" : "andando.pic.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "andando.dark@2x.png",
+      "filename" : "andando.dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "andando.pic.png",
+      "filename" : "andando.pic@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "andando.dark.png",
+      "filename" : "andando.dark@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

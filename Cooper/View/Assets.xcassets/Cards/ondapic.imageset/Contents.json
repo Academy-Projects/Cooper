@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "onda.pic@2x.png",
+      "filename" : "onda.pic.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "onda.dark@2x.png",
+      "filename" : "onda.dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "onda.pic.png",
+      "filename" : "onda.pic@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "onda.dark.png",
+      "filename" : "onda.dark@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

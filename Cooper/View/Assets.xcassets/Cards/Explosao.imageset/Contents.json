@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Ativo 32@2x.png",
+      "filename" : "Ativo 32.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "explosao.dark@2x.png",
+      "filename" : "explosao.dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Ativo 32.png",
+      "filename" : "Ativo 32@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "explosao.dark.png",
+      "filename" : "explosao.dark@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

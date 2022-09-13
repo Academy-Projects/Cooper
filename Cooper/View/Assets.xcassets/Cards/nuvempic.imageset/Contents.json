@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "nuvem.pic@2x.png",
+      "filename" : "nuvem.pic.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "nuvem.dark@2x.png",
+      "filename" : "nuvem.dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "nuvem.pic.png",
+      "filename" : "nuvem.pic@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "nuvem.dark.png",
+      "filename" : "nuvem.dark@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

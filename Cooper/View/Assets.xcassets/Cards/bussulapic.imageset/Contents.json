@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "bussula.pic@2x.png",
+      "filename" : "bussula.pic.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "bussula.dark@2x.png",
+      "filename" : "bussula.dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "bussula.pic.png",
+      "filename" : "bussula.pic@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "bussula.dark.png",
+      "filename" : "bussula.dark@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

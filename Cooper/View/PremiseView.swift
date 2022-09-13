@@ -83,7 +83,7 @@ struct PremiseView: View {
                             .multilineTextAlignment(.center)
                             .font(Font.custom("SourceSans3-Regular", size: 25))
                             .foregroundColor(Color("colorFont"))
-                            .frame(width: UIScreen.main.bounds.width * 0.43)
+                            .frame(width: UIScreen.main.bounds.width * 0.39)
                             .padding(.leading, 40)
                     }.frame(width: UIScreen.main.bounds.width * 0.46)
                 }
@@ -107,7 +107,7 @@ struct PremiseView: View {
                         }
                         .frame(width: UIScreen.main.bounds.width * 0.39)
                         .padding(.trailing, 60)
-                        .padding(.leading, 60)
+                        .padding(.leading, 20)
                         .padding(.top, 100)
                     //botoes de opcoes de escolha
                     VStack{
@@ -256,7 +256,7 @@ struct PremiseView: View {
                           .buttonStyle(FlatLinkStyle())
                           .animation(.easeInOut(duration: 0.3))
                           .frame(width: UIScreen.main.bounds.width * 0.17, height: UIScreen.main.bounds.height * 0.063)
-                          .padding(.trailing, 58)
+                          .padding(.trailing, 72)
                          // .padding(.bottom,  53)
                           
                     }.frame(maxWidth: .infinity, alignment: .trailing)
