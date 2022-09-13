@@ -38,8 +38,14 @@ class GameScene: SKScene{
     
     // Função para tirar um screenshot da Ilustração para mostrar na tela de votação.
     public func takeScreenshot (scene: SKScene) -> UIImage {
+        let node = scene.childNode(withName: "trash")
+        let originalPos = node?.position
+        
+        node?.position = CGPoint(x: 1000, y: 1000)
         let texture = self.view?.texture(from: scene)
         let image = texture?.cgImage()
+        node?.position = originalPos!
+        
         return UIImage(cgImage: image!)
     }
     
@@ -52,12 +58,12 @@ class GameScene: SKScene{
         TrashNode.name = "trash"
         // Define o tamanho da imagem do lixo.
         TrashNode.size.width = scene!.size.width * 0.065
-        TrashNode.size.height = scene!.size.height * 0.0609
+        TrashNode.size.height = scene!.size.width * 0.065
         // Define a posição da imagem.
         let sceneSize = scene?.size
         let imageSize = TrashNode.self.size
-        let xCord = sceneSize!.width/2 - imageSize.width/2 - sceneSize!.width * 0.0465
-        let yCord = sceneSize!.height * -0.5 + imageSize.height/2 + sceneSize!.height * 0.0304
+        let xCord = sceneSize!.width/2 - imageSize.width/2 - sceneSize!.width * 0.038
+        let yCord = sceneSize!.height * -0.5 + imageSize.height/2 + sceneSize!.height * 0.035
         
         TrashNode.position = CGPoint(x: xCord, y: yCord)
         self.addChild(TrashNode)
