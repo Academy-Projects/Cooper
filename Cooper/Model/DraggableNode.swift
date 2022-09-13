@@ -134,7 +134,6 @@ class DraggableNode: SKNode {
         let oposite = secondTouchPos.y - touchPos.y
         let adjacent = secondTouchPos.x - touchPos.x
         let hypotenuse = sqrt (pow( oposite, 2) + pow( adjacent, 2))
-        
         let factor = hypotenuse / originalLength
         self.sprite.size.width = originalSize.width * factor
         self.sprite.size.height = originalSize.height * factor
