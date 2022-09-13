@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "TrashUnselected.png",
+      "filename" : "trashThin.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "TrashUnselected-1.png",
+      "filename" : "trashThin-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "TrashUnselected-2.png",
+      "filename" : "trashThin-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
