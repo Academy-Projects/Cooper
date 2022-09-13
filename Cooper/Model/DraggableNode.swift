@@ -38,12 +38,21 @@ class DraggableNode: SKNode {
         touchOffset.x = self.position.x - (touches.first?.location(in: scene!).x)!
         touchOffset.y = self.position.y - (touches.first?.location(in: scene!).y)!
         touchPos = (touches.first?.location(in: self.scene!))!
-        
     }
     // Seta o estado da Imagem para não selecionada.
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Volta a imagem do lixo ao normal.
+//        let node = self.scene?.childNode(withName: "trash")
+//        let unselectAction = SKAction.setTexture(SKTexture(imageNamed: "TrashUnselected"))
+//        node?.run(unselectAction)
+        // Apaga o nó quando o a imagem está em cima do lixo
+        if (touchPos.x + touchOffset.x) > 250  && (touchPos.y + touchOffset.y) < -250 {
+            self.removeFromParent()
+        }
         self.name = "unselected"
-        counter = 0    }
+        counter = 0
+        
+    }
     // Seta o estado da Imagem para não selecionada.
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.name = "unselected"
@@ -55,22 +64,30 @@ class DraggableNode: SKNode {
             self.name = "unselected"
         }
         else if(self.name == "simpleSelected" && touches.count == 1 && counter > 3){
-            
+            // Calcula os limites da cena baseado no tamanho dos objetos.
             let sceneSize = self.scene?.size
             let imageSize = self.sprite.size
             let sceneLimitWidth = sceneSize!.width/2 - imageSize.width/2 - 10
             let sceneLimitHeight = sceneSize!.height/2 - imageSize.height/2 - 10
             
-            
+            // Limite no eixo X.
             if (touchPos.x + touchOffset.x) < sceneLimitWidth && (touchPos.x + touchOffset.x) > (sceneLimitWidth * -1){
                 self.position.x = touchPos.x + touchOffset.x
             }
-            
+            // Limite no eixo Y.
             if (touchPos.y + touchOffset.y) < sceneLimitHeight && (touchPos.y + touchOffset.y) > (sceneLimitHeight * -1){
                 self.position.y = touchPos.y + touchOffset.y
             }
-//            self.position.x = touchPos.x + touchOffset.x
-//            self.position.y = touchPos.x + touchOffset.y
+            // Cria as ações para mudar de textura
+//            let node = self.scene?.childNode(withName: "trash")
+//            let selectAction = SKAction.setTexture(SKTexture(imageNamed: "TrashSelected"))
+//            let unselectAction = SKAction.setTexture(SKTexture(imageNamed: "TrashUnselected"))
+//            // Muda a imagem da lixeira caso a Card esteja sobre ela.
+//            if (touchPos.x + touchOffset.x) < -250  && (touchPos.y + touchOffset.y) < -250 {
+//                node?.run(selectAction)
+//            }else{
+//                node?.run(unselectAction)
+//            }
             touchPos = (touches.first?.location(in: self.scene!))!
         }
         counter += 1
@@ -131,7 +148,6 @@ class DraggableNode: SKNode {
         let oposite = secondTouchPos.y - touchPos.y
         let adjacent = secondTouchPos.x - touchPos.x
         let hypotenuse = sqrt (pow( oposite, 2) + pow( adjacent, 2))
-        
         let factor = hypotenuse / originalLength
         self.sprite.size.width = originalSize.width * factor
         self.sprite.size.height = originalSize.height * factor
