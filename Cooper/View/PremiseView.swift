@@ -9,6 +9,11 @@ import SwiftUI
 
 //teste
 
+struct FlatLinkStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+    }
+}
 
 struct PremiseView: View {
     
@@ -49,6 +54,7 @@ struct PremiseView: View {
                                         .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
                                 }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
                                   .padding(EdgeInsets(top: 30, leading: 30, bottom: 0, trailing: 0))
+                                  .buttonStyle(FlatLinkStyle())
                         
                     }.frame(maxWidth: .infinity, alignment: .leading)
                      .frame(maxHeight: .infinity, alignment: .top)
@@ -77,7 +83,7 @@ struct PremiseView: View {
                             .multilineTextAlignment(.center)
                             .font(Font.custom("SourceSans3-Regular", size: 25))
                             .foregroundColor(Color("colorFont"))
-                            .frame(width: UIScreen.main.bounds.width * 0.43)
+                            .frame(width: UIScreen.main.bounds.width * 0.39)
                             .padding(.leading, 40)
                     }.frame(width: UIScreen.main.bounds.width * 0.46)
                 }
@@ -101,7 +107,7 @@ struct PremiseView: View {
                         }
                         .frame(width: UIScreen.main.bounds.width * 0.39)
                         .padding(.trailing, 60)
-                        .padding(.leading, 60)
+                        .padding(.leading, 20)
                         .padding(.top, 100)
                     //botoes de opcoes de escolha
                     VStack{
@@ -240,7 +246,6 @@ struct PremiseView: View {
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .foregroundColor(Color("colorFont"))
                           //  .padding(EdgeInsets(top: 247, leading: 340, bottom:0 , trailing: 12))
-                            .foregroundColor(.white)
                             .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                             .background(RoundedRectangle(cornerRadius: 12)
@@ -248,9 +253,10 @@ struct PremiseView: View {
                             )
                             .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 5, y: 5)
                         }).opacity(opacityPlay)
-                          .animation(.easeInOut(duration: 0.5))
+                          .buttonStyle(FlatLinkStyle())
+                          .animation(.easeInOut(duration: 0.3))
                           .frame(width: UIScreen.main.bounds.width * 0.17, height: UIScreen.main.bounds.height * 0.063)
-                          .padding(.trailing, 58)
+                          .padding(.trailing, 72)
                          // .padding(.bottom,  53)
                           
                     }.frame(maxWidth: .infinity, alignment: .trailing)
@@ -258,7 +264,7 @@ struct PremiseView: View {
           }.padding(.bottom, 36)
         }
             
-            .background(Color.white)
+            .background(Color("ColorBackgroundInside"))
             .frame(width: UIScreen.main.bounds.width * 0.94, height: UIScreen.main.bounds.height * 0.92)
             //.padding()
             .border(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), width: 1)

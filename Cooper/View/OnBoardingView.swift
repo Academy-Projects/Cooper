@@ -45,7 +45,7 @@ struct OnBoardingView: View {
                         
                         HStack(spacing: 0){
                             Button(action:{
-                                self.currentStep = OnboardingSteps.count - 1
+                                isOnboarding = false
                             } , label: {Text("Pular")})
                                 .font(Font.custom("SourceSans3-Regular", size: 22))
                                 .foregroundColor(Color("colorFont"))

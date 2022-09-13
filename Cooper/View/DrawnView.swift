@@ -25,8 +25,8 @@ struct DrawnView: View {
     @State var nImagem:Int = 0
     @State var isDraggin:Bool = false
     
-    @State var imagens:[[String]] = [["círculopic", "estrelapic", "igualpic", "quadradopic", "andandopic","bbpic","bussulapic", "facapic", "folhapic", "homempic", "musicapic", "ônibuspic", "tempopic","nuvempic", "raiopic", "seta", "ursopic"],
-        ["autofalantepic","seta", "triangulopic", "maiorpic", "adiçãopic", "bolsapic", "caixãopic", "checkpic", "coraçaopic", "dinheiropic", "Explosao", "fogopic", "gotapic", "maçapic", "ondapic", "refeiçãopic", "sentandopic"]]
+    @State var imagens:[[String]] = [["homempic", "sentandopic", "círculopic", "triangulopic", "adiçãopic","seta","checkpic", "bussulapic", "folhapic", "folhapic", "ônibuspic", "nuvempic", "ursopic","bolsapic", "coraçaopic", "Explosao", "gotapic"],
+        ["andandopic","bbpic", "quadradopic", "estrelapic", "igualpic", "maiorpic", "ondapic", "facapic", "musicapic", "tempopic", "raiopic", "autofalantepic", "caixãopic", "dinheiropic", "fogopic", "maçapic", "refeiçãopic"]]
     
     // Cria um tipo de apresentação.
     @Environment(\.presentationMode) var presentationMode
@@ -54,8 +54,10 @@ ZStack{
                                         .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
                                     )
                                     .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
-                            }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                    
+                            })
+                            .buttonStyle(FlatLinkStyle())
+                            .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                            
                     
                     
                            // .padding(EdgeInsets(top: 0, leading: 0, bottom: 600, trailing: 900))
@@ -79,11 +81,11 @@ ZStack{
             ).padding()
         VStack{
                 Text("Clique nos cards que deseja \nusar para ilustrar a história")
+                        .multilineTextAlignment(.center)
                         .font(Font.custom("SourceSans3-Bold", size: 20))
                         .foregroundColor(Color("colorFont"))
-                        .multilineTextAlignment(.center)
-                        .padding(EdgeInsets(top: 35, leading: 0, bottom: 14, trailing: 0))
-            ZStack{
+                        .frame(width: UIScreen.main.bounds.width * 24)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 14, trailing: 0))
                 ScrollView{
                    // Spacer()
                     VStack{
@@ -96,7 +98,7 @@ ZStack{
                                             .resizable()
                                             .scaledToFit()
                                         Image(imagens[0][imageidx])
-                                            .frame(width: UIScreen.main.bounds.width * 0.05, height: UIScreen.main.bounds.height * 0.07)
+                                            .frame(width: UIScreen.main.bounds.width * 0.063, height: UIScreen.main.bounds.height * 0.084)
 //                                            .resizable()
 //                                            .scaledToFit()
 
@@ -117,8 +119,6 @@ ZStack{
                           }
                     }
                 }.frame(height: UIScreen.main.bounds.height * 0.71)
-                
-            }
             NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
                     Text("Terminei de ilustrar ")
                         .font(Font.custom("SourceSans3-Bold", size: 20))
@@ -131,11 +131,11 @@ ZStack{
                         )
                         .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 5, y: 5)
                 })
-                 
+                 .buttonStyle(FlatLinkStyle())
                  .padding(EdgeInsets(top: 15, leading: 0, bottom: 32, trailing: 0))
             
         }.frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.height * 0.93)
-            .background(Color.white)
+            .background(Color("ColorBackgroundInside"))
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .background(RoundedRectangle(cornerRadius: 20))
             .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 3)
