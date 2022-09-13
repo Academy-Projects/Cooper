@@ -52,7 +52,7 @@ class GameScene: SKScene{
         TrashNode.name = "trash"
         // Define o tamanho da imagem do lixo.
         TrashNode.size.width = scene!.size.width * 0.065
-        TrashNode.size.height = scene!.size.height * 0.0609
+        TrashNode.size.height = scene!.size.width * 0.065
         // Define a posição da imagem.
         let sceneSize = scene?.size
         let imageSize = TrashNode.self.size
