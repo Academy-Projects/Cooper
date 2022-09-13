@@ -38,8 +38,14 @@ class GameScene: SKScene{
     
     // Função para tirar um screenshot da Ilustração para mostrar na tela de votação.
     public func takeScreenshot (scene: SKScene) -> UIImage {
+        let node = scene.childNode(withName: "trash")
+        let originalPos = node?.position
+        
+        node?.position = CGPoint(x: 1000, y: 1000)
         let texture = self.view?.texture(from: scene)
         let image = texture?.cgImage()
+        node?.position = originalPos!
+        
         return UIImage(cgImage: image!)
     }
     
