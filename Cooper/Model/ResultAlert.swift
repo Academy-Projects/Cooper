@@ -18,7 +18,7 @@ struct CustomAlertView: View{
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)){
             VStack(spacing: 25){
                 if(result){
-                    Image("bone")
+                    Image("trofeu")
                        // .frame(width: UIScreen.main.bounds.width * )
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -51,7 +51,7 @@ struct CustomAlertView: View{
                           //.padding(.trailing, 34)
 
                 }else{
-                    Image("chat")
+                    Image("algema")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                     Text("Errado!")

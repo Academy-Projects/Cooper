@@ -43,8 +43,8 @@ struct AnswerFinalView: View {
                                         .foregroundColor(Color("colorFont"))
                                         .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
                                         .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                                        .background(RoundedRectangle(cornerRadius: 12)
+                                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                                        .background(RoundedRectangle(cornerRadius: 8)
                                             .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
                                         )
                                         .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
@@ -56,7 +56,7 @@ struct AnswerFinalView: View {
                         }.frame(maxWidth: .infinity, alignment: .leading)
                         .frame(maxHeight: .infinity, alignment: .top)
                         .padding(.leading, 14)
-                        .padding(.top, 14)
+                        .padding(.top, 4)
 
                     }
                     .frame(width: UIScreen.main.bounds.width * 0.65, height: UIScreen.main.bounds.height * 0.87)
@@ -243,7 +243,7 @@ struct AnswerFinalView: View {
             .frame(width: UIScreen.main.bounds.width * 0.96, height: UIScreen.main.bounds.height * 0.92)
             .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 13))
-            .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 3)
+            .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 3)
             //.overlay(RoundedRectangle(cornerRadius: 100).stroke(Color.black))
             .background(RoundedRectangle(cornerRadius: 13)
             ).padding()
