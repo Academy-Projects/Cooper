@@ -28,17 +28,51 @@ struct Condition: View{
      }
     }
   }
+//struct que contem image bloqueada
+struct ItemViewBlocked: View {
+
+var image: String
+
+var body: some View {
+    ZStack{
+        Image(image)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .padding(.bottom, 10)
+        Image(systemName: "lock.circle")
+            .resizable()
+            .foregroundColor(Color("colorFont"))
+            .frame(width: UIScreen.main.bounds.width * 0.041, height: UIScreen.main.bounds.height * 0.055)
+    }
+  }
+}
+
 
 //struct que contem a a image da lista
 
 struct ItemView: View {
 
 var image: String
+var country: String
 
 var body: some View {
-    Image(image)
-        .resizable()
-        .aspectRatio(contentMode: .fit)
+    ZStack{
+        Image(image)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 5, y: 5)
+            .padding(.bottom, 10)
+        ZStack{
+            Text(country)
+                .font(Font.custom("Boogaloo-Regular", size: 30))
+                .foregroundColor(Color("colorFont"))
+                .frame(width: UIScreen.main.bounds.width * 0.10, height: UIScreen.main.bounds.height * 0.020)
+                
+        }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.trailing, 142)
+            .padding(.bottom, 134)
+    }
   }
 }
 
@@ -46,8 +80,10 @@ var body: some View {
 
 struct HistoryView: View {
     @State var idx: Int = 0
+// paises da historia
+    @State var titulo: [String] = ["LONDRES", "PERU", "CANADÁ"]
 //fotos das historias
-    @State var data: [String] = ["blocked","blocked","blocked", "blocked", "blocked", "blocked", "blocked", "blocked"]
+    @State var data: [String] = ["cardlondres","cardcanada","cardperu", "blocked", "blocked", "blocked", "blocked", "blocked"]
  // grid para setar array das historias
     @State var presentResultAlert = false // Faz o Pop-Up aparecer ou não
     @State var result = false // Indica se o usuario acertou ou não.
@@ -62,7 +98,7 @@ struct HistoryView: View {
         ZStack{
             VStack{
                 HStack{
-                    Text("Escolha para qual momento da história \nvocê deseja viajar com o Cooper")
+                    Text("Escolha o próximo destino da sua viagem")
                         .font(Font.custom("SourceSans3-Bold", size: 25))
                         .multilineTextAlignment(.center)
                     }
@@ -71,7 +107,7 @@ struct HistoryView: View {
                     .padding(.trailing, 74)
                     .padding(.bottom, 50)
              ScrollView(.horizontal, showsIndicators: false){
-                 HStack(){
+                 HStack(spacing: -62){
                         Image("woman")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -83,7 +119,7 @@ struct HistoryView: View {
                                         NavigationLink(destination:
                                            Condition(index: idx)
                                         ){
-                                          ItemView(image: data[idx])
+                                            ItemView(image: data[idx], country: titulo[idx])
                                           
                                         }.simultaneousGesture(TapGesture().onEnded {
                                             indexQuestion = idx
@@ -92,7 +128,7 @@ struct HistoryView: View {
                                         Button(
                                             action: {
                                          //   presentResultAlert.toggle()
-                                        }, label: {ItemView(image: data[idx])})
+                                        }, label: {ItemViewBlocked(image: data[idx])})
                                     }
                                 }
                             }

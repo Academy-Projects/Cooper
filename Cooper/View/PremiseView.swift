@@ -47,8 +47,8 @@ struct PremiseView: View {
                                         .foregroundColor(Color("colorFont"))
                                         .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
                                         .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                                        .background(RoundedRectangle(cornerRadius: 12)
+                                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                                        .background(RoundedRectangle(cornerRadius: 8)
                                             .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
                                         )
                                         .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
@@ -59,11 +59,12 @@ struct PremiseView: View {
                     }.frame(maxWidth: .infinity, alignment: .leading)
                      .frame(maxHeight: .infinity, alignment: .top)
                      .padding(.leading, 28)
+                     .padding(.top, -13)
 
                 VStack{
                     Image(story.image)
                         .resizable()
-                        .frame(width: UIScreen.main.bounds.width * 0.24, height: UIScreen.main.bounds.height * 0.20)
+                        .frame(width: UIScreen.main.bounds.width * 0.10, height: UIScreen.main.bounds.height * 0.14)
                         .padding(.leading, 40)
                     ZStack{
                         Text(story.title)
@@ -256,7 +257,7 @@ struct PremiseView: View {
                           .buttonStyle(FlatLinkStyle())
                           .animation(.easeInOut(duration: 0.3))
                           .frame(width: UIScreen.main.bounds.width * 0.17, height: UIScreen.main.bounds.height * 0.063)
-                          .padding(.trailing, 72)
+                          .padding(.trailing, 85)
                          // .padding(.bottom,  53)
                           
                     }.frame(maxWidth: .infinity, alignment: .trailing)
