@@ -20,6 +20,9 @@ class GameScene: SKScene{
     override func sceneDidLoad() {
         super.sceneDidLoad()
         backgroundColor = .white
+        
+        let TrashNode = SKSpriteNode(imageNamed: "TrashUnselected")
+        self.addChild(TrashNode)
     }
     // Função para criar um novo sprite na cena.
     public func createNewObj(image:String){
