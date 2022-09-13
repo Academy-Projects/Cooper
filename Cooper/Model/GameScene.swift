@@ -56,8 +56,8 @@ class GameScene: SKScene{
         // Define a posição da imagem.
         let sceneSize = scene?.size
         let imageSize = TrashNode.self.size
-        let xCord = sceneSize!.width/2 - imageSize.width/2 - sceneSize!.width * 0.0465
-        let yCord = sceneSize!.height * -0.5 + imageSize.height/2 + sceneSize!.height * 0.0304
+        let xCord = sceneSize!.width/2 - imageSize.width/2 - sceneSize!.width * 0.038
+        let yCord = sceneSize!.height * -0.5 + imageSize.height/2 + sceneSize!.height * 0.035
         
         TrashNode.position = CGPoint(x: xCord, y: yCord)
         self.addChild(TrashNode)
