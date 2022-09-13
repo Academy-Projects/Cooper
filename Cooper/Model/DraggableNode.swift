@@ -42,15 +42,24 @@ class DraggableNode: SKNode {
     }
     // Seta o estado da Imagem para não selecionada.
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let node = self.scene?.childNode(withName: "trash")
+        let unselectAction = SKAction.setTexture(SKTexture(imageNamed: "TrashUnselected"))
+        node?.run(unselectAction)
+        
         if (touchPos.x + touchOffset.x) < -250  && (touchPos.y + touchOffset.y) < -250 {
             self.removeFromParent()
         }
         self.name = "unselected"
-        counter = 0    }
+        counter = 0
+        
+    }
     // Seta o estado da Imagem para não selecionada.
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.name = "unselected"
         counter = 0
+        // Cria as ações para mudar de textura
+        let node = self.scene?.childNode(withName: "trash")
+        node?.run(SKAction.setTexture(SKTexture(imageNamed: "TrashUnselected")))
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -72,8 +81,16 @@ class DraggableNode: SKNode {
             if (touchPos.y + touchOffset.y) < sceneLimitHeight && (touchPos.y + touchOffset.y) > (sceneLimitHeight * -1){
                 self.position.y = touchPos.y + touchOffset.y
             }
-//            self.position.x = touchPos.x + touchOffset.x
-//            self.position.y = touchPos.x + touchOffset.y
+            // Cria as ações para mudar de textura
+            let node = self.scene?.childNode(withName: "trash")
+            let selectAction = SKAction.setTexture(SKTexture(imageNamed: "TrashSelected"))
+            let unselectAction = SKAction.setTexture(SKTexture(imageNamed: "TrashUnselected"))
+            // Muda a imagem da lixeira caso a Card esteja sobre ela.
+            if ((touchPos.x + touchOffset.x) < ((sceneSize!.width * -0.5) + 100)) && ((touchPos.y + touchOffset.y) < ((sceneSize!.height * -0.5) + 100)){
+                node?.run(selectAction)
+            }else{
+                node?.run(unselectAction)
+            }
             touchPos = (touches.first?.location(in: self.scene!))!
         }
         counter += 1
