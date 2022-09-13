@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "musica.pic@2x.png",
+      "filename" : "musica.pic.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "musica.dark@2x.png",
+      "filename" : "musica.dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "musica.pic.png",
+      "filename" : "musica.pic@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "musica.dark.png",
+      "filename" : "musica.dark@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
