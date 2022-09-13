@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "tempo.pic.png",
+      "filename" : "tempo.pic@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "tempo.dark.png",
+      "filename" : "tempo.dark@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "tempo.pic@2x.png",
+      "filename" : "tempo.pic.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "tempo.dark@2x.png",
+      "filename" : "tempo.dark.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

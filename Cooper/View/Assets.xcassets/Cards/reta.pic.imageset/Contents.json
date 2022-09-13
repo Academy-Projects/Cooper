@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "reta.pic.png",
+      "filename" : "reta.pic@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "reta.dark.png",
+      "filename" : "reta.dark@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "reta.pic@2x.png",
+      "filename" : "reta.pic.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "reta.dark@2x.png",
+      "filename" : "reta.dark.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

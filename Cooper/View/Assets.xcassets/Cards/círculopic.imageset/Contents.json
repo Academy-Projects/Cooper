@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "círculo.pic.png",
+      "filename" : "círculo.pic@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "circulo.dark.png",
+      "filename" : "circulo.dark@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "círculo.pic@2x.png",
+      "filename" : "círculo.pic.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "circulo.dark@2x.png",
+      "filename" : "circulo.dark.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "ônibus.pic.png",
+      "filename" : "ônibus.pic@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "onibus.dark.png",
+      "filename" : "onibus.dark@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ônibus.pic@2x.png",
+      "filename" : "ônibus.pic.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "onibus.dark@2x.png",
+      "filename" : "onibus.dark.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

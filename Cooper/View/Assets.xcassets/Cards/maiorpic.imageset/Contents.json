@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "maior.pic.png",
+      "filename" : "maior.pic@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "maior.dark.png",
+      "filename" : "maior.dark@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "maior.pic@2x.png",
+      "filename" : "maior.pic.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "maior.dark@2x.png",
+      "filename" : "maior.dark.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

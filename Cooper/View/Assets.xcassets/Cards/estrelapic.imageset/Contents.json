@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "estrela.pic.png",
+      "filename" : "estrela.pic@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "estrela.dark.png",
+      "filename" : "estrela.dark@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "estrela.pic@2x.png",
+      "filename" : "estrela.pic.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "estrela.dark@2x.png",
+      "filename" : "estrela.dark.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

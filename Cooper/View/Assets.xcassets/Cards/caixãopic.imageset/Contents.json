@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "caixão.pic.png",
+      "filename" : "caixão.pic@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "caixao.dark.png",
+      "filename" : "caixao.dark@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "caixão.pic@2x.png",
+      "filename" : "caixão.pic.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "caixao.dark@2x.png",
+      "filename" : "caixao.dark.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

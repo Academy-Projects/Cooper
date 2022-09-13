@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "gota.pic.png",
+      "filename" : "gota.pic@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "gota.dark.png",
+      "filename" : "gota.dark@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "gota.pic@2x.png",
+      "filename" : "gota.pic.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "gota.dark@2x.png",
+      "filename" : "gota.dark.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

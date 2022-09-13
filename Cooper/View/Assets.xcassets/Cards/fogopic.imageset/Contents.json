@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "fogo.pic.png",
+      "filename" : "fogo.pic@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "fogo.dark.png",
+      "filename" : "fogo.dark@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "fogo.pic@2x.png",
+      "filename" : "fogo.pic.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "fogo.dark@2x.png",
+      "filename" : "fogo.dark.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

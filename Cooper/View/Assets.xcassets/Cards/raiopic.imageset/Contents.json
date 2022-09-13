@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "raio.pic.png",
+      "filename" : "raio.pic@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "raio.dark.png",
+      "filename" : "raio.dark@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "raio.pic@2x.png",
+      "filename" : "raio.pic.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "raio.dark@2x.png",
+      "filename" : "raio.dark.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
