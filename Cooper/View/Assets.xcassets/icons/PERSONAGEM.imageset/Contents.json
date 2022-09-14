@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "PERSONAGEM.png",
+      "filename" : "PERSONAGEM.ofc.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "PERSONAGEM@2x.png",
+      "filename" : "PERSONAGEM.ofc@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "PERSONAGEM@3x.png",
+      "filename" : "PERSONAGEM.ofc@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
