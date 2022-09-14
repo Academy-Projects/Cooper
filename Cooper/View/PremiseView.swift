@@ -62,10 +62,13 @@ struct PremiseView: View {
                      .padding(.top, -13)
 
                 VStack{
-                    Image(story.image)
-                        .resizable()
-                        .frame(width: UIScreen.main.bounds.width * 0.10, height: UIScreen.main.bounds.height * 0.14)
-                        .padding(.leading, 40)
+                    ZStack{
+                        Image(story.image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .padding(.leading, 40)
+                            .padding(.bottom, 10)
+                    }.frame(width: UIScreen.main.bounds.width * 0.12, height: UIScreen.main.bounds.height * 0.14)
                     ZStack{
                         Text(story.title)
                             .font(Font.custom("Boogaloo-Regular", size: 35))
