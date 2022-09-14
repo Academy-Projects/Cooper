@@ -30,16 +30,16 @@ var naps = [
         warning: "Lembre-se: se os policiais s não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
         image: "london",
         finalOne: "A) Você é o descendente do rei Arthur",
-        finalTwo: "B) Você está caçando um girafa que fugiu do zoológico de Londres",
+        finalTwo: "B) Você está caçando uma girafa que fugiu do zoológico de Londres",
         finalThree: "C) Você é um esgrimista"
     ),
     ListHistory(
         title: "Meu amigo pool" ,
-        premise: "a policia a vista voce durante seu passeio nas praias de Toronto(CANADA) cheio de sangue correndo na beira do mar desesperado, o que aconteceu ?",
+        premise: "Durante seu passeio nas montanhas de Toronto (CANADÁ).A policia avista você desesperado e cheio de sangue correndo pela floresta, o que aconteceu ?",
         instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas.",
         warning: "Lembre-se: se os policiais s não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
         image: "canada",
-        finalOne: "A) Voce se machuca na floresta, e acaba atraindo um urso e sai correndo",
+        finalOne: "A) Voce se machuca na floresta e acaba atraindo um urso e sai correndo",
         finalTwo: "B) Voce esta na floresta passeando, quando avista um urso pequeno machucado cheio de sangue e corre pedindo ajuda",
         finalThree: "C) Voce é atacado desprevinido por um urso, e sai correndo pedindo ajuda"
     ),

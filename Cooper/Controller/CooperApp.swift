@@ -13,11 +13,12 @@ struct CooperApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if isOnboarding{
-                OnBoardingView()
-            }else{
-                ContentView()
-            }
+            ContentView()
+//            if isOnboarding{
+//                OnBoardingView()
+//            }else{
+//                ContentView()
+//            }
             
         }
     }
