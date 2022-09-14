@@ -83,6 +83,7 @@ struct PremiseView: View {
                             .bold()
                             .multilineTextAlignment(.center)
                             .font(Font.custom("SourceSans3-Regular", size: 25))
+                            .minimumScaleFactor(0.1)
                             .foregroundColor(Color("colorFont"))
                             .frame(width: UIScreen.main.bounds.width * 0.39)
                             .padding(.leading, 40)
