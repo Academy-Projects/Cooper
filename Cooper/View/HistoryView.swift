@@ -38,11 +38,17 @@ var body: some View {
         Image(image)
             .resizable()
             .aspectRatio(contentMode: .fit)
+            .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 5, y: 5)
             .padding(.bottom, 10)
-        Image(systemName: "lock.circle")
-            .resizable()
-            .foregroundColor(Color("colorFont"))
-            .frame(width: UIScreen.main.bounds.width * 0.041, height: UIScreen.main.bounds.height * 0.055)
+        VStack{
+            Image(systemName: "lock.circle")
+                .resizable()
+                .foregroundColor(Color("colorFont"))
+                .frame(width: UIScreen.main.bounds.width * 0.041, height: UIScreen.main.bounds.height * 0.055)
+            Text("Em breve...")
+                .font(Font.custom("Boogaloo-Regular", size: 30))
+                .foregroundColor(Color("colorFont"))
+        }
     }
   }
 }
@@ -81,7 +87,7 @@ var body: some View {
 struct HistoryView: View {
     @State var idx: Int = 0
 // paises da historia
-    @State var titulo: [String] = ["LONDRES", "PERU", "CANADÁ"]
+    @State var titulo: [String] = ["LONDRES", "CANADÁ", "PERU"]
 //fotos das historias
     @State var data: [String] = ["cardlondres","cardcanada","cardperu", "blocked", "blocked", "blocked", "blocked", "blocked"]
  // grid para setar array das historias
@@ -100,6 +106,7 @@ struct HistoryView: View {
                 HStack{
                     Text("Escolha o próximo destino da sua viagem")
                         .font(Font.custom("SourceSans3-Bold", size: 25))
+                        .minimumScaleFactor(0.1)
                         .multilineTextAlignment(.center)
                     }
                     .frame(height: UIScreen.main.bounds.height * 0.092)

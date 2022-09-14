@@ -140,6 +140,7 @@ struct AnswerFinalView: View {
                                 if buttonPressed == 2{
                                     Text(story.finalTwo)
                                         .font(Font.custom("SourceSans3-Regular", size: 23))
+                                        .minimumScaleFactor(0.1)
                                         .frame(width: UIScreen.main.bounds.width * 0.22, alignment: .leading)
                                         .multilineTextAlignment(.leading)
                                         .font(.system(size: 20))
