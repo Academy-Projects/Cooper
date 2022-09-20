@@ -18,6 +18,9 @@ class DraggableNode: SKNode {
     
     var counter:Int = 0
     
+    var firstTouchPos:CGPoint = CGPoint(x: 0, y: 0)
+    var secondTouchPos:CGPoint = CGPoint(x: 0, y: 0)
+    
     override init() {
         self.sprite = SKSpriteNode()
         super.init()
@@ -77,6 +80,16 @@ class DraggableNode: SKNode {
             touchPos = (touches.first?.location(in: self.scene!))!
         }
         else if(self.name == "doubleSelected"){
+            for touch in touches{
+                if touch == touches.first{
+                    firstTouchPos = touch.location(in: self.scene!)
+                }else{
+                    secondTouchPos = touch.location(in: self.scene!)
+                }
+            }
+            
+            print("first: \(firstTouchPos)")
+            print("second: \(secondTouchPos)")
         }
         counter += 1
     }
