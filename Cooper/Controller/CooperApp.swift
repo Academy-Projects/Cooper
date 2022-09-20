@@ -13,20 +13,14 @@ struct CooperApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-//            if isOnboarding{
-//                OnBoardingView()
-//            }else{
-//                ContentView()
-//            }
+//            Condicao que verifica se view ja foi vista alguma vez pelo usuario
+            if isOnboarding{
+                OnBoardingView()
+            }else{
+                ContentView()
+            }
             
         }
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-
-//    }
-//}
