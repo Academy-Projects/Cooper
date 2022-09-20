@@ -18,17 +18,35 @@ struct CustomAlertView: View{
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)){
             VStack(spacing: 25){
                 if(result){
-                    Image("trofeu")
-                       // .frame(width: UIScreen.main.bounds.width * )
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                    ZStack{
+                        Image("trofeu")
+                           // .frame(width: UIScreen.main.bounds.width * )
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                        
+                        Circle()
+                            .fill(Color.blue)
+                            .frame(width: 12, height: 12)
+                            .modifier(ParticlesModifier())
+                            .offset(x: -50, y: -25)
+                        
+                    }
                     
-                    Text("Parabéns!")
-                       // .foregroundColor(.yellow)
-                        .bold()
-                        .font(Font.custom("Boogaloo-Regular", size: 40))
+                    ZStack{
+                        Text("Parabéns!")
+                           // .foregroundColor(.yellow)
+                            .bold()
+                            .font(Font.custom("Boogaloo-Regular", size: 40))
+                        
+                        Circle()
+                            .fill(Color.blue)
+                            .frame(width: 12, height: 12)
+                            .modifier(ParticlesModifier())
+                            .offset(x: 100, y: -25)
+                        
+                    }
+                    
                     Text("Os policiais entenderam o que você ilustrou e você tá liberado. Essa foi por pouco hein?")
-                    
                         .multilineTextAlignment(.center)
                         .frame(width: UIScreen.main.bounds.width * 0.33)
                         .font(Font.custom("SourceSans3-Regular", size: 20))

@@ -84,9 +84,10 @@ ZStack{
         VStack{
                 Text("Clique nos cards que deseja \nusar para ilustrar a história")
                         .multilineTextAlignment(.center)
-                        .font(Font.custom("SourceSans3-Bold", size: 20))
+                        .font(Font.custom("SourceSans3-Bold", size: 23))
+                        .minimumScaleFactor(0.1) //<--Here
+                        .frame(width: UIScreen.main.bounds.width * 0.22, height: UIScreen.main.bounds.height * 0.08)
                         .foregroundColor(Color("colorFont"))
-                        .frame(width: UIScreen.main.bounds.width * 24)
                        // .padding(EdgeInsets(top: 0, leading: 0, bottom: 24, trailing: 0))
                 ScrollView{
                    // Spacer()
@@ -123,8 +124,9 @@ ZStack{
                 }.frame(height: UIScreen.main.bounds.height * 0.71)
             NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
                     Text("Terminei de ilustrar ")
-                        .font(Font.custom("SourceSans3-Bold", size: 20))
+                        .font(Font.custom("Boogaloo-Regular", size: 23))
                         .foregroundColor(Color("colorFont"))
+                        .minimumScaleFactor(0.1) //<--Here
                         .frame(width: UIScreen.main.bounds.width * 0.23, height: UIScreen.main.bounds.height * 0.046)
                         .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                         .clipShape(RoundedRectangle(cornerRadius: 12))
