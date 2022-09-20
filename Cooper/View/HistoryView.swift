@@ -102,6 +102,28 @@ struct HistoryView: View {
     
     var body: some View {
         ZStack{
+            // Botão para voltar uma tela.
+        HStack{
+            NavigationLink(destination: OnBoardingView(),
+                    label: {
+                        Rectangle()
+                        Image(systemName: "questionmark.app")
+                            .font(Font.custom("SourceSans3-Bold", size: 20))
+                            .foregroundColor(Color("colorFont"))
+                            .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                            .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                            .background(RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
+                            )
+                            .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
+                    }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                      .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 50))
+                      .buttonStyle(FlatLinkStyle())
+
+        }
+        .frame(maxWidth: .infinity, alignment: .trailing)
+        .frame(maxHeight: .infinity, alignment: .top)
             VStack{
                 HStack{
                     Text("Escolha o próximo destino da sua viagem")
@@ -142,7 +164,7 @@ struct HistoryView: View {
                                 }
                             }
                          }
-                    }.frame(height: UIScreen.main.bounds.height * 0.52)
+                 }.frame(height: UIScreen.main.bounds.height * 0.52)
              }
            }
             

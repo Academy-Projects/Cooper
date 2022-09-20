@@ -15,13 +15,17 @@ struct OnboardingStep{
 private let OnboardingSteps = [
     OnboardingStep(image: "blocked", isntruction: "Esse é o Cooper, um viajante que está sempre encontrando novos lugares para conhecer ao redor do mundo e você pode ajudá-lo a escolher o próximo destino."),
     OnboardingStep(image: "blocked", isntruction: "Mas Cooper sempre se mete em encrencas, já que não sabe a língua local dos países que passa então você irá embarcar nessa jornada junto dele e precisam sair dessa juntos."),
-    OnboardingStep(image: "blocked", isntruction: "Ajude Cooper se expressar por meio de pictogramas e evitar que sejam presos por conta de suas desventuras mal entendidas. Lembre-se: a comunicação é a chave.")
+    OnboardingStep(image: "blocked", isntruction: "Ajude Cooper se expressar por meio de pictogramas e evitar que sejam presos por conta de suas desventuras mal entendidas. Lembre-se: a comunicação é a chave."),
+    OnboardingStep(image: "blocked", isntruction: "mais um pagina")
 ]
 
+
 struct OnBoardingView: View {
-    @AppStorage ("isOnboarding") var  isOnboarding: Bool?
+    @AppStorage ("isOnboarding") var  isOnboarding: Bool = true
     
     @State private var currentStep = 0
+    
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack{
@@ -45,14 +49,25 @@ struct OnBoardingView: View {
                         
                         HStack(spacing: 0){
                             Button(action:{
-                                isOnboarding = false
-                            } , label: {Text("Pular")})
+                                if isOnboarding == true {
+                                    isOnboarding = false
+                                }else{
+                                    let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                                    impactMed.impactOccurred()
+                                    
+                                    presentationMode.wrappedValue.dismiss()
+                                    
+
+
+                                }
+                              } , label: {Text("Pular")})
                                 .font(Font.custom("SourceSans3-Regular", size: 22))
                                 .foregroundColor(Color("colorFont"))
                     
                             Spacer()
                             
                             HStack{
+
                                 ForEach(0..<OnboardingSteps.count){ it in
                                     if it == currentStep{
                                         Rectangle()
@@ -69,12 +84,18 @@ struct OnBoardingView: View {
                             }
                             
                             Spacer()
+                            // teste
                            // condicao que verifica a quatidade de elementos para se tornar e view e verifica se é a ultima para que possa seguir para o app
                             // a aplicacao nao volta pra essa view a nao ser que seja apagada
                             Button(action:{
                                 if self.currentStep < OnboardingSteps.count - 1{
                                     self.currentStep += 1
-                                } else{
+                                } else if self.currentStep >= 3{
+                                    let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                                    impactMed.impactOccurred()
+                                    
+                                    presentationMode.wrappedValue.dismiss()
+                                    
                                     isOnboarding = false
                                 }
                             } ,
