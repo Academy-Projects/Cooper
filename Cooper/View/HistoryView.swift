@@ -105,8 +105,9 @@ struct HistoryView: View {
             VStack{
                 HStack{
                     Text("Escolha o próximo destino da sua viagem")
-                        .font(Font.custom("SourceSans3-Bold", size: 25))
-                        .minimumScaleFactor(0.1)
+                        .font(Font.custom("SourceSans3-Bold", size: 30))
+                        .minimumScaleFactor(0.1) //<--Here
+                        .frame(width: UIScreen.main.bounds.width * 0.50, height: UIScreen.main.bounds.height * 0.04)
                         .multilineTextAlignment(.center)
                     }
                     .frame(height: UIScreen.main.bounds.height * 0.092)

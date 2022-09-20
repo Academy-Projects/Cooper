@@ -29,13 +29,13 @@ var naps = [
         instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas. ",
         warning: "Lembre-se: se os policiais não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
         image: "london",
-        finalOne: "A) Você é o descendente do rei Arthur",
+        finalOne: "A) Você é o descendente do rei Arthur\n",
         finalTwo: "B) Você está caçando uma girafa que fugiu do zoológico de Londres",
         finalThree: "C) Você é um esgrimista"
     ),
     ListHistory(
         title: "Meu amigo pool" ,
-        premise: "Durante seu passeio nas montanhas de Toronto (CANADÁ).A policia avista você desesperado e cheio de sangue correndo pela floresta, o que aconteceu ?",
+        premise: "Durante seu passeio nas montanhas de Toronto (CANADÁ).cA policia avista você desesperado e cheio de sangue correndo pela floresta, o que aconteceu ?",
         instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas.",
         warning: "Lembre-se: se os policiais não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
         image: "canada",
