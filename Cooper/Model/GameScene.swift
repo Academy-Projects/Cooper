@@ -79,6 +79,22 @@ class GameScene: SKScene{
             Mynode.name = "comboSelected"
         }
     }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if self.childNode(withName: "comboSelected") != nil, let touch = touches.first{
+            let Mynode:DraggableNode = (self.childNode(withName: "comboSelected")) as! DraggableNode
+            let touchLocation = touch.location(in: self)
+            // Posiciona a imagem em torno do toque dentro dela
+            Mynode.positionNode(touchLocation, angleOffset)
+            // Rotaciona a imagem de acordo com o angulo entre os toques
+            Mynode.rotateNode(touchLocation, angleOffset)
+            // Escalona a imagem.
+            Mynode.scaleNode(touchLocation, fingerLength, originalSpriteSize)
+            
+        }
+        
+    }
+    
     // Seta o estado da Imagem para não selecionada.
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if self.childNode(withName: "comboSelected") != nil{
@@ -97,22 +113,6 @@ class GameScene: SKScene{
 //            self.childNode(withName: "comboSelected")?.name = "simpleSelected"
             
         }
-    }
-
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if self.childNode(withName: "comboSelected") != nil, let touch = touches.first{
-            let Mynode:DraggableNode = (self.childNode(withName: "comboSelected")) as! DraggableNode
-            let touchLocation = touch.location(in: self)
-            // Posiciona a imagem em torno do toque dentro dela
-            Mynode.positionNode(touchLocation, angleOffset)
-            // Rotaciona a imagem de acordo com o angulo entre os toques
-            Mynode.rotateNode(touchLocation, angleOffset)
-            // Escalona a imagem.
-            Mynode.scaleNode(touchLocation, fingerLength, originalSpriteSize)
-            
-        }
-        
     }
     
     override func update(_ currentTime: CFTimeInterval){
