@@ -36,14 +36,14 @@ class DraggableNode: SKNode {
         layerCount += 1
         self.zPosition = CGFloat(layerCount)
         //para quando ouver dois toques
-        if (self.name == "unselected"){
+        if (self.name == "unselected" && touches.count == 1){
             // quando inicia o toque muda nome dele para selecionado.
             self.name = "simpleSelected"
             // Armazena a posicção do primeiro toque em relação com o sprite.
             touchOffset.x = self.position.x - (touches.first?.location(in: scene!).x)!
             touchOffset.y = self.position.y - (touches.first?.location(in: scene!).y)!
             touchPos = (touches.first?.location(in: self.scene!))!
-        }else if (self.name == "simpleSelected"){
+        }else if (self.name == "simpleSelected" || touches.count == 2){
             self.name = "doubleSelected"
         }
     }
