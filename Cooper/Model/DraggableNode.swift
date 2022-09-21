@@ -46,7 +46,8 @@ class DraggableNode: SKNode {
             touchPos = (touches.first?.location(in: self.scene!))!
         }else if (self.name == "simpleSelected" || touches.count == 2 ){
             
-            if (touches.count != 1){
+            // Armazena os dois toques.
+            if (touches.count != 1){ // Quando ocorre dois toques simultâneos.
                 for touch in touches{
                     if touch == touches.first{
                         firstTouchPos = touch.location(in: self.scene!)
@@ -54,15 +55,12 @@ class DraggableNode: SKNode {
                         secondTouchPos = touch.location(in: self.scene!)
                     }
                 }
-            }else if(touches.count == 1){
+            }else if(touches.count == 1){ // Quando ocorre dois toques separadamente
                 firstTouchPos = touchPos
                 secondTouchPos = (touches.first?.location(in: self.scene!))!
             }
             
-            print(firstTouchPos)
-            print(secondTouchPos)
-            
-//            localAngleOffset = getLocalAngle(firstTouchPos, secondTouchPos) - self.zRotation
+            localAngleOffset = getLocalAngle(firstTouchPos, secondTouchPos) - self.zRotation
             
             self.name = "doubleSelected"
         }
