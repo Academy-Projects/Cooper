@@ -20,6 +20,7 @@ class DraggableNode: SKNode {
     
     var firstTouchPos:CGPoint = CGPoint(x: 0, y: 0)
     var secondTouchPos:CGPoint = CGPoint(x: 0, y: 0)
+    var localAngleOffset:CGFloat = 0
     
     override init() {
         self.sprite = SKSpriteNode()
