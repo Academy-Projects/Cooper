@@ -80,16 +80,19 @@ class DraggableNode: SKNode {
             touchPos = (touches.first?.location(in: self.scene!))!
         }
         else if(self.name == "doubleSelected"){
-            for touch in touches{
-                if touch == touches.first{
-                    firstTouchPos = touch.location(in: self.scene!)
-                }else{
-                    secondTouchPos = touch.location(in: self.scene!)
+            if (touches.count > 1){
+                for touch in touches{
+                    if touch == touches.first{
+                        firstTouchPos = touch.location(in: self.scene!)
+                    }else{
+                        secondTouchPos = touch.location(in: self.scene!)
+                    }
                 }
             }
             
-            print("first: \(firstTouchPos)")
-            print("second: \(secondTouchPos)")
+            print("\n\(firstTouchPos)")
+            print(secondTouchPos)
+            print(getLocalAngle(firstTouchPos, secondTouchPos) * 180 / .pi)
         }
         counter += 1
     }
@@ -152,18 +155,18 @@ class DraggableNode: SKNode {
     }
     
     func getLocalAngle(_ firstTouchPos: CGPoint, _ secondTouchPos: CGPoint) -> CGFloat{
-        let catetoOposto = secondTouchPos.y - toufirstTouchPoschPos.y
-        let catetoAdjacente = secondTouchPos.x - toucfirstTouchPoshPos.x
+        let catetoOposto = secondTouchPos.y - firstTouchPos.y
+        let catetoAdjacente = secondTouchPos.x - firstTouchPos.x
         let tangente = catetoOposto / catetoAdjacente
         let angulo = atan(tangente)
         // Corrige o valor do angulo de acordo com o quadrante atual.
-        if (secondTouchPos.x > touchfirstTouchPosPos.x && secondTouchPos.y > touchfirstTouchPosPos.y){
+        if (secondTouchPos.x > firstTouchPos.x && secondTouchPos.y > firstTouchPos.y){
             return angulo
         }
-        else if(secondTouchPos.x > touchfirstTouchPosPos.x && secondTouchPos.y < toufirstTouchPoschPos.y){
+        else if(secondTouchPos.x > firstTouchPos.x && secondTouchPos.y < firstTouchPos.y){
             return angulo + .pi * 2
         }
-        else if (secondTouchPos.x < touchPfirstTouchPosos.x){
+        else if (secondTouchPos.x < firstTouchPos.x){
             return angulo + .pi
         }
         return CGFloat(0)
