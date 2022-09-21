@@ -43,7 +43,7 @@ class DraggableNode: SKNode {
             touchOffset.x = self.position.x - (touches.first?.location(in: scene!).x)!
             touchOffset.y = self.position.y - (touches.first?.location(in: scene!).y)!
             touchPos = (touches.first?.location(in: self.scene!))!
-        }else if (self.name == "simpleSelected" || touches.count == 2){
+        }else if (self.name == "simpleSelected" || touches.count == 2 ){
             self.name = "doubleSelected"
         }
     }
@@ -150,6 +150,25 @@ class DraggableNode: SKNode {
         }
         return CGFloat(0)
     }
+    
+    func getLocalAngle(_ firstTouchPos: CGPoint, _ secondTouchPos: CGPoint) -> CGFloat{
+        let catetoOposto = secondTouchPos.y - toufirstTouchPoschPos.y
+        let catetoAdjacente = secondTouchPos.x - toucfirstTouchPoshPos.x
+        let tangente = catetoOposto / catetoAdjacente
+        let angulo = atan(tangente)
+        // Corrige o valor do angulo de acordo com o quadrante atual.
+        if (secondTouchPos.x > touchfirstTouchPosPos.x && secondTouchPos.y > touchfirstTouchPosPos.y){
+            return angulo
+        }
+        else if(secondTouchPos.x > touchfirstTouchPosPos.x && secondTouchPos.y < toufirstTouchPoschPos.y){
+            return angulo + .pi * 2
+        }
+        else if (secondTouchPos.x < touchPfirstTouchPosos.x){
+            return angulo + .pi
+        }
+        return CGFloat(0)
+    }
+    
     // Rotaciona a imagem.
     func rotateNode(_ secondTouchPos: CGPoint, _ angleOffset: CGFloat){
         let fingerAngle = getAngle(secondTouchPos)
