@@ -45,6 +45,25 @@ class DraggableNode: SKNode {
             touchOffset.y = self.position.y - (touches.first?.location(in: scene!).y)!
             touchPos = (touches.first?.location(in: self.scene!))!
         }else if (self.name == "simpleSelected" || touches.count == 2 ){
+            
+            if (touches.count != 1){
+                for touch in touches{
+                    if touch == touches.first{
+                        firstTouchPos = touch.location(in: self.scene!)
+                    }else{
+                        secondTouchPos = touch.location(in: self.scene!)
+                    }
+                }
+            }else if(touches.count == 1){
+                firstTouchPos = touchPos
+                secondTouchPos = (touches.first?.location(in: self.scene!))!
+            }
+            
+            print(firstTouchPos)
+            print(secondTouchPos)
+            
+//            localAngleOffset = getLocalAngle(firstTouchPos, secondTouchPos) - self.zRotation
+            
             self.name = "doubleSelected"
         }
     }
@@ -91,9 +110,9 @@ class DraggableNode: SKNode {
                 }
             }
             
-            print("\n\(firstTouchPos)")
-            print(secondTouchPos)
-            print(getLocalAngle(firstTouchPos, secondTouchPos) * 180 / .pi)
+//            print("\n\(firstTouchPos)")
+//            print(secondTouchPos)
+//            print(getLocalAngle(firstTouchPos, secondTouchPos) * 180 / .pi)
         }
         counter += 1
     }
