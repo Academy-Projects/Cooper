@@ -37,7 +37,7 @@ ZStack{
     HStack{
         ZStack{
             //chamando a cena spritkit dentro de uma view
-                SpriteView(scene: scene, isPaused: false)
+                SpriteView(scene: scene, isPaused: false, options: [.allowsTransparency])
             ZStack{
                 HStack{
                     // Botão para voltar uma tela.
@@ -64,23 +64,28 @@ ZStack{
                 }.frame(maxWidth: .infinity, alignment: .leading)
                 .frame(maxHeight: .infinity, alignment: .top)
                 .padding(.leading, 24)
-                .padding(.top, 13)
+                .padding(.top, 24)
             }
+            
             .frame(width: UIScreen.main.bounds.width * 0.69, height: UIScreen.main.bounds.height * 0.90)
-            .padding(.trailing, -6)
-            .padding(.leading, -6)
-            .padding(.bottom, -3)
-            .padding(.top, -3)
+            .padding(.trailing, -3)
+            .padding(.leading, -3)
+            .padding(.bottom, -1)
+            .padding(.top, -1)
             .border(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), width: 2)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .background(RoundedRectangle(cornerRadius: 20)
                 .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 3)
                 )
         }
+            .background(Color("ColorBackgroundInside"))
             .clipShape(RoundedRectangle(cornerRadius: 13))
             .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 3)
-            .background(RoundedRectangle(cornerRadius: 13)
-            ).padding()
+            .background(RoundedRectangle(cornerRadius: 13))
+            .frame(height: UIScreen.main.bounds.height * 0.93)
+            .padding(.trailing, 15)
+            .padding(.leading, 15)
+        
         VStack{
                 Text("Clique nos cards que deseja \nusar para ilustrar a história")
                         .multilineTextAlignment(.center)
@@ -89,7 +94,7 @@ ZStack{
                         .frame(width: UIScreen.main.bounds.width * 0.22, height: UIScreen.main.bounds.height * 0.08)
                         .foregroundColor(Color("colorFont"))
                        // .padding(EdgeInsets(top: 0, leading: 0, bottom: 24, trailing: 0))
-                ScrollView{
+                ScrollView(showsIndicators: false){
                    // Spacer()
                     VStack{
                         //array que tras a imagens após serem selecionadas
@@ -124,13 +129,13 @@ ZStack{
                 }.frame(height: UIScreen.main.bounds.height * 0.71)
             NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
                     Text("Terminei de ilustrar ")
-                        .font(Font.custom("Boogaloo-Regular", size: 23))
+                        .font(Font.custom("SourceSans3-Bold", size: 21))
                         .foregroundColor(Color("colorFont"))
                         .minimumScaleFactor(0.1) //<--Here
                         .frame(width: UIScreen.main.bounds.width * 0.23, height: UIScreen.main.bounds.height * 0.046)
                         .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                        .background(RoundedRectangle(cornerRadius: 12)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .background(RoundedRectangle(cornerRadius: 8)
                             .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
                         )
                         .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 5, y: 5)
@@ -141,11 +146,13 @@ ZStack{
             
         }.frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.height * 0.93)
             .background(Color("ColorBackgroundInside"))
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .background(RoundedRectangle(cornerRadius: 20))
+            .clipShape(RoundedRectangle(cornerRadius: 13))
             .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 3)
+            .background(RoundedRectangle(cornerRadius: 13))
             .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 17))
-           }.background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustrationWhite"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
+           }
+    .frame(maxWidth: . infinity, maxHeight: .infinity)
+    .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustrationWhite"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
                                         startPoint: .leading,
                                         endPoint: .trailing))    }.navigationBarHidden(true)
     

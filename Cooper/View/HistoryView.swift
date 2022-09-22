@@ -141,7 +141,7 @@ struct HistoryView: View {
                         Image("PERSONAGEM")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .padding(.leading, 30)
+                            .padding(.leading, 50)
                      //lazy grid que tras o array de imagens e foreach que contem os dados delas
                         LazyHGrid(rows: layout, spacing: 23){
                             ForEach(data.indices) { idx in
