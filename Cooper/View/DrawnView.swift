@@ -24,11 +24,11 @@ struct DrawnView: View {
     
     @State var nImagem:Int = 0
     @State var isDraggin:Bool = false
-    
+    //lista de pictogramas
     @State var imagens:[[String]] = [["homempic", "sentandopic", "círculopic", "triangulopic", "adiçãopic","seta","checkpic", "retapic", "folhapic", "bussulapic", "ônibuspic", "nuvempic", "ursopic","bolsapic", "coraçaopic", "Explosao", "gotapic"],
         ["andandopic","bbpic", "quadradopic", "estrelapic", "igualpic", "maiorpic", "ondapic", "facapic", "musicapic", "tempopic", "raiopic", "autofalantepic", "caixãopic", "dinheiropic", "fogopic", "maçapic", "refeiçãopic"]]
     
-    // Cria um tipo de apresentação.
+    // volta para tele anterior
     @Environment(\.presentationMode) var presentationMode
 
     
@@ -55,12 +55,11 @@ ZStack{
                                     )
                                     .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
                             })
+                    //funcao utilizada para que a animacao do botao clicado nao seja mostrada
+                    //solucao encontrada para nao dar o contraste da sombra ao ser clicado
                             .buttonStyle(FlatLinkStyle())
                             .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
                             
-                    
-                    
-                           // .padding(EdgeInsets(top: 0, leading: 0, bottom: 600, trailing: 900))
                 }.frame(maxWidth: .infinity, alignment: .leading)
                 .frame(maxHeight: .infinity, alignment: .top)
                 .padding(.leading, 24)
@@ -93,7 +92,6 @@ ZStack{
                         .minimumScaleFactor(0.1) //<--Here
                         .frame(width: UIScreen.main.bounds.width * 0.22, height: UIScreen.main.bounds.height * 0.08)
                         .foregroundColor(Color("colorFont"))
-                       // .padding(EdgeInsets(top: 0, leading: 0, bottom: 24, trailing: 0))
                 ScrollView(showsIndicators: false){
                    // Spacer()
                     VStack{
@@ -107,8 +105,6 @@ ZStack{
                                             .scaledToFit()
                                         Image(imagens[0][imageidx])
                                             .frame(width: UIScreen.main.bounds.width * 0.063, height: UIScreen.main.bounds.height * 0.084)
-//                                            .resizable()
-//                                            .scaledToFit()
 
                                     }
                                 }.frame(width: UIScreen.main.bounds.width / 9)
@@ -140,6 +136,8 @@ ZStack{
                         )
                         .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 5, y: 5)
                 })
+            //funcao utilizada para que a animacao do botao clicado nao seja mostrada
+            //solucao encontrada para nao dar o contraste da sombra ao ser clicado
                  .frame(height: UIScreen.main.bounds.height * 0.040)
                  .buttonStyle(FlatLinkStyle())
                  .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))

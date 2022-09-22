@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct OnboardingStep{
+    //variaveis da lista no onboarding
     let image: String
     let isntruction: String
 }
-//teste
+//informacao das varias setadas no onboarding
 private let OnboardingSteps = [
     OnboardingStep(image: "blocked", isntruction: "Esse é o Cooper, um viajante que está sempre encontrando novos lugares para conhecer ao redor do mundo e você pode ajudá-lo a escolher o próximo destino."),
     OnboardingStep(image: "blocked", isntruction: "Mas Cooper sempre se mete em encrencas, já que não sabe a língua local dos países que passa então você irá embarcar nessa jornada junto dele e precisam sair dessa juntos."),
@@ -19,17 +20,20 @@ private let OnboardingSteps = [
     OnboardingStep(image: "blocked", isntruction: "mais um pagina")
 ]
 
-
+// corpo do onboarding
 struct OnBoardingView: View {
+    //booleano que muda de estado de acordo com o booleado setado
     @AppStorage ("isOnboarding") var  isOnboarding: Bool = true
-    
+    // variavel que define a estapa em que se passa as informacoes no momento
     @State private var currentStep = 0
-    
+    // variavel criado para voltar para tela anterior caso a funcao seja chamada
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack{
+            // tabview que chamada a estapa setada pelo idx da lista
             TabView(selection: $currentStep){
+                // foreach para ondenar as informacoes vindas da lista
                 ForEach(0..<OnboardingSteps.count){ it in
             VStack{
                         Image(OnboardingSteps[it].image)
@@ -48,10 +52,15 @@ struct OnBoardingView: View {
                         Spacer()
                         
                         HStack(spacing: 0){
+                            // botao com condicao para que verifique se a view ja foi mostrada uma vez no app
+                            // a condicao existe para que o usuario possa ver a instrucoes novamente caso  queira
+                            // para isso existe um botao que chama a view de onboarding
                             Button(action:{
                                 if isOnboarding == true {
                                     isOnboarding = false
                                 }else{
+                                    // else que faz com que view volta para anterior
+                                    //condicao so é chamada caso o usuario ja tenha passado pelo tutorial e esteja na tela por opcao propria
                                     let impactMed = UIImpactFeedbackGenerator(style: .heavy)
                                     impactMed.impactOccurred()
                                     
@@ -67,7 +76,8 @@ struct OnBoardingView: View {
                             Spacer()
                             
                             HStack{
-
+                                    // foreach criado para fazer o page view
+                                //funciona contando as etapas atraves do current step
                                 ForEach(0..<OnboardingSteps.count){ it in
                                     if it == currentStep{
                                         Rectangle()

@@ -175,13 +175,9 @@ struct HistoryView: View {
 
         }.frame(maxHeight: .infinity)
     
-//            .background(colorScheme == .dark ? Color.cyan : Color.yellow)
             .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
                                     startPoint: .leading,
                                     endPoint: .trailing))
-//            .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustrationWhite"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
-//                                    startPoint: .leading,
-//                                    endPoint: .trailing))
          .navigationBarHidden(true)
 
     }

@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 // declara a variável que irá armazenar a resposta escolhida do master
 public var answerChoice:Int = 0
-
+// variaveis criadas para setar informacoes da lista
 struct ListHistory: Identifiable{
     var id = UUID()
     var title: String
@@ -21,7 +21,7 @@ struct ListHistory: Identifiable{
     var finalTwo: String
     var finalThree: String
 }
-
+// lista de historias 
 var naps = [
     ListHistory(
         title: "A terra da Rainha",
