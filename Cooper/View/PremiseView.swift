@@ -200,8 +200,6 @@ struct PremiseView: View {
                                 }
                             })
                                 .frame(width: UIScreen.main.bounds.width * 0.35)
-                         //       .padding(.bottom, 8)
-                   // Spacer()
                     Button(action: {
                             
                             buttonPressed = 3

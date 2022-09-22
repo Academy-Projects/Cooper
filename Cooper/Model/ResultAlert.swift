@@ -9,9 +9,11 @@ import Foundation
 import SwiftUI
 
 struct CustomAlertView: View{
+    //booleano criado para verificar se popup aparece ou nao
     @Binding var show : Bool
+    // booleado para verificar se o resultado ta certo ou nao
     @State var result:Bool
-    
+    // variavel criado para voltar para tela anterior caso a funcao seja chamada
     @Environment(\.presentationMode) var presentationMode
     var body: some View{
         
@@ -23,7 +25,7 @@ struct CustomAlertView: View{
                            // .frame(width: UIScreen.main.bounds.width * )
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                        
+                        //circulo criado para chamar a funcao de confetti chamando o atributo ParticlesModifier
                         Circle()
                             .fill(Color.blue)
                             .frame(width: 12, height: 12)
@@ -37,7 +39,7 @@ struct CustomAlertView: View{
                            // .foregroundColor(.yellow)
                             .bold()
                             .font(Font.custom("Boogaloo-Regular", size: 40))
-                        
+                        //circulo criado para chamar a funcao de confetti chamando o atributo ParticlesModifier
                         Circle()
                             .fill(Color.blue)
                             .frame(width: 12, height: 12)
@@ -66,6 +68,8 @@ struct CustomAlertView: View{
                             )
                             .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 5, y: 5)
                         })
+                    //funcao utilizada para que a animacao do botao clicado nao seja mostrada
+                    //solucao encontrada para nao dar o contraste da sombra ao ser clicado
                           .buttonStyle(FlatLinkStyle())
                           .frame(width: UIScreen.main.bounds.width * 0.17, height: UIScreen.main.bounds.height * 0.046)
                           //.padding(.trailing, 34)
@@ -83,6 +87,7 @@ struct CustomAlertView: View{
                         .frame(width: UIScreen.main.bounds.width * 0.33)
                         .font(Font.custom("SourceSans3-Regular", size: 20))
                     HStack(spacing: 25){
+                        //navigation link criado chamando o index que foi escolhido anteriormente pela variavel global indexQuestion
                         NavigationLink(destination: PremiseView(story: naps[indexQuestion]), label: {
                             Text("Tentar novamente")
                                 .foregroundColor(Color("colorFont"))
@@ -98,6 +103,8 @@ struct CustomAlertView: View{
                                 )
                                 .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 5, y: 5)
                             })
+                        //funcao utilizada para que a animacao do botao clicado nao seja mostrada
+                        //solucao encontrada para nao dar o contraste da sombra ao ser clicado
                               .buttonStyle(FlatLinkStyle())
                               .frame(width: UIScreen.main.bounds.width * 0.17, height: UIScreen.main.bounds.height * 0.046)
                           //    .padding(.trailing, 34)
@@ -117,6 +124,8 @@ struct CustomAlertView: View{
                                 )
                                 .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 5, y: 5)
                             })
+                        //funcao utilizada para que a animacao do botao clicado nao seja mostrada
+                        //solucao encontrada para nao dar o contraste da sombra ao ser clicado
                               .buttonStyle(FlatLinkStyle())
                               .frame(width: UIScreen.main.bounds.width * 0.17, height: UIScreen.main.bounds.height * 0.046)
                         //      .padding(.trailing, 34)
