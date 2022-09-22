@@ -11,7 +11,7 @@ struct AnswerFinalView: View {
     
     var ilustrationScene: GameScene
     var story: ListHistory = naps[indexQuestion]
-    @State var cor:Color = Color(red: 0/255, green: 59/255, blue: 75/255)
+    @State var cor:Color = Color("ColorBackBotton")
     
     @State var buttonPressed:Int = 0
     @State var opacityButton:Double = 1
@@ -66,7 +66,7 @@ struct AnswerFinalView: View {
                     .background(RoundedRectangle(cornerRadius: 20)
                         .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 3)
                         )
-                }
+                }.background(Color("ColorBackgroundInside"))
                 VStack{
                     Text("O que Cooper está \ntentando comunicar?")
                         .bold()
@@ -113,7 +113,7 @@ struct AnswerFinalView: View {
                                         .multilineTextAlignment(.leading)
                                         .padding()
                                         .foregroundColor(.white)
-                                        .background(Color(red: 0/255, green: 59/255, blue: 75/255))
+                                        .background(cor)
                                         .opacity(opacityButton)
                                         .animation(.easeInOut(duration: 0.5))
                                         .clipShape(RoundedRectangle(cornerRadius: 8))
@@ -160,7 +160,7 @@ struct AnswerFinalView: View {
                                         .multilineTextAlignment(.leading)
                                         .padding()
                                         .foregroundColor(.white)
-                                        .background(Color(red: 0/255, green: 59/255, blue: 75/255))
+                                        .background(cor)
                                         .opacity(opacityButton)
                                         .animation(.easeInOut(duration: 0.5))
                                         .clipShape(RoundedRectangle(cornerRadius: 8))
@@ -190,7 +190,7 @@ struct AnswerFinalView: View {
                                     Text(story.finalThree)
                                         .font(Font.custom("SourceSans3-Regular", size: 25))
                                         .minimumScaleFactor(0.1) //<--Here
-                                        .frame(width: UIScreen.main.bounds.width * 0.22, height: UIScreen.main.bounds.height * 0.09, alignment: .leading)
+                                        .frame(width: UIScreen.main.bounds.width * 0.22, height: UIScreen.main.bounds.height * 0.07, alignment: .leading)
                                         .multilineTextAlignment(.leading)
                                         .padding()
                                         .foregroundColor(.white)
@@ -203,11 +203,11 @@ struct AnswerFinalView: View {
                                     Text(story.finalThree)
                                         .font(Font.custom("SourceSans3-Regular", size: 25))
                                         .minimumScaleFactor(0.1) //<--Here
-                                        .frame(width: UIScreen.main.bounds.width * 0.22, height: UIScreen.main.bounds.height * 0.09, alignment: .leading)
+                                        .frame(width: UIScreen.main.bounds.width * 0.22, height: UIScreen.main.bounds.height * 0.07, alignment: .leading)
                                         .multilineTextAlignment(.leading)
                                         .padding()
                                         .foregroundColor(.white)
-                                        .background(Color(red: 0/255, green: 59/255, blue: 75/255))
+                                        .background(cor)
                                         .opacity(opacityButton)
                                         .animation(.easeInOut(duration: 0.5))
                                         .clipShape(RoundedRectangle(cornerRadius: 8))
@@ -220,7 +220,11 @@ struct AnswerFinalView: View {
                            //     .padding(.bottom, 8)
                     
                     Button(action:{// Muda a variável para apresentar o Pop-Up.
+                        if buttonPressed == 0{
+                            
+                        }else{
                             presentResultAlert.toggle()
+                        }
                             },
                            label: {
                             Text("OK")
@@ -239,11 +243,11 @@ struct AnswerFinalView: View {
                             .padding(.top, 10)
              
                 }.frame(width: UIScreen.main.bounds.width * 0.26)
-                    .background(Color.white)
+                    .background(Color("ColorBackgroundInside"))
                     .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 17))
             }
             .frame(width: UIScreen.main.bounds.width * 0.96, height: UIScreen.main.bounds.height * 0.92)
-            .background(Color.white)
+            .background(Color("ColorBackgroundInside"))
             .clipShape(RoundedRectangle(cornerRadius: 13))
             .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 3)
             //.overlay(RoundedRectangle(cornerRadius: 100).stroke(Color.black))
