@@ -18,6 +18,10 @@ class DraggableNode: SKNode {
     
     var counter:Int = 0
     
+    var firstTouchPos:CGPoint = CGPoint(x: 0, y: 0)
+    var secondTouchPos:CGPoint = CGPoint(x: 0, y: 0)
+    var localAngleOffset:CGFloat = 0
+    
     override init() {
         self.sprite = SKSpriteNode()
         super.init()
@@ -32,44 +36,48 @@ class DraggableNode: SKNode {
         // Traz o sprite para a camada mais em cima.
         layerCount += 1
         self.zPosition = CGFloat(layerCount)
-        // quando inicia o toque muda nome dele para selecionado.
-        self.name = "simpleSelected"
-        // Armazena a posicção do primeiro toque em relação com o sprite.
-        touchOffset.x = self.position.x - (touches.first?.location(in: scene!).x)!
-        touchOffset.y = self.position.y - (touches.first?.location(in: scene!).y)!
-        touchPos = (touches.first?.location(in: self.scene!))!
-    }
-    // Seta o estado da Imagem para não selecionada.
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // Volta a imagem do lixo ao normal.
-        let node = self.scene?.childNode(withName: "trash")
-        let unselectAction = SKAction.setTexture(SKTexture(imageNamed: "TrashUnselected"))
-        node?.run(unselectAction)
-        // Apaga o nó quando o a imagem está em cima do lixo
-        if (touchPos.x + touchOffset.x) > ((self.scene?.size.width)! * 0.35)  && (touchPos.y + touchOffset.y) < ((self.scene?.size.height)! * -0.35) {
-            self.removeFromParent()
+        //para quando ouver dois toques
+        if (self.name == "unselected" && touches.count == 1){
+            // quando inicia o toque muda nome dele para selecionado.
+            self.name = "simpleSelected"
+            // Armazena a posicção do primeiro toque em relação com o sprite.
+            touchOffset.x = self.position.x - (touches.first?.location(in: scene!).x)!
+            touchOffset.y = self.position.y - (touches.first?.location(in: scene!).y)!
+            touchPos = (touches.first?.location(in: self.scene!))!
+        }else if (self.name == "simpleSelected" || touches.count == 2 ){
+            
+            // Armazena os dois toques.
+            if (touches.count != 1){ // Quando ocorre dois toques simultâneos.
+                for touch in touches{
+                    if touch == touches.first{
+                        firstTouchPos = touch.location(in: self.scene!)
+                    }else{
+                        secondTouchPos = touch.location(in: self.scene!)
+                    }
+                }
+            }else if(touches.count == 1){ // Quando ocorre dois toques separadamente
+                firstTouchPos = touchPos
+                secondTouchPos = (touches.first?.location(in: self.scene!))!
+            }
+            
+            
+            localAngleOffset = getLocalAngle(firstTouchPos, secondTouchPos) - self.zRotation
+            
+            self.name = "doubleSelected"
         }
-        self.name = "unselected"
-        counter = 0
-        
-    }
-    // Seta o estado da Imagem para não selecionada.
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.name = "unselected"
-        counter = 0
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if touches.count != 1{
-            self.name = "unselected"
-        }
-        else if(self.name == "simpleSelected" && touches.count == 1 && counter > 3){
+//        if touches.count != 1{
+//            self.name = "unselected"
+//        }
+        if(self.name == "simpleSelected" && counter > 3){
             // Calcula os limites da cena baseado no tamanho dos objetos.
             let sceneSize = self.scene?.size
             let imageSize = self.sprite.size
             let sceneLimitWidth = sceneSize!.width/2 - imageSize.width/2 - 10
             let sceneLimitHeight = sceneSize!.height/2 - imageSize.height/2 - 10
-            
+
             // Limite no eixo X.
             if (touchPos.x + touchOffset.x) < sceneLimitWidth && (touchPos.x + touchOffset.x) > (sceneLimitWidth * -1){
                 self.position.x = touchPos.x + touchOffset.x
@@ -90,9 +98,55 @@ class DraggableNode: SKNode {
             }
             touchPos = (touches.first?.location(in: self.scene!))!
         }
+        else if(self.name == "doubleSelected"){
+            if (touches.count > 1){
+                for touch in touches{
+                    if touch == touches.first{
+                        firstTouchPos = touch.location(in: self.scene!)
+                    }else{
+                        secondTouchPos = touch.location(in: self.scene!)
+                    }
+                }
+            }
+            
+            print("\n \(firstTouchPos)")
+            print(secondTouchPos)
+            self.zRotation = getLocalAngle(firstTouchPos, secondTouchPos) - localAngleOffset
+            
+//            print("\n\(self.zRotation * 180 / .pi)")
+            print(getLocalAngle(firstTouchPos, secondTouchPos) * 180 / .pi)
+//            print(localAngleOffset * 180 / .pi)
+        }
         counter += 1
     }
-
+    // Seta o estado da Imagem para não selecionada.
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Volta a imagem do lixo ao normal.
+        let node = self.scene?.childNode(withName: "trash")
+        let unselectAction = SKAction.setTexture(SKTexture(imageNamed: "TrashUnselected"))
+        node?.run(unselectAction)
+        // Apaga o nó quando o a imagem está em cima do lixo
+        if (touchPos.x + touchOffset.x) > ((self.scene?.size.width)! * 0.35)  && (touchPos.y + touchOffset.y) < ((self.scene?.size.height)! * -0.35) {
+            self.removeFromParent()
+        }
+        
+        if(self.name == "doubleSelected"){
+            self.name = "simpleSelected"
+        } else if(self.name == "simpleSelected"){
+            self.name = "unselected"
+        }
+        counter = 0
+        
+    }
+    // Seta o estado da Imagem para não selecionada.
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if(self.name == "doubleSelected"){
+            self.name = "simpleSelected"
+        } else if(self.name == "simpleSelected"){
+            self.name = "unselected"
+        }
+        counter = 0
+    }
         
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -122,6 +176,25 @@ class DraggableNode: SKNode {
         }
         return CGFloat(0)
     }
+    
+    func getLocalAngle(_ firstTouchPos: CGPoint, _ secondTouchPos: CGPoint) -> CGFloat{
+        let catetoOposto = secondTouchPos.y - firstTouchPos.y
+        let catetoAdjacente = secondTouchPos.x - firstTouchPos.x
+        let tangente = catetoOposto / catetoAdjacente
+        let angulo = atan(tangente)
+        // Corrige o valor do angulo de acordo com o quadrante atual.
+        if (secondTouchPos.x > firstTouchPos.x && secondTouchPos.y > firstTouchPos.y){
+            return angulo
+        }
+        else if(secondTouchPos.x > firstTouchPos.x && secondTouchPos.y < firstTouchPos.y){
+            return angulo + .pi * 2
+        }
+        else if (secondTouchPos.x < firstTouchPos.x){
+            return angulo + .pi
+        }
+        return CGFloat(0)
+    }
+    
     // Rotaciona a imagem.
     func rotateNode(_ secondTouchPos: CGPoint, _ angleOffset: CGFloat){
         let fingerAngle = getAngle(secondTouchPos)

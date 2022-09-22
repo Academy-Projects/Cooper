@@ -17,7 +17,6 @@
       "scale" : "1x"
     },
     {
-      "filename" : "refeição.pic@2x-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,6 +27,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "comida.dark-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

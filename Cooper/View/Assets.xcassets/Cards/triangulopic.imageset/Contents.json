@@ -12,6 +12,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "retangulo.dark@3x-3.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -27,6 +28,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "retangulo.dark@3x-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
