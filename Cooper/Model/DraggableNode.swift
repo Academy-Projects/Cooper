@@ -31,6 +31,9 @@ class DraggableNode: SKNode {
     
     override init() {
         self.sprite = SKSpriteNode()
+        self.sprite.size.width = self.sprite.size.width * 1.5
+        self.sprite.size.height = self.sprite.size.height * 1.5
+        
         super.init()
         self.zPosition = 0
         self.isUserInteractionEnabled = true
@@ -134,7 +137,7 @@ class DraggableNode: SKNode {
         }
         
         if(self.name == "doubleSelected"){
-            self.name = "simpleSelected"
+            self.name = "unselected"
         } else if(self.name == "simpleSelected"){
             self.name = "unselected"
         }
@@ -144,7 +147,7 @@ class DraggableNode: SKNode {
     // Seta o estado da Imagem para não selecionada.
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         if(self.name == "doubleSelected"){
-            self.name = "simpleSelected"
+            self.name = "unselected"
         } else if(self.name == "simpleSelected"){
             self.name = "unselected"
         }
