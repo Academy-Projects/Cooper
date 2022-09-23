@@ -11,13 +11,14 @@ struct OnboardingStep{
     //variaveis da lista no onboarding
     let image: String
     let isntruction: String
+    let gif: String
 }
 //informacao das varias setadas no onboarding
 private let OnboardingSteps = [
-    OnboardingStep(image: "blocked", isntruction: "Esse é o Cooper, um viajante que está sempre encontrando novos lugares para conhecer ao redor do mundo e você pode ajudá-lo a escolher o próximo destino."),
-    OnboardingStep(image: "blocked", isntruction: "Mas Cooper sempre se mete em encrencas, já que não sabe a língua local dos países que passa então você irá embarcar nessa jornada junto dele e precisam sair dessa juntos."),
-    OnboardingStep(image: "blocked", isntruction: "Ajude Cooper se expressar por meio de pictogramas e evitar que sejam presos por conta de suas desventuras mal entendidas. Lembre-se: a comunicação é a chave."),
-    OnboardingStep(image: "blocked", isntruction: "mais um pagina")
+    OnboardingStep(image: "blocked", isntruction: "Esse é o Cooper, um viajante que está sempre encontrando novos lugares para conhecer ao redor do mundo e você pode ajudá-lo a escolher o próximo destino.", gif: "let"),
+    OnboardingStep(image: "blocked", isntruction: "Mas Cooper sempre se mete em encrencas, já que não sabe a língua local dos países que passa então você irá embarcar nessa jornada junto dele e precisam sair dessa juntos.", gif: "lele"),
+    OnboardingStep(image: "blocked", isntruction: "Ajude Cooper se expressar por meio de pictogramas e evitar que sejam presos por conta de suas desventuras mal entendidas. Lembre-se: a comunicação é a chave.", gif: "let"),
+    OnboardingStep(image: "blocked", isntruction: "mais um pagina", gif: "let")
 ]
 
 // corpo do onboarding
@@ -36,11 +37,13 @@ struct OnBoardingView: View {
                 // foreach para ondenar as informacoes vindas da lista
                 ForEach(0..<OnboardingSteps.count){ it in
             VStack{
-                        Image(OnboardingSteps[it].image)
-                            .resizable()
-                            .frame(width: UIScreen.main.bounds.width * 0.69, height: UIScreen.main.bounds.height * 0.49)
-                            .padding(.bottom, 24)
-                            .padding(.top, 64)
+                        Gif(OnboardingSteps[it].gif)
+                   // .background(Color.le)
+                        .frame(width: 200, height: 200)
+//                            .resizable()
+//                            .frame(width: UIScreen.main.bounds.width * 0.69, height: UIScreen.main.bounds.height * 0.49)
+//                            .padding(.bottom, 24)
+//                            .padding(.top, 64)
                         
                         Text(OnboardingSteps[it].isntruction)
                             .frame(width: UIScreen.main.bounds.width * 0.49)
@@ -144,6 +147,12 @@ struct OnBoardingView: View {
                 )
         }
         .navigationBarHidden(true)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
+                                         startPoint: .leading,
+                                         endPoint: .trailing))
+         
+        
     }
 }
 
