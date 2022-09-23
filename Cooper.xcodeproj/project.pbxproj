@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		282F3EE528DCF56E00E787C1 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282F3EE428DCF56E00E787C1 /* GifImage.swift */; };
+		282F3EE728DD018800E787C1 /* let.gif in Resources */ = {isa = PBXBuildFile; fileRef = 282F3EE628DD018800E787C1 /* let.gif */; };
+		282F3EE928DD01DD00E787C1 /* lele.gif in Resources */ = {isa = PBXBuildFile; fileRef = 282F3EE828DD01DD00E787C1 /* lele.gif */; };
 		283FD6AB28CA774200020ACA /* UnavailableAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283FD6AA28CA774200020ACA /* UnavailableAlert.swift */; };
 		283FD6AD28CCE56300020ACA /* Boogaloo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 283FD6AC28CCE56300020ACA /* Boogaloo-Regular.ttf */; };
 		284107FC28AB07B400D142F8 /* CooperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284107FB28AB07B400D142F8 /* CooperApp.swift */; };
@@ -44,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		282F3EE428DCF56E00E787C1 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
+		282F3EE628DD018800E787C1 /* let.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = let.gif; sourceTree = "<group>"; };
+		282F3EE828DD01DD00E787C1 /* lele.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = lele.gif; sourceTree = "<group>"; };
 		283FD6AA28CA774200020ACA /* UnavailableAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnavailableAlert.swift; sourceTree = "<group>"; };
 		283FD6AC28CCE56300020ACA /* Boogaloo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Boogaloo-Regular.ttf"; sourceTree = "<group>"; };
 		284107F828AB07B400D142F8 /* Cooper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cooper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +137,7 @@
 				3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */,
 				283FD6AA28CA774200020ACA /* UnavailableAlert.swift */,
 				28E04D4828D6160400D9599A /* ConfettiParticle.swift */,
+				282F3EE428DCF56E00E787C1 /* GifImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,6 +160,8 @@
 			children = (
 				284107FB28AB07B400D142F8 /* CooperApp.swift */,
 				284107FD28AB07B400D142F8 /* ContentView.swift */,
+				282F3EE628DD018800E787C1 /* let.gif */,
+				282F3EE828DD01DD00E787C1 /* lele.gif */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -272,8 +281,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				28D1620328C7D5360085D3B2 /* SourceSans3-Regular.ttf in Resources */,
+				282F3EE728DD018800E787C1 /* let.gif in Resources */,
 				283FD6AD28CCE56300020ACA /* Boogaloo-Regular.ttf in Resources */,
 				2841080028AB07B600D142F8 /* Assets.xcassets in Resources */,
+				282F3EE928DD01DD00E787C1 /* lele.gif in Resources */,
 				28D161FE28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +320,7 @@
 				284107FE28AB07B400D142F8 /* ContentView.swift in Sources */,
 				3F24584D28C8DF7D002CB9AB /* ResultAlert.swift in Sources */,
 				287DA35A28BE7EAE006E624C /* PremiseView.swift in Sources */,
+				282F3EE528DCF56E00E787C1 /* GifImage.swift in Sources */,
 				3F8BBE2428AFC409008E9F32 /* GameScene.swift in Sources */,
 				284107FC28AB07B400D142F8 /* CooperApp.swift in Sources */,
 				283FD6AB28CA774200020ACA /* UnavailableAlert.swift in Sources */,
