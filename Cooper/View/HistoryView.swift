@@ -118,7 +118,7 @@ struct HistoryView: View {
                             )
                             .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
                     }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                      .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 50))
+                      .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 80))
                       .buttonStyle(FlatLinkStyle())
 
         }
@@ -141,7 +141,7 @@ struct HistoryView: View {
                         Image("PERSONAGEM")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .padding(.leading, 50)
+                            .padding(.leading, 80)
                      //lazy grid que tras o array de imagens e foreach que contem os dados delas
                         LazyHGrid(rows: layout, spacing: 23){
                             ForEach(data.indices) { idx in

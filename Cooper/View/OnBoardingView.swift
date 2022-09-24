@@ -41,58 +41,57 @@ struct OnBoardingView: View {
                         VStack{
                             HStack{
                                 VStack{
+                                    
                                     Text("Caso")
                                         .font(Font.custom("Boogaloo-Regular", size: 40))
                                         .minimumScaleFactor(0.1) //<--Here
                                         .frame(width: UIScreen.main.bounds.width * 0.11, height: UIScreen.main.bounds.height * 0.04)
-                                        .padding(.top, 73)
                                         .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                                         //.padding(.bottom, 20)
                                         .multilineTextAlignment(.center)
                                     
                                     Image("blocked")
-                                    Spacer()
+                                    
                                     Text("Explicação")
                                         .font(Font.custom("Boogaloo-Regular", size: 35))
                                         .minimumScaleFactor(0.1) //<--Here
                                         .frame(width: UIScreen.main.bounds.width * 0.11, height: UIScreen.main.bounds.height * 0.04)
                                         .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                                        //.padding(.bottom, 20)
-                                        
                                         .multilineTextAlignment(.center)
+                                        .padding(.top, 40)
                                     
                                     Gif(OnboardingSteps[it].gif)
                                         .frame(width: 200, height: 200)
-                    //                            .resizable()
-                    //                            .frame(width: UIScreen.main.bounds.width * 0.69, height: UIScreen.main.bounds.height * 0.49)
-                    //                            .padding(.bottom, 24)
-                    //                            .padding(.top, 64)
+
                                             
-                                            Spacer()
-                                }.padding(.leading, 133)
+                                        
+                                }
+                                .padding(.leading, 133)
+                                .padding(.top, 173)
                                 Spacer()
                                 VStack{
                                     Text(OnboardingSteps[it].caso)
                                         .font(Font.custom("Boogaloo-Regular", size: 55))
                                         .minimumScaleFactor(0.1) //<--Here
-                                        .frame(width: UIScreen.main.bounds.width * 0.37, height: UIScreen.main.bounds.height * 0.13)
+                                        .frame(width: UIScreen.main.bounds.width * 0.37, height: UIScreen.main.bounds.height * 0.13, alignment: .leading)
                                         .foregroundColor(Color("colorFont"))
                                         .multilineTextAlignment(.leading)
-                                        .padding(.top, 300)
-                                    Spacer()
+                                       // .padding(.top, 300)
+                                  //  Spacer()
                                     Text(OnboardingSteps[it].isntruction)
                                         .font(Font.custom("SourceSans3-Regular", size: 20))
-                                       // .minimumScaleFactor(0.1) //<--Here
-                                        .frame(width: UIScreen.main.bounds.width * 0.37, height: UIScreen.main.bounds.height * 0.12, alignment: .leading)
+                                        .frame(width: UIScreen.main.bounds.width * 0.37, height: UIScreen.main.bounds.height * 0.13, alignment: .leading)
                                         .foregroundColor(Color("colorFont"))
-                                        //.padding(.bottom, 20)
+                                       // .padding(.trailing, 15)
                                         .multilineTextAlignment(.leading)
-                                        .padding(.bottom, 300)
-                                }.padding(.trailing, 53)
+                                       // .padding(.bottom, 300)
+                                }
+                                .padding(.trailing, 56)
+                                .padding(.top, 173)
                          
-                            }
-                            
-                            HStack(spacing: 0){
+                            }.frame(height: UIScreen.main.bounds.height * 0.68)
+                            Spacer()
+                            HStack(){
                                 // botao com condicao para que verifique se a view ja foi mostrada uma vez no app
                                 // a condicao existe para que o usuario possa ver a instrucoes novamente caso  queira
                                 // para isso existe um botao que chama a view de onboarding
@@ -168,14 +167,15 @@ struct OnBoardingView: View {
                                   //  .frame(width: UIScreen.main.bounds.width * 0.08)
                                     
                             }
-                            .frame(maxWidth: .infinity)
-                            .padding(.bottom, 15)
+                            .frame(width: UIScreen.main.bounds.width * 0.93, height: UIScreen.main.bounds.height * 0.04)
+                            .padding(.bottom, 5)
+                            
+
                         }
+                        .frame(width: UIScreen.main.bounds.width * 0.93, height: UIScreen.main.bounds.height * 0.89)
                         
-                                    
-                                    
-                                    
-                                }.tag(it)
+  
+                     }.tag(it)
                         
                     }
                     
