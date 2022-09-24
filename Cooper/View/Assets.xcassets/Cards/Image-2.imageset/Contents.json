@@ -1,7 +1,13 @@
 {
   "images" : [
     {
-      "filename" : "refeição.pic.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "comida.dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,10 +18,7 @@
           "value" : "dark"
         }
       ],
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
+      "filename" : "comida.dark-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -26,22 +29,6 @@
           "value" : "dark"
         }
       ],
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "refeição.pic@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "comida.dark@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

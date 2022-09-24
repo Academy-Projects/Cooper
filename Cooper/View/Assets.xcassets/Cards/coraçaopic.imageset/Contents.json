@@ -12,7 +12,6 @@
           "value" : "dark"
         }
       ],
-      "filename" : "coração.dark@3x-2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -28,7 +27,6 @@
           "value" : "dark"
         }
       ],
-      "filename" : "coração.dark@3x-4.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -44,7 +42,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "coração.dark@3x.png",
+      "filename" : "coração.dark@3x-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

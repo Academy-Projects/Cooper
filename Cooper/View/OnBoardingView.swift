@@ -12,13 +12,14 @@ struct OnboardingStep{
     let image: String
     let isntruction: String
     let gif: String
+    let caso: String
 }
 //informacao das varias setadas no onboarding
 private let OnboardingSteps = [
-    OnboardingStep(image: "blocked", isntruction: "Esse é o Cooper, um viajante que está sempre encontrando novos lugares para conhecer ao redor do mundo e você pode ajudá-lo a escolher o próximo destino.", gif: "let"),
-    OnboardingStep(image: "blocked", isntruction: "Mas Cooper sempre se mete em encrencas, já que não sabe a língua local dos países que passa então você irá embarcar nessa jornada junto dele e precisam sair dessa juntos.", gif: "lele"),
-    OnboardingStep(image: "blocked", isntruction: "Ajude Cooper se expressar por meio de pictogramas e evitar que sejam presos por conta de suas desventuras mal entendidas. Lembre-se: a comunicação é a chave.", gif: "let"),
-    OnboardingStep(image: "blocked", isntruction: "mais um pagina", gif: "let")
+    OnboardingStep(image: "blocked", isntruction: "Você é Cooper, um viajante que azarado que sempre se mete em encrencas e está em  busca de novos destinos para suas aventuras.", gif: "let", caso: "Escolha o destino da sua próxima viagem"),
+    OnboardingStep(image: "blocked", isntruction: "Leia o caso para os outros jogadores, que farão papel dos policiais, mas escolha sua explicação em segredo, viu?", gif: "lele", caso: "Leia em voz alta e escolha em silêncio"),
+    OnboardingStep(image: "blocked", isntruction: "Evite ser preso por conta das suas desventuras mal entedidas. Organize os pictogramas até onde sua criatividade permitir.Será que você vai sair dessa?", gif: "let", caso: "Se expresse através de pictogramas"),
+    OnboardingStep(image: "blocked", isntruction: "mais um pagina", gif: "let", caso: "")
 ]
 
 // corpo do onboarding
@@ -36,106 +37,148 @@ struct OnBoardingView: View {
             TabView(selection: $currentStep){
                 // foreach para ondenar as informacoes vindas da lista
                 ForEach(0..<OnboardingSteps.count){ it in
-            VStack{
-                        Gif(OnboardingSteps[it].gif)
-                   // .background(Color.le)
-                        .frame(width: 200, height: 200)
-//                            .resizable()
-//                            .frame(width: UIScreen.main.bounds.width * 0.69, height: UIScreen.main.bounds.height * 0.49)
-//                            .padding(.bottom, 24)
-//                            .padding(.top, 64)
-                        
-                        Text(OnboardingSteps[it].isntruction)
-                            .frame(width: UIScreen.main.bounds.width * 0.49)
-                            .foregroundColor(Color("colorFont"))
-                            //.padding(.bottom, 20)
-                            .font(Font.custom("SourceSans3-Bold", size: 23))
-                            .multilineTextAlignment(.center)
-                        
-                        Spacer()
-                        
-                        HStack(spacing: 0){
-                            // botao com condicao para que verifique se a view ja foi mostrada uma vez no app
-                            // a condicao existe para que o usuario possa ver a instrucoes novamente caso  queira
-                            // para isso existe um botao que chama a view de onboarding
-                            Button(action:{
-                                if isOnboarding == true {
-                                    isOnboarding = false
-                                }else{
-                                    // else que faz com que view volta para anterior
-                                    //condicao so é chamada caso o usuario ja tenha passado pelo tutorial e esteja na tela por opcao propria
-                                    let impactMed = UIImpactFeedbackGenerator(style: .heavy)
-                                    impactMed.impactOccurred()
-                                    
-                                    presentationMode.wrappedValue.dismiss()
-                                    
-
-
-                                }
-                              } , label: {Text("Pular")})
-                                .font(Font.custom("SourceSans3-Regular", size: 22))
-                                .foregroundColor(Color("colorFont"))
-                    
-                            Spacer()
-                            
+                    HStack{
+                        VStack{
                             HStack{
-                                    // foreach criado para fazer o page view
-                                //funciona contando as etapas atraves do current step
-                                ForEach(0..<OnboardingSteps.count){ it in
-                                    if it == currentStep{
-                                        Rectangle()
-                                            .frame(width: 20, height: 10)
-                                            .cornerRadius(10)
-                                            .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                                    } else {
-                                        Circle()
-                                            .frame(width: 10, height: 10)
-                                            .foregroundColor(.gray)
-                                    }
+                                VStack{
+                                    Text("Caso")
+                                        .font(Font.custom("Boogaloo-Regular", size: 40))
+                                        .minimumScaleFactor(0.1) //<--Here
+                                        .frame(width: UIScreen.main.bounds.width * 0.11, height: UIScreen.main.bounds.height * 0.04)
+                                        .padding(.top, 73)
+                                        .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                        //.padding(.bottom, 20)
+                                        .multilineTextAlignment(.center)
                                     
-                                }
+                                    Image("blocked")
+                                    Spacer()
+                                    Text("Explicação")
+                                        .font(Font.custom("Boogaloo-Regular", size: 35))
+                                        .minimumScaleFactor(0.1) //<--Here
+                                        .frame(width: UIScreen.main.bounds.width * 0.11, height: UIScreen.main.bounds.height * 0.04)
+                                        .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                        //.padding(.bottom, 20)
+                                        
+                                        .multilineTextAlignment(.center)
+                                    
+                                    Gif(OnboardingSteps[it].gif)
+                                        .frame(width: 200, height: 200)
+                    //                            .resizable()
+                    //                            .frame(width: UIScreen.main.bounds.width * 0.69, height: UIScreen.main.bounds.height * 0.49)
+                    //                            .padding(.bottom, 24)
+                    //                            .padding(.top, 64)
+                                            
+                                            Spacer()
+                                }.padding(.leading, 133)
+                                Spacer()
+                                VStack{
+                                    Text(OnboardingSteps[it].caso)
+                                        .font(Font.custom("Boogaloo-Regular", size: 55))
+                                        .minimumScaleFactor(0.1) //<--Here
+                                        .frame(width: UIScreen.main.bounds.width * 0.37, height: UIScreen.main.bounds.height * 0.13)
+                                        .foregroundColor(Color("colorFont"))
+                                        .multilineTextAlignment(.leading)
+                                        .padding(.top, 300)
+                                    Spacer()
+                                    Text(OnboardingSteps[it].isntruction)
+                                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                                       // .minimumScaleFactor(0.1) //<--Here
+                                        .frame(width: UIScreen.main.bounds.width * 0.37, height: UIScreen.main.bounds.height * 0.12, alignment: .leading)
+                                        .foregroundColor(Color("colorFont"))
+                                        //.padding(.bottom, 20)
+                                        .multilineTextAlignment(.leading)
+                                        .padding(.bottom, 300)
+                                }.padding(.trailing, 53)
+                         
                             }
                             
-                            Spacer()
-                            // teste
-                           // condicao que verifica a quatidade de elementos para se tornar e view e verifica se é a ultima para que possa seguir para o app
-                            // a aplicacao nao volta pra essa view a nao ser que seja apagada
-                            Button(action:{
-                                if self.currentStep < OnboardingSteps.count - 1{
-                                    self.currentStep += 1
-                                } else if self.currentStep >= 3{
-                                    let impactMed = UIImpactFeedbackGenerator(style: .heavy)
-                                    impactMed.impactOccurred()
-                                    
-                                    presentationMode.wrappedValue.dismiss()
-                                    
-                                    isOnboarding = false
-                                }
-                            } ,
-                                   label:{
-                                Image(systemName: "chevron.right")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .padding(.vertical, 6)
-                                    .font(Font.custom("SourceSans3-Regular", size: 10))
+                            HStack(spacing: 0){
+                                // botao com condicao para que verifique se a view ja foi mostrada uma vez no app
+                                // a condicao existe para que o usuario possa ver a instrucoes novamente caso  queira
+                                // para isso existe um botao que chama a view de onboarding
+                                Button(action:{
+                                    if isOnboarding == true {
+                                        isOnboarding = false
+                                    }else{
+                                        // else que faz com que view volta para anterior
+                                        //condicao so é chamada caso o usuario ja tenha passado pelo tutorial e esteja na tela por opcao propria
+                                        let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactMed.impactOccurred()
+                                        
+                                        presentationMode.wrappedValue.dismiss()
+                                        
+
+
+                                    }
+                                  } , label: {Text("Pular")})
+                                    .font(Font.custom("SourceSans3-Regular", size: 22))
                                     .foregroundColor(Color("colorFont"))
-                                    .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                                    .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                                    .background(RoundedRectangle(cornerRadius: 12)
-                                        .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
-                                    )
-                                
-                            })
-                              //  .frame(width: UIScreen.main.bounds.width * 0.08)
-                                
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding(.bottom, 15)
                         
-                    }.tag(it)
+                                Spacer()
+                                
+                                HStack{
+                                        // foreach criado para fazer o page view
+                                    //funciona contando as etapas atraves do current step
+                                    ForEach(0..<OnboardingSteps.count){ it in
+                                        if it == currentStep{
+                                            Rectangle()
+                                                .frame(width: 20, height: 10)
+                                                .cornerRadius(10)
+                                                .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                        } else {
+                                            Circle()
+                                                .frame(width: 10, height: 10)
+                                                .foregroundColor(.gray)
+                                        }
+                                        
+                                    }
+                                }
+                                
+                                Spacer()
+                                // teste
+                               // condicao que verifica a quatidade de elementos para se tornar e view e verifica se é a ultima para que possa seguir para o app
+                                // a aplicacao nao volta pra essa view a nao ser que seja apagada
+                                Button(action:{
+                                    if self.currentStep < OnboardingSteps.count - 1{
+                                        self.currentStep += 1
+                                    } else if self.currentStep >= 3{
+                                        let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactMed.impactOccurred()
+                                        
+                                        presentationMode.wrappedValue.dismiss()
+                                        
+                                        isOnboarding = false
+                                    }
+                                } ,
+                                       label:{
+                                    Image(systemName: "chevron.right")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .padding(.vertical, 6)
+                                        .font(Font.custom("SourceSans3-Regular", size: 10))
+                                        .foregroundColor(Color("colorFont"))
+                                        .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                                        .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                                        .background(RoundedRectangle(cornerRadius: 12)
+                                            .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
+                                        )
+                                    
+                                })
+                                  //  .frame(width: UIScreen.main.bounds.width * 0.08)
+                                    
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.bottom, 15)
+                        }
+                        
+                                    
+                                    
+                                    
+                                }.tag(it)
+                        
+                    }
                     
-                }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .frame(width: UIScreen.main.bounds.width * 0.93, height: UIScreen.main.bounds.height * 0.89)

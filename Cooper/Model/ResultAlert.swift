@@ -143,15 +143,6 @@ struct CustomAlertView: View{
                                          endPoint: .bottom))
             .cornerRadius(20)
             
-//            Button(action: {
-//                    show.toggle()
-//                    },
-//                   label: {
-//                    Image(systemName: "xmark.circle")
-//                    .font(.system(size: 28, weight: .bold))
-//                    .foregroundColor(Color.blue)
-//                
-//            }).padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

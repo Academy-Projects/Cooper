@@ -10,6 +10,8 @@ import Foundation
 // declara a variável que irá armazenar a resposta escolhida do master
 public var answerChoice:Int = 0
 // variaveis criadas para setar informacoes da lista
+public var final:String = "t"
+//variavel globol que contem qual o usuario escolheu 
 struct ListHistory: Identifiable{
     var id = UUID()
     var title: String
