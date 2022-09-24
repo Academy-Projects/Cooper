@@ -17,7 +17,7 @@ struct CooperApp: App {
             if isOnboarding{
                 OnBoardingView()
             }else{
-                ContentView()
+                SplashScreenView()
             }
             
         }
