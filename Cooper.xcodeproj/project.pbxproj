@@ -29,6 +29,9 @@
 		3F24584D28C8DF7D002CB9AB /* ResultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */; };
 		3F8BBE2428AFC409008E9F32 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2328AFC409008E9F32 /* GameScene.swift */; };
 		3F8BBE2628B00673008E9F32 /* DraggableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2528B00673008E9F32 /* DraggableNode.swift */; };
+		46F654FA28E008EE002084FF /* Gif3Ofc.gif in Resources */ = {isa = PBXBuildFile; fileRef = 46F654F928E008EE002084FF /* Gif3Ofc.gif */; };
+		46F654FC28E008FD002084FF /* Gif3Ofc.gif in Resources */ = {isa = PBXBuildFile; fileRef = 46F654FB28E008FD002084FF /* Gif3Ofc.gif */; };
+		46F654FE28E00FAB002084FF /* gifOfc2html.gif in Resources */ = {isa = PBXBuildFile; fileRef = 46F654FD28E00FAB002084FF /* gifOfc2html.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAlert.swift; sourceTree = "<group>"; };
 		3F8BBE2328AFC409008E9F32 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		3F8BBE2528B00673008E9F32 /* DraggableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableNode.swift; sourceTree = "<group>"; };
+		46F654F928E008EE002084FF /* Gif3Ofc.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Gif3Ofc.gif; sourceTree = "<group>"; };
+		46F654FB28E008FD002084FF /* Gif3Ofc.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = Gif3Ofc.gif; path = ../../../../../Downloads/Gif3Ofc.gif; sourceTree = "<group>"; };
+		46F654FD28E00FAB002084FF /* gifOfc2html.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gifOfc2html.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,8 +170,11 @@
 		285D3E6B28B01EC2008072C0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				46F654F928E008EE002084FF /* Gif3Ofc.gif */,
+				46F654FB28E008FD002084FF /* Gif3Ofc.gif */,
 				284107FB28AB07B400D142F8 /* CooperApp.swift */,
 				284107FD28AB07B400D142F8 /* ContentView.swift */,
+				46F654FD28E00FAB002084FF /* gifOfc2html.gif */,
 				282F3EE628DD018800E787C1 /* let.gif */,
 				282F3EE828DD01DD00E787C1 /* lele.gif */,
 			);
@@ -287,8 +296,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				28D1620328C7D5360085D3B2 /* SourceSans3-Regular.ttf in Resources */,
+				46F654FE28E00FAB002084FF /* gifOfc2html.gif in Resources */,
+				46F654FC28E008FD002084FF /* Gif3Ofc.gif in Resources */,
 				282F3EE728DD018800E787C1 /* let.gif in Resources */,
 				283FD6AD28CCE56300020ACA /* Boogaloo-Regular.ttf in Resources */,
+				46F654FA28E008EE002084FF /* Gif3Ofc.gif in Resources */,
 				2841080028AB07B600D142F8 /* Assets.xcassets in Resources */,
 				282F3EE928DD01DD00E787C1 /* lele.gif in Resources */,
 				28D161FE28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf in Resources */,
@@ -487,7 +499,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = XJ57BXJG95;
+				DEVELOPMENT_TEAM = TJAAT2KASR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooper/Info.plist;
@@ -520,7 +532,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = XJ57BXJG95;
+				DEVELOPMENT_TEAM = TJAAT2KASR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooper/Info.plist;
