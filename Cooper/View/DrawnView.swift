@@ -9,6 +9,21 @@ import Foundation
 import SwiftUI
 import SpriteKit
 
+
+struct PopoverContent: View {
+    
+    
+    var body: some View {
+        VStack {
+            Text(final)
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.bottom, 20)
+        }
+        .frame(width: 350, height: 200)
+    }
+}
+
 struct DrawnView: View {
     
     let gameScene = GameScene()
@@ -18,17 +33,23 @@ struct DrawnView: View {
         return gameScene
     }
     
+    var choice: ListHistory = naps[indexQuestion]
+    
+    @State private var showPopover = false
+
+    
+    @State var presentResultAlert = false // Faz o Pop-Up aparecer ou não
     @State var imgTemporary: UIImage!
     @State var posTemporary:CGPoint =  CGPoint(x: 0, y: 0)
     @State var begginGesture:Bool = true
     
     @State var nImagem:Int = 0
     @State var isDraggin:Bool = false
-    
+    //lista de pictogramas
     @State var imagens:[[String]] = [["homempic", "sentandopic", "círculopic", "triangulopic", "adiçãopic","seta","checkpic", "retapic", "folhapic", "bussulapic", "ônibuspic", "nuvempic", "ursopic","bolsapic", "coraçaopic", "Explosao", "gotapic"],
         ["andandopic","bbpic", "quadradopic", "estrelapic", "igualpic", "maiorpic", "ondapic", "facapic", "musicapic", "tempopic", "raiopic", "autofalantepic", "caixãopic", "dinheiropic", "fogopic", "maçapic", "refeiçãopic"]]
     
-    // Cria um tipo de apresentação.
+    // volta para tele anterior
     @Environment(\.presentationMode) var presentationMode
 
     
@@ -37,7 +58,7 @@ ZStack{
     HStack{
         ZStack{
             //chamando a cena spritkit dentro de uma view
-                SpriteView(scene: scene, isPaused: false)
+                SpriteView(scene: scene, isPaused: false, options: [.allowsTransparency])
             ZStack{
                 HStack{
                     // Botão para voltar uma tela.
@@ -55,40 +76,87 @@ ZStack{
                                     )
                                     .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
                             })
+                    //funcao utilizada para que a animacao do botao clicado nao seja mostrada
+                    //solucao encontrada para nao dar o contraste da sombra ao ser clicado
                             .buttonStyle(FlatLinkStyle())
                             .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                            
+                }.frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxHeight: .infinity, alignment: .top)
+                .padding(.leading, 24)
+                .padding(.top, 24)
+                
+                
+                HStack{
+                    // Botão para voltar uma tela.
+                    Button(action: {
+                        showPopover = true
+                        
+                        if answerChoice == 1 {
+                            final = choice.finalOne
+                        }else if answerChoice == 2 {
+                            final = choice.finalTwo
+                        }else {
+                            final = choice.finalThree
+                        }
+                        
+                    },
+                           label: {
+                                Rectangle()
+                                Image(systemName: "lightbulb.fill")
+                                    .font(Font.custom("SourceSans3-Bold", size: 20))
+                                    .foregroundColor(Color("colorFont"))
+                                    .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                                    .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                    .background(RoundedRectangle(cornerRadius: 8)
+                                        .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
+                                    )
+                                    .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
+                            })
+                            .buttonStyle(FlatLinkStyle())
+                            .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                            .popover(isPresented: $showPopover) {
+                                PopoverContent()
+                            }
                             
                     
                     
                            // .padding(EdgeInsets(top: 0, leading: 0, bottom: 600, trailing: 900))
-                }.frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .frame(maxWidth: .infinity, alignment: .trailing)
                 .frame(maxHeight: .infinity, alignment: .top)
-                .padding(.leading, 24)
+                .padding(.trailing, 24)
                 .padding(.top, 13)
             }
+            
             .frame(width: UIScreen.main.bounds.width * 0.69, height: UIScreen.main.bounds.height * 0.90)
-            .padding(.trailing, -6)
-            .padding(.leading, -6)
-            .padding(.bottom, -3)
-            .padding(.top, -3)
+            .padding(.trailing, -3)
+            .padding(.leading, -3)
+            .padding(.bottom, -1)
+            .padding(.top, -1)
             .border(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), width: 2)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .background(RoundedRectangle(cornerRadius: 20)
                 .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 3)
                 )
         }
+            .background(Color("ColorBackgroundInside"))
             .clipShape(RoundedRectangle(cornerRadius: 13))
             .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 3)
-            .background(RoundedRectangle(cornerRadius: 13)
-            ).padding()
+            .background(RoundedRectangle(cornerRadius: 13))
+            .frame(height: UIScreen.main.bounds.height * 0.93)
+            .padding(.trailing, 15)
+            .padding(.leading, 15)
+        
         VStack{
                 Text("Clique nos cards que deseja \nusar para ilustrar a história")
                         .multilineTextAlignment(.center)
-                        .font(Font.custom("SourceSans3-Bold", size: 20))
+                        .font(Font.custom("SourceSans3-Bold", size: 23))
+                        .minimumScaleFactor(0.1) //<--Here
+                        .frame(width: UIScreen.main.bounds.width * 0.22, height: UIScreen.main.bounds.height * 0.08)
                         .foregroundColor(Color("colorFont"))
-                        .frame(width: UIScreen.main.bounds.width * 24)
-                       // .padding(EdgeInsets(top: 0, leading: 0, bottom: 24, trailing: 0))
-                ScrollView{
+                ScrollView(showsIndicators: false){
                    // Spacer()
                     VStack{
                         //array que tras a imagens após serem selecionadas
@@ -101,8 +169,6 @@ ZStack{
                                             .scaledToFit()
                                         Image(imagens[0][imageidx])
                                             .frame(width: UIScreen.main.bounds.width * 0.063, height: UIScreen.main.bounds.height * 0.084)
-//                                            .resizable()
-//                                            .scaledToFit()
 
                                     }
                                 }.frame(width: UIScreen.main.bounds.width / 9)
@@ -121,33 +187,53 @@ ZStack{
                           }
                     }
                 }.frame(height: UIScreen.main.bounds.height * 0.71)
-            NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
+                    Button(action:{// Muda a variável para apresentar o Pop-Up.
+                            presentResultAlert.toggle()
+
+                            }, label: {
                     Text("Terminei de ilustrar ")
-                        .font(Font.custom("SourceSans3-Bold", size: 20))
+                        .font(Font.custom("SourceSans3-Bold", size: 21))
                         .foregroundColor(Color("colorFont"))
+                        .minimumScaleFactor(0.1) //<--Here
                         .frame(width: UIScreen.main.bounds.width * 0.23, height: UIScreen.main.bounds.height * 0.046)
                         .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                        .background(RoundedRectangle(cornerRadius: 12)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .background(RoundedRectangle(cornerRadius: 8)
                             .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
                         )
                         .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 5, y: 5)
                 })
+            //funcao utilizada para que a animacao do botao clicado nao seja mostrada
+            //solucao encontrada para nao dar o contraste da sombra ao ser clicado
                  .frame(height: UIScreen.main.bounds.height * 0.040)
                  .buttonStyle(FlatLinkStyle())
                  .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
             
         }.frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.height * 0.93)
             .background(Color("ColorBackgroundInside"))
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .background(RoundedRectangle(cornerRadius: 20))
+            .clipShape(RoundedRectangle(cornerRadius: 13))
             .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 3)
+            .background(RoundedRectangle(cornerRadius: 13))
             .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 17))
-           }.background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustrationWhite"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
-                                        startPoint: .leading,
-                                        endPoint: .trailing))    }.navigationBarHidden(true)
+        
+        
+          
+           }
     
+            .frame(maxWidth: . infinity, maxHeight: .infinity)
+            .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustrationWhite"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
+                                        startPoint: .leading,
+                                        endPoint: .trailing))
+            
+                    if self.presentResultAlert {
+                        FinishIlustration(gameScene: gameScene, showFinish: $presentResultAlert).background(Color.black.opacity(0.3))
+                            }
+
+        }.navigationBarHidden(true)
+        
   }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

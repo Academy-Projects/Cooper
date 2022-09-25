@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		282F3EE528DCF56E00E787C1 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282F3EE428DCF56E00E787C1 /* GifImage.swift */; };
+		282F3EE728DD018800E787C1 /* let.gif in Resources */ = {isa = PBXBuildFile; fileRef = 282F3EE628DD018800E787C1 /* let.gif */; };
+		282F3EE928DD01DD00E787C1 /* lele.gif in Resources */ = {isa = PBXBuildFile; fileRef = 282F3EE828DD01DD00E787C1 /* lele.gif */; };
 		283FD6AB28CA774200020ACA /* UnavailableAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283FD6AA28CA774200020ACA /* UnavailableAlert.swift */; };
 		283FD6AD28CCE56300020ACA /* Boogaloo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 283FD6AC28CCE56300020ACA /* Boogaloo-Regular.ttf */; };
 		284107FC28AB07B400D142F8 /* CooperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284107FB28AB07B400D142F8 /* CooperApp.swift */; };
@@ -15,12 +18,14 @@
 		2841082628AB48E000D142F8 /* DrawnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2841082528AB48E000D142F8 /* DrawnView.swift */; };
 		285D3E6D28B5294B008072C0 /* AnswerFinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D3E6C28B5294B008072C0 /* AnswerFinalView.swift */; };
 		287DA34B28B9070D006E624C /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DA34A28B9070D006E624C /* HistoryView.swift */; };
-		287DA35328BAB360006E624C /* PersonalizeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DA35228BAB360006E624C /* PersonalizeAlert.swift */; };
 		287DA35A28BE7EAE006E624C /* PremiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DA35928BE7EAE006E624C /* PremiseView.swift */; };
 		287DA35C28BE83C8006E624C /* ListHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DA35B28BE83C8006E624C /* ListHistory.swift */; };
+		28CE5A2128DE21480014AB66 /* FinishIlustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CE5A2028DE21480014AB66 /* FinishIlustration.swift */; };
+		28CE5A2328DF5C2B0014AB66 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CE5A2228DF5C2B0014AB66 /* SplashScreenView.swift */; };
 		28D161FE28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28D161FD28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf */; };
 		28D1620128C7CA740085D3B2 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D1620028C7CA740085D3B2 /* OnBoardingView.swift */; };
 		28D1620328C7D5360085D3B2 /* SourceSans3-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28D1620228C7D5360085D3B2 /* SourceSans3-Regular.ttf */; };
+		28E04D4928D6160400D9599A /* ConfettiParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E04D4828D6160400D9599A /* ConfettiParticle.swift */; };
 		3F24584D28C8DF7D002CB9AB /* ResultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */; };
 		3F8BBE2428AFC409008E9F32 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2328AFC409008E9F32 /* GameScene.swift */; };
 		3F8BBE2628B00673008E9F32 /* DraggableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2528B00673008E9F32 /* DraggableNode.swift */; };
@@ -47,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		282F3EE428DCF56E00E787C1 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
+		282F3EE628DD018800E787C1 /* let.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = let.gif; sourceTree = "<group>"; };
+		282F3EE828DD01DD00E787C1 /* lele.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = lele.gif; sourceTree = "<group>"; };
 		283FD6AA28CA774200020ACA /* UnavailableAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnavailableAlert.swift; sourceTree = "<group>"; };
 		283FD6AC28CCE56300020ACA /* Boogaloo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Boogaloo-Regular.ttf"; sourceTree = "<group>"; };
 		284107F828AB07B400D142F8 /* Cooper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cooper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,13 +66,15 @@
 		2841082528AB48E000D142F8 /* DrawnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawnView.swift; sourceTree = "<group>"; };
 		285D3E6C28B5294B008072C0 /* AnswerFinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFinalView.swift; sourceTree = "<group>"; };
 		287DA34A28B9070D006E624C /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
-		287DA35228BAB360006E624C /* PersonalizeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizeAlert.swift; sourceTree = "<group>"; };
 		287DA35928BE7EAE006E624C /* PremiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiseView.swift; sourceTree = "<group>"; };
 		287DA35B28BE83C8006E624C /* ListHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHistory.swift; sourceTree = "<group>"; };
+		28CE5A2028DE21480014AB66 /* FinishIlustration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishIlustration.swift; sourceTree = "<group>"; };
+		28CE5A2228DF5C2B0014AB66 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		28D161FD28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Bold.ttf"; sourceTree = "<group>"; };
 		28D161FF28C6F4DB0085D3B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		28D1620028C7CA740085D3B2 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		28D1620228C7D5360085D3B2 /* SourceSans3-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Regular.ttf"; sourceTree = "<group>"; };
+		28E04D4828D6160400D9599A /* ConfettiParticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiParticle.swift; sourceTree = "<group>"; };
 		3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAlert.swift; sourceTree = "<group>"; };
 		3F8BBE2328AFC409008E9F32 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		3F8BBE2528B00673008E9F32 /* DraggableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableNode.swift; sourceTree = "<group>"; };
@@ -133,10 +143,12 @@
 			children = (
 				3F8BBE2328AFC409008E9F32 /* GameScene.swift */,
 				3F8BBE2528B00673008E9F32 /* DraggableNode.swift */,
-				287DA35228BAB360006E624C /* PersonalizeAlert.swift */,
 				287DA35B28BE83C8006E624C /* ListHistory.swift */,
 				3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */,
 				283FD6AA28CA774200020ACA /* UnavailableAlert.swift */,
+				28E04D4828D6160400D9599A /* ConfettiParticle.swift */,
+				282F3EE428DCF56E00E787C1 /* GifImage.swift */,
+				28CE5A2028DE21480014AB66 /* FinishIlustration.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -144,6 +156,7 @@
 		285D3E6A28B01EB3008072C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				28CE5A2228DF5C2B0014AB66 /* SplashScreenView.swift */,
 				28D1620028C7CA740085D3B2 /* OnBoardingView.swift */,
 				287DA34A28B9070D006E624C /* HistoryView.swift */,
 				287DA35928BE7EAE006E624C /* PremiseView.swift */,
@@ -162,6 +175,8 @@
 				284107FB28AB07B400D142F8 /* CooperApp.swift */,
 				284107FD28AB07B400D142F8 /* ContentView.swift */,
 				46F654FD28E00FAB002084FF /* gifOfc2html.gif */,
+				282F3EE628DD018800E787C1 /* let.gif */,
+				282F3EE828DD01DD00E787C1 /* lele.gif */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -283,9 +298,11 @@
 				28D1620328C7D5360085D3B2 /* SourceSans3-Regular.ttf in Resources */,
 				46F654FE28E00FAB002084FF /* gifOfc2html.gif in Resources */,
 				46F654FC28E008FD002084FF /* Gif3Ofc.gif in Resources */,
+				282F3EE728DD018800E787C1 /* let.gif in Resources */,
 				283FD6AD28CCE56300020ACA /* Boogaloo-Regular.ttf in Resources */,
 				46F654FA28E008EE002084FF /* Gif3Ofc.gif in Resources */,
 				2841080028AB07B600D142F8 /* Assets.xcassets in Resources */,
+				282F3EE928DD01DD00E787C1 /* lele.gif in Resources */,
 				28D161FE28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,18 +329,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				287DA34B28B9070D006E624C /* HistoryView.swift in Sources */,
+				28E04D4928D6160400D9599A /* ConfettiParticle.swift in Sources */,
 				2841082628AB48E000D142F8 /* DrawnView.swift in Sources */,
 				285D3E6D28B5294B008072C0 /* AnswerFinalView.swift in Sources */,
 				3F8BBE2628B00673008E9F32 /* DraggableNode.swift in Sources */,
 				287DA35C28BE83C8006E624C /* ListHistory.swift in Sources */,
 				28D1620128C7CA740085D3B2 /* OnBoardingView.swift in Sources */,
+				28CE5A2328DF5C2B0014AB66 /* SplashScreenView.swift in Sources */,
 				284107FE28AB07B400D142F8 /* ContentView.swift in Sources */,
 				3F24584D28C8DF7D002CB9AB /* ResultAlert.swift in Sources */,
 				287DA35A28BE7EAE006E624C /* PremiseView.swift in Sources */,
-				287DA35328BAB360006E624C /* PersonalizeAlert.swift in Sources */,
+				282F3EE528DCF56E00E787C1 /* GifImage.swift in Sources */,
 				3F8BBE2428AFC409008E9F32 /* GameScene.swift in Sources */,
 				284107FC28AB07B400D142F8 /* CooperApp.swift in Sources */,
 				283FD6AB28CA774200020ACA /* UnavailableAlert.swift in Sources */,
+				28CE5A2128DE21480014AB66 /* FinishIlustration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,18 +503,19 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooper/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Coolper;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = NO;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = teste.Cooper2;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = Cooper.Teste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -515,18 +536,19 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooper/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Coolper;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = NO;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = teste.Cooper2;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = Cooper.Teste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -560,9 +582,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XJ57BXJG95;
+				DEVELOPMENT_TEAM = 8MKU4N27YM;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
@@ -599,7 +622,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XJ57BXJG95;
+				DEVELOPMENT_TEAM = 8MKU4N27YM;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = teste.CooperUITests;

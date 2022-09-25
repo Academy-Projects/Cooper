@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "lhama.png",
+      "filename" : "lhama@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "lhama@2x.png",
+      "filename" : "lhama.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
