@@ -21,9 +21,6 @@ class DraggableNode: SKNode {
     var firstTouchPos:CGPoint = CGPoint(x: 0, y: 0)
     var secondTouchPos:CGPoint = CGPoint(x: 0, y: 0)
     var localAngleOffset:CGFloat = 0
-    var oldAngle:CGFloat = 0
-    var oldAngleOffset: CGFloat = 0
-    var myTogle = false
     
     var fingerLocalLength:CGFloat = 0.1
     var LocalOriginalSpriteSize: CGSize!
@@ -69,8 +66,9 @@ class DraggableNode: SKNode {
                 firstTouchPos = touchPos
                 secondTouchPos = (touches.first?.location(in: self.scene!))!
             }
-            oldAngle = getLocalAngle(firstTouchPos, secondTouchPos)
+            // Dados para alterar o angulo.
             localAngleOffset = getLocalAngle(firstTouchPos, secondTouchPos) - self.zRotation
+            // Dados para alterar o tamanho do sprite.
             fingerLocalLength = getLocalLength(firstTouchPos, secondTouchPos)
             LocalOriginalSpriteSize = self.sprite.size
             
@@ -120,7 +118,7 @@ class DraggableNode: SKNode {
                     }
                 }
             }
-            self.zRotation = getLocalAngle(firstTouchPos, secondTouchPos) - localAngleOffset - oldAngleOffset
+            self.zRotation = getLocalAngle(firstTouchPos, secondTouchPos) - localAngleOffset
             scaleLocalNode(firstTouchPos, secondTouchPos, fingerLocalLength, LocalOriginalSpriteSize)
         }
         counter += 1
