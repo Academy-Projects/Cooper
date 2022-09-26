@@ -22,8 +22,15 @@ class DraggableNode: SKNode {
     var secondTouchPos:CGPoint = CGPoint(x: 0, y: 0)
     var localAngleOffset:CGFloat = 0
     
+    var fingerLocalLength:CGFloat = 0.1
+    var LocalOriginalSpriteSize: CGSize!
+    
+    
     override init() {
         self.sprite = SKSpriteNode()
+        self.sprite.size.width = self.sprite.size.width * 1.5
+        self.sprite.size.height = self.sprite.size.height * 1.5
+        
         super.init()
         self.zPosition = 0
         self.isUserInteractionEnabled = true
@@ -59,9 +66,11 @@ class DraggableNode: SKNode {
                 firstTouchPos = touchPos
                 secondTouchPos = (touches.first?.location(in: self.scene!))!
             }
-            
-            
+            // Dados para alterar o angulo.
             localAngleOffset = getLocalAngle(firstTouchPos, secondTouchPos) - self.zRotation
+            // Dados para alterar o tamanho do sprite.
+            fingerLocalLength = getLocalLength(firstTouchPos, secondTouchPos)
+            LocalOriginalSpriteSize = self.sprite.size
             
             self.name = "doubleSelected"
         }
@@ -99,6 +108,7 @@ class DraggableNode: SKNode {
             touchPos = (touches.first?.location(in: self.scene!))!
         }
         else if(self.name == "doubleSelected"){
+            
             if (touches.count > 1){
                 for touch in touches{
                     if touch == touches.first{
@@ -108,14 +118,8 @@ class DraggableNode: SKNode {
                     }
                 }
             }
-            
-            print("\n \(firstTouchPos)")
-            print(secondTouchPos)
             self.zRotation = getLocalAngle(firstTouchPos, secondTouchPos) - localAngleOffset
-            
-//            print("\n\(self.zRotation * 180 / .pi)")
-            print(getLocalAngle(firstTouchPos, secondTouchPos) * 180 / .pi)
-//            print(localAngleOffset * 180 / .pi)
+            scaleLocalNode(firstTouchPos, secondTouchPos, fingerLocalLength, LocalOriginalSpriteSize)
         }
         counter += 1
     }
@@ -131,7 +135,7 @@ class DraggableNode: SKNode {
         }
         
         if(self.name == "doubleSelected"){
-            self.name = "simpleSelected"
+            self.name = "unselected"
         } else if(self.name == "simpleSelected"){
             self.name = "unselected"
         }
@@ -141,7 +145,7 @@ class DraggableNode: SKNode {
     // Seta o estado da Imagem para não selecionada.
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         if(self.name == "doubleSelected"){
-            self.name = "simpleSelected"
+            self.name = "unselected"
         } else if(self.name == "simpleSelected"){
             self.name = "unselected"
         }
@@ -155,6 +159,13 @@ class DraggableNode: SKNode {
     func getLength(_ secondTouchPos: CGPoint) -> CGFloat{
         let oposite = secondTouchPos.y - touchPos.y
         let adjacent = secondTouchPos.x - touchPos.x
+        let hypotenuse = sqrt (pow( oposite, 2) + pow( adjacent, 2))
+        return hypotenuse
+    }
+    // Calcula a distância entre o toque dentro da imagem e o toque passado pelo parametro.
+    func getLocalLength(_ firstTouchPos: CGPoint, _ secondTouchPos: CGPoint) -> CGFloat{
+        let oposite = secondTouchPos.y - firstTouchPos.y
+        let adjacent = secondTouchPos.x - firstTouchPos.x
         let hypotenuse = sqrt (pow( oposite, 2) + pow( adjacent, 2))
         return hypotenuse
     }
@@ -220,6 +231,16 @@ class DraggableNode: SKNode {
     func scaleNode(_ secondTouchPos: CGPoint, _ originalLength: CGFloat, _ originalSize: CGSize){
         let oposite = secondTouchPos.y - touchPos.y
         let adjacent = secondTouchPos.x - touchPos.x
+        let hypotenuse = sqrt (pow( oposite, 2) + pow( adjacent, 2))
+        let factor = hypotenuse / originalLength
+        self.sprite.size.width = originalSize.width * factor
+        self.sprite.size.height = originalSize.height * factor
+        
+    }
+    
+    func scaleLocalNode(_ firstTouchPos: CGPoint, _ secondTouchPos: CGPoint, _ originalLength: CGFloat, _ originalSize: CGSize){
+        let oposite = secondTouchPos.y - firstTouchPos.y
+        let adjacent = secondTouchPos.x - firstTouchPos.x
         let hypotenuse = sqrt (pow( oposite, 2) + pow( adjacent, 2))
         let factor = hypotenuse / originalLength
         self.sprite.size.width = originalSize.width * factor
