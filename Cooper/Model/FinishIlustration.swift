@@ -20,7 +20,7 @@ struct FinishIlustration: View{
     var body: some View{
         
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)){
-            VStack(spacing: 25){
+            HStack(spacing: 25){
                     ZStack{
                         Image("trofeu")
                            // .frame(width: UIScreen.main.bounds.width * )
@@ -28,22 +28,29 @@ struct FinishIlustration: View{
                             .aspectRatio(contentMode: .fit)
                         
                     }
-                    
+                VStack{
                     ZStack{
-                        Text("Atenção!")
+                        Text("Ei, viajante")
                            // .foregroundColor(.yellow)
                             .bold()
                             .font(Font.custom("Boogaloo-Regular", size: 40))
+                            .multilineTextAlignment(.leading)
+                            .padding(.trailing, 100)
                         
                     }
+                    .frame(width: UIScreen.main.bounds.width * 0.28, height: UIScreen.main.bounds.height * 0.09)
+                    .padding(.trailing, 100)
+                    Spacer()
                     
-                    Text("Desenho finalizado! Mostre aos policiais e torça para que entendam!")
-                        .multilineTextAlignment(.center)
+                    Text("Desenho finalizado! Vire o Ipad para os outros jogadores e deixe que eles tentem compreender sua mensagem. Será que vão conseguir?")
+                        .multilineTextAlignment(.leading)
                         .frame(width: UIScreen.main.bounds.width * 0.33)
                         .font(Font.custom("SourceSans3-Regular", size: 20))
+
+                    Spacer()
                     
                     NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
-                        Text("Mostrar opções")
+                        Text("Ok")
                             .foregroundColor(Color("colorFont"))
                             .font(Font.custom("Boogaloo-Regular", size: 22))
                             .bold()
@@ -60,17 +67,20 @@ struct FinishIlustration: View{
                     //funcao utilizada para que a animacao do botao clicado nao seja mostrada
                     //solucao encontrada para nao dar o contraste da sombra ao ser clicado
                           .buttonStyle(FlatLinkStyle())
-                          .frame(width: UIScreen.main.bounds.width * 0.17, height: UIScreen.main.bounds.height * 0.046)
-                          //.padding(.trailing, 34)
+                          .frame(width: UIScreen.main.bounds.width * 0.06, height: UIScreen.main.bounds.height * 0.04)
+                          .padding(.leading, 250)
+                }
+                
                 
             }
-            .frame(width: UIScreen.main.bounds.width * 0.45, height: UIScreen.main.bounds.height * 0.45)
+            .frame(width: UIScreen.main.bounds.width * 0.45, height: UIScreen.main.bounds.height * 0.27)
             .padding(.vertical, 25)
             .padding(.horizontal, 30)
             .cornerRadius(25)
-            .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundPopUp"), Color("backgroundIlustrationWhite")]),
-                                         startPoint: .top,
-                                         endPoint: .bottom))
+//            .background(Color.yellow)
+            .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
+                                    startPoint: .leading,
+                                    endPoint: .trailing))
             .cornerRadius(20)
             
 

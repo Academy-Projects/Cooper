@@ -37,6 +37,7 @@ struct DrawnView: View {
     
     @State private var showPopover = false
 
+    @State var jump = false
     
     @State var presentResultAlert = false // Faz o Pop-Up aparecer ou não
     @State var imgTemporary: UIImage!
@@ -92,6 +93,7 @@ ZStack{
                     Button(action: {
                         showPopover = true
                         
+                        
                         if answerChoice == 1 {
                             final = choice.finalOne
                         }else if answerChoice == 2 {
@@ -114,6 +116,7 @@ ZStack{
                                     )
                                     .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
                             })
+                           // .disabled(jump)
                             .buttonStyle(FlatLinkStyle())
                             .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
                             .popover(isPresented: $showPopover) {

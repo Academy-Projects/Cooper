@@ -16,7 +16,7 @@ struct OnboardingStep{
 }
 //informacao das varias setadas no onboarding
 private let OnboardingSteps = [
-    OnboardingStep(image: "blocked", isntruction: "Você é Cooper, um viajante que azarado que sempre se mete em encrencas e está em  busca de novos destinos para suas aventuras.", gif: "let", caso: "Escolha o destino da sua próxima viagem"),
+    OnboardingStep(image: "blocked", isntruction: "Você é Cooper, um viajante que azarado que sempre se mete em encrencas e está em  busca de novos destinos para suas aventuras.", gif: "gifOfc2html", caso: "Escolha o destino da sua próxima viagem"),
     OnboardingStep(image: "blocked", isntruction: "Leia o caso para os outros jogadores, que farão papel dos policiais, mas escolha sua explicação em segredo, viu?", gif: "lele", caso: "Leia em voz alta e escolha em silêncio"),
     OnboardingStep(image: "blocked", isntruction: "Evite ser preso por conta das suas desventuras mal entedidas. Organize os pictogramas até onde sua criatividade permitir.Será que você vai sair dessa?", gif: "let", caso: "Se expresse através de pictogramas"),
     OnboardingStep(image: "blocked", isntruction: "mais um pagina", gif: "let", caso: "")
@@ -58,10 +58,11 @@ struct OnBoardingView: View {
                                         .frame(width: UIScreen.main.bounds.width * 0.11, height: UIScreen.main.bounds.height * 0.04)
                                         .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                                         .multilineTextAlignment(.center)
-                                        .padding(.top, 40)
+                                       // .padding(.top, 40)
                                     
                                     Gif(OnboardingSteps[it].gif)
-                                        .frame(width: 200, height: 200)
+                                        .frame(width: 500, height: 500)
+                                        .offset(y: -180)
 
                                             
                                         
