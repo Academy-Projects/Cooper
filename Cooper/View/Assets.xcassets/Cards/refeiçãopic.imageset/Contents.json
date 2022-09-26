@@ -12,7 +12,6 @@
           "value" : "dark"
         }
       ],
-      "filename" : "comida.dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -27,7 +26,6 @@
           "value" : "dark"
         }
       ],
-      "filename" : "comida.dark-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

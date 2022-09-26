@@ -9,7 +9,9 @@ import SwiftUI
 import Foundation
 // declara a variável que irá armazenar a resposta escolhida do master
 public var answerChoice:Int = 0
-
+// variaveis criadas para setar informacoes da lista
+public var final:String = "t"
+//variavel globol que contem qual o usuario escolheu 
 struct ListHistory: Identifiable{
     var id = UUID()
     var title: String
@@ -21,21 +23,23 @@ struct ListHistory: Identifiable{
     var finalTwo: String
     var finalThree: String
 }
-
+// lista de historias 
 var naps = [
     ListHistory(
         title: "A terra da Rainha",
-        premise: "Você está em Londres e é parado pela polícia portando uma espada. Qual a sua explicação ?",
+
+        premise: "Durante sua viagem pela cidade de Londres, cidade inglesa, você é parado pela polícia portando uma espada, Qual a sua explicação ?",
         instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas. ",
         warning: "Lembre-se: se os policiais não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
         image: "london",
-        finalOne: "A) Você é o descendente do rei Arthur.",
-        finalTwo: "B) Você está caçando uma girafa que fugiu do zoológico de Londres.",
-        finalThree: "C) Você é um esgrimista."
+        finalOne: "A) Você recentemente descobriu que é o descendente do rei Arthur",
+        finalTwo: "B) Você está caçando uma girafa que fugiu do zoológico de Londres",
+        finalThree: "C) Você estava em Londres para um campeonato de esgrima"
     ),
     ListHistory(
-        title: "Meu amigo Pool" ,
-        premise: "Durante seu passeio nas montanhas de Toronto, cidade canadense. A polícia avista você desesperado e cheio de sangue correndo pela floresta. Qual a sua explicação ?",
+        title: "Meu amigo pool" ,
+        premise: "Durante seu passeio nas montanhas de Toronto, cidade canadense, a polícia avista você cheio de sangue correndo pela floresta. Qual a sua explicação ?",
+
         instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas.",
         warning: "Lembre-se: se os policiais não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
         image: "canada",
@@ -51,6 +55,7 @@ var naps = [
         image: "lhama",
         finalOne: "A) Foram encontrados explosivos na sua mala, mas você percebe que ela foi trocada por engano.",
         finalTwo: "B) Você estava indo fazer teste com explosivos como agente da CIA, mas tinha permissão.",
-        finalThree: "C) Eram explosivos de brinquedo que você estava levando para o seu sobrinho que sonha em ser um Detonador."
+        finalThree: "C) Eram explosivos de brinquedo que ia dar para o seu sobrinho que sonha em ser um Detonador"
+
     )
 ]
