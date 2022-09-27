@@ -70,9 +70,9 @@ struct FinishIlustration: View{
                         //funcao utilizada para que a animacao do botao clicado nao seja mostrada
                         //solucao encontrada para nao dar o contraste da sombra ao ser clicado
                               .buttonStyle(FlatLinkStyle())
-                              .frame(width: UIScreen.main.bounds.width * 0.17, height: UIScreen.main.bounds.height * 0.046)
-                              //.padding(.trailing, 34)
-                    
+                              .frame(width: UIScreen.main.bounds.width * 0.06, height: UIScreen.main.bounds.height * 0.046)
+                              .padding(.leading, 300)
+                             
                 }.frame(width: UIScreen.main.bounds.width * 0.27, height: UIScreen.main.bounds.height * 0.58)
             }
             .frame(width: UIScreen.main.bounds.width * 0.45, height: UIScreen.main.bounds.height * 0.27)
