@@ -20,5 +20,11 @@ class AnimationScene: SKScene{
         // node de animação
         let AnimationNode = SKNode()
         self.addChild(AnimationNode)
+        
+        var animation1: [SKTexture] = []
+        var animation2: [SKTexture] = []
+        var animation3: [SKTexture] = []
+        
+        
     }
 }
