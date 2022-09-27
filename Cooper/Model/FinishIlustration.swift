@@ -43,10 +43,11 @@ struct FinishIlustration: View{
                         
                         
                     ZStack{
-                        Text("Desenho finalizado! Vire o Ipad para os outros jogadores e deixe que eles tentem compreender sua mensagem. Será que vão conseguir?")
+                        Text("Desenho finalizado! **Vire o Ipad** para os outros jogadores e deixe que eles tentem compreender sua mensagem. Será que vão conseguir?")
+                            .font(.system(size: 20))
                             .multilineTextAlignment(.leading)
                             .frame(width: UIScreen.main.bounds.width * 0.27)
-                            .font(Font.custom("SourceSans3-Regular", size: 20))
+                          //  .font(Font.custom("SourceSans3-Regular", size: 20))
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 25)
