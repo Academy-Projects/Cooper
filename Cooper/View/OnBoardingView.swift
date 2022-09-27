@@ -74,14 +74,14 @@ struct OnBoardingView: View {
                                         .font(Font.custom("Boogaloo-Regular", size: 55))
                                         .minimumScaleFactor(0.1) //<--Here
                                         .frame(width: UIScreen.main.bounds.width * 0.37, height: UIScreen.main.bounds.height * 0.13, alignment: .leading)
-                                        .foregroundColor(Color("colorFont"))
+                                        .foregroundColor(Color(red: 0/255, green: 62/255, blue: 89/255))
                                         .multilineTextAlignment(.leading)
                                        // .padding(.top, 300)
                                   //  Spacer()
                                     Text(OnboardingSteps[it].isntruction)
                                         .font(Font.custom("SourceSans3-Regular", size: 20))
                                         .frame(width: UIScreen.main.bounds.width * 0.37, height: UIScreen.main.bounds.height * 0.13, alignment: .leading)
-                                        .foregroundColor(Color("colorFont"))
+                                        .foregroundColor(Color("ColorFontTwo"))
                                        // .padding(.trailing, 15)
                                         .multilineTextAlignment(.leading)
                                        // .padding(.bottom, 300)
@@ -111,7 +111,7 @@ struct OnBoardingView: View {
                                     }
                                   } , label: {Text("Pular")})
                                     .font(Font.custom("SourceSans3-Regular", size: 22))
-                                    .foregroundColor(Color("colorFont"))
+                                    .foregroundColor(Color("ColorFontTwo"))
                         
                                 Spacer()
                                 
