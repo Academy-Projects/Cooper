@@ -27,13 +27,11 @@
 		28D1620328C7D5360085D3B2 /* SourceSans3-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28D1620228C7D5360085D3B2 /* SourceSans3-Regular.ttf */; };
 		28E04D4928D6160400D9599A /* ConfettiParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E04D4828D6160400D9599A /* ConfettiParticle.swift */; };
 		3F24584D28C8DF7D002CB9AB /* ResultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */; };
+		3F276EF528E36A6F00AF9969 /* AnimatinoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F276EF428E36A6F00AF9969 /* AnimatinoScene.swift */; };
 		3F8BBE2428AFC409008E9F32 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2328AFC409008E9F32 /* GameScene.swift */; };
 		3F8BBE2628B00673008E9F32 /* DraggableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2528B00673008E9F32 /* DraggableNode.swift */; };
-
 		46157F1728E2423E0005766F /* Onboarding3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 46157F1628E2423E0005766F /* Onboarding3.mp4 */; };
 		46157F1928E243390005766F /* Composição 2_4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 46157F1828E243390005766F /* Composição 2_4.mp4 */; };
-		46F654FC28E008FD002084FF /* Gif3Ofc.gif in Resources */ = {isa = PBXBuildFile; fileRef = 46F654FB28E008FD002084FF /* Gif3Ofc.gif */; };
-
 		46F654FE28E00FAB002084FF /* gifOfc2html.gif in Resources */ = {isa = PBXBuildFile; fileRef = 46F654FD28E00FAB002084FF /* gifOfc2html.gif */; };
 /* End PBXBuildFile section */
 
@@ -79,13 +77,12 @@
 		28D1620228C7D5360085D3B2 /* SourceSans3-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Regular.ttf"; sourceTree = "<group>"; };
 		28E04D4828D6160400D9599A /* ConfettiParticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiParticle.swift; sourceTree = "<group>"; };
 		3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAlert.swift; sourceTree = "<group>"; };
+		3F276EF428E36A6F00AF9969 /* AnimatinoScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatinoScene.swift; sourceTree = "<group>"; };
 		3F8BBE2328AFC409008E9F32 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		3F8BBE2528B00673008E9F32 /* DraggableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableNode.swift; sourceTree = "<group>"; };
-
 		46157F1628E2423E0005766F /* Onboarding3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Onboarding3.mp4; sourceTree = "<group>"; };
 		46157F1828E243390005766F /* Composição 2_4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Composição 2_4.mp4"; sourceTree = "<group>"; };
 		46F654FB28E008FD002084FF /* Gif3Ofc.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = Gif3Ofc.gif; path = ../../../../../Downloads/Gif3Ofc.gif; sourceTree = "<group>"; };
-
 		46F654FD28E00FAB002084FF /* gifOfc2html.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gifOfc2html.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +146,7 @@
 			children = (
 				3F8BBE2328AFC409008E9F32 /* GameScene.swift */,
 				3F8BBE2528B00673008E9F32 /* DraggableNode.swift */,
+				3F276EF428E36A6F00AF9969 /* AnimatinoScene.swift */,
 				287DA35B28BE83C8006E624C /* ListHistory.swift */,
 				3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */,
 				283FD6AA28CA774200020ACA /* UnavailableAlert.swift */,
@@ -176,9 +174,7 @@
 		285D3E6B28B01EC2008072C0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-
 				46F654FB28E008FD002084FF /* Gif3Ofc.gif */,
-
 				284107FB28AB07B400D142F8 /* CooperApp.swift */,
 				284107FD28AB07B400D142F8 /* ContentView.swift */,
 				46F654FD28E00FAB002084FF /* gifOfc2html.gif */,
@@ -345,6 +341,7 @@
 				287DA35C28BE83C8006E624C /* ListHistory.swift in Sources */,
 				28D1620128C7CA740085D3B2 /* OnBoardingView.swift in Sources */,
 				28CE5A2328DF5C2B0014AB66 /* SplashScreenView.swift in Sources */,
+				3F276EF528E36A6F00AF9969 /* AnimatinoScene.swift in Sources */,
 				284107FE28AB07B400D142F8 /* ContentView.swift in Sources */,
 				3F24584D28C8DF7D002CB9AB /* ResultAlert.swift in Sources */,
 				287DA35A28BE7EAE006E624C /* PremiseView.swift in Sources */,
