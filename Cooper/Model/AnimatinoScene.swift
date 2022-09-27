@@ -14,13 +14,11 @@ class AnimationScene: SKScene{
     override func sceneDidLoad() {
         self.sceneDidLoad()
         self.backgroundColor = .clear
-        // Declara o nome.
-        let AnimationNode: SKNode
-        self.addChild(AnimationNode)
-        
-        
     }
     
-//    override func didMove(to view: SKView) {
-//    }
+    override func didMove(to view: SKView) {
+        // node de animação
+        let AnimationNode = SKNode()
+        self.addChild(AnimationNode)
+    }
 }
