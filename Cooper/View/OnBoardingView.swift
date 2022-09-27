@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import SpriteKit
+import SpriteKit
 
 struct OnboardingStep{
     //variaveis da lista no onboarding
@@ -24,6 +26,14 @@ private let OnboardingSteps = [
 
 // corpo do onboarding
 struct OnBoardingView: View {
+    // instancia a SKcene da cena de animação
+    let animationScene = AnimationScene()
+    public var scene: SKScene{
+        animationScene.scaleMode = .resizeFill
+        return animationScene
+    }
+    
+    
     //booleano que muda de estado de acordo com o booleado setado
     @AppStorage ("isOnboarding") var  isOnboarding: Bool = true
     // variavel que define a estapa em que se passa as informacoes no momento
@@ -40,31 +50,8 @@ struct OnBoardingView: View {
                     HStack{
                         VStack{
                             HStack{
-                                VStack{
-                                    
-                                    Text("Caso")
-                                        .font(Font.custom("Boogaloo-Regular", size: 40))
-                                        .minimumScaleFactor(0.1) //<--Here
-                                        .frame(width: UIScreen.main.bounds.width * 0.11, height: UIScreen.main.bounds.height * 0.04)
-                                        .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                                        //.padding(.bottom, 20)
-                                        .multilineTextAlignment(.center)
-                                    
-                                    Image("blocked")
-                                    
-                                    Text("Explicação")
-                                        .font(Font.custom("Boogaloo-Regular", size: 35))
-                                        .minimumScaleFactor(0.1) //<--Here
-                                        .frame(width: UIScreen.main.bounds.width * 0.11, height: UIScreen.main.bounds.height * 0.04)
-                                        .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                                        .multilineTextAlignment(.center)
-                                        .padding(.top, 40)
-                                    
-                                    Gif(OnboardingSteps[it].gif)
-                                        .frame(width: 200, height: 200)
-
-                                            
-                                        
+                                VStack{ // Cena da animação.
+                                    SpriteView(scene: scene, isPaused: false, options: [.allowsTransparency])
                                 }
                                 .padding(.leading, 133)
                                 .padding(.top, 173)
