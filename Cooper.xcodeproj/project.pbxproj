@@ -31,6 +31,7 @@
 		3F8BBE2628B00673008E9F32 /* DraggableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2528B00673008E9F32 /* DraggableNode.swift */; };
 		46157F1728E2423E0005766F /* Onboarding3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 46157F1628E2423E0005766F /* Onboarding3.mp4 */; };
 		46157F1928E243390005766F /* Composição 2_4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 46157F1828E243390005766F /* Composição 2_4.mp4 */; };
+		46157F1B28E244DF0005766F /* Composição 2_1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 46157F1A28E244DF0005766F /* Composição 2_1.gif */; };
 		46F654FC28E008FD002084FF /* Gif3Ofc.gif in Resources */ = {isa = PBXBuildFile; fileRef = 46F654FB28E008FD002084FF /* Gif3Ofc.gif */; };
 		46F654FE28E00FAB002084FF /* gifOfc2html.gif in Resources */ = {isa = PBXBuildFile; fileRef = 46F654FD28E00FAB002084FF /* gifOfc2html.gif */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		3F8BBE2528B00673008E9F32 /* DraggableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableNode.swift; sourceTree = "<group>"; };
 		46157F1628E2423E0005766F /* Onboarding3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Onboarding3.mp4; sourceTree = "<group>"; };
 		46157F1828E243390005766F /* Composição 2_4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Composição 2_4.mp4"; sourceTree = "<group>"; };
+		46157F1A28E244DF0005766F /* Composição 2_1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Composição 2_1.gif"; sourceTree = "<group>"; };
 		46F654FB28E008FD002084FF /* Gif3Ofc.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = Gif3Ofc.gif; path = ../../../../../Downloads/Gif3Ofc.gif; sourceTree = "<group>"; };
 		46F654FD28E00FAB002084FF /* gifOfc2html.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gifOfc2html.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +138,7 @@
 				285D3E6828B01E9A008072C0 /* Model */,
 				285D3E6A28B01EB3008072C0 /* View */,
 				285D3E6B28B01EC2008072C0 /* Controller */,
+				46157F1A28E244DF0005766F /* Composição 2_1.gif */,
 			);
 			path = Cooper;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				282F3EE928DD01DD00E787C1 /* lele.gif in Resources */,
 				28D161FE28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf in Resources */,
 				46157F1928E243390005766F /* Composição 2_4.mp4 in Resources */,
+				46157F1B28E244DF0005766F /* Composição 2_1.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
