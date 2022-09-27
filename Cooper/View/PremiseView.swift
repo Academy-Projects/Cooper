@@ -287,5 +287,7 @@ struct PremiseView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustrationWhite"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
                                 startPoint: .leading,
-                                endPoint: .trailing))  }
+                                endPoint: .trailing))
+        
+    }
 }

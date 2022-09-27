@@ -24,7 +24,7 @@ struct SplashScreenView: View {
                             //.font(.system(size: 100))
                         Text("Coolper")
                             .font(Font.custom("Boogaloo-Regular", size: 50))
-                            .foregroundColor(Color("colorFont"))
+                            .foregroundColor(Color("ColorFontTwo"))
                     }
                     .scaleEffect(size)
                     .opacity(opacity)
