@@ -8,6 +8,21 @@
 import Foundation
 import SwiftUI
 import SpriteKit
+import Popovers
+
+struct PopoverContent: View {
+    
+    
+    var body: some View {
+        VStack {
+            Text(final)
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.bottom, 20)
+        }
+        .frame(width: 350, height: 200)
+    }
+}
 
 struct DrawnView: View {
     
@@ -17,6 +32,13 @@ struct DrawnView: View {
         gameScene.scaleMode = .resizeFill
         return gameScene
     }
+    var choice: ListHistory = naps[indexQuestion]
+    
+    @State var timerRemaining = 60
+    @State var jump = false
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    @State private var showPopover = false
     
     @State var imgTemporary: UIImage!
     @State var posTemporary:CGPoint =  CGPoint(x: 0, y: 0)
@@ -41,6 +63,68 @@ ZStack{
             ZStack{
                 HStack{
                     // Botão para voltar uma tela.
+                    Button(action: {
+                        showPopover = true
+                        
+                        if answerChoice == 1 {
+                            final = choice.finalOne
+                        }else if answerChoice == 2 {
+                            final = choice.finalTwo
+                        }else {
+                            final = choice.finalThree
+                        }
+                        
+                    },
+                           label: {
+                                Rectangle()
+                                Image(systemName: "lightbulb.fill")
+                                    .font(Font.custom("SourceSans3-Bold", size: 20))
+                                    .foregroundColor(Color("colorFont"))
+                                    .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                                    .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                    .background(RoundedRectangle(cornerRadius: 8)
+                                        .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
+                                    )
+                                    .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
+                            })
+                            .buttonStyle(FlatLinkStyle())
+                            .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                            .popover(isPresented: $showPopover) {
+                                PopoverContent()
+                            }
+                            
+                    
+                    
+                           // .padding(EdgeInsets(top: 0, leading: 0, bottom: 600, trailing: 900))
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxHeight: .infinity, alignment: .bottom)
+                .padding(.leading, 24)
+                .padding(.bottom, 13)
+                
+                HStack{
+                    // Botão para voltar uma tela.
+                    Text("\(timerRemaining)")
+                        .font(Font.custom("SourceSans3-Bold", size: 35))
+                        .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                        .onReceive(timer) {_ in
+                            if timerRemaining > 0{
+                                timerRemaining -= 1
+                            } else {
+                                jump = true
+                                
+                                timer.upstream.connect().cancel()
+                            }
+                        }
+                }
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .frame(maxHeight: .infinity, alignment: .top)
+                .padding(.trailing, 24)
+                .padding(.top, 13)
+                
+                HStack{
+                    // Botão para voltar uma tela.
                     Button(action: {presentationMode.wrappedValue.dismiss()},
                            label: {
                                 Rectangle()
@@ -57,14 +141,15 @@ ZStack{
                             })
                             .buttonStyle(FlatLinkStyle())
                             .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                            
-                    
                     
                            // .padding(EdgeInsets(top: 0, leading: 0, bottom: 600, trailing: 900))
-                }.frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .frame(maxHeight: .infinity, alignment: .top)
                 .padding(.leading, 24)
                 .padding(.top, 13)
+                
+                
             }
             .frame(width: UIScreen.main.bounds.width * 0.69, height: UIScreen.main.bounds.height * 0.90)
             .padding(.trailing, -6)
@@ -122,7 +207,7 @@ ZStack{
                           }
                     }
                 }.frame(height: UIScreen.main.bounds.height * 0.71)
-            NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), label: {
+            NavigationLink(destination: AnswerFinalView(ilustrationScene: gameScene), isActive: $jump, label: {
                     Text("Terminei de ilustrar ")
                         .font(Font.custom("Boogaloo-Regular", size: 23))
                         .foregroundColor(Color("colorFont"))

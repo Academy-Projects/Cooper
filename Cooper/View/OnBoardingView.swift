@@ -24,107 +24,45 @@ struct OnBoardingView: View {
     @AppStorage ("isOnboarding") var  isOnboarding: Bool = true
     
     @State private var currentStep = 0
+    @State private var pageSelected = 0
     
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack{
-            TabView(selection: $currentStep){
-                ForEach(0..<OnboardingSteps.count){ it in
-            VStack{
-                        Image(OnboardingSteps[it].image)
-                            .resizable()
-                            .frame(width: UIScreen.main.bounds.width * 0.69, height: UIScreen.main.bounds.height * 0.49)
-                            .padding(.bottom, 24)
-                            .padding(.top, 64)
-                        
-                        Text(OnboardingSteps[it].isntruction)
-                            .frame(width: UIScreen.main.bounds.width * 0.49)
-                            .foregroundColor(Color("colorFont"))
-                            //.padding(.bottom, 20)
-                            .font(Font.custom("SourceSans3-Bold", size: 23))
-                            .multilineTextAlignment(.center)
-                        
-                        Spacer()
-                        
-                        HStack(spacing: 0){
-                            Button(action:{
-                                if isOnboarding == true {
-                                    isOnboarding = false
-                                }else{
-                                    let impactMed = UIImpactFeedbackGenerator(style: .heavy)
-                                    impactMed.impactOccurred()
-                                    
-                                    presentationMode.wrappedValue.dismiss()
-                                    
-
-
-                                }
-                              } , label: {Text("Pular")})
-                                .font(Font.custom("SourceSans3-Regular", size: 22))
-                                .foregroundColor(Color("colorFont"))
-                    
-                            Spacer()
-                            
-                            HStack{
-
-                                ForEach(0..<OnboardingSteps.count){ it in
-                                    if it == currentStep{
-                                        Rectangle()
-                                            .frame(width: 20, height: 10)
-                                            .cornerRadius(10)
-                                            .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                                    } else {
-                                        Circle()
-                                            .frame(width: 10, height: 10)
-                                            .foregroundColor(.gray)
-                                    }
-                                    
-                                }
-                            }
-                            
-                            Spacer()
-                            // teste
-                           // condicao que verifica a quatidade de elementos para se tornar e view e verifica se é a ultima para que possa seguir para o app
-                            // a aplicacao nao volta pra essa view a nao ser que seja apagada
-                            Button(action:{
-                                if self.currentStep < OnboardingSteps.count - 1{
-                                    self.currentStep += 1
-                                } else if self.currentStep >= 3{
-                                    let impactMed = UIImpactFeedbackGenerator(style: .heavy)
-                                    impactMed.impactOccurred()
-                                    
-                                    presentationMode.wrappedValue.dismiss()
-                                    
-                                    isOnboarding = false
-                                }
-                            } ,
-                                   label:{
-                                Image(systemName: "chevron.right")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .padding(.vertical, 6)
-                                    .font(Font.custom("SourceSans3-Regular", size: 10))
-                                    .foregroundColor(Color("colorFont"))
-                                    .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                                    .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                                    .background(RoundedRectangle(cornerRadius: 12)
-                                        .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
-                                    )
-                                
-                            })
-                              //  .frame(width: UIScreen.main.bounds.width * 0.08)
-                                
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding(.bottom, 15)
-                        
-                    }.tag(it)
-                    
+        TabView(selection: $currentStep){
+            HistoryView()
+                .onAppear(){
+                    pageSelected = 0
                 }
-            }
+            PremiseView()
+                .onAppear(){
+                    pageSelected = 1
+                }
+            DrawnView()
+                .onAppear(){
+                    pageSelected = 2
+                }
+            
+        }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .overlay(
+                HStack{
+                    ForEach(0..<3){ it in
+                        if it == pageSelected{
+                            Rectangle()
+                                .frame(width: 20, height: 10)
+                                .cornerRadius(10)
+                                .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                        } else {
+                            Circle()
+                                .frame(width: 10, height: 10)
+                                .foregroundColor(.gray)
+                        }
+                        
+                    }
+                }
+            )
             .frame(width: UIScreen.main.bounds.width * 0.93, height: UIScreen.main.bounds.height * 0.89)
             .padding()
             .border(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), width: 2)

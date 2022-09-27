@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		283AA54B28DA8B3B00B4E2CB /* Popovers in Frameworks */ = {isa = PBXBuildFile; productRef = 283AA54A28DA8B3B00B4E2CB /* Popovers */; };
 		283FD6AB28CA774200020ACA /* UnavailableAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283FD6AA28CA774200020ACA /* UnavailableAlert.swift */; };
 		283FD6AD28CCE56300020ACA /* Boogaloo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 283FD6AC28CCE56300020ACA /* Boogaloo-Regular.ttf */; };
 		284107FC28AB07B400D142F8 /* CooperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284107FB28AB07B400D142F8 /* CooperApp.swift */; };
@@ -17,10 +18,12 @@
 		287DA34B28B9070D006E624C /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DA34A28B9070D006E624C /* HistoryView.swift */; };
 		287DA35A28BE7EAE006E624C /* PremiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DA35928BE7EAE006E624C /* PremiseView.swift */; };
 		287DA35C28BE83C8006E624C /* ListHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DA35B28BE83C8006E624C /* ListHistory.swift */; };
+		28C217A328DF8864001BDF14 /* TimerViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C217A228DF8864001BDF14 /* TimerViewTest.swift */; };
 		28D161FE28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28D161FD28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf */; };
 		28D1620128C7CA740085D3B2 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D1620028C7CA740085D3B2 /* OnBoardingView.swift */; };
 		28D1620328C7D5360085D3B2 /* SourceSans3-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28D1620228C7D5360085D3B2 /* SourceSans3-Regular.ttf */; };
 		28E04D4928D6160400D9599A /* ConfettiParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E04D4828D6160400D9599A /* ConfettiParticle.swift */; };
+		28EA51D028DC018F00669558 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EA51CF28DC018F00669558 /* SplashScreenView.swift */; };
 		3F24584D28C8DF7D002CB9AB /* ResultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */; };
 		3F8BBE2428AFC409008E9F32 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2328AFC409008E9F32 /* GameScene.swift */; };
 		3F8BBE2628B00673008E9F32 /* DraggableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2528B00673008E9F32 /* DraggableNode.swift */; };
@@ -57,11 +60,13 @@
 		287DA34A28B9070D006E624C /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		287DA35928BE7EAE006E624C /* PremiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiseView.swift; sourceTree = "<group>"; };
 		287DA35B28BE83C8006E624C /* ListHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHistory.swift; sourceTree = "<group>"; };
+		28C217A228DF8864001BDF14 /* TimerViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewTest.swift; sourceTree = "<group>"; };
 		28D161FD28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Bold.ttf"; sourceTree = "<group>"; };
 		28D161FF28C6F4DB0085D3B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		28D1620028C7CA740085D3B2 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		28D1620228C7D5360085D3B2 /* SourceSans3-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Regular.ttf"; sourceTree = "<group>"; };
 		28E04D4828D6160400D9599A /* ConfettiParticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiParticle.swift; sourceTree = "<group>"; };
+		28EA51CF28DC018F00669558 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAlert.swift; sourceTree = "<group>"; };
 		3F8BBE2328AFC409008E9F32 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		3F8BBE2528B00673008E9F32 /* DraggableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableNode.swift; sourceTree = "<group>"; };
@@ -72,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				283AA54B28DA8B3B00B4E2CB /* Popovers in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,12 +144,14 @@
 		285D3E6A28B01EB3008072C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				28EA51CF28DC018F00669558 /* SplashScreenView.swift */,
 				28D1620028C7CA740085D3B2 /* OnBoardingView.swift */,
 				287DA34A28B9070D006E624C /* HistoryView.swift */,
 				287DA35928BE7EAE006E624C /* PremiseView.swift */,
 				2841082528AB48E000D142F8 /* DrawnView.swift */,
 				285D3E6C28B5294B008072C0 /* AnswerFinalView.swift */,
 				284107FF28AB07B600D142F8 /* Assets.xcassets */,
+				28C217A228DF8864001BDF14 /* TimerViewTest.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,6 +191,9 @@
 			dependencies = (
 			);
 			name = Cooper;
+			packageProductDependencies = (
+				283AA54A28DA8B3B00B4E2CB /* Popovers */,
+			);
 			productName = Cooper;
 			productReference = 284107F828AB07B400D142F8 /* Cooper.app */;
 			productType = "com.apple.product-type.application";
@@ -255,6 +266,9 @@
 				Base,
 			);
 			mainGroup = 284107EF28AB07B400D142F8;
+			packageReferences = (
+				283AA54928DA8B3B00B4E2CB /* XCRemoteSwiftPackageReference "Popovers" */,
+			);
 			productRefGroup = 284107F928AB07B400D142F8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -306,9 +320,11 @@
 				3F8BBE2628B00673008E9F32 /* DraggableNode.swift in Sources */,
 				287DA35C28BE83C8006E624C /* ListHistory.swift in Sources */,
 				28D1620128C7CA740085D3B2 /* OnBoardingView.swift in Sources */,
+				28EA51D028DC018F00669558 /* SplashScreenView.swift in Sources */,
 				284107FE28AB07B400D142F8 /* ContentView.swift in Sources */,
 				3F24584D28C8DF7D002CB9AB /* ResultAlert.swift in Sources */,
 				287DA35A28BE7EAE006E624C /* PremiseView.swift in Sources */,
+				28C217A328DF8864001BDF14 /* TimerViewTest.swift in Sources */,
 				3F8BBE2428AFC409008E9F32 /* GameScene.swift in Sources */,
 				284107FC28AB07B400D142F8 /* CooperApp.swift in Sources */,
 				283FD6AB28CA774200020ACA /* UnavailableAlert.swift in Sources */,
@@ -467,7 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 8MKU4N27YM;
+				DEVELOPMENT_TEAM = XJ57BXJG95;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooper/Info.plist;
@@ -483,7 +499,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = Cooper;
+				PRODUCT_BUNDLE_IDENTIFIER = Cooper.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -500,7 +516,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 8MKU4N27YM;
+				DEVELOPMENT_TEAM = XJ57BXJG95;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooper/Info.plist;
@@ -516,7 +532,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = Cooper;
+				PRODUCT_BUNDLE_IDENTIFIER = Cooper.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -642,6 +658,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		283AA54928DA8B3B00B4E2CB /* XCRemoteSwiftPackageReference "Popovers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aheze/Popovers";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		283AA54A28DA8B3B00B4E2CB /* Popovers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 283AA54928DA8B3B00B4E2CB /* XCRemoteSwiftPackageReference "Popovers" */;
+			productName = Popovers;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 284107F028AB07B400D142F8 /* Project object */;
 }
