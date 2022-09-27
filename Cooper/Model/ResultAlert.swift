@@ -36,7 +36,7 @@ struct CustomAlertView: View{
                     
                     ZStack{
                         Text("Parabéns!")
-                           // .foregroundColor(.yellow)
+                            .foregroundColor(Color(red: 98/255, green: 153/255, blue: 51/255))
                             .bold()
                             .font(Font.custom("Boogaloo-Regular", size: 40))
                         //circulo criado para chamar a funcao de confetti chamando o atributo ParticlesModifier
@@ -78,7 +78,7 @@ struct CustomAlertView: View{
                     Image("algema")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                    Text("Errado!")
+                    Text("ih, ferrou! ")
                         .foregroundColor(.red)
                         .bold()
                         .font(Font.custom("Boogaloo-Regular", size: 40))
