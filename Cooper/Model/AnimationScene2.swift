@@ -1,5 +1,5 @@
 //
-//  AnimatinoScene.swift
+//  AnimationScene2.swift
 //  Cooper
 //
 //  Created by Matheus Costa on 27/09/22.
@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import SpriteKit
 
-class AnimationScene: SKScene{
+class AnimationScene2: SKScene{
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
@@ -44,6 +44,6 @@ class AnimationScene: SKScene{
         }
         
         
-        AnimationNode.run(.repeatForever(.animate(with: animation1, timePerFrame: 0.1)))
+        AnimationNode.run(.repeatForever(.animate(with: animation2, timePerFrame: 0.1)))
     }
 }
