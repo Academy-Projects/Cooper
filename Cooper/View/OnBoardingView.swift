@@ -68,3 +68,5 @@ struct OnBoardingView_Previews: PreviewProvider {
             .previewInterfaceOrientation(.landscapeRight)
     }
 }
+
+

@@ -1,5 +1,5 @@
 //
-//  OnBoardingPage2.swift
+//  OnBoardingPage1.swift
 //  Cooper
 //
 //  Created by Matheus Costa on 27/09/22.
@@ -18,13 +18,14 @@ private let OnboardingSteps = [
     
 struct OnBoardingPage2: View{
     
-    let animationScene = AnimationScene2()
+    @AppStorage ("isOnboarding") public var  isOnboarding: Bool = true
+    @Environment(\.presentationMode) var presentationMode
+    
+    let animationScene = AnimationScene()
     public var Ascene: SKScene{
         animationScene.scaleMode = .fill
         return animationScene
     }
-    
-    var currentStep = 0
     
     var body: some View{
         
@@ -59,55 +60,55 @@ struct OnBoardingPage2: View{
                  
                     }.frame(height: UIScreen.main.bounds.height * 0.68)
                     Spacer()
-//                    HStack(){
-//                        // botao com condicao para que verifique se a view ja foi mostrada uma vez no app
-//                        // a condicao existe para que o usuario possa ver a instrucoes novamente caso  queira
-//                        // para isso existe um botao que chama a view de onboarding
-//                        Button(action:{
-//                            if isOnboarding == true {
-//                                isOnboarding = false
-//                            }else{
-//                                // else que faz com que view volta para anterior
-//                                //condicao so é chamada caso o usuario ja tenha passado pelo tutorial e esteja na tela por opcao propria
-//                                let impactMed = UIImpactFeedbackGenerator(style: .heavy)
-//                                impactMed.impactOccurred()
-//
-//                                presentationMode.wrappedValue.dismiss()
-//
-//
-//
-//                            }
-//                          } , label: {Text("Pular")})
-//                            .font(Font.custom("SourceSans3-Regular", size: 22))
-//                            .foregroundColor(Color("ColorFontTwo"))
-//
-//                        Spacer()
-//
-//                        HStack{
-//                                // foreach criado para fazer o page view
-//                            //funciona contando as etapas atraves do current step
-//                            ForEach(0..<4){ it in
-//                                if it == currentStep{
-//                                    Rectangle()
-//                                        .frame(width: 20, height: 10)
-//                                        .cornerRadius(10)
-//                                        .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-//                                } else {
-//                                    Circle()
-//                                        .frame(width: 10, height: 10)
-//                                        .foregroundColor(.gray)
-//                                }
-//
-//                            }
-//                        }
-//
-//                        Spacer()
-//                        // teste
-//                       // condicao que verifica a quatidade de elementos para se tornar e view e verifica se é a ultima para que possa seguir para o app
-//                        // a aplicacao nao volta pra essa view a nao ser que seja apagada
+                    HStack(){
+                        // botao com condicao para que verifique se a view ja foi mostrada uma vez no app
+                        // a condicao existe para que o usuario possa ver a instrucoes novamente caso  queira
+                        // para isso existe um botao que chama a view de onboarding
+                        Button(action:{
+                            if isOnboarding == true {
+                                self.isOnboarding = false
+                            }else{
+                                // else que faz com que view volta para anterior
+                                //condicao so é chamada caso o usuario ja tenha passado pelo tutorial e esteja na tela por opcao propria
+                                let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                                impactMed.impactOccurred()
+                                
+                                presentationMode.wrappedValue.dismiss()
+                                
+
+
+                            }
+                          } , label: {Text("Pular")})
+                            .font(Font.custom("SourceSans3-Regular", size: 22))
+                            .foregroundColor(Color("ColorFontTwo"))
+                
+                        Spacer()
+                        
+                        HStack{
+                                // foreach criado para fazer o page view
+                            //funciona contando as etapas atraves do current step
+                            ForEach(0..<4){ it in
+                                if it == 1{
+                                    Rectangle()
+                                        .frame(width: 20, height: 10)
+                                        .cornerRadius(10)
+                                        .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                } else {
+                                    Circle()
+                                        .frame(width: 10, height: 10)
+                                        .foregroundColor(.gray)
+                                }
+                                
+                            }
+                        }
+                        
+                        Spacer()
+                        // teste
+                       // condicao que verifica a quatidade de elementos para se tornar e view e verifica se é a ultima para que possa seguir para o app
+                        // a aplicacao nao volta pra essa view a nao ser que seja apagada
 //                        Button(action:{
 //                            if self.currentStep < OnboardingSteps.count - 1{
-//                                self.currentStep += 1
+//                                super.currentStep += 1
 //                            } else if self.currentStep >= 3{
 //                                let impactMed = UIImpactFeedbackGenerator(style: .heavy)
 //                                impactMed.impactOccurred()
@@ -132,9 +133,25 @@ struct OnBoardingPage2: View{
 //                                )
 //
 //                        })
-//                          //  .frame(width: UIScreen.main.bounds.width * 0.08)
-//
-//                    }
+                        
+                        NavigationLink(destination: DrawnView(),
+                                       label:{
+                                            Image(systemName: "chevron.right")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .padding(.vertical, 6)
+                                                .font(Font.custom("SourceSans3-Regular", size: 10))
+                                                .foregroundColor(Color("colorFont"))
+                                                .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                                                .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                                .clipShape(RoundedRectangle(cornerRadius: 12))
+                                                .background(RoundedRectangle(cornerRadius: 12)
+                                                    .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
+                                                )
+                                        })
+                          //  .frame(width: UIScreen.main.bounds.width * 0.08)
+                            
+                    }
                     .frame(width: UIScreen.main.bounds.width * 0.93, height: UIScreen.main.bounds.height * 0.04)
                     .padding(.bottom, 5)
                     
@@ -147,4 +164,3 @@ struct OnBoardingPage2: View{
                 
             }
     }
-
