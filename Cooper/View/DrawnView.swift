@@ -33,9 +33,15 @@ struct DrawnView: View {
         return gameScene
     }
     
-    @State var timerRemaining = 60
+    @State var timerRemaining:Double = 60
+    
     @State var jump = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    @State var currentColor = Color.clear
+    var colorCircle: [Color] = [.green]
+    var colorCircleTwo: [Color] = [.yellow]
+    var colorCircleThree = Color(red: 245/255, green: 119/255, blue: 101/255)
     
     
     var choice: ListHistory = naps[indexQuestion]
@@ -135,26 +141,52 @@ ZStack{
                 .padding(.top, 13)
                 
                 HStack{
-                    // Botão para voltar uma tela.
-                    Text("\(timerRemaining)")
-                        .font(Font.custom("SourceSans3-Bold", size: 35))
-                        .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                        .onReceive(timer) {_ in
-                            if timerRemaining > 0{
-                                timerRemaining -= 1
-                            } else {
-                                jump = true
-                                
-                                presentResultAlert = true
-                                timer.upstream.connect().cancel()
-                            }
-                        }
+                    
+                    ZStack(alignment: .leading){
+                        RoundedRectangle(cornerRadius: 25)
+                            .foregroundColor(.red)
+                            .frame(width: UIScreen.main.bounds.width * 0.1, height: UIScreen.main.bounds.height * 0.03)
+                        
+                        RoundedRectangle(cornerRadius: 25)
+                            .frame(width: UIScreen.main.bounds.width * ((0.1 * timerRemaining) / 60), height: UIScreen.main.bounds.height * 0.03, alignment: .leading)
+//                            .foregroundColor(Color.clear)
+                            .foregroundColor(Color.green)
+        //                                .padding(.trailing, 20)
+                        
+                            HStack{
+                                Image(systemName:"clock")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    //.frame(width: UIScreen.main.bounds.width * 0.03, height: UIScreen.main.bounds.height * 0.03)
+
+//                                    Text("00:00")
+                                Text(String(format: "00: %.0f ", timerRemaining))
+                                    .font(Font.custom("SourceSans3-Bold", size: 35))
+                                    .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                    .onReceive(timer) {_ in
+                                        if timerRemaining > 0{
+                                            timerRemaining -= 1
+                                        } else {
+                                            jump = true
+
+                                            presentResultAlert = true
+                                            timer.upstream.connect().cancel()
+                                        }
+                                    }
+                            }.onAppear(perform: delayCircle)
+                                .background(Color.clear)
+                                .frame(width: UIScreen.main.bounds.width * 0.1, height: UIScreen.main.bounds.height * 0.03)
+                    }
+                    
                 }
-                .frame(maxWidth: .infinity, alignment: .trailing)
+                .background(Color(red: 248/255, green: 248/255, blue: 248/255))
+                .frame(maxWidth: .infinity, alignment: .center)
                 .frame(maxHeight: .infinity, alignment: .top)
-                .padding(.trailing, 68)
-                .padding(.top, 13)
+                .padding(.top, 20)
+                
+                
             }
+            
             
             .frame(width: UIScreen.main.bounds.width * 0.69, height: UIScreen.main.bounds.height * 0.90)
             .padding(.trailing, -3)
@@ -212,7 +244,10 @@ ZStack{
                             }
                           }
                     }
+                    
                 }.frame(height: UIScreen.main.bounds.height * 0.71)
+            
+            
                     Button(action:{// Muda a variável para apresentar o Pop-Up.
                             presentResultAlert.toggle()
                             timer.upstream.connect().cancel()
@@ -249,6 +284,7 @@ ZStack{
           
            }
     
+    
             .frame(maxWidth: . infinity, maxHeight: .infinity)
             .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustrationWhite"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
                                         startPoint: .leading,
@@ -261,8 +297,14 @@ ZStack{
         }.navigationBarHidden(true)
         
   }
-    
-    
+    private func delayCircle() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            self.currentColor = self.colorCircle.randomElement()!
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 19) {
+            self.currentColor = self.colorCircleTwo.randomElement()!
+        }
+    }
 }
 
 
