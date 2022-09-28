@@ -9,6 +9,10 @@ import SpriteKit
 
 struct AnswerFinalView: View {
     
+    
+    
+    @State private var showPopover = false
+    
     var ilustrationScene: GameScene
     var story: ListHistory = naps[indexQuestion]
     @State var cor:Color = Color("ColorBackBotton")
@@ -23,6 +27,23 @@ struct AnswerFinalView: View {
     // Cria um tipo de apresentação.
     @Environment(\.presentationMode) var presentationMode
     
+//    var premissa: String = "nothing"
+    
+    struct PopoverContent: View {
+        
+        
+        var body: some View {
+            VStack {
+                Text(premissa)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.bottom, 20)
+            }
+            .frame(width: 350, height: 200)
+        }
+    }
+
+    
     var body: some View{
       ZStack{
             HStack{
@@ -35,10 +56,14 @@ struct AnswerFinalView: View {
                     ZStack{
                         HStack{
                             
-                            Button(action: {presentationMode.wrappedValue.dismiss()},
+                            Button(action: {
+                                showPopover = true
+                                premissa = story.premise
+                                
+                            },
                                    label: {
                                     Rectangle()
-                                    Image(systemName: "chevron.left")
+                                    Image(systemName: "safari")
                                         .font(Font.custom("SourceSans3-Bold", size: 20))
                                         .foregroundColor(Color("colorFont"))
                                         .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
@@ -51,11 +76,14 @@ struct AnswerFinalView: View {
                                     })
                                         .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
                                         .buttonStyle(FlatLinkStyle())
+                                        .popover(isPresented: $showPopover) {
+                                            PopoverContent()
+                                        }
                             
                                 
-                        }.frame(maxWidth: .infinity, alignment: .leading)
+                        }.frame(maxWidth: .infinity, alignment: .trailing)
                         .frame(maxHeight: .infinity, alignment: .top)
-                        .padding(.leading, 14)
+                        .padding(.trailing, 14)
                         .padding(.top, 4)
 
                     }
