@@ -11,7 +11,9 @@ import Foundation
 public var answerChoice:Int = 0
 // variaveis criadas para setar informacoes da lista
 public var final:String = "t"
-//variavel globol que contem qual o usuario escolheu 
+//variavel globol que contem qual o usuario escolheu
+public var premissa: String = "nothing"
+//varivavel global que recebe a premissa
 struct ListHistory: Identifiable{
     var id = UUID()
     var title: String
@@ -27,7 +29,6 @@ struct ListHistory: Identifiable{
 var naps = [
     ListHistory(
         title: "A terra da Rainha",
-
         premise: "Durante sua viagem pela cidade de Londres, cidade inglesa, você é parado pela polícia portando uma espada, Qual a sua explicação ?",
         instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas. ",
         warning: "Lembre-se: se os policiais não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",

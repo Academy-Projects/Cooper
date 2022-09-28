@@ -33,10 +33,15 @@ struct DrawnView: View {
         return gameScene
     }
     
+    @State var timerRemaining = 60
+    @State var jump = false
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    
     var choice: ListHistory = naps[indexQuestion]
     
     @State private var showPopover = false
-
+    
     
     @State var presentResultAlert = false // Faz o Pop-Up aparecer ou não
     @State var imgTemporary: UIImage!
@@ -88,7 +93,7 @@ ZStack{
                 
                 
                 HStack{
-                    // Botão para voltar uma tela.
+                    // Botão para verificar qual solucao vou escolhida
                     Button(action: {
                         showPopover = true
                         
@@ -103,7 +108,7 @@ ZStack{
                     },
                            label: {
                                 Rectangle()
-                                Image(systemName: "lightbulb.fill")
+                                Image(systemName: "safari")
                                     .font(Font.custom("SourceSans3-Bold", size: 20))
                                     .foregroundColor(Color("colorFont"))
                                     .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
@@ -127,6 +132,27 @@ ZStack{
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .frame(maxHeight: .infinity, alignment: .top)
                 .padding(.trailing, 24)
+                .padding(.top, 13)
+                
+                HStack{
+                    // Botão para voltar uma tela.
+                    Text("\(timerRemaining)")
+                        .font(Font.custom("SourceSans3-Bold", size: 35))
+                        .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                        .onReceive(timer) {_ in
+                            if timerRemaining > 0{
+                                timerRemaining -= 1
+                            } else {
+                                jump = true
+                                
+                                presentResultAlert = true
+                                timer.upstream.connect().cancel()
+                            }
+                        }
+                }
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .frame(maxHeight: .infinity, alignment: .top)
+                .padding(.trailing, 68)
                 .padding(.top, 13)
             }
             
@@ -189,8 +215,8 @@ ZStack{
                 }.frame(height: UIScreen.main.bounds.height * 0.71)
                     Button(action:{// Muda a variável para apresentar o Pop-Up.
                             presentResultAlert.toggle()
-
-                            }, label: {
+                            timer.upstream.connect().cancel()
+                    }, label: {
                     Text("Terminei de ilustrar ")
                         .font(Font.custom("SourceSans3-Bold", size: 21))
                         .foregroundColor(Color("colorFont"))
@@ -202,12 +228,14 @@ ZStack{
                             .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
                         )
                         .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 5, y: 5)
-                })
+                        //
+                    })
             //funcao utilizada para que a animacao do botao clicado nao seja mostrada
             //solucao encontrada para nao dar o contraste da sombra ao ser clicado
                  .frame(height: UIScreen.main.bounds.height * 0.040)
                  .buttonStyle(FlatLinkStyle())
                  .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
+                 
             
         }.frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.height * 0.93)
             .background(Color("ColorBackgroundInside"))
@@ -215,6 +243,7 @@ ZStack{
             .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 3)
             .background(RoundedRectangle(cornerRadius: 13))
             .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 17))
+            
         
         
           
@@ -235,6 +264,7 @@ ZStack{
     
     
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
