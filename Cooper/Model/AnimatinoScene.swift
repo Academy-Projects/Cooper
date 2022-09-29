@@ -37,8 +37,8 @@ class AnimationScene: SKScene{
             animation1 += [SKTexture(imageNamed: fileName)]
         }
         // Cria o vetor com as imagens da animação 2.
-        for index in 0...122{
-            let fileName = "video2_" + String(format: "%05d", index)
+        for index in 1...2{
+            let fileName = "frame" + String(format: "%00d", index)
             animation2 += [SKTexture(imageNamed: fileName)]
         }
         // Cria o vetor com as imagens de animação 3.
