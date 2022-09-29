@@ -38,9 +38,9 @@ struct DrawnView: View {
     @State var jump = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    @State var currentColor = Color.clear
-    var colorCircle: [Color] = [.green]
-    var colorCircleTwo: [Color] = [.yellow]
+    @State var currentColor = Color(red: 166/255, green: 193/255, blue: 1/255)
+    var colorCircle = Color(red: 254/255, green: 179/255, blue: 18/255)
+    var colorCircleTwo = Color(red: 245/255, green: 119/255, blue: 101/255)
     var colorCircleThree = Color(red: 245/255, green: 119/255, blue: 101/255)
     
     
@@ -117,16 +117,16 @@ ZStack{
                                 Image(systemName: "safari")
                                     .font(Font.custom("SourceSans3-Bold", size: 20))
                                     .foregroundColor(Color("colorFont"))
-                                    .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                                    .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                    .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.043)
+                                    .background(Color(red: 1/255, green: 97/255, blue: 138/255, opacity: 0.1))
                                     .clipShape(RoundedRectangle(cornerRadius: 8))
                                     .background(RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
+                                        .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 0)
                                     )
-                                    .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
+                                    .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 0, y: 0)
                             })
                             .buttonStyle(FlatLinkStyle())
-                            .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                            .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.043)
                             .popover(isPresented: $showPopover) {
                                 PopoverContent()
                             }
@@ -144,24 +144,27 @@ ZStack{
                     
                     ZStack(alignment: .leading){
                         RoundedRectangle(cornerRadius: 25)
-                            .foregroundColor(.red)
-                            .frame(width: UIScreen.main.bounds.width * 0.1, height: UIScreen.main.bounds.height * 0.03)
+                            .foregroundColor(Color(red: 1/255, green: 97/255, blue: 138/255, opacity: 0.1))
+                        //    .foregroundColor(Color.green)
+                            .frame(width: UIScreen.main.bounds.width * 0.10, height: UIScreen.main.bounds.height * 0.04)
                         
                         RoundedRectangle(cornerRadius: 25)
-                            .frame(width: UIScreen.main.bounds.width * ((0.1 * timerRemaining) / 60), height: UIScreen.main.bounds.height * 0.03, alignment: .leading)
-//                            .foregroundColor(Color.clear)
-                            .foregroundColor(Color.green)
-        //                                .padding(.trailing, 20)
+                            .frame(width: UIScreen.main.bounds.width * ((0.10 * timerRemaining) / 60), height: UIScreen.main.bounds.height * 0.04, alignment: .leading)
+                            .foregroundColor(currentColor)
+                            .onAppear(perform: delayCircle)
+
                         
                             HStack{
                                 Image(systemName:"clock")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    //.frame(width: UIScreen.main.bounds.width * 0.03, height: UIScreen.main.bounds.height * 0.03)
-
-//                                    Text("00:00")
+                                    .foregroundColor(Color("ColorBackBotton"))
+                                Spacer()
                                 Text(String(format: "00: %.0f ", timerRemaining))
-                                    .font(Font.custom("SourceSans3-Bold", size: 35))
+                                    .foregroundColor(Color("ColorBackBotton"))
+                                    .font(Font.custom("Boogaloo-Regular", size: 35))
+                                    .minimumScaleFactor(0.1) //<--Here
+                                    .frame(width: UIScreen.main.bounds.width * 0.06, height: UIScreen.main.bounds.height * 0.04)
                                     .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                                     .onReceive(timer) {_ in
                                         if timerRemaining > 0{
@@ -173,13 +176,13 @@ ZStack{
                                             timer.upstream.connect().cancel()
                                         }
                                     }
-                            }.onAppear(perform: delayCircle)
-                                .background(Color.clear)
-                                .frame(width: UIScreen.main.bounds.width * 0.1, height: UIScreen.main.bounds.height * 0.03)
+                            }
+                            .background(Color.clear)
+                            .frame(width: UIScreen.main.bounds.width * 0.10, height: UIScreen.main.bounds.height * 0.04)
                     }
                     
                 }
-                .background(Color(red: 248/255, green: 248/255, blue: 248/255))
+                .background(Color.clear)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .frame(maxHeight: .infinity, alignment: .top)
                 .padding(.top, 20)
@@ -298,11 +301,11 @@ ZStack{
         
   }
     private func delayCircle() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-            self.currentColor = self.colorCircle.randomElement()!
+        DispatchQueue.main.asyncAfter(deadline: .now() + 41) {
+            self.currentColor = self.colorCircleTwo
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 19) {
-            self.currentColor = self.colorCircleTwo.randomElement()!
+            self.currentColor = self.colorCircle
         }
     }
 }
