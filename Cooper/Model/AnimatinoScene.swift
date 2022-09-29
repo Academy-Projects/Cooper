@@ -47,8 +47,8 @@ class AnimationScene: SKScene{
             animation3 += [SKTexture(imageNamed: fileName)]
         }
         // Cria o vetor com as imagens de animação 4.
-        for index in 0...122{
-            let fileName = "video2_" + String(format: "%05d", index)
+        for index in 1...2{
+            let fileName = "forthAnimation" + String(format: "%00d", index)
             animation4 += [SKTexture(imageNamed: fileName)]
         }
         
@@ -56,7 +56,12 @@ class AnimationScene: SKScene{
             AnimationNode.run(.repeatForever(.animate(with: animation1, timePerFrame: 0.1)))
         }else if(index == 1){
             AnimationNode.run(.repeatForever(.animate(with: animation2, timePerFrame: 0.1)))
-        }else{
+        }else if(index == 2){
+            AnimationNode.run(.repeatForever(.animate(with: animation3, timePerFrame: 0.1)))
+        }else if(index == 3){
+            AnimationNode.run(.repeatForever(.animate(with: animation4, timePerFrame: 0.1)))
+        }
+        else{
             AnimationNode.run(.repeatForever(.animate(with: animation1, timePerFrame: 0.1)))
         }
     }
