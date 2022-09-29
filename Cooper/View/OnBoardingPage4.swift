@@ -8,15 +8,9 @@
 import Foundation
 import SwiftUI
 import SpriteKit
-
-private let OnboardingSteps = [
-    OnboardingStep(image: "blocked", isntruction: "Você é Cooper, um viajante que azarado que sempre se mete em encrencas e está em  busca de novos destinos para suas aventuras.", gif: "let", caso: "Escolha o destino da sua próxima viagem"),
-    OnboardingStep(image: "blocked", isntruction: "Leia o caso para os outros jogadores, que farão papel dos policiais, mas escolha sua explicação em segredo, viu?", gif: "lele", caso: "Leia em voz alta e escolha em silêncio"),
-    OnboardingStep(image: "blocked", isntruction: "Evite ser preso por conta das suas desventuras mal entedidas. Organize os pictogramas até onde sua criatividade permitir.Será que você vai sair dessa?", gif: "let", caso: "Se expresse através de pictogramas"),
-    OnboardingStep(image: "blocked", isntruction: "mais um pagina", gif: "let", caso: "")
-]
     
 struct OnBoardingPage4: View{
+    var onboardingSteps:[OnboardingStep]
     
     @AppStorage ("isOnboarding") public var  isOnboarding: Bool = true
     @Environment(\.presentationMode) var presentationMode
@@ -40,7 +34,7 @@ struct OnBoardingPage4: View{
                         .padding(.top, 173)
                         Spacer()
                         VStack{
-                            Text(OnboardingSteps[3].caso)
+                            Text(onboardingSteps[3].caso)
                                 .font(Font.custom("Boogaloo-Regular", size: 55))
                                 .minimumScaleFactor(0.1) //<--Here
                                 .frame(width: UIScreen.main.bounds.width * 0.37, height: UIScreen.main.bounds.height * 0.13, alignment: .leading)
@@ -48,8 +42,9 @@ struct OnBoardingPage4: View{
                                 .multilineTextAlignment(.leading)
                                // .padding(.top, 300)
                           //  Spacer()
-                            Text(OnboardingSteps[3].isntruction)
+                            Text(onboardingSteps[3].isntruction)
                                 .font(Font.custom("SourceSans3-Regular", size: 20))
+                                .minimumScaleFactor(0.1)
                                 .frame(width: UIScreen.main.bounds.width * 0.37, height: UIScreen.main.bounds.height * 0.13, alignment: .leading)
                                 .foregroundColor(Color("ColorFontTwo"))
                                // .padding(.trailing, 15)

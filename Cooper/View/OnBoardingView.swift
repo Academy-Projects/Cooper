@@ -9,7 +9,7 @@ import SwiftUI
 import SpriteKit
 import SpriteKit
 
-struct OnboardingStep{
+public struct OnboardingStep{
     //variaveis da lista no onboarding
     let image: String
     let isntruction: String
@@ -17,11 +17,11 @@ struct OnboardingStep{
     let caso: String
 }
 //informacao das varias setadas no onboarding
-private let OnboardingSteps = [
+private let onboardingSteps = [
     OnboardingStep(image: "blocked", isntruction: "Você é Cooper, um viajante que azarado que sempre se mete em encrencas e está em  busca de novos destinos para suas aventuras.", gif: "let", caso: "Escolha o destino da sua próxima viagem"),
     OnboardingStep(image: "blocked", isntruction: "Leia o caso para os outros jogadores, que farão papel dos policiais, mas escolha sua explicação em segredo, viu?", gif: "lele", caso: "Leia em voz alta e escolha em silêncio"),
     OnboardingStep(image: "blocked", isntruction: "Evite ser preso por conta das suas desventuras mal entedidas. Organize os pictogramas até onde sua criatividade permitir.Será que você vai sair dessa?", gif: "let", caso: "Se expresse através de pictogramas"),
-    OnboardingStep(image: "blocked", isntruction: "mais um pagina", gif: "let", caso: "")
+    OnboardingStep(image: "blocked", isntruction: "Mostre sua ilustração aos policiais e eles, juntos, deverão escolher a resposta que melhor se aplica ao caso. Se eles errem, você será preso, se não você está liberado para viver novas aventuras!", gif: "let", caso: "Aja de forma\ncolaborativa")
 ]
 
 // corpo do onboarding
@@ -37,10 +37,10 @@ struct OnBoardingView: View {
         ZStack{
             // tabview que chamada a estapa setada pelo idx da lista
             TabView(selection: $currentStep){
-                OnBoardingPage1(currentStep: self.$currentStep).tag(0)
-                OnBoardingPage2(currentStep: self.$currentStep).tag(1)
-                OnBoardingPage3(currentStep: self.$currentStep).tag(2)
-                OnBoardingPage4().tag(3)
+                OnBoardingPage1(currentStep: self.$currentStep, onboardingSteps: onboardingSteps).tag(0)
+                OnBoardingPage2(currentStep: self.$currentStep, onboardingSteps: onboardingSteps).tag(1)
+                OnBoardingPage3(currentStep: self.$currentStep, onboardingSteps: onboardingSteps).tag(2)
+                OnBoardingPage4(onboardingSteps: onboardingSteps).tag(3)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .frame(width: UIScreen.main.bounds.width * 0.93, height: UIScreen.main.bounds.height * 0.89)
