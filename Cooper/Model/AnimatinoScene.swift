@@ -29,20 +29,27 @@ class AnimationScene: SKScene{
         var animation1: [SKTexture] = []
         var animation2: [SKTexture] = []
         var animation3: [SKTexture] = []
+        var animation4: [SKTexture] = []
         
+        // Cria o vetor com as imagens da animação 1.
         for index in 0...122{
             let fileName = "video2_" + String(format: "%05d", index)
             animation1 += [SKTexture(imageNamed: fileName)]
         }
-        
-        for index in 0...359{
-            let fileName = "Onboarding" + String(format: "%03d", index)
-            animation2 += [SKTexture(imageNamed: fileName)]
-        }
-        
+        // Cria o vetor com as imagens da animação 2.
         for index in 0...122{
             let fileName = "video2_" + String(format: "%05d", index)
+            animation2 += [SKTexture(imageNamed: fileName)]
+        }
+        // Cria o vetor com as imagens de animação 3.
+        for index in 0...359{
+            let fileName = "Onboarding" + String(format: "%03d", index)
             animation3 += [SKTexture(imageNamed: fileName)]
+        }
+        // Cria o vetor com as imagens de animação 4.
+        for index in 0...122{
+            let fileName = "video2_" + String(format: "%05d", index)
+            animation4 += [SKTexture(imageNamed: fileName)]
         }
         
         if(index == 0){
