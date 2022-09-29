@@ -33,10 +33,21 @@ struct DrawnView: View {
         return gameScene
     }
     
+    @State var timerRemaining:Double = 60
+    
+    @State var jump = false
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    @State var currentColor = Color(red: 166/255, green: 193/255, blue: 1/255)
+    var colorCircle = Color(red: 254/255, green: 179/255, blue: 18/255)
+    var colorCircleTwo = Color(red: 245/255, green: 119/255, blue: 101/255)
+    var colorCircleThree = Color(red: 245/255, green: 119/255, blue: 101/255)
+    
+    
     var choice: ListHistory = naps[indexQuestion]
     
     @State private var showPopover = false
-
+    
     
     @State var presentResultAlert = false // Faz o Pop-Up aparecer ou não
     @State var imgTemporary: UIImage!
@@ -88,7 +99,7 @@ ZStack{
                 
                 
                 HStack{
-                    // Botão para voltar uma tela.
+                    // Botão para verificar qual solucao vou escolhida
                     Button(action: {
                         showPopover = true
                         
@@ -103,19 +114,19 @@ ZStack{
                     },
                            label: {
                                 Rectangle()
-                                Image(systemName: "lightbulb.fill")
+                                Image(systemName: "safari")
                                     .font(Font.custom("SourceSans3-Bold", size: 20))
                                     .foregroundColor(Color("colorFont"))
-                                    .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                                    .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                    .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.043)
+                                    .background(Color(red: 1/255, green: 97/255, blue: 138/255, opacity: 0.1))
                                     .clipShape(RoundedRectangle(cornerRadius: 8))
                                     .background(RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
+                                        .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 0)
                                     )
-                                    .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
+                                    .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 0, y: 0)
                             })
                             .buttonStyle(FlatLinkStyle())
-                            .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                            .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.043)
                             .popover(isPresented: $showPopover) {
                                 PopoverContent()
                             }
@@ -128,7 +139,57 @@ ZStack{
                 .frame(maxHeight: .infinity, alignment: .top)
                 .padding(.trailing, 24)
                 .padding(.top, 13)
+                
+                HStack{
+                    
+                    ZStack(alignment: .leading){
+                        RoundedRectangle(cornerRadius: 25)
+                            .foregroundColor(Color(red: 1/255, green: 97/255, blue: 138/255, opacity: 0.1))
+                        //    .foregroundColor(Color.green)
+                            .frame(width: UIScreen.main.bounds.width * 0.10, height: UIScreen.main.bounds.height * 0.04)
+                        
+                        RoundedRectangle(cornerRadius: 25)
+                            .frame(width: UIScreen.main.bounds.width * ((0.10 * timerRemaining) / 60), height: UIScreen.main.bounds.height * 0.04, alignment: .leading)
+                            .foregroundColor(currentColor)
+                            .onAppear(perform: delayCircle)
+
+                        
+                            HStack{
+                                Image(systemName:"clock")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .foregroundColor(Color("ColorBackBotton"))
+                                Spacer()
+                                Text(String(format: "00: %.0f ", timerRemaining))
+                                    .foregroundColor(Color("ColorBackBotton"))
+                                    .font(Font.custom("Boogaloo-Regular", size: 35))
+                                    .minimumScaleFactor(0.1) //<--Here
+                                    .frame(width: UIScreen.main.bounds.width * 0.06, height: UIScreen.main.bounds.height * 0.04)
+                                    .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                    .onReceive(timer) {_ in
+                                        if timerRemaining > 0{
+                                            timerRemaining -= 1
+                                        } else {
+                                            jump = true
+
+                                            presentResultAlert = true
+                                            timer.upstream.connect().cancel()
+                                        }
+                                    }
+                            }
+                            .background(Color.clear)
+                            .frame(width: UIScreen.main.bounds.width * 0.10, height: UIScreen.main.bounds.height * 0.04)
+                    }
+                    
+                }
+                .background(Color.clear)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .frame(maxHeight: .infinity, alignment: .top)
+                .padding(.top, 20)
+                
+                
             }
+            
             
             .frame(width: UIScreen.main.bounds.width * 0.69, height: UIScreen.main.bounds.height * 0.90)
             .padding(.trailing, -3)
@@ -186,11 +247,14 @@ ZStack{
                             }
                           }
                     }
+                    
                 }.frame(height: UIScreen.main.bounds.height * 0.71)
+            
+            
                     Button(action:{// Muda a variável para apresentar o Pop-Up.
                             presentResultAlert.toggle()
-
-                            }, label: {
+                            timer.upstream.connect().cancel()
+                    }, label: {
                     Text("Terminei de ilustrar ")
                         .font(Font.custom("SourceSans3-Bold", size: 21))
                         .foregroundColor(Color("colorFont"))
@@ -202,12 +266,14 @@ ZStack{
                             .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
                         )
                         .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 5, y: 5)
-                })
+                        //
+                    })
             //funcao utilizada para que a animacao do botao clicado nao seja mostrada
             //solucao encontrada para nao dar o contraste da sombra ao ser clicado
                  .frame(height: UIScreen.main.bounds.height * 0.040)
                  .buttonStyle(FlatLinkStyle())
                  .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
+                 
             
         }.frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.height * 0.93)
             .background(Color("ColorBackgroundInside"))
@@ -215,10 +281,12 @@ ZStack{
             .shadow(color: Color(red: 232/255, green: 232/255, blue: 232/255, opacity: 85), radius: 3)
             .background(RoundedRectangle(cornerRadius: 13))
             .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 17))
+            
         
         
           
            }
+    
     
             .frame(maxWidth: . infinity, maxHeight: .infinity)
             .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustrationWhite"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
@@ -232,9 +300,16 @@ ZStack{
         }.navigationBarHidden(true)
         
   }
-    
-    
+    private func delayCircle() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 41) {
+            self.currentColor = self.colorCircleTwo
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 19) {
+            self.currentColor = self.colorCircle
+        }
+    }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
