@@ -15,7 +15,7 @@ class AnimationScene: SKScene{
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
-        self.backgroundColor = .clear
+        self.backgroundColor = .blue
     }
     
     override func didMove(to view: SKView) {

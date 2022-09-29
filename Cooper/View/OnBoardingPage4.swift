@@ -18,7 +18,7 @@ struct OnBoardingPage4: View{
     public var Ascene: SKScene{
         let animationScene = AnimationScene()
         animationScene.index = 3
-        animationScene.scaleMode = .fill
+        animationScene.scaleMode = .aspectFit
         return animationScene
     }
     
