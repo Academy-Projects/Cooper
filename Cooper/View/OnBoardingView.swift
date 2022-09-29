@@ -29,7 +29,7 @@ struct OnBoardingView: View {
     //booleano que muda de estado de acordo com o booleado setado
     @AppStorage ("isOnboarding") public var  isOnboarding: Bool = true
     // variavel que define a estapa em que se passa as informacoes no momento
-    @State private var currentStep = 0
+    @State private var currentStep:Int = 0
     // variavel criado para voltar para tela anterior caso a funcao seja chamada
     @Environment(\.presentationMode) var presentationMode
     
@@ -37,10 +37,10 @@ struct OnBoardingView: View {
         ZStack{
             // tabview que chamada a estapa setada pelo idx da lista
             TabView(selection: $currentStep){
-                OnBoardingPage1()
-                OnBoardingPage2()
-                OnBoardingPage3()
-                OnBoardingPage4()
+                OnBoardingPage1(currentStep: self.$currentStep).tag(0)
+                OnBoardingPage2(currentStep: self.$currentStep).tag(1)
+                OnBoardingPage3(currentStep: self.$currentStep).tag(2)
+                OnBoardingPage4().tag(3)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .frame(width: UIScreen.main.bounds.width * 0.93, height: UIScreen.main.bounds.height * 0.89)

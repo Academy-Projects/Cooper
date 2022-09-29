@@ -104,37 +104,7 @@ struct OnBoardingPage4: View{
                         
                         Spacer()
                         // teste
-                       // condicao que verifica a quatidade de elementos para se tornar e view e verifica se é a ultima para que possa seguir para o app
-                        // a aplicacao nao volta pra essa view a nao ser que seja apagada
-//                        Button(action:{
-//                            if self.currentStep < OnboardingSteps.count - 1{
-//                                super.currentStep += 1
-//                            } else if self.currentStep >= 3{
-//                                let impactMed = UIImpactFeedbackGenerator(style: .heavy)
-//                                impactMed.impactOccurred()
-//
-//                                presentationMode.wrappedValue.dismiss()
-//
-//                                isOnboarding = false
-//                            }
-//                        } ,
-//                               label:{
-//                            Image(systemName: "chevron.right")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .padding(.vertical, 6)
-//                                .font(Font.custom("SourceSans3-Regular", size: 10))
-//                                .foregroundColor(Color("colorFont"))
-//                                .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-//                                .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-//                                .clipShape(RoundedRectangle(cornerRadius: 12))
-//                                .background(RoundedRectangle(cornerRadius: 12)
-//                                    .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
-//                                )
-//
-//                        })
-                        
-                        NavigationLink(destination: DrawnView(),
+                        NavigationLink(destination: HistoryView(),
                                        label:{
                                             Image(systemName: "chevron.right")
                                                 .resizable()
@@ -150,7 +120,6 @@ struct OnBoardingPage4: View{
                                                 )
                                         })
                           //  .frame(width: UIScreen.main.bounds.width * 0.08)
-                            
                     }
                     .frame(width: UIScreen.main.bounds.width * 0.93, height: UIScreen.main.bounds.height * 0.04)
                     .padding(.bottom, 5)

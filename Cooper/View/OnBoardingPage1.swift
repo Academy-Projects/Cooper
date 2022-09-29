@@ -17,6 +17,7 @@ private let OnboardingSteps = [
 ]
     
 struct OnBoardingPage1: View{
+    @Binding var currentStep: Int
     
     @AppStorage ("isOnboarding") public var  isOnboarding: Bool = true
     @Environment(\.presentationMode) var presentationMode
@@ -28,7 +29,6 @@ struct OnBoardingPage1: View{
     }
     
     var body: some View{
-        
         VStack{
             HStack{
                 VStack{ // Cena da animação.
@@ -100,23 +100,23 @@ struct OnBoardingPage1: View{
                 }
                 
                 Spacer()
+                Button(action: {
+                    currentStep = 1
+                }, label:{
+                    Image(systemName: "chevron.right")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.vertical, 6)
+                        .font(Font.custom("SourceSans3-Regular", size: 10))
+                        .foregroundColor(Color("colorFont"))
+                        .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                        .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .background(RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
+                        )
+                })
                 
-                NavigationLink(destination: DrawnView(),
-                               label:{
-//                                    Image(systemName: "chevron.right")
-//                                        .resizable()
-//                                        .scaledToFit()
-//                                        .padding(.vertical, 6)
-//                                        .font(Font.custom("SourceSans3-Regular", size: 10))
-//                                        .foregroundColor(Color("colorFont"))
-//                                        .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-//                                        .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-//                                        .clipShape(RoundedRectangle(cornerRadius: 12))
-//                                        .background(RoundedRectangle(cornerRadius: 12)
-//                                            .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 1)
-//                                        )
-                                    Text(cliclar")
-                                })
             }
             .frame(width: UIScreen.main.bounds.width * 0.93, height: UIScreen.main.bounds.height * 0.04)
             .padding(.bottom, 5)

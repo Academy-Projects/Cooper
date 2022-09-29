@@ -11,6 +11,8 @@ import SpriteKit
 
 class AnimationScene: SKScene{
     
+    var index:Int = 0
+    
     override func sceneDidLoad() {
         super.sceneDidLoad()
     }
@@ -43,7 +45,12 @@ class AnimationScene: SKScene{
             animation3 += [SKTexture(imageNamed: fileName)]
         }
         
-        
-        AnimationNode.run(.repeatForever(.animate(with: animation1, timePerFrame: 0.1)))
+        if(index == 0){
+            AnimationNode.run(.repeatForever(.animate(with: animation1, timePerFrame: 0.1)))
+        }else if(index == 1){
+            AnimationNode.run(.repeatForever(.animate(with: animation2, timePerFrame: 0.1)))
+        }else{
+            AnimationNode.run(.repeatForever(.animate(with: animation1, timePerFrame: 0.1)))
+        }
     }
 }
