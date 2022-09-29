@@ -15,6 +15,7 @@ class AnimationScene: SKScene{
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
+        self.backgroundColor = .clear
     }
     
     override func didMove(to view: SKView) {
@@ -55,11 +56,11 @@ class AnimationScene: SKScene{
         if(index == 0){
             AnimationNode.run(.repeatForever(.animate(with: animation1, timePerFrame: 0.1)))
         }else if(index == 1){
-            AnimationNode.run(.repeatForever(.animate(with: animation2, timePerFrame: 0.1)))
+            AnimationNode.run(.repeatForever(.animate(with: animation2, timePerFrame: 1)))
         }else if(index == 2){
-            AnimationNode.run(.repeatForever(.animate(with: animation3, timePerFrame: 0.1)))
+            AnimationNode.run(.repeatForever(.animate(with: animation3, timePerFrame: 0.05)))
         }else if(index == 3){
-            AnimationNode.run(.repeatForever(.animate(with: animation4, timePerFrame: 0.1)))
+            AnimationNode.run(.repeatForever(.animate(with: animation4, timePerFrame: 1)))
         }
         else{
             AnimationNode.run(.repeatForever(.animate(with: animation1, timePerFrame: 0.1)))

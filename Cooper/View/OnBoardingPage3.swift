@@ -35,7 +35,7 @@ struct OnBoardingPage3: View{
                 VStack{
                     HStack{
                         VStack{ // Cena da animação.
-                            SpriteView(scene: Ascene, isPaused: false)
+                            SpriteView(scene: Ascene, isPaused: false, options: [.allowsTransparency])
                         }
                         .padding(.leading, 133)
                         .padding(.top, 173)
