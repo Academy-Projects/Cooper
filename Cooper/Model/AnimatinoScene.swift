@@ -11,7 +11,7 @@ import SpriteKit
 
 class AnimationScene: SKScene{
     
-    var index:Int = 0
+    var index:Int = 1
     
     override func sceneDidLoad() {
         super.sceneDidLoad()

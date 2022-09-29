@@ -22,8 +22,8 @@ struct OnBoardingPage1: View{
     @AppStorage ("isOnboarding") public var  isOnboarding: Bool = true
     @Environment(\.presentationMode) var presentationMode
     
-    let animationScene = AnimationScene()
     public var Ascene: SKScene{
+        let animationScene = AnimationScene()
         animationScene.scaleMode = .fill
         return animationScene
     }
