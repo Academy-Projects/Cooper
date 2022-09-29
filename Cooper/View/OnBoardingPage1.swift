@@ -29,7 +29,9 @@ struct OnBoardingPage1: View{
                 VStack{ // Cena da animação.
                     SpriteView(scene: Ascene, isPaused: false, options: [.allowsTransparency])
                 }
-                .padding(.leading, 133)
+                .frame(width: UIScreen.main.bounds.width * 0.416, height: UIScreen.main.bounds.height * 0.63, alignment: .leading)
+                .padding(.leading, 90)
+                .padding(.trailing, 40)
                 .padding(.top, 173)
                 Spacer()
                 VStack{
@@ -39,7 +41,7 @@ struct OnBoardingPage1: View{
                         .frame(width: UIScreen.main.bounds.width * 0.37, height: UIScreen.main.bounds.height * 0.13, alignment: .leading)
                         .foregroundColor(Color(red: 0/255, green: 62/255, blue: 89/255))
                         .multilineTextAlignment(.leading)
-                       // .padding(.top, 300)
+                        .padding(.bottom, 30)
                   //  Spacer()
                     Text(onboardingSteps[0].isntruction)
                         .font(Font.custom("SourceSans3-Regular", size: 20))
@@ -49,7 +51,7 @@ struct OnBoardingPage1: View{
                         .multilineTextAlignment(.leading)
                        // .padding(.bottom, 300)
                 }
-                .padding(.trailing, 56)
+                .padding(.trailing, 80)
                 .padding(.top, 173)
          
             }.frame(height: UIScreen.main.bounds.height * 0.68)
