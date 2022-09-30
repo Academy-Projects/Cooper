@@ -22,10 +22,11 @@ struct FinishIlustration: View{
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)){
             HStack{
                 ZStack{
-                    Image("trofeu")
-                       // .frame(width: UIScreen.main.bounds.width * )
+                    Image("feedback")
                         .resizable()
+                        .frame(width: UIScreen.main.bounds.width * 0.10, height: UIScreen.main.bounds.height * 0.13)
                         .aspectRatio(contentMode: .fit)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 30))
                     
                 }.frame(width: UIScreen.main.bounds.width * 0.11)
                 VStack(spacing: 25){

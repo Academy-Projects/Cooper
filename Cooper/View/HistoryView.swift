@@ -98,7 +98,7 @@ struct HistoryView: View {
 // paises da historia
     @State var titulo: [String] = ["FRANÇA","GRÉCIA","BRASIL","LONDRES", "CANADÁ", "PERU"]
 //fotos das historias
-    @State var data: [String] = ["blocked","blocked","blocked", "cardlondres", "cardcanada", "cardperu", "blocked", "blocked", "blocked", "blocked"]
+    @State var data: [String] = ["CardParis-8","CardGrecia.DarkMode","CardAmazonia.DarkMode", "cardlondres", "cardcanada", "cardperu", "blocked", "blocked", "blocked", "blocked"]
  // grid para setar array das historias
     @State var presentResultAlert = false // Faz o Pop-Up aparecer ou não
     @State var result = false // Indica se o usuario acertou ou não.
