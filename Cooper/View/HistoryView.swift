@@ -23,6 +23,15 @@ struct Condition: View{
         else if index == 2 {
             PremiseView(story: naps[2])
         }
+        else if index == 3 {
+            PremiseView(story: naps[3])
+        }
+        else if index == 4 {
+            PremiseView(story: naps[4])
+        }
+        else if index == 5 {
+            PremiseView(story: naps[5])
+        }
         else {
             UnavailableAlert(show: $presentResultAlert)
      }
@@ -87,9 +96,9 @@ var body: some View {
 struct HistoryView: View {
     @State var idx: Int = 0
 // paises da historia
-    @State var titulo: [String] = ["LONDRES", "CANADÁ", "PERU"]
+    @State var titulo: [String] = ["FRANÇA","GRÉCIA","BRASIL","LONDRES", "CANADÁ", "PERU"]
 //fotos das historias
-    @State var data: [String] = ["cardlondres","cardcanada","cardperu", "blocked", "blocked", "blocked", "blocked", "blocked"]
+    @State var data: [String] = ["blocked","blocked","blocked", "cardlondres", "cardcanada", "cardperu", "blocked", "blocked", "blocked", "blocked"]
  // grid para setar array das historias
     @State var presentResultAlert = false // Faz o Pop-Up aparecer ou não
     @State var result = false // Indica se o usuario acertou ou não.
@@ -146,7 +155,7 @@ struct HistoryView: View {
                         LazyHGrid(rows: layout, spacing: 23){
                             ForEach(data.indices) { idx in
                                 VStack(){
-                                    if(idx < 3){
+                                    if(idx < 6){
                                         NavigationLink(destination:
                                            Condition(index: idx)
                                         ){

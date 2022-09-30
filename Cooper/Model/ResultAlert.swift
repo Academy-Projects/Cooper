@@ -138,9 +138,9 @@ struct CustomAlertView: View{
             .padding(.vertical, 25)
             .padding(.horizontal, 30)
             .cornerRadius(25)
-            .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundPopUp"), Color("backgroundIlustrationWhite")]),
-                                         startPoint: .top,
-                                         endPoint: .bottom))
+            .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
+                                    startPoint: .leading,
+                                    endPoint: .trailing))
             .cornerRadius(20)
             
         }

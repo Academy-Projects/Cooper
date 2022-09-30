@@ -14,13 +14,28 @@ struct PopoverContent: View {
     
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
+            Text("Lembre-se")
+                .padding(.top, 14)
+                .font(Font.custom("Boogaloo-Regular", size: 30))
+                .foregroundColor(Color("ColorFontTwo"))
+            Divider()
+                .frame(width: 107, height: 2 , alignment: .center)
+                .overlay(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                .padding(.bottom, 15)
+               // .padding(.leading, 40)
+            
             Text(final)
-                .font(.title)
-                .fontWeight(.bold)
+                .font(Font.custom("SourceSans3-Regular", size: 20))
+                .foregroundColor(Color("ColorFontTwo"))
                 .padding(.bottom, 20)
+                .padding(.horizontal, 15)
         }
-        .frame(width: 350, height: 200)
+        .frame(width: UIScreen.main.bounds.width * 0.23)
+        .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
+                                startPoint: .leading,
+                                endPoint: .trailing))
+        
     }
 }
 
@@ -34,7 +49,6 @@ struct DrawnView: View {
     }
     
     @State var timerRemaining:Double = 60
-    
     @State var jump = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -79,7 +93,7 @@ ZStack{
                                 Image(systemName: "chevron.left")
                                     .font(Font.custom("SourceSans3-Bold", size: 20))
                                     .foregroundColor(Color("colorFont"))
-                                    .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                                    .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.038)
                                     .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                                     .clipShape(RoundedRectangle(cornerRadius: 8))
                                     .background(RoundedRectangle(cornerRadius: 8)
@@ -90,12 +104,12 @@ ZStack{
                     //funcao utilizada para que a animacao do botao clicado nao seja mostrada
                     //solucao encontrada para nao dar o contraste da sombra ao ser clicado
                             .buttonStyle(FlatLinkStyle())
-                            .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
+                            .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.038)
                             
                 }.frame(maxWidth: .infinity, alignment: .leading)
                 .frame(maxHeight: .infinity, alignment: .top)
-                .padding(.leading, 24)
-                .padding(.top, 24)
+                .padding(.leading, 25)
+                .padding(.top, 18)
                 
                 
                 HStack{
@@ -117,16 +131,16 @@ ZStack{
                                 Image(systemName: "safari")
                                     .font(Font.custom("SourceSans3-Bold", size: 20))
                                     .foregroundColor(Color("colorFont"))
-                                    .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.043)
-                                    .background(Color(red: 1/255, green: 97/255, blue: 138/255, opacity: 0.1))
+                                    .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.038)
+                                    .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                                     .clipShape(RoundedRectangle(cornerRadius: 8))
                                     .background(RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 0)
+                                        .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
                                     )
-                                    .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 0, y: 0)
+                                    .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
                             })
                             .buttonStyle(FlatLinkStyle())
-                            .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.043)
+                            .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.038)
                             .popover(isPresented: $showPopover) {
                                 PopoverContent()
                             }
@@ -137,8 +151,8 @@ ZStack{
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .frame(maxHeight: .infinity, alignment: .top)
-                .padding(.trailing, 24)
-                .padding(.top, 13)
+                .padding(.trailing, 25)
+                .padding(.top, 18)
                 
                 HStack{
                     
@@ -166,6 +180,7 @@ ZStack{
                                     .minimumScaleFactor(0.1) //<--Here
                                     .frame(width: UIScreen.main.bounds.width * 0.06, height: UIScreen.main.bounds.height * 0.04)
                                     .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
+                                    .padding(.trailing, 5)
                                     .onReceive(timer) {_ in
                                         if timerRemaining > 0{
                                             timerRemaining -= 1
@@ -185,7 +200,7 @@ ZStack{
                 .background(Color.clear)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .frame(maxHeight: .infinity, alignment: .top)
-                .padding(.top, 20)
+                .padding(.top, 18)
                 
                 
             }
