@@ -78,7 +78,7 @@ struct FinishIlustration: View{
                              
                 }.frame(width: UIScreen.main.bounds.width * 0.27, height: UIScreen.main.bounds.height * 0.58)
             }
-            .frame(width: UIScreen.main.bounds.width * 0.45, height: UIScreen.main.bounds.height * 0.27)
+            .frame(width: UIScreen.main.bounds.width * 0.45, height: UIScreen.main.bounds.height * 0.23)
             .padding(.vertical, 25)
             .padding(.horizontal, 30)
             .cornerRadius(25)
