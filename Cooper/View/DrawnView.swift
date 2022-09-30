@@ -83,7 +83,7 @@ ZStack{
     HStack{
         ZStack{
             //chamando a cena spritkit dentro de uma view
-//                SpriteView(scene: scene, isPaused: false, options: [.allowsTransparency])
+                SpriteView(scene: scene, isPaused: false, options: [.allowsTransparency])
             ZStack{
                 HStack{
                     // Botão para voltar uma tela.
