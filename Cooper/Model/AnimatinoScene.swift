@@ -15,23 +15,23 @@ class AnimationScene: SKScene{
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
-        self.backgroundColor = .blue
+        self.backgroundColor = .clear
     }
     
     override func didMove(to view: SKView) {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         // node de animação
         let AnimationNode = SKSpriteNode(imageNamed: "video2_00000")
-        
+
         self.size = AnimationNode.size
-        
+
         self.addChild(AnimationNode)
-        
+
         var animation1: [SKTexture] = []
         var animation2: [SKTexture] = []
         var animation3: [SKTexture] = []
         var animation4: [SKTexture] = []
-        
+
         // Cria o vetor com as imagens da animação 1.
         for index in 0...122{
             let fileName = "video2_" + String(format: "%05d", index)

@@ -56,8 +56,6 @@ struct OnBoardingView: View {
         .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
                                          startPoint: .leading,
                                          endPoint: .trailing))
-         
-        
     }
 }
 
