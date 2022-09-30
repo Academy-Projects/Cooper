@@ -28,14 +28,44 @@ struct ListHistory: Identifiable{
 // lista de historias 
 var naps = [
     ListHistory(
+        title: "No name",
+        premise: "A polícia avista você descendo uma ladeira em alta velocidade durante seu passeio por Paris, cidade francesa, qual a sua explicação ?",
+        instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas. ",
+        warning: "Lembre-se: se os policiais não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
+        image: "london",
+        finalOne: "A) Você roubou a cadeira de rodas de um hospital para chegar mais rápido no evento na Torre.",
+        finalTwo: "B) Você perdeu o controle da cadeira de rodas que estava usando por ter machucado o pé quando um mala caiu nele.",
+        finalThree: "C) Você estava participando de uma corrida de cadeira de rodas mas acabou saindo da trilha e se perdeu."
+    ),
+    ListHistory(
+        title: "Sem nome",
+        premise: "A polícia é acionada quando moradores avistam você em cima de uma estatua em Atenas, cidade grega, qual a sua explicação ?",
+        instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas. ",
+        warning: "Lembre-se: se os policiais não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
+        image: "london",
+        finalOne: "A) Você estava tentando ver uma estrela cadente, porém as nuvens não deixaram.",
+        finalTwo: "B) Você estava fugindo das nuvens para tentar pegar sinal no telefone para ouvir uma música.",
+        finalThree: "C) Você estava fazendo um experimento com chuva, porém acabou colocando fogo na estátua,"
+    ),
+    ListHistory(
+        title: "A procura de um nome",
+        premise: "Durante seu passeio pelas ruas do centro histórico do Amazonas (cidade brasileira) pessoas avistam você correndo em frente aos carros, qual sua explicação ?",
+        instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas. ",
+        warning: "Lembre-se: se os policiais não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
+        image: "london",
+        finalOne: "A) Você chegou do cruzeiro atrasado e ia perder o ônibus que o levaria ao teatro Amazonas.",
+        finalTwo: "B) Você perdeu o ônibus e estava atrasado para pegar o barco para o passeio para ver os botos.",
+        finalThree: "C) Você estava correndo atrás do táxi que o levaria para passear na praia da Ponta Negra."
+    ),
+    ListHistory(
         title: "A terra da Rainha",
         premise: "Durante sua viagem pela cidade de Londres, cidade inglesa, você é parado pela polícia portando uma espada, Qual a sua explicação ?",
         instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas. ",
         warning: "Lembre-se: se os policiais não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
         image: "london",
-        finalOne: "A) Você recentemente descobriu que é o descendente do rei Arthur",
-        finalTwo: "B) Você está caçando uma girafa que fugiu do zoológico de Londres",
-        finalThree: "C) Você estava em Londres para um campeonato de esgrima"
+        finalOne: "A) Você recentemente descobriu que é o descendente do rei Arthur.",
+        finalTwo: "B) Você está caçando uma girafa que fugiu do zoológico de Londres.",
+        finalThree: "C) Você estava em Londres para um campeonato de esgrima."
     ),
     ListHistory(
         title: "Meu amigo pool" ,
@@ -56,7 +86,7 @@ var naps = [
         image: "lhama",
         finalOne: "A) Foram encontrados explosivos na sua mala, mas você percebe que ela foi trocada por engano.",
         finalTwo: "B) Você estava indo fazer teste com explosivos como agente da CIA, mas tinha permissão.",
-        finalThree: "C) Eram explosivos de brinquedo que ia dar para o seu sobrinho que sonha em ser um Detonador"
+        finalThree: "C) Eram explosivos de brinquedo que ia dar para o seu sobrinho que sonha em ser um Detonador."
 
     )
 ]

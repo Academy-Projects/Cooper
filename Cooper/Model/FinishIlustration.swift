@@ -34,6 +34,7 @@ struct FinishIlustration: View{
                             Text("Ei, viajante")
                                // .foregroundColor(.yellow)
                                 .bold()
+                                .minimumScaleFactor(0.1) //<--Here
                                 .font(Font.custom("Boogaloo-Regular", size: 40))
                                 .frame(width: UIScreen.main.bounds.width * 0.14, height: UIScreen.main.bounds.width * 0.03)
                                 
@@ -43,10 +44,11 @@ struct FinishIlustration: View{
                         
                         
                     ZStack{
-                        Text("Desenho finalizado! **Vire o Ipad** para os outros jogadores e deixe que eles tentem compreender sua mensagem. Será que vão conseguir?")
-                            .font(.system(size: 20))
+                        Text("Desenho finalizado! **Mostre o Ipad** para os outros jogadores e deixe que eles tentem compreender sua mensagem. Será que vão conseguir?")
+                            .font(.system(size: 30))
                             .multilineTextAlignment(.leading)
-                            .frame(width: UIScreen.main.bounds.width * 0.27)
+                            .minimumScaleFactor(0.1) //<--Here
+                            .frame(width: UIScreen.main.bounds.width * 0.27, height: UIScreen.main.bounds.height * 0.10)
                           //  .font(Font.custom("SourceSans3-Regular", size: 20))
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
