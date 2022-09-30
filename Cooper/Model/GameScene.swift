@@ -61,13 +61,13 @@ class GameScene: SKScene{
         let TrashNode = SKSpriteNode(imageNamed: "TrashUnselected")
         TrashNode.name = "trash"
         // Define o tamanho da imagem do lixo.
-        TrashNode.size.width = scene!.size.width * 0.065
-        TrashNode.size.height = scene!.size.width * 0.065
+        TrashNode.size.width = scene!.size.width * 0.047
+        TrashNode.size.height = TrashNode.size.width * 1.2
         // Define a posição da imagem.
         let sceneSize = scene?.size
         let imageSize = TrashNode.self.size
-        let xCord = sceneSize!.width/2 - imageSize.width/2 - sceneSize!.width * 0.038
-        let yCord = sceneSize!.height * -0.5 + imageSize.height/2 + sceneSize!.height * 0.035
+        let xCord = sceneSize!.width/2 - imageSize.width/2 - sceneSize!.width * 0.047
+        let yCord = sceneSize!.height * -0.5 + imageSize.height/2 + sceneSize!.height * 0.034
         
         TrashNode.position = CGPoint(x: xCord, y: yCord)
         self.addChild(TrashNode)
