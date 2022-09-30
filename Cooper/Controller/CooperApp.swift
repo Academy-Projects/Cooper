@@ -14,12 +14,15 @@ struct CooperApp: App {
     var body: some Scene {
         WindowGroup {
 //            Condicao que verifica se view ja foi vista alguma vez pelo usuario
-            if isOnboarding{
-                OnBoardingView()
-            }else{
-                SplashScreenView()
+            NavigationView{
+                if isOnboarding{
+                    OnBoardingView()
+                }else{
+                    SplashScreenView()
+                }
             }
-            
+              .navigationBarHidden(true)
+              .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }

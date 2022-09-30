@@ -28,6 +28,12 @@
 		28D1620328C7D5360085D3B2 /* SourceSans3-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28D1620228C7D5360085D3B2 /* SourceSans3-Regular.ttf */; };
 		28E04D4928D6160400D9599A /* ConfettiParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E04D4828D6160400D9599A /* ConfettiParticle.swift */; };
 		3F24584D28C8DF7D002CB9AB /* ResultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */; };
+		3F276EF528E36A6F00AF9969 /* AnimatinoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F276EF428E36A6F00AF9969 /* AnimatinoScene.swift */; };
+		3F276EF728E393B600AF9969 /* OnBoardingPage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F276EF628E393B600AF9969 /* OnBoardingPage1.swift */; };
+		3F276EF928E393C800AF9969 /* OnBoardingPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F276EF828E393C800AF9969 /* OnBoardingPage2.swift */; };
+		3F276EFB28E393EC00AF9969 /* OnBoardingPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F276EFA28E393EC00AF9969 /* OnBoardingPage3.swift */; };
+		3F276EFD28E393FC00AF9969 /* OnBoardingPage4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F276EFC28E393FC00AF9969 /* OnBoardingPage4.swift */; };
+		3F276EFF28E398C700AF9969 /* AnimationScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F276EFE28E398C700AF9969 /* AnimationScene2.swift */; };
 		3F8BBE2428AFC409008E9F32 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2328AFC409008E9F32 /* GameScene.swift */; };
 		3F8BBE2628B00673008E9F32 /* DraggableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2528B00673008E9F32 /* DraggableNode.swift */; };
 		46157F1728E2423E0005766F /* Onboarding3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 46157F1628E2423E0005766F /* Onboarding3.mp4 */; };
@@ -78,6 +84,12 @@
 		28D1620228C7D5360085D3B2 /* SourceSans3-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Regular.ttf"; sourceTree = "<group>"; };
 		28E04D4828D6160400D9599A /* ConfettiParticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiParticle.swift; sourceTree = "<group>"; };
 		3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAlert.swift; sourceTree = "<group>"; };
+		3F276EF428E36A6F00AF9969 /* AnimatinoScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatinoScene.swift; sourceTree = "<group>"; };
+		3F276EF628E393B600AF9969 /* OnBoardingPage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPage1.swift; sourceTree = "<group>"; };
+		3F276EF828E393C800AF9969 /* OnBoardingPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPage2.swift; sourceTree = "<group>"; };
+		3F276EFA28E393EC00AF9969 /* OnBoardingPage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPage3.swift; sourceTree = "<group>"; };
+		3F276EFC28E393FC00AF9969 /* OnBoardingPage4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPage4.swift; sourceTree = "<group>"; };
+		3F276EFE28E398C700AF9969 /* AnimationScene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationScene2.swift; sourceTree = "<group>"; };
 		3F8BBE2328AFC409008E9F32 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		3F8BBE2528B00673008E9F32 /* DraggableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableNode.swift; sourceTree = "<group>"; };
 		46157F1628E2423E0005766F /* Onboarding3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Onboarding3.mp4; sourceTree = "<group>"; };
@@ -145,6 +157,8 @@
 			children = (
 				3F8BBE2328AFC409008E9F32 /* GameScene.swift */,
 				3F8BBE2528B00673008E9F32 /* DraggableNode.swift */,
+				3F276EF428E36A6F00AF9969 /* AnimatinoScene.swift */,
+				3F276EFE28E398C700AF9969 /* AnimationScene2.swift */,
 				287DA35B28BE83C8006E624C /* ListHistory.swift */,
 				3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */,
 				283FD6AA28CA774200020ACA /* UnavailableAlert.swift */,
@@ -166,6 +180,10 @@
 				2841082528AB48E000D142F8 /* DrawnView.swift */,
 				285D3E6C28B5294B008072C0 /* AnswerFinalView.swift */,
 				284107FF28AB07B600D142F8 /* Assets.xcassets */,
+				3F276EF628E393B600AF9969 /* OnBoardingPage1.swift */,
+				3F276EF828E393C800AF9969 /* OnBoardingPage2.swift */,
+				3F276EFA28E393EC00AF9969 /* OnBoardingPage3.swift */,
+				3F276EFC28E393FC00AF9969 /* OnBoardingPage4.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -338,7 +356,10 @@
 				3F8BBE2628B00673008E9F32 /* DraggableNode.swift in Sources */,
 				287DA35C28BE83C8006E624C /* ListHistory.swift in Sources */,
 				28D1620128C7CA740085D3B2 /* OnBoardingView.swift in Sources */,
+				3F276EF728E393B600AF9969 /* OnBoardingPage1.swift in Sources */,
 				28CE5A2328DF5C2B0014AB66 /* SplashScreenView.swift in Sources */,
+				3F276EFB28E393EC00AF9969 /* OnBoardingPage3.swift in Sources */,
+				3F276EF528E36A6F00AF9969 /* AnimatinoScene.swift in Sources */,
 				284107FE28AB07B400D142F8 /* ContentView.swift in Sources */,
 				3F24584D28C8DF7D002CB9AB /* ResultAlert.swift in Sources */,
 				287DA35A28BE7EAE006E624C /* PremiseView.swift in Sources */,
@@ -347,6 +368,9 @@
 				3F8BBE2428AFC409008E9F32 /* GameScene.swift in Sources */,
 				284107FC28AB07B400D142F8 /* CooperApp.swift in Sources */,
 				283FD6AB28CA774200020ACA /* UnavailableAlert.swift in Sources */,
+				3F276EF928E393C800AF9969 /* OnBoardingPage2.swift in Sources */,
+				3F276EFD28E393FC00AF9969 /* OnBoardingPage4.swift in Sources */,
+				3F276EFF28E398C700AF9969 /* AnimationScene2.swift in Sources */,
 				28CE5A2128DE21480014AB66 /* FinishIlustration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,7 +527,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = XJ57BXJG95;
+				DEVELOPMENT_TEAM = 8MKU4N27YM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooper/Info.plist;
@@ -536,7 +560,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = XJ57BXJG95;
+				DEVELOPMENT_TEAM = 8MKU4N27YM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cooper/Info.plist;
