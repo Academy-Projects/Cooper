@@ -28,28 +28,28 @@ struct ListHistory: Identifiable{
 // lista de historias 
 var naps = [
     ListHistory(
-        title: "No name",
-        premise: "A polícia avista você descendo uma ladeira em alta velocidade durante seu passeio por Paris, cidade francesa, qual a sua explicação ?",
+        title: "Coolper in Paris",
+        premise: "A polícia avista você descendo uma ladeira em alta velocidade durante seu passeio por Paris (cidade francesa), qual a sua explicação ?",
         instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas. ",
         warning: "Lembre-se: se os policiais não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
         image: "CardParis.lightMode-8",
         finalOne: "A) Você roubou a cadeira de rodas de um hospital para chegar mais rápido no evento na Torre.",
-        finalTwo: "B) Você perdeu o controle da cadeira de rodas que estava usando por ter machucado o pé com uma mala.",
+        finalTwo: "B) Você perdeu o controle da cadeira de rodas que estava usando após se machucar com uma bola de boliche.",
         finalThree: "C) Você estava participando de uma corrida de cadeira de rodas mas acabou saindo da trilha e se perdeu."
     ),
     ListHistory(
-        title: "Sem nome",
-        premise: "A polícia é acionada quando moradores avistam você em cima de uma estatua em Atenas, cidade grega, qual a sua explicação ?",
+        title: "Vênus de Milo",
+        premise: "A polícia é acionada quando moradores avistam você em cima de uma estátua em Atenas, cidade grega, qual a sua explicação ?",
         instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas. ",
         warning: "Lembre-se: se os policiais não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
         image: "Grecia-8",
         finalOne: "A) Você estava tentando ver uma estrela cadente, porém as nuvens não deixaram.",
         finalTwo: "B) Você estava fugindo das nuvens para tentar pegar sinal no telefone para ouvir uma música.",
-        finalThree: "C) Você estava fazendo um experimento com chuva, porém acabou colocando fogo na estátua,"
+        finalThree: "C) Você estava fazendo um experimento com chuva, porém acabou colocando fogo na estátua."
     ),
     ListHistory(
-        title: "A procura de um nome",
-        premise: "Durante seu passeio pelas ruas do centro histórico de Manaus (cidade brasileira) pessoas avistam você correndo em frente aos carros, qual sua explicação ?",
+        title: "Paris dos trópicos",
+        premise: "Durante seu passeio pelas ruas do centro histórico de Manaus (cidade brasileira) você foi atropelado após correr em frente aos carros, qual sua explicação ?",
         instruction: "Escolha a resposta que você dará aos policiais e que irá comunicar por meio de pictogramas. ",
         warning: "Lembre-se: se os policiais não entenderem o que você está falando, você será preso! Será que você consegue se livrar dessa ?",
         image: "cardAmazonia.lightMode-8",
