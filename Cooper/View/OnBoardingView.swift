@@ -79,7 +79,7 @@ struct OnBoardingView: View {
                             // foreach criado para fazer o page view
                         //funciona contando as etapas atraves do current step
                         ForEach(0..<4){ it in
-                            if it == 0{
+                            if it == currentStep{
                                 Rectangle()
                                     .frame(width: 20, height: 10)
                                     .cornerRadius(10)
