@@ -95,7 +95,16 @@ struct OnBoardingView: View {
                     
                     Spacer()
                     Button(action: {
-                        currentStep += 1
+                        if currentStep < onboardingSteps.count - 1{
+                            currentStep += 1
+                        }else{
+                            let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                            impactMed.impactOccurred()
+                            
+                            presentationMode.wrappedValue.dismiss()
+                            isOnboarding = false
+                        }
+                        
                     }, label:{
                         Image(systemName: "chevron.right")
                             .resizable()
