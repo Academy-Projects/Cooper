@@ -34,7 +34,6 @@ struct OnBoardingPage3: View{
                         .frame(width: UIScreen.main.bounds.width * 0.416, height: UIScreen.main.bounds.height * 0.63, alignment: .leading)
                         .padding(.leading, 90)
                         .padding(.trailing, 40)
-                        .padding(.top, 173)
                         Spacer()
                         VStack{
                             Text(onboardingSteps[2].caso)
@@ -54,8 +53,6 @@ struct OnBoardingPage3: View{
                                // .padding(.bottom, 300)
                         }
                         .padding(.trailing, 80)
-                        .padding(.top, 173)
-                 
                     }.frame(height: UIScreen.main.bounds.height * 0.68)
 
                 }
