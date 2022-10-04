@@ -95,7 +95,7 @@ struct OnBoardingView: View {
                     
                     Spacer()
                     Button(action: {
-                        currentStep = 1
+                        currentStep += 1
                     }, label:{
                         Image(systemName: "chevron.right")
                             .resizable()
