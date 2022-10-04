@@ -53,7 +53,6 @@ struct OnBoardingPage2: View{
                                // .padding(.bottom, 300)
                         }
                         .padding(.trailing, 80)
-                 
                     }.frame(height: UIScreen.main.bounds.height * 0.68)
                 }
                 .frame(width: UIScreen.main.bounds.width * 0.93, height: UIScreen.main.bounds.height * 0.89)
