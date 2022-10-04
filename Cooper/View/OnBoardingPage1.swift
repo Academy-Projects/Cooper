@@ -10,7 +10,6 @@ import SwiftUI
 import SpriteKit
     
 struct OnBoardingPage1: View{
-    @Binding var currentStep: Int
     var onboardingSteps:[OnboardingStep]
     
     @AppStorage ("isOnboarding") public var  isOnboarding: Bool = true

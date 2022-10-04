@@ -11,7 +11,6 @@ import SpriteKit
 
     
 struct OnBoardingPage2: View{
-    @Binding var currentStep: Int
     var onboardingSteps:[OnboardingStep]
     
     @AppStorage ("isOnboarding") public var  isOnboarding: Bool = true

@@ -37,9 +37,9 @@ struct OnBoardingView: View {
         ZStack{
             // tabview que chamada a estapa setada pelo idx da lista
             TabView(selection: $currentStep){
-                OnBoardingPage1(currentStep: self.$currentStep, onboardingSteps: onboardingSteps).tag(0)
-                OnBoardingPage2(currentStep: self.$currentStep, onboardingSteps: onboardingSteps).tag(1)
-                OnBoardingPage3(currentStep: self.$currentStep, onboardingSteps: onboardingSteps).tag(2)
+                OnBoardingPage1(onboardingSteps: onboardingSteps).tag(0)
+                OnBoardingPage2(onboardingSteps: onboardingSteps).tag(1)
+                OnBoardingPage3(onboardingSteps: onboardingSteps).tag(2)
                 OnBoardingPage4(onboardingSteps: onboardingSteps).tag(3)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -50,7 +50,7 @@ struct OnBoardingView: View {
             .background(RoundedRectangle(cornerRadius: 20)
                 .stroke(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1), lineWidth: 3)
                 )
-            
+            // parte de baixo da tela
             VStack{
                 Spacer()
                 HStack(){
