@@ -16,16 +16,17 @@ public struct OnboardingStep{
     let gif: String
     let caso: String
 }
-//informacao das varias setadas no onboarding
-private let onboardingSteps = [
-    OnboardingStep(image: "blocked", isntruction: "Você é Coolper, um viajante azarado que sempre se mete encrencas e está em  busca de novos destinos para suas aventuras.", gif: "let", caso: "Escolha o destino da sua próxima viagem"),
-    OnboardingStep(image: "blocked", isntruction: "Leia o caso para os outros jogadores, que farão papel dos policiais, mas escolha sua explicação em segredo, viu?", gif: "lele", caso: "Leia em voz alta e escolha em silêncio"),
-    OnboardingStep(image: "blocked", isntruction: "Evite ser preso por conta das suas desventuras mal entedidas. Organize os pictogramas até onde sua criatividade permitir.Será que você vai sair dessa?", gif: "let", caso: "Se expresse através de pictogramas"),
-    OnboardingStep(image: "blocked", isntruction: "Mostre sua ilustração aos policiais e eles, juntos, deverão escolher a resposta que melhor se aplica ao caso. Se eles errem, você será preso, se não você está liberado para viver novas aventuras!", gif: "let", caso: "Aja de forma\ncolaborativa")
-]
+
 
 // corpo do onboarding
 struct OnBoardingView: View {
+    //informacao das varias setadas no onboarding
+    private let onboardingSteps = [
+        OnboardingStep(image: "blocked", isntruction: "Você é Coolper, um viajante azarado que sempre se mete encrencas e está em  busca de novos destinos para suas aventuras.", gif: "let", caso: "Escolha o destino da sua próxima viagem"),
+        OnboardingStep(image: "blocked", isntruction: "Leia o caso para os outros jogadores, que farão papel dos policiais, mas escolha sua explicação em segredo, viu?", gif: "lele", caso: "Leia em voz alta e escolha em silêncio"),
+        OnboardingStep(image: "blocked", isntruction: "Evite ser preso por conta das suas desventuras mal entedidas. Organize os pictogramas até onde sua criatividade permitir.Será que você vai sair dessa?", gif: "let", caso: "Se expresse através de pictogramas"),
+        OnboardingStep(image: "blocked", isntruction: "Mostre sua ilustração aos policiais e eles, juntos, deverão escolher a resposta que melhor se aplica ao caso. Se eles errem, você será preso, se não você está liberado para viver novas aventuras!", gif: "let", caso: "Aja de forma\ncolaborativa")
+    ]
     //booleano que muda de estado de acordo com o booleado setado
     @AppStorage ("isOnboarding") public var  isOnboarding: Bool = true
     // variavel que define a estapa em que se passa as informacoes no momento
