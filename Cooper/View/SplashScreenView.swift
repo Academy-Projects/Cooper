@@ -9,35 +9,36 @@ import SwiftUI
 
 struct SplashScreenView: View {
     
-    @State private var isActive = false
-    @State private var size = 0.8
-    @State private var opacity = 0.5
+  private var fontViewModel = FontViewModel()
+    
+  @State var viewModel = SplashViewModel()
+    
     
     var body: some View {
-        if isActive{
+        if viewModel.splash.isActive{
             ContentView()
         }else{
             ZStack{
                 VStack{
                     VStack{
-                        Image("PERSONAGEM")
+                        Image(viewModel.splash.ImageCooper)
                             //.font(.system(size: 100))
                         Text("Coolper")
-                            .font(Font.custom("Boogaloo-Regular", size: 50))
+                            .font(Font.custom(fontViewModel.font.FontBoogaloo, size: 50))
                             .foregroundColor(Color("ColorFontTwo"))
                     }
-                    .scaleEffect(size)
-                    .opacity(opacity)
+                    .scaleEffect(viewModel.splash.size)
+                    .opacity(viewModel.splash.opacity)
                     .onAppear{
                         withAnimation(.easeIn(duration: 1.2)){
-                            self.size = 0.9
-                            self.opacity = 1.0
+                            self.viewModel.splash.size = 0.9
+                            self.viewModel.splash.opacity = 1.0
                         }
                     }
                 }
                 .onAppear{
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
-                        self.isActive = true
+                        viewModel.splash.isActive = true
                     }
                 }
             }
@@ -48,11 +49,5 @@ struct SplashScreenView: View {
 
         }
         
-    }
-}
-
-struct SplashScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        SplashScreenView()
     }
 }
