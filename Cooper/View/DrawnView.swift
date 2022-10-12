@@ -11,8 +11,7 @@ import SpriteKit
 
 
 struct PopoverContent: View {
-    
-    
+
     var body: some View {
         VStack(spacing: 0) {
             Text("Lembre-se")
