@@ -23,6 +23,7 @@ struct HistoryView: View {
     
     var body: some View {
     ZStack{
+        //MARK: - BUTTON HOW TO PLAY
         HStack{
             NavigationLink(destination: OnBoardingView(),
                     label: {
@@ -44,6 +45,7 @@ struct HistoryView: View {
         }
         .frame(maxWidth: .infinity, alignment: .trailing)
         .frame(maxHeight: .infinity, alignment: .top)
+        //MARK: - TEXT AND GRID
             VStack{
                 HStack{
                     Text("Escolha o próximo destino da sua viagem")
