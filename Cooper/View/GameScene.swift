@@ -10,15 +10,16 @@ import SpriteKit
 //import Foundation
 
 // Cria variável para o contador para o controle de layers.
-public var layerCount = 0
-public var angleOffset:CGFloat = 0
-public var fingerLength:CGFloat = 0.1
-public var originalSpriteSize: CGSize!
-var backgroundColorCustom = UIColor(named: "ColorBackgroundInside")
 
+    public var layerCount = 0
     
 
 class GameScene: SKScene{
+    
+    public var angleOffset:CGFloat = 0
+    public var fingerLength:CGFloat = 0.1
+    public var originalSpriteSize: CGSize!
+    var backgroundColorCustom = UIColor(named: "ColorBackgroundInside")
     
 //    let sceneSize = self().scene?.size
     

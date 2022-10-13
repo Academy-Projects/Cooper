@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "caixão.pic.png",
+      "filename" : "caixão.pic.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -17,7 +17,7 @@
       "scale" : "1x"
     },
     {
-      "filename" : "caixão.pic@2x.png",
+      "filename" : "caixão.pic@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -33,7 +33,7 @@
       "scale" : "2x"
     },
     {
-      "filename" : "caixão.pic@3x.png",
+      "filename" : "caixão.pic@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     },

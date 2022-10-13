@@ -30,7 +30,7 @@ struct HistoryView: View {
                         Rectangle()
                         Text("?")
                             .font(Font.custom(font.font.FontBoogaloo, size: 35))
-                            .foregroundColor(Color("colorFont"))
+                            .foregroundColor(Color.colorFontUnique)
                             .frame(width: UIScreen.main.bounds.width * 0.03, height: UIScreen.main.bounds.height * 0.04)
                             .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                             .clipShape(RoundedRectangle(cornerRadius: 8))

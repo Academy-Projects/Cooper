@@ -9,74 +9,30 @@ import Foundation
 import SwiftUI
 import SpriteKit
 
-
-struct PopoverContent: View {
-
-    var body: some View {
-        VStack(spacing: 0) {
-            Text("Lembre-se")
-                .padding(.top, 14)
-                .font(Font.custom("Boogaloo-Regular", size: 30))
-                .foregroundColor(Color("ColorFontTwo"))
-            Divider()
-                .frame(width: 107, height: 2 , alignment: .center)
-                .overlay(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                .padding(.bottom, 15)
-               // .padding(.leading, 40)
-            
-            Text(final)
-                .font(Font.custom("SourceSans3-Regular", size: 20))
-                .foregroundColor(Color("ColorFontTwo"))
-                .padding(.bottom, 20)
-                .padding(.horizontal, 15)
-        }
-        .frame(width: UIScreen.main.bounds.width * 0.23)
-        .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
-                                startPoint: .leading,
-                                endPoint: .trailing))
-        
-    }
-}
-
 struct DrawnView: View {
     
+//CALL SPRITEKIT SCENE
     let gameScene = GameScene()
-//chamando cena spritKit
     public var scene: SKScene{
         gameScene.scaleMode = .resizeFill
         return gameScene
     }
     
-    @State var timerRemaining:Double = 60
-    @State var jump = false
+    var choice: ListHistory = naps[indexQuestion]
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
     
     @State var currentColor = Color(red: 166/255, green: 193/255, blue: 1/255)
     var colorCircle = Color(red: 254/255, green: 179/255, blue: 18/255)
     var colorCircleTwo = Color(red: 245/255, green: 119/255, blue: 101/255)
     var colorCircleThree = Color(red: 245/255, green: 119/255, blue: 101/255)
     
-    
-    var choice: ListHistory = naps[indexQuestion]
-    
-    @State private var showPopover = false
-    
-    
-    @State var presentResultAlert = false // Faz o Pop-Up aparecer ou não
-    @State var imgTemporary: UIImage!
-    @State var posTemporary:CGPoint =  CGPoint(x: 0, y: 0)
-    @State var begginGesture:Bool = true
-    
-    @State var nImagem:Int = 0
-    @State var isDraggin:Bool = false
-    //lista de pictogramas
-    @State var imagens:[[String]] = [["homempic", "sentandopic", "círculopic", "triangulopic", "adiçãopic","seta","checkpic", "retapic", "folhapic", "bussulapic", "ônibuspic", "nuvempic", "ursopic","bolsapic", "coraçaopic", "Explosao", "gotapic"],
-        ["andandopic","bbpic", "quadradopic", "estrelapic", "igualpic", "maiorpic", "ondapic", "facapic", "musicapic", "tempopic", "raiopic", "autofalantepic", "caixãopic", "dinheiropic", "fogopic", "maçapic", "refeiçãopic"]]
-    
+    @State var properties = DrawnViewModel()
+    @State var font = FontViewModel()
     // volta para tele anterior
     @Environment(\.presentationMode) var presentationMode
 
-    
+ //MARK: - VIEW BEGIN
     var body: some View{
 ZStack{
     HStack{
@@ -90,8 +46,8 @@ ZStack{
                            label: {
                                 Rectangle()
                                 Image(systemName: "chevron.left")
-                                    .font(Font.custom("SourceSans3-Bold", size: 20))
-                                    .foregroundColor(Color("colorFont"))
+                                    .font(Font.custom(font.font.FontSourceSansBold, size: 20))
+                                    .foregroundColor(Color.colorFontUnique)
                                     .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.038)
                                     .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                                     .clipShape(RoundedRectangle(cornerRadius: 8))
@@ -114,7 +70,7 @@ ZStack{
                 HStack{
                     // Botão para verificar qual solucao vou escolhida
                     Button(action: {
-                        showPopover = true
+                        properties.propertiesDrawn.showPopover = true
                         
                         if answerChoice == 1 {
                             final = choice.finalOne
@@ -128,8 +84,8 @@ ZStack{
                            label: {
                                 Rectangle()
                                 Image(systemName: "safari")
-                                    .font(Font.custom("SourceSans3-Bold", size: 20))
-                                    .foregroundColor(Color("colorFont"))
+                                    .font(Font.custom(font.font.FontSourceSansBold, size: 20))
+                                    .foregroundColor(Color.colorFontUnique)
                                     .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.038)
                                     .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                                     .clipShape(RoundedRectangle(cornerRadius: 8))
@@ -140,8 +96,8 @@ ZStack{
                             })
                             .buttonStyle(FlatLinkStyle())
                             .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.038)
-                            .popover(isPresented: $showPopover) {
-                                PopoverContent()
+                            .popover(isPresented: $properties.propertiesDrawn.showPopover) {
+                                PopoverContentDrawn()
                             }
                             
                     
@@ -162,7 +118,7 @@ ZStack{
                             .frame(width: UIScreen.main.bounds.width * 0.10, height: UIScreen.main.bounds.height * 0.04)
                         
                         RoundedRectangle(cornerRadius: 25)
-                            .frame(width: UIScreen.main.bounds.width * ((0.10 * timerRemaining) / 60), height: UIScreen.main.bounds.height * 0.04, alignment: .leading)
+                            .frame(width: UIScreen.main.bounds.width * ((0.10 * properties.propertiesDrawn.timerRemaining) / 60), height: UIScreen.main.bounds.height * 0.04, alignment: .leading)
                             .foregroundColor(currentColor)
                             .onAppear(perform: delayCircle)
 
@@ -173,20 +129,20 @@ ZStack{
                                     .aspectRatio(contentMode: .fit)
                                     .foregroundColor(Color("ColorBackBotton"))
                                 Spacer()
-                                Text(String(format: "00: %.0f ", timerRemaining))
+                                Text(String(format: "00: %.0f ", properties.propertiesDrawn.timerRemaining))
                                     .foregroundColor(Color("ColorBackBotton"))
-                                    .font(Font.custom("Boogaloo-Regular", size: 35))
+                                    .font(Font.custom(font.font.FontBoogaloo, size: 35))
                                     .minimumScaleFactor(0.1) //<--Here
                                     .frame(width: UIScreen.main.bounds.width * 0.06, height: UIScreen.main.bounds.height * 0.04)
                                     .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                                     .padding(.trailing, 5)
                                     .onReceive(timer) {_ in
-                                        if timerRemaining > 0{
-                                            timerRemaining -= 1
+                                        if properties.propertiesDrawn.timerRemaining > 0{
+                                            properties.propertiesDrawn.timerRemaining -= 1
                                         } else {
-                                            jump = true
+                                            properties.propertiesDrawn.jump = true
 
-                                            presentResultAlert = true
+                                            properties.propertiesDrawn.presentResultAlert = true
                                             timer.upstream.connect().cancel()
                                         }
                                     }
@@ -227,33 +183,33 @@ ZStack{
         VStack{
                 Text("Clique nos cards que deseja \nusar para ilustrar a história")
                         .multilineTextAlignment(.center)
-                        .font(Font.custom("SourceSans3-Bold", size: 23))
+                        .font(Font.custom(font.font.FontSourceSansBold, size: 23))
                         .minimumScaleFactor(0.1) //<--Here
                         .frame(width: UIScreen.main.bounds.width * 0.22, height: UIScreen.main.bounds.height * 0.08)
-                        .foregroundColor(Color("colorFont"))
+                        .foregroundColor(Color.colorFontUnique)
                 ScrollView(showsIndicators: false){
                    // Spacer()
                     VStack{
                         //array que tras a imagens após serem selecionadas
-                        ForEach(0..<(imagens[0].count)){imageidx in
+                        ForEach(0..<(properties.propertiesDrawn.imagens[0].count)){imageidx in
                             HStack{
-                                Button(action: {gameScene.createNewObj(image: imagens[0][imageidx])}){
+                                Button(action: {gameScene.createNewObj(image: properties.propertiesDrawn.imagens[0][imageidx])}){
                                     ZStack{
                                         Image("FundoCard")
                                             .resizable()
                                             .scaledToFit()
-                                        Image(imagens[0][imageidx])
+                                        Image(properties.propertiesDrawn.imagens[0][imageidx])
                                             .frame(width: UIScreen.main.bounds.width * 0.063, height: UIScreen.main.bounds.height * 0.084)
 
                                     }
                                 }.frame(width: UIScreen.main.bounds.width / 9)
 
-                                Button(action: {gameScene.createNewObj(image: imagens[1][imageidx])}){
+                                Button(action: {gameScene.createNewObj(image: properties.propertiesDrawn.imagens[1][imageidx])}){
                                     ZStack{
                                         Image("FundoCard")
                                             .resizable()
                                             .scaledToFill()
-                                        Image(imagens[1][imageidx])
+                                        Image(properties.propertiesDrawn.imagens[1][imageidx])
                                             .frame(width: UIScreen.main.bounds.width * 0.05, height: UIScreen.main.bounds.height * 0.07)
                                     }
                                 
@@ -266,12 +222,12 @@ ZStack{
             
             
                     Button(action:{// Muda a variável para apresentar o Pop-Up.
-                            presentResultAlert.toggle()
+                            properties.propertiesDrawn.presentResultAlert.toggle()
                             timer.upstream.connect().cancel()
                     }, label: {
                     Text("Terminei de ilustrar ")
-                        .font(Font.custom("SourceSans3-Bold", size: 21))
-                        .foregroundColor(Color("colorFont"))
+                            .font(Font.custom(font.font.FontSourceSansBold, size: 21))
+                            .foregroundColor(Color.colorFontUnique)
                         .minimumScaleFactor(0.1) //<--Here
                         .frame(width: UIScreen.main.bounds.width * 0.23, height: UIScreen.main.bounds.height * 0.046)
                         .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
@@ -307,8 +263,8 @@ ZStack{
                                         startPoint: .leading,
                                         endPoint: .trailing))
             
-                    if self.presentResultAlert {
-                        FinishIlustration(gameScene: gameScene, showFinish: $presentResultAlert).background(Color.black.opacity(0.3))
+            if self.properties.propertiesDrawn.presentResultAlert {
+                FinishIlustration(gameScene: gameScene, showFinish: $properties.propertiesDrawn.presentResultAlert).background(Color.black.opacity(0.3))
                             }
 
         }.navigationBarHidden(true)
@@ -325,9 +281,4 @@ ZStack{
 }
 
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        DrawnView()
-            .previewInterfaceOrientation(.landscapeLeft)
-    }
-}
+

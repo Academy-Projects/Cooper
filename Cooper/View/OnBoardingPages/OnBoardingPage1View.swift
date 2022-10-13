@@ -11,9 +11,9 @@ import SpriteKit
     
 struct OnBoardingPage1: View{
     var onboardingSteps:[OnboardingStep]
-    
     @AppStorage ("isOnboarding") public var  isOnboarding: Bool = true
     @Environment(\.presentationMode) var presentationMode
+    @State var font = FontViewModel()
     
     public var Ascene: SKScene{
         let animationScene = AnimationScene()
@@ -35,7 +35,7 @@ struct OnBoardingPage1: View{
                 
                 VStack{
                     Text(onboardingSteps[0].caso)
-                        .font(Font.custom("Boogaloo-Regular", size: 55))
+                        .font(Font.custom(font.font.FontBoogaloo, size: 55))
                         .minimumScaleFactor(0.1) //<--Here
                         .frame(width: UIScreen.main.bounds.width * 0.37, height: UIScreen.main.bounds.height * 0.13, alignment: .leading)
                         .foregroundColor(Color(red: 0/255, green: 62/255, blue: 89/255))
@@ -43,9 +43,9 @@ struct OnBoardingPage1: View{
                         .padding(.bottom, 30)
                   //  Spacer()
                     Text(onboardingSteps[0].isntruction)
-                        .font(Font.custom("SourceSans3-Regular", size: 20))
+                        .font(Font.custom(font.font.FontSourceSansRegular, size: 20))
                         .frame(width: UIScreen.main.bounds.width * 0.37, height: UIScreen.main.bounds.height * 0.13, alignment: .leading)
-                        .foregroundColor(Color("ColorFontTwo"))
+                        .foregroundColor(Color.colorFontDark)
                        // .padding(.trailing, 15)
                         .multilineTextAlignment(.leading)
                        // .padding(.bottom, 300)
