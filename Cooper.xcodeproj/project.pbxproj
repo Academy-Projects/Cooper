@@ -16,6 +16,11 @@
 		2841082628AB48E000D142F8 /* DrawnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2841082528AB48E000D142F8 /* DrawnView.swift */; };
 		2847181828F7234200160DEB /* Premise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2847181728F7234200160DEB /* Premise.swift */; };
 		2847181A28F7257000160DEB /* PremiseModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2847181928F7257000160DEB /* PremiseModelView.swift */; };
+		2847181C28F74F1E00160DEB /* Drawn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2847181B28F74F1E00160DEB /* Drawn.swift */; };
+		2847181E28F753C400160DEB /* DrawnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2847181D28F753C400160DEB /* DrawnViewModel.swift */; };
+		2847182028F84B1900160DEB /* AnswerFinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2847181F28F84B1900160DEB /* AnswerFinal.swift */; };
+		2847182228F84B3A00160DEB /* AnswerFinalModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2847182128F84B3A00160DEB /* AnswerFinalModelView.swift */; };
+		2847182528F867C900160DEB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2847182428F867C900160DEB /* Extensions.swift */; };
 		285D3E6D28B5294B008072C0 /* AnswerFinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D3E6C28B5294B008072C0 /* AnswerFinalView.swift */; };
 		287DA34B28B9070D006E624C /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DA34A28B9070D006E624C /* HistoryView.swift */; };
 		287DA35A28BE7EAE006E624C /* PremiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287DA35928BE7EAE006E624C /* PremiseView.swift */; };
@@ -73,6 +78,11 @@
 		2841082528AB48E000D142F8 /* DrawnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawnView.swift; sourceTree = "<group>"; };
 		2847181728F7234200160DEB /* Premise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Premise.swift; sourceTree = "<group>"; };
 		2847181928F7257000160DEB /* PremiseModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiseModelView.swift; sourceTree = "<group>"; };
+		2847181B28F74F1E00160DEB /* Drawn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawn.swift; sourceTree = "<group>"; };
+		2847181D28F753C400160DEB /* DrawnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawnViewModel.swift; sourceTree = "<group>"; };
+		2847181F28F84B1900160DEB /* AnswerFinal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFinal.swift; sourceTree = "<group>"; };
+		2847182128F84B3A00160DEB /* AnswerFinalModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFinalModelView.swift; sourceTree = "<group>"; };
+		2847182428F867C900160DEB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		285D3E6C28B5294B008072C0 /* AnswerFinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFinalView.swift; sourceTree = "<group>"; };
 		287DA34A28B9070D006E624C /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		287DA35928BE7EAE006E624C /* PremiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiseView.swift; sourceTree = "<group>"; };
@@ -156,9 +166,18 @@
 			path = Cooper;
 			sourceTree = "<group>";
 		};
+		2847182328F867B300160DEB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2847182428F867C900160DEB /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		285D3E6828B01E9A008072C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2847182328F867B300160DEB /* Extensions */,
 				3F8BBE2528B00673008E9F32 /* DraggableNode.swift */,
 				3F276EF428E36A6F00AF9969 /* AnimatinoScene.swift */,
 				3F276EFE28E398C700AF9969 /* AnimationScene2.swift */,
@@ -172,6 +191,8 @@
 				2895E00A28F4DDCD004BCA16 /* Font.swift */,
 				2895E00E28F4E1AC004BCA16 /* History.swift */,
 				2847181728F7234200160DEB /* Premise.swift */,
+				2847181B28F74F1E00160DEB /* Drawn.swift */,
+				2847181F28F84B1900160DEB /* AnswerFinal.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +221,8 @@
 				2895E00C28F4DE40004BCA16 /* FontViewModel.swift */,
 				2895E01028F4E21B004BCA16 /* HistoryModelView.swift */,
 				2847181928F7257000160DEB /* PremiseModelView.swift */,
+				2847181D28F753C400160DEB /* DrawnViewModel.swift */,
+				2847182128F84B3A00160DEB /* AnswerFinalModelView.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -377,9 +400,12 @@
 				2847181A28F7257000160DEB /* PremiseModelView.swift in Sources */,
 				282F3EE528DCF56E00E787C1 /* GifImage.swift in Sources */,
 				28E6130628F4D1EA00E9D83C /* SplashViewModel.swift in Sources */,
+				2847181C28F74F1E00160DEB /* Drawn.swift in Sources */,
+				2847182528F867C900160DEB /* Extensions.swift in Sources */,
 				2895E00D28F4DE40004BCA16 /* FontViewModel.swift in Sources */,
 				2895E00F28F4E1AC004BCA16 /* History.swift in Sources */,
 				2895E01128F4E21B004BCA16 /* HistoryModelView.swift in Sources */,
+				2847181E28F753C400160DEB /* DrawnViewModel.swift in Sources */,
 				3F8BBE2428AFC409008E9F32 /* GameScene.swift in Sources */,
 				284107FC28AB07B400D142F8 /* CooperApp.swift in Sources */,
 				28E6130428F4D1A100E9D83C /* SplashScreen.swift in Sources */,
@@ -387,7 +413,9 @@
 				3F276EF928E393C800AF9969 /* OnBoardingPage2View.swift in Sources */,
 				3F276EFD28E393FC00AF9969 /* OnBoardingPage4View.swift in Sources */,
 				3F276EFF28E398C700AF9969 /* AnimationScene2.swift in Sources */,
+				2847182028F84B1900160DEB /* AnswerFinal.swift in Sources */,
 				28CE5A2128DE21480014AB66 /* FinishIlustration.swift in Sources */,
+				2847182228F84B3A00160DEB /* AnswerFinalModelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

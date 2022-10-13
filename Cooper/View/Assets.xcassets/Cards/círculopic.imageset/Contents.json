@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "círculo.pic.png",
+      "filename" : "círculo.pic.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -17,7 +17,7 @@
       "scale" : "1x"
     },
     {
-      "filename" : "círculo.pic@2x.png",
+      "filename" : "círculo.pic@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -33,7 +33,7 @@
       "scale" : "2x"
     },
     {
-      "filename" : "círculo.pic@3x.png",
+      "filename" : "círculo.pic@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     },

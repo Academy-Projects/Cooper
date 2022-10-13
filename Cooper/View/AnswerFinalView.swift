@@ -6,64 +6,24 @@
 //
 import SwiftUI
 import SpriteKit
-
+//
 struct AnswerFinalView: View {
     
-    @State var timerRemaining:Double = 30
-    @State var jump = false
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var properties = AnswerFinalModelView()
+    @State var fonte = FontViewModel()
     
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var currentColor = Color(red: 166/255, green: 193/255, blue: 1/255)
     var colorCircle = Color(red: 254/255, green: 179/255, blue: 18/255)
     var colorCircleTwo = Color(red: 245/255, green: 119/255, blue: 101/255)
     var colorCircleThree = Color(red: 245/255, green: 119/255, blue: 101/255)
-    
-    @State private var showPopover = false
-    
     var ilustrationScene: GameScene
     var story: ListHistory = naps[indexQuestion]
     @State var cor:Color = Color("ColorBackBotton")
     
-    @State var buttonPressed:Int = 0
-    @State var opacityButton:Double = 1
-    @State var opacityPlay: Double = 0
-    
-    @State var presentResultAlert = false // Faz o Pop-Up aparecer ou não
-    @State var result = false // Indica se o usuario acertou ou não.
     
     // Cria um tipo de apresentação.
     @Environment(\.presentationMode) var presentationMode
-    
-//    var premissa: String = "nothing"
-    
-    struct PopoverContent: View {
-        
-        
-        var body: some View {
-            VStack(spacing: 0) {
-                Text("Lembre-se")
-                    .padding(.top, 14)
-                    .font(Font.custom("Boogaloo-Regular", size: 30))
-                    .foregroundColor(Color("ColorFontTwo"))
-                Divider()
-                    .frame(width: 107, height: 2 , alignment: .center)
-                    .overlay(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                    .padding(.bottom, 15)
-                   // .padding(.leading, 40)
-                
-                Text(premissa)
-                    .font(Font.custom("SourceSans3-Regular", size: 20))
-                    .foregroundColor(Color("ColorFontTwo"))
-                    .padding(.bottom, 20)
-                    .padding(.horizontal, 15)
-            }
-            .frame(width: UIScreen.main.bounds.width * 0.23)
-            .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
-                                    startPoint: .leading,
-                                    endPoint: .trailing))
-        }
-    }
-
     
     var body: some View{
       ZStack{
@@ -78,15 +38,15 @@ struct AnswerFinalView: View {
                         HStack{
                             
                             Button(action: {
-                                showPopover = true
+                                properties.AnswerProp.showPopover = true
                                 premissa = story.premise
                                 
                             },
                                    label: {
                                     Rectangle()
                                     Image(systemName: "safari")
-                                        .font(Font.custom("SourceSans3-Bold", size: 20))
-                                        .foregroundColor(Color("colorFont"))
+                                    .font(Font.custom(fonte.font.FontSourceSansBold, size: 20))
+                                    .foregroundColor(Color.colorFontUnique)
                                         .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.038)
                                         .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                                         .clipShape(RoundedRectangle(cornerRadius: 8))
@@ -97,8 +57,8 @@ struct AnswerFinalView: View {
                                     })
                                         .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.038)
                                         .buttonStyle(FlatLinkStyle())
-                                        .popover(isPresented: $showPopover) {
-                                            PopoverContent()
+                                        .popover(isPresented: $properties.AnswerProp.showPopover) {
+                                            PopoverContentFinal()
                                         }
                             
                                 
@@ -132,7 +92,7 @@ struct AnswerFinalView: View {
                                 .frame(width: UIScreen.main.bounds.width * 0.10, height: UIScreen.main.bounds.height * 0.04)
                             
                             RoundedRectangle(cornerRadius: 25)
-                                .frame(width: UIScreen.main.bounds.width * ((0.10 * timerRemaining) / 30), height: UIScreen.main.bounds.height * 0.04, alignment: .leading)
+                                .frame(width: UIScreen.main.bounds.width * ((0.10 * properties.AnswerProp.timerRemaining) / 30), height: UIScreen.main.bounds.height * 0.04, alignment: .leading)
                                 .foregroundColor(currentColor)
                                 .onAppear(perform: delayCircle)
 
@@ -143,20 +103,20 @@ struct AnswerFinalView: View {
                                         .aspectRatio(contentMode: .fit)
                                         .foregroundColor(Color("ColorBackBotton"))
                                     Spacer()
-                                    Text(String(format: "00: %.0f ", timerRemaining))
+                                    Text(String(format: "00: %.0f ", properties.AnswerProp.timerRemaining))
                                         .foregroundColor(Color("ColorBackBotton"))
-                                        .font(Font.custom("Boogaloo-Regular", size: 35))
+                                        .font(Font.custom(fonte.font.FontBoogaloo, size: 35))
                                         .minimumScaleFactor(0.1) //<--Here
                                         .frame(width: UIScreen.main.bounds.width * 0.06, height: UIScreen.main.bounds.height * 0.04)
                                         .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                                         .padding(.trailing, 5)
                                         .onReceive(timer) {_ in
-                                            if timerRemaining > 0{
-                                                timerRemaining -= 1
+                                            if properties.AnswerProp.timerRemaining > 0{
+                                                properties.AnswerProp.timerRemaining -= 1
                                             } else {
-                                                jump = true
+                                                properties.AnswerProp.jump = true
 
-                                                presentResultAlert = true
+                                                properties.AnswerProp.presentResultAlert = true
                                                 timer.upstream.connect().cancel()
                                             }
                                         }
@@ -167,37 +127,35 @@ struct AnswerFinalView: View {
                         
                     }
                     .background(Color.clear)
-//                    .frame(maxWidth: .infinity, alignment: .center)
-//                    .frame(maxHeight: .infinity, alignment: .top)
                     .padding(.top, 30)
                     Spacer()
                     VStack{
                         Text("O que Cooper está \ntentando comunicar?")
                             .bold()
                             .scaledToFit()
-                            .font(Font.custom("SourceSans3-Bold", size: 25))
-                            .foregroundColor(Color("colorFont"))
+                            .font(Font.custom(fonte.font.FontSourceSansBold, size: 25))
+                            .foregroundColor(Color.colorFontUnique)
                             .multilineTextAlignment(.center)
                             .padding(EdgeInsets(top: 25, leading: 0, bottom: 14, trailing: 0))
                         
                         Button(action: {
-                                    buttonPressed = 1
-                                    opacityButton = 0.5
-                                    opacityPlay = 1
+                                    properties.AnswerProp.buttonPressed = 1
+                                    properties.AnswerProp.opacityButton = 0.5
+                                    properties.AnswerProp.opacityPlay = 1
                                     // Verifica se a resposta escolhida está correta.
                                     if answerChoice ==  1{
                                         // Diz para o ResultAlert que a resposta está correta.
-                                        result = true
+                                        properties.AnswerProp.result = true
                                     }else{
                                         // Diz para o ResultAlert que a resposta está incorreta.
-                                        result = false
+                                        properties.AnswerProp.result = false
                                     }
                                 },
                                label: {
                                
-                                    if buttonPressed == 1{
+                                if properties.AnswerProp.buttonPressed == 1{
                                         Text(story.finalOne)
-                                            .font(Font.custom("SourceSans3-Regular", size: 25))
+                                        .font(Font.custom(fonte.font.FontSourceSansRegular, size: 25))
                                             .minimumScaleFactor(0.1) //<--Here
                                             .frame(width: UIScreen.main.bounds.width * 0.22, height: UIScreen.main.bounds.height * 0.07, alignment: .leading)
                                             .multilineTextAlignment(.leading)
@@ -211,14 +169,14 @@ struct AnswerFinalView: View {
                                         
                                     } else{
                                         Text(story.finalOne)
-                                            .font(Font.custom("SourceSans3-Regular", size: 25))
+                                            .font(Font.custom(fonte.font.FontSourceSansRegular, size: 25))
                                             .minimumScaleFactor(0.1) //<--Here
                                             .frame(width: UIScreen.main.bounds.width * 0.22, height: UIScreen.main.bounds.height * 0.07, alignment: .leading)
                                             .multilineTextAlignment(.leading)
                                             .padding()
                                             .foregroundColor(.white)
                                             .background(cor)
-                                            .opacity(opacityButton)
+                                            .opacity(properties.AnswerProp.opacityButton)
                                             .animation(.easeInOut(duration: 0.5))
                                             .clipShape(RoundedRectangle(cornerRadius: 8))
                                             .background(RoundedRectangle(cornerRadius: 8)
@@ -230,22 +188,22 @@ struct AnswerFinalView: View {
                      //               .padding(.bottom, 8)
                 //        Spacer()
                         Button(action: {
-                                buttonPressed = 2
-                                opacityButton = 0.5
-                                opacityPlay = 1
+                                properties.AnswerProp.buttonPressed = 2
+                                properties.AnswerProp.opacityButton = 0.5
+                                properties.AnswerProp.opacityPlay = 1
                                 // Verifica se a resposta escolhida está correta.
                                 if answerChoice ==  2{
                                     // Diz para o ResultAlert que a resposta está correta.
-                                    result = true
+                                    properties.AnswerProp.result = true
                                 }else{
                                     // Diz para o ResultAlert que a resposta está incorreta.
-                                    result = false
+                                    properties.AnswerProp.result = false
                                 }
                             },
                                label: {
-                                    if buttonPressed == 2{
+                                    if properties.AnswerProp.buttonPressed == 2{
                                         Text(story.finalTwo)
-                                            .font(Font.custom("SourceSans3-Regular", size: 25))
+                                            .font(Font.custom(fonte.font.FontSourceSansRegular, size: 25))
                                             .minimumScaleFactor(0.1) //<--Here
                                             .frame(width: UIScreen.main.bounds.width * 0.22, height: UIScreen.main.bounds.height * 0.07, alignment: .leading)
                                             .multilineTextAlignment(.leading)
@@ -258,14 +216,14 @@ struct AnswerFinalView: View {
                                             )
                                     } else{
                                         Text(story.finalTwo)
-                                            .font(Font.custom("SourceSans3-Regular", size: 25))
+                                            .font(Font.custom(fonte.font.FontSourceSansRegular, size: 25))
                                             .minimumScaleFactor(0.1) //<--Here
                                             .frame(width: UIScreen.main.bounds.width * 0.22, height: UIScreen.main.bounds.height * 0.07, alignment: .leading)
                                             .multilineTextAlignment(.leading)
                                             .padding()
                                             .foregroundColor(.white)
                                             .background(cor)
-                                            .opacity(opacityButton)
+                                            .opacity(properties.AnswerProp.opacityButton)
                                             .animation(.easeInOut(duration: 0.5))
                                             .clipShape(RoundedRectangle(cornerRadius: 8))
                                             .background(RoundedRectangle(cornerRadius: 8)
@@ -277,22 +235,22 @@ struct AnswerFinalView: View {
                             //        .padding(.bottom, 8)
                        // Spacer()
                         Button(action: {
-                                buttonPressed = 3
-                                opacityButton = 0.5
-                                opacityPlay = 1
+                                properties.AnswerProp.buttonPressed = 3
+                                properties.AnswerProp.opacityButton = 0.5
+                                properties.AnswerProp.opacityPlay = 1
                                 // Verifica se a resposta escolhida está correta.
                                 if answerChoice ==  3{
                                     // Diz para o ResultAlert que a resposta está correta.
-                                    result = true
+                                    properties.AnswerProp.result = true
                                 }else{
                                     // Diz para o ResultAlert que a resposta está incorreta.
-                                    result = false
+                                    properties.AnswerProp.result = false
                                 }
                             },
                                label: {
-                                    if buttonPressed == 3{
+                                    if properties.AnswerProp.buttonPressed == 3{
                                         Text(story.finalThree)
-                                            .font(Font.custom("SourceSans3-Regular", size: 25))
+                                            .font(Font.custom(fonte.font.FontSourceSansRegular, size: 25))
                                             .minimumScaleFactor(0.1) //<--Here
                                             .frame(width: UIScreen.main.bounds.width * 0.22, height: UIScreen.main.bounds.height * 0.07, alignment: .leading)
                                             .multilineTextAlignment(.leading)
@@ -305,14 +263,14 @@ struct AnswerFinalView: View {
                                             )
                                     } else{
                                         Text(story.finalThree)
-                                            .font(Font.custom("SourceSans3-Regular", size: 25))
+                                            .font(Font.custom(fonte.font.FontSourceSansRegular, size: 25))
                                             .minimumScaleFactor(0.1) //<--Here
                                             .frame(width: UIScreen.main.bounds.width * 0.22, height: UIScreen.main.bounds.height * 0.07, alignment: .leading)
                                             .multilineTextAlignment(.leading)
                                             .padding()
                                             .foregroundColor(.white)
                                             .background(cor)
-                                            .opacity(opacityButton)
+                                            .opacity(properties.AnswerProp.opacityButton)
                                             .animation(.easeInOut(duration: 0.5))
                                             .clipShape(RoundedRectangle(cornerRadius: 8))
                                             .background(RoundedRectangle(cornerRadius: 8)
@@ -324,17 +282,17 @@ struct AnswerFinalView: View {
                                //     .padding(.bottom, 8)
                         
                         Button(action:{// Muda a variável para apresentar o Pop-Up.
-                            if buttonPressed == 0{
+                            if properties.AnswerProp.buttonPressed == 0{
                                 
                             }else{
-                                presentResultAlert.toggle()
+                                properties.AnswerProp.presentResultAlert.toggle()
                                 timer.upstream.connect().cancel()
                             }
                                 },
                                label: {
                                 Text("OK")
-                                    .foregroundColor(Color("colorFont"))
-                                    .font(Font.custom("SourceSans3-Bold", size: 25))
+                                    .foregroundColor(Color.colorFontUnique)
+                                    .font(Font.custom(fonte.font.FontSourceSansBold, size: 25))
                                     .frame(width: UIScreen.main.bounds.width * 0.24, height: UIScreen.main.bounds.height * 0.046)
                                     .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                                     .clipShape(RoundedRectangle(cornerRadius: 8))
@@ -367,8 +325,8 @@ struct AnswerFinalView: View {
             .background(RoundedRectangle(cornerRadius: 13)
             ).padding()
       
-          if self.presentResultAlert {
-              CustomAlertView(show: $presentResultAlert, result: result).background(Color.black.opacity(0.3))
+          if self.properties.AnswerProp.presentResultAlert {
+              CustomAlertView(show: $properties.AnswerProp.presentResultAlert, result: $properties.AnswerProp.result.wrappedValue).background(Color.black.opacity(0.3))
           }
           
       }
@@ -384,29 +342,6 @@ struct AnswerFinalView: View {
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
             self.currentColor = self.colorCircle
-        }
-    }
-}
-
-
-
-struct FrameAdjustingContainer<Content: View>: View {
-    @Binding var frameWidth: CGFloat
-    @Binding var frameHeight: CGFloat
-    let content: () -> Content
-    
-    var body: some View  {
-        ZStack {
-            content()
-                .frame(width: frameWidth, height: frameHeight)
-                .border(Color.red, width: 1)
-            
-            VStack {
-                Spacer()
-                Slider(value: $frameWidth, in: 50...300)
-                Slider(value: $frameHeight, in: 50...600)
-            }
-            .padding()
         }
     }
 }

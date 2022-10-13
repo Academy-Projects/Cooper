@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "coraçao.pic@2x-4.png",
+      "filename" : "coração.dark@3x-3.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -16,7 +16,7 @@
       "scale" : "1x"
     },
     {
-      "filename" : "coraçao.pic@2x-5.png",
+      "filename" : "coraçao.pic@2x-4.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -31,7 +31,7 @@
       "scale" : "2x"
     },
     {
-      "filename" : "coraçao.pic@2x-6.png",
+      "filename" : "coraçao.pic@2x-5.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -42,7 +42,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "coração.dark@3x-2.png",
+      "filename" : "coraçao.pic@2x-6.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

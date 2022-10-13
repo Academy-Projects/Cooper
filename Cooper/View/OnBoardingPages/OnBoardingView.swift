@@ -34,6 +34,8 @@ struct OnBoardingView: View {
     // variavel criado para voltar para tela anterior caso a funcao seja chamada
     @Environment(\.presentationMode) var presentationMode
     
+    @State var font = FontViewModel()
+    
     var body: some View {
         ZStack{
             // tabview que chamada a estapa setada pelo idx da lista
@@ -71,8 +73,8 @@ struct OnBoardingView: View {
                             presentationMode.wrappedValue.dismiss()
                         }
                       } , label: {Text("Pular")})
-                        .font(Font.custom("SourceSans3-Regular", size: 22))
-                        .foregroundColor(Color("ColorFontTwo"))
+                        .font(Font.custom(font.font.FontSourceSansRegular, size: 22))
+                        .foregroundColor(Color.colorFontDark)
             
                     Spacer()
                     //PageView
@@ -111,8 +113,8 @@ struct OnBoardingView: View {
                             .resizable()
                             .scaledToFit()
                             .padding(.vertical, 6)
-                            .font(Font.custom("SourceSans3-Regular", size: 10))
-                            .foregroundColor(Color("colorFont"))
+                            .font(Font.custom(font.font.FontSourceSansRegular, size: 10))
+                            .foregroundColor(Color.colorFontUnique)
                             .frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
                             .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                             .clipShape(RoundedRectangle(cornerRadius: 12))
@@ -131,14 +133,6 @@ struct OnBoardingView: View {
         .background( LinearGradient(gradient: Gradient(colors: [Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustration"), Color("backgroundIlustrationWhite")]),
                                          startPoint: .leading,
                                          endPoint: .trailing))
-    }
-}
-
-
-struct OnBoardingView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBoardingView()
-            .previewInterfaceOrientation(.landscapeRight)
     }
 }
 
