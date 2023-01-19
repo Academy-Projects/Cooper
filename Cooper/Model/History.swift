@@ -46,7 +46,7 @@ struct Condition: View{
             PremiseView(story: naps[5])
         }
         else {
-            UnavailableAlert(show: $presentResultAlert)
+           // UnavailableAlert(show: $presentResultAlert)
      }
   }
 }

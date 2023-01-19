@@ -15,11 +15,7 @@ struct CooperApp: App {
         WindowGroup {
 //            Condicao que verifica se view ja foi vista alguma vez pelo usuario
             NavigationView{
-                if isOnboarding{
-                    OnBoardingView()
-                }else{
                     SplashScreenView()
-                }
             }
               .navigationBarHidden(true)
               .navigationViewStyle(StackNavigationViewStyle())

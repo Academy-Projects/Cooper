@@ -26,9 +26,10 @@ class GameScene: SKScene{
     override func sceneDidLoad() {
         super.sceneDidLoad()
         self.backgroundColor = .clear
-        
-        
     }
+    
+    
+    
     // Função para criar um novo sprite na cena.
     public func createNewObj(image:String){
         let spriteNode = DraggableNode()
@@ -38,6 +39,7 @@ class GameScene: SKScene{
         let action = SKAction.setTexture(texture, resize: true)
         spriteNode.sprite.run(action)
         // Adiciona o SKSprite na cena.
+     //   self.addChild(SKSpriteNode(color: .green, size: .init(width: 70, height: 70)))
         self.addChild(spriteNode)
     }
     
@@ -73,6 +75,12 @@ class GameScene: SKScene{
         TrashNode.position = CGPoint(x: xCord, y: yCord)
         self.addChild(TrashNode)
         
+        print("SCENE DID MOVE \(self)")
+        
+    }
+    
+    override func willMove(from view: SKView) {
+        print("SCENE WILL MOVE \(self)")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

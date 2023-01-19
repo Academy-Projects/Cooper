@@ -13,7 +13,6 @@ struct PremiseView: View {
 //    @State var cor:Color = Color("ColorBackBotton")
     @State var font = FontViewModel()
     @State var button = PremiseModelView()
-    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack{
@@ -23,28 +22,10 @@ struct PremiseView: View {
                     ZStack{
                     HStack{
                         // Botão para voltar uma tela.
-                        Button(action: {
-                            
-                            let impactMed = UIImpactFeedbackGenerator(style: .heavy)
-                            impactMed.impactOccurred()
-                            
-                            presentationMode.wrappedValue.dismiss()
-                        },
-                               label: {
-                                    Rectangle()
-                                    Image(systemName: "chevron.left")
-                                        .font(Font.custom(font.font.FontSourceSansBold, size: 20))
-                                        .foregroundColor(Color.colorFontUnique)
-                                        .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.038)
-                                        .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                                        .background(RoundedRectangle(cornerRadius: 8)
-                                            .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
-                                        )
-                                        .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
-                                }).frame(width: UIScreen.main.bounds.width * 0.034, height: UIScreen.main.bounds.height * 0.045)
-                                  .padding(EdgeInsets(top: 30, leading: 30, bottom: 0, trailing: 0))
-                                  .buttonStyle(FlatLinkStyle())
+                        ButtonBack()
+                            .frame(width: UIScreen.main.bounds.width * 0.034, height: UIScreen.main.bounds.height * 0.045)
+                            .padding(EdgeInsets(top: 30, leading: 30, bottom: 0, trailing: 0))
+                            .buttonStyle(FlatLinkStyle())
                         
                     }.frame(maxWidth: .infinity, alignment: .leading)
                      .frame(maxHeight: .infinity, alignment: .top)
