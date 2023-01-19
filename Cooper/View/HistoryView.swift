@@ -23,28 +23,6 @@ struct HistoryView: View {
     
     var body: some View {
     ZStack{
-        //MARK: - BUTTON HOW TO PLAY
-        HStack{
-            NavigationLink(destination: OnBoardingView(),
-                    label: {
-                        Rectangle()
-                        Text("?")
-                            .font(Font.custom(font.font.FontBoogaloo, size: 35))
-                            .foregroundColor(Color.colorFontUnique)
-                            .frame(width: UIScreen.main.bounds.width * 0.03, height: UIScreen.main.bounds.height * 0.04)
-                            .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                            .background(RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 3)
-                            )
-                            .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 0, y: 0)
-                    }).frame(width: UIScreen.main.bounds.width * 0.026, height: UIScreen.main.bounds.height * 0.040)
-                      .padding(EdgeInsets(top: 65, leading: 0, bottom: 0, trailing: 65))
-                      .buttonStyle(FlatLinkStyle())
-
-        }
-        .frame(maxWidth: .infinity, alignment: .trailing)
-        .frame(maxHeight: .infinity, alignment: .top)
         //MARK: - TEXT AND GRID
             VStack{
                 HStack{

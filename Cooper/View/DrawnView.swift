@@ -13,7 +13,7 @@ struct DrawnView: View {
     
 //CALL SPRITEKIT SCENE
     let gameScene = GameScene()
-    public var scene: SKScene{
+    public var scene: GameScene{
         gameScene.scaleMode = .resizeFill
         return gameScene
     }
@@ -42,22 +42,7 @@ ZStack{
             ZStack{
                 HStack{
                     // Botão para voltar uma tela.
-                    Button(action: {presentationMode.wrappedValue.dismiss()},
-                           label: {
-                                Rectangle()
-                                Image(systemName: "chevron.left")
-                                    .font(Font.custom(font.font.FontSourceSansBold, size: 20))
-                                    .foregroundColor(Color.colorFontUnique)
-                                    .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.038)
-                                    .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                                    .background(RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
-                                    )
-                                    .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
-                            })
-                    //funcao utilizada para que a animacao do botao clicado nao seja mostrada
-                    //solucao encontrada para nao dar o contraste da sombra ao ser clicado
+                    ButtonBack()
                             .buttonStyle(FlatLinkStyle())
                             .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.038)
                             
@@ -99,6 +84,8 @@ ZStack{
                             .popover(isPresented: $properties.propertiesDrawn.showPopover) {
                                 PopoverContentDrawn()
                             }
+                    
+                  //  Button(action: {}, label: {}).onAppear()
                             
                     
                     
@@ -120,7 +107,7 @@ ZStack{
                         RoundedRectangle(cornerRadius: 25)
                             .frame(width: UIScreen.main.bounds.width * ((0.10 * properties.propertiesDrawn.timerRemaining) / 60), height: UIScreen.main.bounds.height * 0.04, alignment: .leading)
                             .foregroundColor(currentColor)
-                            .onAppear(perform: delayCircle)
+                       //     .onAppear(perform: delayCircle)
 
                         
                             HStack{
@@ -136,16 +123,17 @@ ZStack{
                                     .frame(width: UIScreen.main.bounds.width * 0.06, height: UIScreen.main.bounds.height * 0.04)
                                     .foregroundColor(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
                                     .padding(.trailing, 5)
-                                    .onReceive(timer) {_ in
-                                        if properties.propertiesDrawn.timerRemaining > 0{
-                                            properties.propertiesDrawn.timerRemaining -= 1
-                                        } else {
-                                            properties.propertiesDrawn.jump = true
-
-                                            properties.propertiesDrawn.presentResultAlert = true
-                                            timer.upstream.connect().cancel()
-                                        }
-                                    }
+                                // MARK: TIMER AQUI GALERA!
+//                                    .onReceive(timer) {_ in
+//                                        if properties.propertiesDrawn.timerRemaining > 0{
+//                                            properties.propertiesDrawn.timerRemaining -= 1
+//                                        } else {
+//                                            properties.propertiesDrawn.jump = true
+//
+//                                            properties.propertiesDrawn.presentResultAlert = true
+//                                            timer.upstream.connect().cancel()
+//                                        }
+//                                    }
                             }
                             .background(Color.clear)
                             .frame(width: UIScreen.main.bounds.width * 0.10, height: UIScreen.main.bounds.height * 0.04)
@@ -193,7 +181,7 @@ ZStack{
                         //array que tras a imagens após serem selecionadas
                         ForEach(0..<(properties.propertiesDrawn.imagens[0].count)){imageidx in
                             HStack{
-                                Button(action: {gameScene.createNewObj(image: properties.propertiesDrawn.imagens[0][imageidx])}){
+                                Button(action: {scene.createNewObj(image: properties.propertiesDrawn.imagens[0][imageidx])}){
                                     ZStack{
                                         Image("FundoCard")
                                             .resizable()
@@ -204,7 +192,7 @@ ZStack{
                                     }
                                 }.frame(width: UIScreen.main.bounds.width / 9)
 
-                                Button(action: {gameScene.createNewObj(image: properties.propertiesDrawn.imagens[1][imageidx])}){
+                                Button(action: {scene.createNewObj(image: properties.propertiesDrawn.imagens[1][imageidx])}){
                                     ZStack{
                                         Image("FundoCard")
                                             .resizable()
@@ -270,14 +258,14 @@ ZStack{
         }.navigationBarHidden(true)
         
   }
-    private func delayCircle() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 41) {
-            self.currentColor = self.colorCircleTwo
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 19) {
-            self.currentColor = self.colorCircle
-        }
-    }
+//    private func delayCircle() {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 41) {
+//            self.currentColor = self.colorCircleTwo
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 19) {
+//            self.currentColor = self.colorCircle
+//        }
+//    }
 }
 
 
