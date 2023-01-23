@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "CANADÁ.png",
+      "filename" : "CANADÁ 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "CANADÁ@2x.png",
+      "filename" : "CANADÁ@2x 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "CANADÁ@3x.png",
+      "filename" : "CANADÁ@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "refeição.pic@3x.png",
+      "filename" : "refeição.pic@3x 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,10 +12,12 @@
           "value" : "dark"
         }
       ],
+      "filename" : "comida.dark@3x 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "refeição.pic@3x 2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -31,6 +33,7 @@
       "scale" : "2x"
     },
     {
+      "filename" : "refeição.pic@3x 3.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
