@@ -18,19 +18,18 @@ struct DrawnView: View {
         return gameScene
     }
     
-    var choice: ListHistory = naps[indexQuestion]
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
+    @State var properties = DrawnViewModel()
     
     @State var currentColor = Color(red: 166/255, green: 193/255, blue: 1/255)
     var colorCircle = Color(red: 254/255, green: 179/255, blue: 18/255)
     var colorCircleTwo = Color(red: 245/255, green: 119/255, blue: 101/255)
     var colorCircleThree = Color(red: 245/255, green: 119/255, blue: 101/255)
     
-    @State var properties = DrawnViewModel()
+    
     @State var font = FontViewModel()
-    // volta para tele anterior
-    @Environment(\.presentationMode) var presentationMode
 
  //MARK: - VIEW BEGIN
     var body: some View{
@@ -46,50 +45,15 @@ ZStack{
                             .buttonStyle(FlatLinkStyle())
                             .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.038)
                             
-                }.frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .frame(maxHeight: .infinity, alignment: .top)
                 .padding(.leading, 25)
                 .padding(.top, 18)
                 
-                
                 HStack{
                     // Botão para verificar qual solucao vou escolhida
-                    Button(action: {
-                        properties.propertiesDrawn.showPopover = true
-                        
-                        if answerChoice == 1 {
-                            final = choice.finalOne
-                        }else if answerChoice == 2 {
-                            final = choice.finalTwo
-                        }else {
-                            final = choice.finalThree
-                        }
-                        
-                    },
-                           label: {
-                                Rectangle()
-                                Image(systemName: "safari")
-                                    .font(Font.custom(font.font.FontSourceSansBold, size: 20))
-                                    .foregroundColor(Color.colorFontUnique)
-                                    .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.038)
-                                    .background(Color(red: 254/255, green: 179/255, blue: 18/255, opacity: 1))
-                                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                                    .background(RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color(red: 0/255, green: 59/255, blue: 75/255), lineWidth: 1)
-                                    )
-                                    .shadow(color: Color(red: 0/255, green: 59/255, blue: 75/255), radius: 0, x: 3, y: 3)
-                            })
-                            .buttonStyle(FlatLinkStyle())
-                            .frame(width: UIScreen.main.bounds.width * 0.029, height: UIScreen.main.bounds.height * 0.038)
-                            .popover(isPresented: $properties.propertiesDrawn.showPopover) {
-                                PopoverContentDrawn()
-                            }
-                    
-                  //  Button(action: {}, label: {}).onAppear()
-                            
-                    
-                    
-                           // .padding(EdgeInsets(top: 0, leading: 0, bottom: 600, trailing: 900))
+                    ButtonPopOverChoice()
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .frame(maxHeight: .infinity, alignment: .top)

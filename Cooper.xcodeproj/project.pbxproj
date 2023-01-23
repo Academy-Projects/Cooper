@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2828269A2979D6B800261437 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282826992979D6B800261437 /* Components.swift */; };
+		2828269A2979D6B800261437 /* ButtonBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282826992979D6B800261437 /* ButtonBack.swift */; };
+		2828269C297B218B00261437 /* ButtonChoicePopOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2828269B297B218B00261437 /* ButtonChoicePopOver.swift */; };
+		2828269E297B250D00261437 /* ButtonPremisePopOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2828269D297B250D00261437 /* ButtonPremisePopOver.swift */; };
+		282826A3297EFCBF00261437 /* ButtonPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282826A2297EFCBF00261437 /* ButtonPlay.swift */; };
+		282826A5297F17B200261437 /* ButtonChoicesPremise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282826A4297F17B200261437 /* ButtonChoicesPremise.swift */; };
 		283FD6AD28CCE56300020ACA /* Boogaloo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 283FD6AC28CCE56300020ACA /* Boogaloo-Regular.ttf */; };
 		284107FC28AB07B400D142F8 /* CooperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284107FB28AB07B400D142F8 /* CooperApp.swift */; };
 		284107FE28AB07B400D142F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284107FD28AB07B400D142F8 /* ContentView.swift */; };
@@ -28,14 +32,14 @@
 		2895E00D28F4DE40004BCA16 /* FontViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2895E00C28F4DE40004BCA16 /* FontViewModel.swift */; };
 		2895E00F28F4E1AC004BCA16 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2895E00E28F4E1AC004BCA16 /* History.swift */; };
 		2895E01128F4E21B004BCA16 /* HistoryModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2895E01028F4E21B004BCA16 /* HistoryModelView.swift */; };
-		28CE5A2128DE21480014AB66 /* FinishIlustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CE5A2028DE21480014AB66 /* FinishIlustration.swift */; };
+		28CE5A2128DE21480014AB66 /* PopUpFinishIlustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CE5A2028DE21480014AB66 /* PopUpFinishIlustration.swift */; };
 		28CE5A2328DF5C2B0014AB66 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CE5A2228DF5C2B0014AB66 /* SplashScreenView.swift */; };
 		28D161FE28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28D161FD28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf */; };
 		28D1620328C7D5360085D3B2 /* SourceSans3-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28D1620228C7D5360085D3B2 /* SourceSans3-Regular.ttf */; };
 		28E04D4928D6160400D9599A /* ConfettiParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E04D4828D6160400D9599A /* ConfettiParticle.swift */; };
 		28E6130428F4D1A100E9D83C /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E6130328F4D1A100E9D83C /* SplashScreen.swift */; };
 		28E6130628F4D1EA00E9D83C /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E6130528F4D1EA00E9D83C /* SplashViewModel.swift */; };
-		3F24584D28C8DF7D002CB9AB /* ResultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */; };
+		3F24584D28C8DF7D002CB9AB /* PopUpResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24584C28C8DF7D002CB9AB /* PopUpResult.swift */; };
 		3F8BBE2428AFC409008E9F32 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2328AFC409008E9F32 /* GameScene.swift */; };
 		3F8BBE2628B00673008E9F32 /* DraggableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8BBE2528B00673008E9F32 /* DraggableNode.swift */; };
 /* End PBXBuildFile section */
@@ -58,7 +62,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		282826992979D6B800261437 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		282826992979D6B800261437 /* ButtonBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBack.swift; sourceTree = "<group>"; };
+		2828269B297B218B00261437 /* ButtonChoicePopOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonChoicePopOver.swift; sourceTree = "<group>"; };
+		2828269D297B250D00261437 /* ButtonPremisePopOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPremisePopOver.swift; sourceTree = "<group>"; };
+		282826A2297EFCBF00261437 /* ButtonPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPlay.swift; sourceTree = "<group>"; };
+		282826A4297F17B200261437 /* ButtonChoicesPremise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonChoicesPremise.swift; sourceTree = "<group>"; };
 		283FD6AC28CCE56300020ACA /* Boogaloo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Boogaloo-Regular.ttf"; sourceTree = "<group>"; };
 		284107F828AB07B400D142F8 /* Cooper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cooper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		284107FB28AB07B400D142F8 /* CooperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooperApp.swift; sourceTree = "<group>"; };
@@ -82,15 +90,15 @@
 		2895E00C28F4DE40004BCA16 /* FontViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontViewModel.swift; sourceTree = "<group>"; };
 		2895E00E28F4E1AC004BCA16 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		2895E01028F4E21B004BCA16 /* HistoryModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModelView.swift; sourceTree = "<group>"; };
-		28CE5A2028DE21480014AB66 /* FinishIlustration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishIlustration.swift; sourceTree = "<group>"; };
+		28CE5A2028DE21480014AB66 /* PopUpFinishIlustration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpFinishIlustration.swift; sourceTree = "<group>"; };
 		28CE5A2228DF5C2B0014AB66 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		28D161FD28C6F4CB0085D3B2 /* SourceSans3-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Bold.ttf"; sourceTree = "<group>"; };
-		28D161FF28C6F4DB0085D3B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		28D161FF28C6F4DB0085D3B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28D1620228C7D5360085D3B2 /* SourceSans3-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Regular.ttf"; sourceTree = "<group>"; };
 		28E04D4828D6160400D9599A /* ConfettiParticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiParticle.swift; sourceTree = "<group>"; };
 		28E6130328F4D1A100E9D83C /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		28E6130528F4D1EA00E9D83C /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
-		3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAlert.swift; sourceTree = "<group>"; };
+		3F24584C28C8DF7D002CB9AB /* PopUpResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpResult.swift; sourceTree = "<group>"; };
 		3F8BBE2328AFC409008E9F32 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		3F8BBE2528B00673008E9F32 /* DraggableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,9 +131,39 @@
 		282826982979D6A000261437 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				282826992979D6B800261437 /* Components.swift */,
+				282826A1297B272100261437 /* PopUps */,
+				282826A0297B26D300261437 /* Buttons */,
+				2828269F297B261400261437 /* PopOvers */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		2828269F297B261400261437 /* PopOvers */ = {
+			isa = PBXGroup;
+			children = (
+				2828269B297B218B00261437 /* ButtonChoicePopOver.swift */,
+				2828269D297B250D00261437 /* ButtonPremisePopOver.swift */,
+			);
+			path = PopOvers;
+			sourceTree = "<group>";
+		};
+		282826A0297B26D300261437 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				282826992979D6B800261437 /* ButtonBack.swift */,
+				282826A2297EFCBF00261437 /* ButtonPlay.swift */,
+				282826A4297F17B200261437 /* ButtonChoicesPremise.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		282826A1297B272100261437 /* PopUps */ = {
+			isa = PBXGroup;
+			children = (
+				28CE5A2028DE21480014AB66 /* PopUpFinishIlustration.swift */,
+				3F24584C28C8DF7D002CB9AB /* PopUpResult.swift */,
+			);
+			path = PopUps;
 			sourceTree = "<group>";
 		};
 		284107EF28AB07B400D142F8 = {
@@ -150,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				28D161FF28C6F4DB0085D3B2 /* Info.plist */,
-				28D161FC28C6F4960085D3B2 /* Fonts */,
 				285D3E6828B01E9A008072C0 /* Model */,
 				285D3E6A28B01EB3008072C0 /* View */,
 				285D3E6B28B01EC2008072C0 /* ViewModel */,
@@ -169,13 +206,10 @@
 		285D3E6828B01E9A008072C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				282826982979D6A000261437 /* Components */,
 				2847182328F867B300160DEB /* Extensions */,
 				3F8BBE2528B00673008E9F32 /* DraggableNode.swift */,
 				287DA35B28BE83C8006E624C /* ListHistory.swift */,
-				3F24584C28C8DF7D002CB9AB /* ResultAlert.swift */,
 				28E04D4828D6160400D9599A /* ConfettiParticle.swift */,
-				28CE5A2028DE21480014AB66 /* FinishIlustration.swift */,
 				28E6130328F4D1A100E9D83C /* SplashScreen.swift */,
 				2895E00A28F4DDCD004BCA16 /* Font.swift */,
 				2895E00E28F4E1AC004BCA16 /* History.swift */,
@@ -189,6 +223,8 @@
 		285D3E6A28B01EB3008072C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				28D161FC28C6F4960085D3B2 /* Fonts */,
+				282826982979D6A000261437 /* Components */,
 				28CE5A2228DF5C2B0014AB66 /* SplashScreenView.swift */,
 				287DA34A28B9070D006E624C /* HistoryView.swift */,
 				287DA35928BE7EAE006E624C /* PremiseView.swift */,
@@ -360,16 +396,19 @@
 				287DA34B28B9070D006E624C /* HistoryView.swift in Sources */,
 				2847181828F7234200160DEB /* Premise.swift in Sources */,
 				28E04D4928D6160400D9599A /* ConfettiParticle.swift in Sources */,
+				282826A3297EFCBF00261437 /* ButtonPlay.swift in Sources */,
 				2841082628AB48E000D142F8 /* DrawnView.swift in Sources */,
+				282826A5297F17B200261437 /* ButtonChoicesPremise.swift in Sources */,
 				285D3E6D28B5294B008072C0 /* AnswerFinalView.swift in Sources */,
 				3F8BBE2628B00673008E9F32 /* DraggableNode.swift in Sources */,
 				287DA35C28BE83C8006E624C /* ListHistory.swift in Sources */,
-				2828269A2979D6B800261437 /* Components.swift in Sources */,
+				2828269A2979D6B800261437 /* ButtonBack.swift in Sources */,
 				2895E00B28F4DDCD004BCA16 /* Font.swift in Sources */,
 				28CE5A2328DF5C2B0014AB66 /* SplashScreenView.swift in Sources */,
 				284107FE28AB07B400D142F8 /* ContentView.swift in Sources */,
-				3F24584D28C8DF7D002CB9AB /* ResultAlert.swift in Sources */,
+				3F24584D28C8DF7D002CB9AB /* PopUpResult.swift in Sources */,
 				287DA35A28BE7EAE006E624C /* PremiseView.swift in Sources */,
+				2828269E297B250D00261437 /* ButtonPremisePopOver.swift in Sources */,
 				2847181A28F7257000160DEB /* PremiseModelView.swift in Sources */,
 				28E6130628F4D1EA00E9D83C /* SplashViewModel.swift in Sources */,
 				2847181C28F74F1E00160DEB /* Drawn.swift in Sources */,
@@ -382,7 +421,8 @@
 				284107FC28AB07B400D142F8 /* CooperApp.swift in Sources */,
 				28E6130428F4D1A100E9D83C /* SplashScreen.swift in Sources */,
 				2847182028F84B1900160DEB /* AnswerFinal.swift in Sources */,
-				28CE5A2128DE21480014AB66 /* FinishIlustration.swift in Sources */,
+				28CE5A2128DE21480014AB66 /* PopUpFinishIlustration.swift in Sources */,
+				2828269C297B218B00261437 /* ButtonChoicePopOver.swift in Sources */,
 				2847182228F84B3A00160DEB /* AnswerFinalModelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

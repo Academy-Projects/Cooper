@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct PremiseModelView{
-    var premiseInfo = Premise(
+class PremiseModelView: ObservableObject{
+ @Published var premiseInfo = Premise(
         buttonPressed: 0,
         opacityButton: 1,
         opacityPlay: 0)
